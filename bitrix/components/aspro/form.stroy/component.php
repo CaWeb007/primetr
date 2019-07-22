@@ -501,7 +501,7 @@ if( CModule::IncludeModule("iblock") ){
 						if(isset($arEventFields['ORDER_LIST']) && strpos('aspro_scorp_order_page', $arResult['IBLOCK_CODE']) !== false){
 							$arEventFields['ORDER_LIST'] = implode(($arMessAdmin['BODY_TYPE'] === 'text' ? "\n" : '<br />'), $arResult["QUESTIONS"]['ORDER_LIST']["VALUE"]);
 						}
-						CEvent::SendImmediate( $arMessAdmin["EVENT_NAME"], SITE_ID, $arEventFields, "Y", $arMessAdmin["ID"] );
+						//CEvent::SendImmediate( $arMessAdmin["EVENT_NAME"], SITE_ID, $arEventFields, "Y", $arMessAdmin["ID"] );
 
 						if( $arParams["SEF_MODE"] == "Y" ){
 							LocalRedirect(
