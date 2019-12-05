@@ -1,0 +1,1 @@
+<?$arResult = CStroy::getChilds($arResult);?>
