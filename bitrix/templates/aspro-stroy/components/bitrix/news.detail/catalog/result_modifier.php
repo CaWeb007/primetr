@@ -26,13 +26,15 @@ if($arParams['DISPLAY_PICTURE'] != 'N'){
 
 if(!empty($arResult['PROPERTIES']['BIG_PHOTOS']['VALUE'])){
 	foreach($arResult['PROPERTIES']['BIG_PHOTOS']['VALUE'] as $img){
-		$arResult['GALLERY_BIG'][] = array(
-			'DETAIL' => ($arPhoto = CFile::GetFileArray($img)),
+        $arPhoto = CFile::GetFileArray($img);
+		$arResult['GALLERY_BIG'][(int)$arPhoto['ID']] = array(
+			'DETAIL' => $arPhoto,
 			'PREVIEW' => CFile::ResizeImageGet($img, array('width' => 634, 'height' => 476), BX_RESIZE_IMAGE_EXACT, true),
 			'TITLE' => (strlen($arPhoto['DESCRIPTION']) ? $arPhoto['DESCRIPTION'] : (strlen($arPhoto['TITLE']) ? $arPhoto['TITLE'] : $arResult['NAME'])),
 			'ALT' => (strlen($arPhoto['DESCRIPTION']) ? $arPhoto['DESCRIPTION'] : (strlen($arPhoto['ALT']) ? $arPhoto['ALT'] : $arResult['NAME'])),
 		);
 	}
+	krsort($arResult['GALLERY_BIG']);
 }
 
 if(!empty($arResult['DISPLAY_PROPERTIES']['PLANIROVKA']['VALUE'])){
