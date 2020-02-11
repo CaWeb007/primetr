@@ -24,7 +24,7 @@
 												<?$countAll = count($arResult['GALLERY']);?>
 												<?foreach($arResult['GALLERY'] as $i => $arPhoto):?>
 													<li class="col-md-12 col-sm-12 item">
-														<a href="<?=$arPhoto['DETAIL']['SRC']?>" class="fancybox" rel="gallery" target="_blank" title="<?=$arPhoto['TITLE']?>">
+														<a href="<?=$arPhoto['DETAIL']['src']?>" class="fancybox" rel="gallery" target="_blank" title="<?=$arPhoto['TITLE']?>">
 															<img src="<?=$arPhoto['PREVIEW']['src']?>" class="img-responsive inline" title="<?=$arPhoto['TITLE']?>" alt="<?=$arPhoto['ALT']?>" itemprop="image" />
 															<span class="zoom">
 																<i></i>
@@ -313,7 +313,7 @@
 							<?foreach($arResult["GALLERY_BIG"] as $arBigItem){?>
 								<div class="col-md-2 col-sm-4 col-xs-6">
 									<div class="item wline">
-										<a href="<?=$arBigItem["DETAIL"]["SRC"]?>" class="dark_block_animate fancybox_ext" rel="big_gallery" title="<?=$arBigItem["TITLE"];?>"></a>
+										<a href="<?=$arBigItem["DETAIL"]["src"]?>" class="dark_block_animate fancybox_ext" rel="big_gallery" title="<?=$arBigItem["TITLE"];?>"></a>
 										<div class="img_block scale_block_animate" style="background-image: url('<?=$arBigItem["PREVIEW"]["src"];?>');"></div>						
 									</div>
 								</div>
