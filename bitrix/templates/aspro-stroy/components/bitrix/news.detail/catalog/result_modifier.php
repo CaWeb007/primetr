@@ -14,7 +14,7 @@ if($arParams['DISPLAY_PICTURE'] != 'N'){
 		foreach($arResult['PROPERTIES']['PHOTOS']['VALUE'] as $img){
             $arPhoto = CFile::GetFileArray($img);
 			$arResult['GALLERY'][] = array(
-				'DETAIL' => CFile::ResizeImageGet($img, array('width' => 1200, 'height' => 900), BX_RESIZE_IMAGE_EXACT, true),
+				'DETAIL' => CFile::ResizeImageGet($img, array('width' => 1200, 'height' => 900), BX_RESIZE_IMAGE_PROPORTIONAL, true),
 				'PREVIEW' => CFile::ResizeImageGet($img, array('width' => 634, 'height' => 476), BX_RESIZE_IMAGE_EXACT, true),
 				'THUMB' => CFile::ResizeImageGet($img , array('width' => 75, 'height' => 75), BX_RESIZE_IMAGE_EXACT, true),
 				'TITLE' => (strlen($arPhoto['DESCRIPTION']) ? $arPhoto['DESCRIPTION'] : (strlen($arPhoto['TITLE']) ? $arPhoto['TITLE'] : $arResult['NAME'])),
@@ -28,7 +28,7 @@ if(!empty($arResult['PROPERTIES']['BIG_PHOTOS']['VALUE'])){
 	foreach($arResult['PROPERTIES']['BIG_PHOTOS']['VALUE'] as $img){
         $arPhoto = CFile::GetFileArray($img);
 		$arResult['GALLERY_BIG'][(int)$arPhoto['ID']] = array(
-			'DETAIL' => CFile::ResizeImageGet($img, array('width' => 1200, 'height' => 900), BX_RESIZE_IMAGE_EXACT, true),
+			'DETAIL' => CFile::ResizeImageGet($img, array('width' => 1200, 'height' => 900), BX_RESIZE_IMAGE_PROPORTIONAL, true),
 			'PREVIEW' => CFile::ResizeImageGet($img, array('width' => 500, 'height' => 375), BX_RESIZE_IMAGE_EXACT, true),
 			'TITLE' => (strlen($arPhoto['DESCRIPTION']) ? $arPhoto['DESCRIPTION'] : (strlen($arPhoto['TITLE']) ? $arPhoto['TITLE'] : $arResult['NAME'])),
 			'ALT' => (strlen($arPhoto['DESCRIPTION']) ? $arPhoto['DESCRIPTION'] : (strlen($arPhoto['ALT']) ? $arPhoto['ALT'] : $arResult['NAME'])),

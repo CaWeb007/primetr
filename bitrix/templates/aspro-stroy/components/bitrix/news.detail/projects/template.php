@@ -21,7 +21,7 @@ $frame->setBrowserStorage(true);
 									<?$countAll = count($arResult['GALLERY']);?>
 									<?foreach($arResult['GALLERY'] as $i => $arPhoto):?>
 										<li class="col-md-1 col-sm-1 item">
-											<a href="<?=$arPhoto['DETAIL']['SRC']?>" class="fancybox" rel="gallery" target="_blank" title="<?=$arPhoto['TITLE']?>">
+											<a href="<?=$arPhoto['DETAIL']['src']?>" class="fancybox" rel="gallery" target="_blank" title="<?=$arPhoto['TITLE']?>">
 												<img src="<?=$arPhoto['PREVIEW']['src']?>" class="img-responsive inline" title="<?=$arPhoto['TITLE']?>" alt="<?=$arPhoto['ALT']?>" />
 												<span class="zoom">
 													<i class="fa"></i>
@@ -177,7 +177,7 @@ $frame->setBrowserStorage(true);
 				<?foreach($arResult["GALLERY_BIG"] as $arPhoto){?>
 					<div class="col-md-3 col-sm-4 col-xs-6">
 						<div class="item wline">
-							<a href="<?=$arPhoto["DETAIL"]["SRC"]?>" class="dark_block_animate fancybox_ext" rel="big_gallery" title="<?=$arPhoto["TITLE"];?>"></a>
+							<a href="<?=$arPhoto["DETAIL"]["src"]?>" class="dark_block_animate fancybox_ext" rel="big_gallery" title="<?=$arPhoto["TITLE"];?>"></a>
 							<div class="img_block scale_block_animate" style="background-image: url('<?=$arPhoto["PREVIEW"]["src"];?>');"></div>
 						</div>
 					</div>
