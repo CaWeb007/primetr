@@ -13,7 +13,7 @@ if(is_array($arResult['FIELDS']['DETAIL_PICTURE'])){
 if(!empty($arResult['PROPERTIES']['PHOTOS']['VALUE'])){
 	foreach($arResult['PROPERTIES']['PHOTOS']['VALUE'] as $img){
         $arPhoto = CFile::GetFileArray($img);
-		$arResult['GALLERY'][] = array(
+		$arResult['GALLERY'][(int)$arPhoto['ID']] = array(
 			'DETAIL' => CFile::ResizeImageGet($img, array('width' => 1200, 'height' => 900), BX_RESIZE_IMAGE_PROPORTIONAL, true),
             'PREVIEW' => CFile::ResizeImageGet($img, array('width' => 823, 'height' => 475), BX_RESIZE_IMAGE_EXACT, true),
 			// 'THUMB' => CFile::ResizeImageGet($img , array('width' => 98, 'height' => 75), BX_RESIZE_IMAGE_EXACT, true),
@@ -21,17 +21,19 @@ if(!empty($arResult['PROPERTIES']['PHOTOS']['VALUE'])){
 			'ALT' => (strlen($arPhoto['DESCRIPTION']) ? $arPhoto['DESCRIPTION'] : (strlen($arPhoto['ALT']) ? $arPhoto['ALT'] : $arResult['NAME'])),
 		);
 	}
+    krsort($arResult['GALLERY']);
 }
 if(!empty($arResult['PROPERTIES']['BIG_PHOTOS']['VALUE'])){
 	foreach($arResult['PROPERTIES']['BIG_PHOTOS']['VALUE'] as $img){
         $arPhoto = CFile::GetFileArray($img);
-		$arResult['GALLERY_BIG'][] = array(
+		$arResult['GALLERY_BIG'][(int)$arPhoto['ID']] = array(
 			'DETAIL' => CFile::ResizeImageGet($img, array('width' => 1200, 'height' => 900), BX_RESIZE_IMAGE_PROPORTIONAL, true),
             'PREVIEW' => CFile::ResizeImageGet($img, array('width' => 500, 'height' => 375), BX_RESIZE_IMAGE_PROPORTIONAL, true),
 			'TITLE' => (strlen($arPhoto['DESCRIPTION']) ? $arPhoto['DESCRIPTION'] : (strlen($arPhoto['TITLE']) ? $arPhoto['TITLE'] : $arResult['NAME'])),
 			'ALT' => (strlen($arPhoto['DESCRIPTION']) ? $arPhoto['DESCRIPTION'] : (strlen($arPhoto['ALT']) ? $arPhoto['ALT'] : $arResult['NAME'])),
 		);
 	}
+    krsort($arResult['GALLERY_BIG']);
 }
 
 if($arResult['DISPLAY_PROPERTIES']['LINK_REVIEWS']['VALUE']){
