@@ -182,11 +182,11 @@
 				<div class="col-md-12">
 					<?$APPLICATION->IncludeComponent(
 					"bitrix:news.list", 
-					"front-catalog-section", 
+					"front-catalog-elements-sections",
 					array(
 						"IBLOCK_TYPE" => "aspro_stroy_catalog",
 						"IBLOCK_ID" => CCache::$arIBlocks[SITE_ID]["aspro_stroy_catalog"]["aspro_stroy_catalog"][0],
-						"NEWS_COUNT" => "6",
+						"NEWS_COUNT" => "8",
 						"SORT_BY1" => "SORT",
 						"SORT_ORDER1" => "ASC",
 						"SORT_BY2" => "ID",
