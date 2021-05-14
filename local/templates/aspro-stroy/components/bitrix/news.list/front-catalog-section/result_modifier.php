@@ -7,7 +7,7 @@ if($arParams['PARENT_SECTION']){
 else{
 	$arSectionsFilter['DEPTH_LEVEL'] = '1';
 }
-$arResult['SECTIONS'] = CCache::CIBLockSection_GetList(array('SORT' => 'ASC', 'NAME' => 'ASC', 'CACHE' => array('TAG' => CCache::GetIBlockCacheTag($arParams['IBLOCK_ID']), 'GROUP' => array('ID'), 'MULTI' => 'N')), $arSectionsFilter, false, array('ID', 'NAME', 'IBLOCK_ID', 'DEPTH_LEVEL', 'SECTION_PAGE_URL', 'PICTURE', 'DETAIL_PICTURE', 'UF_INFOTEXT', 'DESCRIPTION', 'UF_SHOW_FRONT'), array('nTopCount' => $arParams['NEWS_COUNT']));
+$arResult['SECTIONS'] = CCache::CIBLockSection_GetList(array('SORT' => 'ASC', 'NAME' => 'ASC', 'CACHE' => array('TAG' => CCache::GetIBlockCacheTag($arParams['IBLOCK_ID']), 'GROUP' => array('ID'), 'MULTI' => 'N')), $arSectionsFilter, false, array('ID', 'NAME', 'IBLOCK_ID', 'DEPTH_LEVEL', 'SECTION_PAGE_URL', 'PICTURE', 'DETAIL_PICTURE', 'UF_INFOTEXT', 'DESCRIPTION'), array('nTopCount' => $arParams['NEWS_COUNT']));
 // get goods with property SHOW_ON_INDEX_PAGE == Y
 if($arResult['ITEMS']){
 	foreach($arResult['ITEMS'] as $i => $arItem){
