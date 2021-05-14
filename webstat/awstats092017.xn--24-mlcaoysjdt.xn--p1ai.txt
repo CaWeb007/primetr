@@ -1,0 +1,2070 @@
+AWSTATS DATA FILE 7.0 (build 1.971)
+# If you remove this file, all statistics for date 201709 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.xn--24-mlcaoysjdt.xn--p1ai.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 2006                
+POS_TIME 2681                
+POS_VISITOR 28716               
+POS_DAY 68355               
+POS_DOMAIN 3732                
+POS_LOGIN 3971                
+POS_ROBOT 4126                
+POS_WORMS 4818                
+POS_EMAILSENDER 4949                
+POS_EMAILRECEIVER 5092                
+POS_SESSION 69328               
+POS_SIDER 69543               
+POS_FILETYPES 5227                
+POS_DOWNLOADS 5614                
+POS_OS 5901                
+POS_BROWSER 6114                
+POS_SCREENSIZE 11756               
+POS_UNKNOWNREFERER 11830               
+POS_UNKNOWNREFERERBROWSER 12812               
+POS_ORIGIN 13039               
+POS_SEREFERRALS 13193               
+POS_PAGEREFS 13386               
+POS_SEARCHWORDS 20725               
+POS_KEYWORDS 21307               
+POS_MISC 2342                
+POS_ERRORS 21811               
+POS_CLUSTER 3827                
+POS_SIDER_404 21988               
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20171001005437 1 0 67002265604150
+FirstTime 20170901035235
+LastTime 20170930232407
+LastUpdate 20171001010156 1 0 0 0 0
+TotalVisits 1194                
+TotalUnique 932                 
+MonthHostsKnown 0                   
+MonthHostsUnknown 956                 
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 1276 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 894 1324 14836237 79 120 6674646
+1 899 1523 23195812 123 292 10073476
+2 1060 3110 79185227 83 142 8692498
+3 1250 4758 108366487 160 222 4637908
+4 7183 14188 448620948 142 522 8442243
+5 9818 16089 257963331 149 430 4925177
+6 7368 13508 270253755 171 432 10961058
+7 7362 12401 189789800 109 346 6262598
+8 12081 16919 195660225 178 573 13449569
+9 12208 17317 257656183 454 786 16089378
+10 11005 15519 209073902 397 742 12930914
+11 10166 15323 245014183 145 411 13358949
+12 7649 14082 277940500 137 688 14061973
+13 2369 5352 116219839 141 275 6114519
+14 2411 6550 161202209 208 370 10861084
+15 2262 8420 248974817 67 160 7037024
+16 2102 6469 171130556 246 462 8425144
+17 1583 5747 161054017 94 757 20879334
+18 1150 4848 131921072 68 246 14527744
+19 926 2604 47510243 73 329 10292547
+20 898 1757 31568167 69 161 4455327
+21 890 1420 10142973 79 174 7674366
+22 955 1780 38533437 64 103 3597804
+23 874 1053 4243814 77 234 5961715
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+ip 105363 192061 3684683663
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 15
+yandex 3629 129546433 20170930193513 0
+googlebot 1259 60765624 20170930203435 0
+phantom 161 4610428 20170920083211 0
+robot 152 3110972 20170930234054 0
+bot[\s_+:,\.\;\/\\-] 131 1482945 20170927104613 0
+mj12bot 58 795646 20170927001202 0
+[\s_+:,\.\;\/\\-]bot 43 471710 20170910230434 0
+no_user_agent 42 825378 20170930092027 0
+facebook 17 520799 20170920103056 0
+ia_archiver 9 487992 20170929144312 0
+core 1 71099 20170924145324 0
+surveybot 1 13768 20170919002837 0
+libwww 1 68374 20170920080418 0
+wget 2 135606 20170920074654 0
+crawl 1 18783 20170903115601 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 15
+eot 139 6195051 0 0
+css 16859 72332654 0 0
+png 10800 170136377 0 0
+ttf 4 7568 0 0
+pdf 9 16123140 0 0
+woff2 661 42603020 0 0
+woff 280 4015000 0 0
+php 94232 357180998 0 0
+csv 1 2846697 0 0
+html 10042 220463408 0 0
+js 29328 213179434 0 0
+jpg 28845 2476251065 0 0
+Unknown 5 149195 0 0
+gif 815 1514125 0 0
+xls 41 101685931 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 5
+/%D0%9F%D1%80%D0%B0%D0%B9%D1%81%2015.09.2017.xls 25 7 63270304
+/price.xls 22 2 51975435
+/price.pdf 13 24 22233335
+/upload/iblock/2f7/2f7bbdfecaed133a067b41640b87031b.pdf 4 0 972672
+/bitrix/catalog_export/export_file_802972.csv 1 0 2846697
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS 14
+linuxandroid 13494
+winxp 9772
+winlong 396
+winnt 117120
+win2000 50
+linuxubuntu 1
+win98 1
+linux 519
+winvista 5901
+win7 37830
+macosx 4587
+winunknown 1
+win2003 310
+Unknown 2112
+END_OS
+
+# Browser ID - Hits
+BEGIN_BROWSER 274
+chrome52.0.2743.116 742
+chrome56.3.7564.2291 2
+msie11 2
+chrome57.4.9485.5757 2
+chrome55.1.6922.0650 2
+msie8.0 1947
+chrome56.3.9363.4635 2
+chrome57.5.0741.5013 2
+chrome53.5.0508.5236 2
+chrome49.0.2623.91 159
+chrome55.1.5426.0154 2
+chrome57.4.9873.4501 2
+chrome57.5.0347.6619 2
+firefox45.63.10 2
+chrome28.0.1500.75 83
+chrome55.0.5845.0573 2
+chrome55.1.6419.1147 2
+chrome37.0.0.0 1
+chrome57.4.9977.5249 2
+firefox52.58.11 2
+chrome60.0.3112.90 5683
+chrome53.5.0923.5651 2
+safari7.0 287
+chrome57.5.0209.5571 2
+chrome48.0.2564.116 4
+chrome57.5.1690.6963 2
+chrome54.8.3150.9422 2
+chrome17.0.963.79 86
+chrome53.7.2233.8505 2
+chrome26.0.1410.33 121
+chrome33.0.0.0 86
+chrome39.0.0.0 1
+chrome53.6.0381.5019 2
+chrome46.0.2490.76 43
+chrome61.0.3163.100 15207
+chrome55.0.5471.0109 2
+chrome32.0.1700.102 159
+chrome19.0.1055.1 1
+chrome53.8.3824.8196 2
+msie9.0 86
+firefox45.67.04 2
+safari4.6.1 14
+chrome57.5.1718.6080 2
+chrome57.4.9767.4039 2
+chrome59.0.3071.115 637
+chrome56.3.8443.4715 2
+chrome53.6.1622.6994 2
+chrome56.2.7394.2022 2
+chrome57.5.9687.4315 2
+firefox56.0 147
+chrome45.0.2454.94 83
+chrome61.0.3163.79 23896
+chrome54.8.4796.9068 2
+safari5.2.7 10
+chrome57.5.0518.5880 2
+chrome55.1.5336.0064 2
+msie6.0 213
+chrome54.8.3858.8120 2
+chrome56.2.6716.1444 2
+firefox52.40.97 2
+chrome57.6.1267.6539 2
+chrome49.0.2623.110 66
+firefox26.0 1
+sonyericsson 64
+chrome57.5.9748.4476 2
+firefox18.0 1
+chrome57.5.0990.5628 2
+chrome54.8.4426.9799 2
+chrome38.0.2125.111 2
+firefox45.73.26 2
+curl 3
+chrome58.0.3029.110 2634
+chrome53.0.2785.146 100
+chrome56.1.6775.1403 2
+firefox43.0 137
+firefox40.1 3
+chrome55.0.5470.0108 2
+chrome56.1.6524.1252 2
+chrome57.5.0459.5721 2
+chrome57.5.0859.6121 2
+chrome56.2.6922.1650 2
+safari5.6.1 4
+chrome55.0.2883.87 20464
+firefox53.0 153
+chrome57.5.0349.5077 2
+chrome57.5.0077.5349 2
+firefox42.0 187
+firefox45.78.20 2
+chrome40.0.2214.109 85
+chrome60.0.3112.107 813
+chrome54.8.3041.9314 2
+chrome56.0.2924.197 86
+firefox52.42.99 2
+chrome60.0.3112.113 47157
+firefox47.0 197
+firefox45.0 18
+chrome56.2.7878.2506 2
+chrome44.0.2403.157 183
+chrome57.0.2987.133 83
+chrome42.0.2311.135 371
+chrome46.0.2486.0 176
+firefox52.57.00 2
+firefox3.6.3 1
+chrome44.0.2403.133 510
+chrome61.0.3163.98 1715
+firefox20.0 114
+chrome55.0.2883.91 128
+chrome56.1.6701.1439 2
+chrome57.4.9054.4326 2
+firefox31.0 1
+chrome47.0.2526.111 338
+firefox16.0 13
+firefox52.55.02 4
+Unknown 1652
+chrome30.0.1599.101 1
+chrome30.0.0.0 86
+chrome56.2.7987.2615 2
+chrome57.4.9604.4977 2
+firefox2.0.0.8 1
+safari5.4.8 8
+chrome56.2.7366.2093 2
+chrome41.0.2272.118 1
+chrome36.0.1985.135 85
+chrome18.0.1025.133 2
+safari9.0 437
+chrome55.0.5422.0159 2
+chrome45.0.2454.101 171
+safari4.7.2 6
+firefox52.48.95 2
+chrome53.6.1048.6310 2
+chrome57.6.1935.6207 2
+chrome53.6.1025.6397 2
+chrome57.5.0390.4028 2
+chrome34.0.1847.137 152
+firefox1.5.0.12 1
+chrome22.0.1106.241 148
+firefox45.64.11 2
+chrome53.6.0915.5643 2
+chrome57.6.1899.6161 2
+firefox54.0 88
+firefox49.0 83
+chrome56.2.6228.1956 2
+firefox45.56.03 2
+chrome53.6.0772.5400 2
+chrome60.0.3112.78 217
+chrome53.8.3979.8241 2
+firefox45.61.18 2
+chrome55.1.6625.0453 2
+msie7.0 83
+safari5.5.1 10
+firefox52.51.04 2
+chrome56.2.6776.1404 2
+chrome55.0.5290.0928 2
+chrome57.4.9628.4990 2
+chrome54.8.3866.8138 2
+chrome56.4.9756.4028 2
+firefox52.66.19 2
+chrome47.0.2526.73 83
+chrome56.2.6223.1951 2
+chrome56.1.6832.1560 2
+firefox33.0 97
+netscape5.0 6
+chrome57.5.0743.5471 2
+firefox45.58.05 2
+safari5.3.7 4
+chrome53.5.0694.5322 2
+chrome41.0.2228.0 3
+safari 356
+firefox45.77.20 2
+safari11.0 604
+android 884
+firefox52.0 1200
+chrome36.0.1985.125 55
+chrome57.5.0036.5308 2
+safari5.3.8 12
+opera9.80 996
+chrome38.0.2125.122 30
+chrome34.0.1847.116 1
+chrome58.0.3029.96 1
+firefox45.66.13 2
+chrome61.0.3163.91 23705
+firefox52.51.08 2
+chrome60.0.3112.116 1875
+chrome56.1.6517.1245 2
+chrome63.0.3213.3 106
+chrome57.0.2987.132 274
+chrome39.0.2171.93 89
+firefox52.59.96 2
+chrome57.5.0247.5519 2
+safari9.0.3 1
+chrome57.5.0575.5848 2
+chrome57.5.0826.5198 2
+chrome55.1.6900.1638 2
+chrome51.0.2704.79 1351
+chrome55.1.6928.0655 2
+chrome38.0.2125.102 321
+firefox52.61.14 2
+firefox52.54.07 6
+chrome52.0.2743.82 83
+nokia 200
+chrome55.0.5146.0873 2
+firefox39.0 1
+chrome51.0.2704.106 933
+firefox3.0.12 1
+chrome57.5.0636.4364 2
+chrome55.0.5716.0544 2
+chrome57.5.0822.5550 2
+chrome50.0.2695.88 1
+chrome57.5.0759.5487 2
+chrome42.0.2311.137 82
+firefox45.68.21 2
+safari10.1.2 223
+chrome5.0.375.99 2
+firefox52.67.10 2
+safari4.0.5 1
+chrome57.5.0269.5997 2
+firefox45.68.11 2
+chrome55.1.6547.1275 2
+chrome55.1.6832.0660 2
+firefox52.54.91 2
+safari5.5.0 6
+chrome55.1.5055.0783 2
+msie5.05 1
+chrome56.4.9396.4568 2
+chrome60.0.3112.101 231
+chrome50.0.2661.102 114
+chrome37.0.2062.120 3
+chrome49.0.2623.112 6828
+firefox52.50.13 2
+chrome57.4.9047.4775 2
+chrome39.0.2171.71 2
+firefox52.52.15 2
+chrome58.0.3029.83 1
+firefox55.0 3901
+firefox29.0 2
+firefox45.63.26 2
+mozilla 3581
+chrome47.0.2526.106 368
+safari4.6.2 4
+chrome55.1.6210.0948 2
+chrome56.2.7205.2933 2
+chrome56.4.9545.4817 2
+firefox35.0 3
+chrome37.0.2062.124 283
+chrome57.4.9418.4780 2
+chrome58.0.3029.81 102
+chrome57.5.9520.4258 2
+chrome56.0.2924.87 1201
+chrome57.5.0456.5184 2
+firefox45.64.17 4
+chrome55.0.5404.0232 2
+chrome57.5.9191.4929 2
+chrome53.6.1210.6582 2
+chrome55.0.5754.0482 2
+chrome55.0.2883.75 87
+chrome55.0.2883.95 197
+safari8.0 123
+firefox45.66.03 2
+firefox27.0 2
+chrome57.0.2987.137 654
+chrome55.1.6932.1660 2
+chrome57.5.0729.4456 2
+safari10.0 1815
+chrome55.0.5235.9963 2
+safari10.0.3 1
+firefox46.0 90
+chrome55.0.5411.0149 2
+chrome59.0.3071.125 8075
+firefox52.64.17 2
+chrome48.0.2564.109 1
+chrome56.2.7358.1086 2
+msie10.0 1817
+chrome55.1.6208.1936 2
+chrome57.5.0832.5560 2
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 14
+Mozilla/5.0_(compatible;_BegunAdvertising/3.0;__http://begun.ru/begun/technology/indexer/) 20170922020427
+Mozilla/5.0_(compatible;_Dataprovider.com;) 20170923222529
+Mozilla/5.0_(compatible;_YandexBot/3.0;__http://yandex.com/bots) 20170921173245
+PHP-Curl-Class/7.3.1_(_https://github.com/php-curl-class/php-curl-class)_PHP/5.4.16_curl/7.29.0 20170905180744
+okhttp/2.5.0 20170929033351
+okhttp/3.3.0 20170922060321
+Opera/9.80_(Android;_Opera_Mini/7.6.40234/69.240;_U;_ru)_Presto/2.12.423_Version/12.16 20170930042650
+www.ru 20170922022852
+Mozilla/5.0_(compatible;_vkShare;__http://vk.com/dev/Share) 20170928182321
+Go-http-client/1.1 20170927055738
+Codular_Sample_cURL_Request 20170926134933
+Opera/9.80_(MAUI_Runtime;_Opera_Mini/4.4.39001/69.162;_U;_ru)_Presto/2.12.423_Version/12.16 20170924191248
+1C_Enterprise/8.3 20170918060624
+GuzzleHttp/6.1.0_curl/7.35.0_PHP/5.5.9-1ubuntu4.14 20170922135720
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 5
+okhttp/2.5.0 20170929033351
+okhttp/3.3.0 20170922060321
+www.ru 20170922022852
+Go-http-client/1.1 20170927055738
+1C_Enterprise/8.3 20170918060624
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 2538 2640
+From1 5 5
+From2 514 514
+From3 219 233
+From4 102087 188702
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 4
+google 20 20
+bing 2 2
+rambler 5 5
+yandex 487 487
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 85
+http://\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb8\xd0\xbc\xd0\xb5\xd1\x82\xd1\x8024.\xd1\x80\xd1\x84/calculator/ 39 39
+http://\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb8\xd0\xbc\xd0\xb5\xd1\x82\xd1\x8024.\xd1\x80\xd1\x84 18 18
+http://go.mail.ru 17 17
+http://\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb8\xd0\xbc\xd0\xb5\xd1\x82\xd1\x8024.\xd1\x80\xd1\x84/bitrix/admin/fileman_file_edit.php 15 15
+https://ok.ru 11 11
+http://\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb8\xd0\xbc\xd0\xb5\xd1\x82\xd1\x8024.\xd1\x80\xd1\x84/1c_catalog/dveri_i_kalitki/ 8 8
+http://\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb8\xd0\xbc\xd0\xb5\xd1\x82\xd1\x8024.\xd1\x80\xd1\x84/bitrix/admin/fileman_admin.php 6 6
+http://\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb8\xd0\xbc\xd0\xb5\xd1\x82\xd1\x8024.\xd1\x80\xd1\x84/1c_catalog/shlagbaumy_1/komplekt_shlagbauma_br_pro4000ledkit_strela_4m_s_podsvetkoy_doorhan/ 4 4
+http://\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb8\xd0\xbc\xd0\xb5\xd1\x82\xd1\x8024.\xd1\x80\xd1\x84/1c_catalog/dveri_i_kalitki/kalitki/komplekt_dhpk000_kalitka_doorhan_1500_2800/ 4 4
+http://\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb8\xd0\xbc\xd0\xb5\xd1\x82\xd1\x8024.\xd1\x80\xd1\x84/bitrix/admin/iblock_list_admin.php 4 4
+http://\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb8\xd0\xbc\xd0\xb5\xd1\x82\xd1\x8024.\xd1\x80\xd1\x84/catalog/zabory/zabor-iz-proflista/ 1 1
+https://www.wmj.ru/goroskop/ryby-na-segodnya/ 1 1
+http://irkutsk.big-book-city.ru/dveri_i_dvernye_bloki/32/ 1 1
+http://nashgazon.com/ograda/vorota/otkatnye-vorota-svoimi-rukami-eskiz-chertezhi-shema-i-konstrukciya.html 1 1
+http://maxi-karta.ru/irkutsk/setka-rabitsa/265817 1 1
+https://mail.ru 1 1
+http://www.rbc.ru/rbcfreenews/59bb9d149a7947f94448c063 1 1
+http://\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb8\xd0\xbc\xd0\xb5\xd1\x82\xd1\x8024.\xd1\x80\xd1\x84/company/ 2 2
+http://rosgenea.ru 3 3
+https://www.kinopoisk.ru/5af573e6c0f11dd46469684a58595203/v1/4nw4rv7nde8/aHR0cHM6Ly9hbi55YW5kZXgucnUvY291bnQvMDc1ei1BV3RHWm00MDAwMFpod0EyZm01WFBwczM5SzFjbTVrR3hTMkFHNjhrQUtCLTBROWtsaGhOV1VPX19fX19fX19fX3lGZFhFVGZTRU81aGhuZDVnUlozMThERy1jVzBjQWtoMXVBbkJTbF9tM3kxNnpsSnZIXzBnZzF3TWttY2lHbEFaVmVHZFQwVHdHOUZJSGhwS2t6OVZJMDAwMDA0V1NaeEhESko0RmR4dnBVcHU3YXAtUFVxQUNhUGZaamZWWDdSTVBLWGNXYlFEYWh2NlFPeEVWYkhjcWNMOFBzUFU1U1RnT3Qxb0tjTDRCZnZxNTN3WXhZQnZ3MUFJbTAwMDByd21UaGxqY21JaGNJSWgyMUIybWg2UncwUjQxaWlmSjAwOTA2RmR4UGk0Z3ZhYWdtV0p5MWxzZGtoby1rUU4zYzFReF9PcU1ua1pKVW5XMm1WX19fX19fX19fXzN5RzFuTnBDMnlzd1JZNGg0aXd6XzBGbTRUQl9fX19fX19fX19tX0owa3Uxc19xRG9RcHRxdGlPMGp5X3lBMDBHNlpnNC1tSnZQM29BLXMzQUY2SjFtcHJxTXppOVJ2YzBWUkdBWU5VRnZYTHp2ME81VllXZTR1Mi12NlFPdGVo-/ 1 1
+http://\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb8\xd0\xbc\xd0\xb5\xd1\x82\xd1\x8024.\xd1\x80\xd1\x84/1c_catalog/dveri_i_kalitki/stalnye_dveri_1/ 2 2
+http://irkutsk.barahla.net/services/394/ 1 1
+http://irkutsk.budus.ru/products/31/zabori_iz_setki/ 1 1
+http://\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb8\xd0\xbc\xd0\xb5\xd1\x82\xd1\x8024.\xd1\x80\xd1\x84/bitrix/admin/cat_group_admin.php 2 2
+http://\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb8\xd0\xbc\xd0\xb5\xd1\x82\xd1\x8024.\xd1\x80\xd1\x84/1c_catalog/ 1 1
+http://burger-imperia.com 1 1
+http://\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb8\xd0\xbc\xd0\xb5\xd1\x82\xd1\x8024.\xd1\x80\xd1\x84/1c_catalog/dveri_i_kalitki/kalitki/ 2 2
+http://\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb8\xd0\xbc\xd0\xb5\xd1\x82\xd1\x8024.\xd1\x80\xd1\x84/bitrix/admin/aspro.stroy_options.php 1 1
+https://www.avito.ru/irkutsk 2 2
+http://\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb8\xd0\xbc\xd0\xb5\xd1\x82\xd1\x8024.\xd1\x80\xd1\x84/1c_catalog/avtomatika_1/ 2 2
+http://rydo.ru/usole-sibirskoe/stroitelstvo-i-remont/garazhnye-vorota_232173 1 1
+http://mirsegondya.com/ekonomika/izymat-dollary-nachnut-v-oktyabre/ 1 1
+http://remoo.ru/uchastok/otkatnye-vorota-svoimi-rukami-chertezhi-skhemy-ehskizy-konstrukcij/ 1 1
+http://\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb8\xd0\xbc\xd0\xb5\xd1\x82\xd1\x8024.\xd1\x80\xd1\x84/bitrix/admin/iblock_element_edit.php 1 1
+http://politikus.ru/events/99336-tochnyy-udar-v-cel-ssha-otdaet-gospodstvo-rossii-i-kitayu.html 1 1
+http://irkutsk.regtorg.ru/goods/komplektujuschie_dlya_vorot.html 1 1
+http://cheremkhovo.anycon.ru/company/96046/zhelezny-assortiment 1 1
+http://zaycev.net/search.html 1 1
+http://www.bmwclub.ru/index.php 1 1
+http://spravkainform.ru/russia/chita/naruzhnye-dveri/fortuna 2 2
+http://oppps.ru/amerikanskaya-sosedskaya-dobrota.html 1 1
+http://argumentiru.com/unknown/2017/09/471252 1 1
+http://irkutsk.regmarkets.ru/product/1b81aef571d2ee73245245addcd55a34/ 1 1
+http://tyumentop100plus.ru/tyumen_pro 1 1
+http://irkutsk.regmarkets.ru/emali-aerozolnye-33815/ 1 1
+http://moydomik.net/vorota/248-raspashnye-vorota-izgotovlenie-ustanovka-shema.html 1 1
+http://chastnydom.com/otdelka/dveri/mezhkomnatnye-kupe-ceny.html 2 2
+http://coub.com/explore/newest/funny 1 1
+http://\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb8\xd0\xbc\xd0\xb5\xd1\x82\xd1\x8024.\xd1\x80\xd1\x84/bitrix/admin/settings.php 1 1
+http://expert.ru/2017/09/20/kitaj-dollar/ 1 1
+http://hvd-store.com 1 1
+http://www.hmn.ru/index.php 1 1
+http://zhkt.guru/yazva-zheludka-yazvennaya-bolezn/pitanie-racion-1/alkogol-2 1 1
+http://\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb8\xd0\xbc\xd0\xb5\xd1\x82\xd1\x8024.\xd1\x80\xd1\x84/bitrix/admin/index.php 1 1
+http://\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb8\xd0\xbc\xd0\xb5\xd1\x82\xd1\x8024.\xd1\x80\xd1\x84/bitrix/admin/iblock_edit.php 1 1
+http://angara.net/forum/g1101 1 1
+http://hundejo.com 1 1
+http://rutxt.ru/node/8441 3 3
+http://nashgazon.com/ograda/vorota/garazhnye-vorota-svoimi-rukami-chertezhi-video-i-foto.html 1 1
+http://sdelai-zabor.ru/zakony/22-zabor-mezhdu-sosedyami 1 1
+http://uteplimvse.ru/dlya/pola/penopolistirol.html 1 1
+http://teploguru.ru/kamin/pokraska-kamina.html 1 1
+http://www.m.njcar.ru/angarsk/razborka/toyota/rav-4/ 1 1
+http://stylekrov.ru/sovety-masterov-chem-uteplit-kryshu-garazha.html 1 1
+http://\xD0\xBF\xD0\xB5\xD1\x80\xD0\xB8\xD0\xBC\xD0\xB5\xD1\x82\xD1\x8024.\xD1\x80\xD1\x84/calculator/ 0 8
+http://pimptubed.com/ru/special/ 1 1
+http://xn--90aennigc8b.xn--p1ai/%D0%B0%D0%BD%D0%B5%D0%BA%D0%B4%D0%BE%D1%82%D1%8B-%D1%81%D0%B2%D0%B5%D0%B6%D0%B8%D0%B5-%D1%81%D0%BC%D0%B5%D1%88%D0%BD%D1%8B%D0%B5-%D0%B4%D0%BE-%D1%81%D0%BB%D1%91%D0%B7-5/ 1 1
+http://news.sportbox.ru/Vidy_sporta/Volejbol/Chempionat_Rossii 1 1
+http://moyaograda.ru/kalitki/metallicheskiye/iz-evroshtaketnika-170.html 2 2
+http://www.russianfood.com/recipes/bytype/ 1 1
+http://zavorota.ru/montazh/fundament-dlya-otkatnyx-sistem-svoimi-rukami.html 1 1
+http://irkutsk.regmarkets.ru/vorota-svarnye-33053/ 1 1
+http://irkutsk.promportal.su/tags/16631/evroshtaketnik/ 1 1
+http://irk.blizko.ru/predl/construction/building/zaboryiograzhdenija/stairs 1 1
+http://\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb8\xd0\xbc\xd0\xb5\xd1\x82\xd1\x8024.\xd1\x80\xd1\x84/1c_catalog/shlagbaumy_1/ 2 2
+http://elektroas.ru/forum/showthread.php 1 1
+http://remoo.ru/zabor-i-vorota/avtomaticheskie-vorota-s-distancionnym-otkrytiem/ 2 2
+http://irkutsk.spravkus.com/org1278195 1 1
+http://irkutsk.bankturov.ru/hotels/66 4 4
+http://irinazaytseva.ru/morkovnyj-sok-polza-lechenie.html 1 1
+http://babr.ru 2 2
+http://vannalife.ru/aksessuary/na-kakoj-vysote-veshat-zerkalo-v-vannoj.html 1 7
+http://irkutsk.stroyportal.ru/firms/section-zabory-ograzhdeniya-169/ 1 1
+http://armaturastore.ru/irk/category/101609-shtaketnik.html 1 1
+http://bouw.ru/article/otmostka-pered-garazhom-svoimi-rukami 1 1
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 4
+%d0%bf%d0%b5%d1%80%d0%b8%d0%bc%d0%b5%d1%82%d1%8024.%d1%80%d1%84 2
+%d0%b6%d0%b8%d0%bb%d0%be%d0%b9+%d0%ba%d0%be%d0%bc%d0%bf%d0%bb%d0%b5%d0%ba%d1%81+%d0%be%d1%85%d0%be%d1%82%d0%bd%d1%8b%d0%b9+%d1%80%d1%8f%d0%b4+%d1%85%d0%be%d0%bc%d1%83%d1%82%d0%be%d0%b2%d0%be 1
+%d0%be%d0%be%d0%be+%d0%bc%d0%b0%d1%80%d1%81 1
+%d0%a4%d0%b8%d1%80%d0%bc%d0%b0+%d0%90%d1%80%d1%85%d0%b8%d0%bc%d0%b5%d0%b4+%d0%b2%d0%b0%d0%ba%d0%b0%d0%bd%d1%81%d0%b8%d0%b8 1
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 11
+%d0%bf%d0%b5%d1%80%d0%b8%d0%bc%d0%b5%d1%82%d1%8024.%d1%80%d1%84 2
+%d0%ba%d0%be%d0%bc%d0%bf%d0%bb%d0%b5%d0%ba%d1%81 1
+%d0%be%d0%be%d0%be 1
+%d1%80%d1%8f%d0%b4 1
+%d0%90%d1%80%d1%85%d0%b8%d0%bc%d0%b5%d0%b4 1
+%d0%b2%d0%b0%d0%ba%d0%b0%d0%bd%d1%81%d0%b8%d0%b8 1
+%d0%be%d1%85%d0%be%d1%82%d0%bd%d1%8b%d0%b9 1
+%d0%b6%d0%b8%d0%bb%d0%be%d0%b9 1
+%d0%bc%d0%b0%d1%80%d1%81 1
+%d1%85%d0%be%d0%bc%d1%83%d1%82%d0%be%d0%b2%d0%be 1
+%d0%a4%d0%b8%d1%80%d0%bc%d0%b0 1
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 7
+403 5 14560
+302 296 672362
+503 774 140730
+206 85 3569947
+500 189 4865783
+301 26 8962
+404 819 15520791
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 108
+/upload/uf/98e/98e9afcd4691f1f173e9b6b5e6af5e37.png 11 http://xn--24-mlcaoysjdt.xn--p1ai/company/
+/sitemap.xml 1 -
+/robots.txt 554 -
+/calculator/images/vorota.jpg 1 http://xn--24-mlcaoysjdt.xn--p1ai/calculator/
+/upload/iblock/81a/81aa4d4d79de46d00a5480b63f6bca38.doc 1 -
+/manager/ 1 http://XN--24-MLCAOYSJDT.XN--P1AI/manager/
+/user 1 http://XN--24-MLCAOYSJDT.XN--P1AI/user
+/mysql.sql 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/price.pdf%20target='_blank' 2 http://xn--24-mlcaoysjdt.xn--p1ai/price/
+/admin.php 6 -
+/bitrix/components/sibhronik/calculator/templates/.defaultfilter.php 1 http://xn--24-mlcaoysjdt.xn--p1ai/calculator/
+/help 2 http://xn--24-mlcaoysjdt.xn--p1ai/bitrix/admin/fileman_admin.php
+/upload/iblock/2f7/2f7bbdfecaed133a067b41640b87031b.pdf 1 -
+/upload/iblock/26f/26f020890e91d1994fcf2468ad8b6e56.jpg 1 -
+/backup.sql.gz 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/upload/uf/3e9/3e944d17075782a6cf922dfff44c5851.png 1 http://xn--24-mlcaoysjdt.xn--p1ai/catalog/vorota/garazhnye-sektsionnye-vorota/
+/wp-admin/ 5 http://xn--24-mlcaoysjdt.xn--p1ai/wp-login.php
+/admin/index.php 1 http://XN--24-MLCAOYSJDT.XN--P1AI/admin/index.php
+/price/price.xls 1 http://xn--24-mlcaoysjdt.xn--p1ai/price/
+/netcat/admin/ 1 http://XN--24-MLCAOYSJDT.XN--P1AI/netcat/admin/
+/browserconfig.xml 2 -
+/dump.sql.zip 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/upload/uf/a2c/a2c13af7b1dd83a5ba9f988a97b31533.png 16 http://xn--24-mlcaoysjdt.xn--p1ai/catalog/zabory/zabor-iz-proflista/
+/price.pdf%20target= 1 http://xn--24-mlcaoysjdt.xn--p1ai/
+/dump.tgz 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/calculator/nouislider.js 2 http://xn--24-mlcaoysjdt.xn--p1ai/calculator/
+/db.tar 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/info/action/ 3 http://xn--24-mlcaoysjdt.xn--p1ai/info/action/
+/upload/iblock/7a7/7a705883a577984589bbb91374cf20d2.jpg 1 -
+/%D0%9F%D1%80%D0%B0%D0%B9%D1%81%2015.09.2017.xls 17 http://xn--24-mlcaoysjdt.xn--p1ai/
+/bitix 1 -
+/dump.sql 2 http://xn--24-mlcaoysjdt.xn--p1ai
+/calculator/images/color.png 1 http://xn--24-mlcaoysjdt.xn--p1ai/calculator/
+/bitrix/templates/aspro-stroy/css/fonts/slick.woff 6 http://xn--24-mlcaoysjdt.xn--p1ai/bitrix/templates/aspro-stroy/css/slick-theme.css
+/catalog_new/zabory/ 2 -
+/catalog_new/vorota_1/otkatnye_vorota/ 1 http://xn--24-mlcaoysjdt.xn--p1ai/catalog_new/vorota_1/
+/wordpress2/wp-admin/install.php 1 -
+/db.sql.bz2 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/upload/uf/0f8/0f8fe8d5ad9193d60d2339e2744bdd52.png 16 http://xn--24-mlcaoysjdt.xn--p1ai/catalog/zabory/zabor-iz-proflista/
+/administrator/ 5 -
+/calculator/%3Cimg%20src= 1 http://xn--24-mlcaoysjdt.xn--p1ai/calculator/
+/presentation 1 -
+/db.zip 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/wordpress/wp-admin/setup-config.php 1 -
+/bitrix/templates/aspro-stroy/img/sprite-skin-flat.png 1 http://xn--24-mlcaoysjdt.xn--p1ai/bitrix/templates/aspro-stroy/css/ion.rangeSlider.skinFlat.css
+/dump.zip 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/wp-login.php 6 -
+/upload/iblock/7e9/7e9fba46ea4f0a9bd59747f01e25e02f.jpg 1 -
+/LICENSE.php 1 -
+/sql.zip 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/wordpress/wp-admin/install.php 1 -
+/users.sql 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/dbdump.sql.gz 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/perimetr24/vorota/ 1 http://xn--24-mlcaoysjdt.xn--p1ai/catalog_new/
+/calculator/nouislider.css 2 http://xn--24-mlcaoysjdt.xn--p1ai/calculator/
+/faq 1 -
+/bitrix/components/sibhronik/calculator/templates/.default/images/calculator-check.png 1 http://xn--24-mlcaoysjdt.xn--p1ai/bitrix/components/sibhronik/calculator/templates/.default/style.css
+/new/wp-admin/install.php 1 -
+/dbdump.sql 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/data.sql 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/upload/iblock/9f4/9f4b817f2269434360a3ddf3ff7f23b6.jpg 1 -
+/catalog/vorota/ 1 http://xn--24-mlcaoysjdt.xn--p1ai/catalog/
+/catalog_new/otkatnye_vorota/ 1 http://xn--24-mlcaoysjdt.xn--p1ai/catalog_new/otkatnye_vorota/
+/solutions-1 1 -
+/calculator/filter.php 8 http://xn--24-mlcaoysjdt.xn--p1ai/calculator/
+/upload/uf/38c/38c56424372b7d9772e9a397f50ba6ae.png 25 http://xn--24-mlcaoysjdt.xn--p1ai/catalog/zabory/zabor-iz-proflista/
+/sql.tgz 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/license.txt 1 -
+/db_backup.sql 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/sql.tar 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/help/faq 1 -
+/1_catalog 1 -
+/bitrix/templates/aspro-stroy/css/ajax-loader.gif 10 http://xn--24-mlcaoysjdt.xn--p1ai/bitrix/templates/aspro-stroy/css/slick-theme.css
+/bitrix/templates/aspro-stroy/css/fonts/slick.ttf 6 http://xn--24-mlcaoysjdt.xn--p1ai/bitrix/templates/aspro-stroy/css/slick-theme.css
+/bitrix/templates/aspro-stroy/images/colors/white.jpg 1 http://xn--24-mlcaoysjdt.xn--p1ai/calculator/
+/js/mage/cookies.js 1 xn--24-mlcaoysjdt.xn--p1ai
+/sql.sql 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/bitrix/components/sibhronik/calculator/templates/.default/filter.php 1 http://xn--24-mlcaoysjdt.xn--p1ai/calculator/
+/upload/uf/7a7/7a70fa57e952a0173aaf921f5cf5148e.png 10 http://xn--24-mlcaoysjdt.xn--p1ai/company/
+/backup.sql 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/1.sql 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/solutions-4 1 -
+/temp.sql 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/upload/iblock/d47/d47f1c874fd22906e7b17eeb7c5ef7cc.jpg 1 -
+/dump.tar 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/bitrix/components/sibhronik/calculator/templates/.default/images/colors/gold.jpg 8 http://xn--24-mlcaoysjdt.xn--p1ai/calculator/
+/db.sql.gz 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/wp/wp-admin/setup-config.php 1 -
+/sql.gz 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/administrator/index.php 6 http://xn--24-mlcaoysjdt.xn--p1ai/administrator/
+/bitrixsetup.php 1 http://yandex.ru/clck/jsredir
+/perimetr24/kalitka_v_alyuminievoy_rame_s_zapolneniem_sendvich_panelyami/komplekt-dhpk000-kalitka-doorhan-1200-2600/ 1 http://xn--24-mlcaoysjdt.xn--p1ai/perimetr24/avtomatika_1/
+/catalog/vorota/otkatnye-vorota/ 1 http://xn--24-mlcaoysjdt.xn--p1ai/catalog/vorota/
+/1c_catalog/ 1 -
+/admin 5 -
+/db.sql 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/db.tar.gz 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/upload/iblock/4f7/4f7cfdadcd86297609e4b3045a7a67df.jpg 1 -
+/solutions-3 1 -
+/upload/iblock/2de/2de181f2f9a985e4cf8b375bffc1b558.jpg 1 -
+/backup.sql.bz2 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/dump.sql.gz 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/upload/iblock/f90/f905d23f5fe84d784383250c786103f9.jpg 1 -
+/more/faq 1 -
+/catalog_new/ 1 -
+/dump.sql.tgz 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/site.sql 1 http://xn--24-mlcaoysjdt.xn--p1ai
+/mysql.zip 1 http://xn--24-mlcaoysjdt.xn--p1ai
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 956
+195.46.109.165 73934 90980 1198228683 20170929124245
+178.217.67.223 11715 12109 14436214 20170907152813
+91.210.163.142 7111 7665 15989004 20170924125803
+195.206.46.82 1643 1643 40035 20170918060624
+178.217.69.194 1243 1265 350754 20170927033303
+178.184.206.99 1082 1898 12807762 20170918164319
+91.210.162.5 1034 1034 28642 20170927135229
+176.215.240.85 1030 1168 5174354 20170916115033
+178.217.66.22 509 519 471311 20170927183053
+5.101.1.12 360 360 1036170 20170918222340
+109.194.18.225 9 94 1674686 20170920095506
+94.137.217.165 3 86 1577744 20170930155810
+92.126.6.62 7 104 1940126 20170918091007
+176.215.248.6 9 97 1674564 20170920144416
+188.162.245.17 9 11 119975 20170928113924
+189.122.214.41 2 2 21161 20170928231045
+188.162.245.0 9 138 7309105 20170928060329
+191.96.249.110 1 1 68459 20170918073742
+5.62.39.28 1 1 68459 20170918073741
+200.40.113.134 2 2 21161 20170929052046
+178.184.150.181 3 87 1564149 20170927144431
+37.147.231.124 4 107 761561 20170929094633
+179.218.135.248 2 2 21161 20170929064847
+177.140.216.174 3 3 42109 20170917061825
+109.194.17.184 5 84 1435034 20170919114128
+185.54.179.195 19 161 9561989 20170920124241
+195.211.23.207 0 1 7873 
+176.59.142.60 2 17 157036 20170924174249
+189.121.208.95 2 2 21161 20170917045043
+95.220.66.34 2 23 275435 20170923082200
+37.140.189.238 2 2 23943 20170918065903
+176.59.128.170 1 1 13952 20170929103343
+91.246.1.26 6 167 2953365 20170925044624
+128.70.104.173 2 23 275326 20170930170525
+37.29.41.135 3 85 1545964 20170922093908
+213.219.237.6 25 346 16422881 20170929074623
+109.63.148.173 2 53 368677 20170929103720
+46.188.107.66 2 67 2848393 20170930232407
+195.206.47.221 6 96 1891984 20170918072607
+5.167.17.160 3 81 1411995 20170919142810
+195.206.57.190 3 88 1646197 20170926045708
+5.167.86.158 16 182 7947934 20170929141033
+37.29.41.66 1 1 22 20170929114324
+178.184.185.204 7 158 15282454 20170920151918
+195.93.149.52 10 116 3996968 20170926041017
+176.215.240.5 3 86 1560923 20170930172225
+178.184.136.195 1 1 13401 20170917192627
+176.193.127.178 2 14 185316 20170909113823
+195.211.23.214 0 2 73104 
+93.189.207.69 4 88 1578107 20170927185357
+179.218.28.86 2 2 21161 20170917034511
+178.184.170.217 4 82 1418492 20170919134817
+31.47.169.176 8 118 4333594 20170925042900
+185.202.103.51 2 2 21161 20170916200023
+109.194.27.47 3 83 1487268 20170916084210
+195.206.39.148 6 125 8065794 20170920085811
+94.137.204.203 6 105 1924018 20170927031143
+188.162.245.233 7 123 6508160 20170921174507
+195.211.23.217 0 2 38015 
+176.77.19.96 1 1 13964 20170925095618
+37.20.65.164 3 86 1560928 20170927180519
+92.124.8.29 14 146 9749314 20170921134030
+146.120.251.27 1 1 13762 20170910065212
+91.185.61.121 5 146 10473064 20170928070012
+13.81.118.34 1 1 13968 20170922020119
+37.29.40.54 3 87 1564148 20170929172029
+188.162.245.208 42 250 8463659 20170920164933
+46.147.116.17 2 86 2891579 20170929222929
+31.132.225.15 5 100 2929427 20170920000045
+85.115.243.115 5 89 1569612 20170925135725
+80.83.237.22 11 207 8252180 20170927105310
+178.184.237.165 3 87 1564146 20170929152154
+94.137.208.145 4 87 1574882 20170929104055
+37.204.81.148 2 23 275445 20170928091512
+5.228.111.111 2 23 275359 20170912112525
+191.184.255.113 2 2 21161 20170927173846
+80.83.237.24 21 209 14242164 20170929120832
+176.215.224.60 6 93 1633859 20170921092612
+37.20.122.140 3 86 1561139 20170927065035
+146.120.251.167 1 1 13760 20170910065216
+128.72.8.218 0 43 876614 
+201.53.55.175 2 2 21161 20170916232214
+176.14.37.74 2 54 374438 20170925185303
+80.83.235.4 1 1 13929 20170929160827
+84.244.32.186 6 138 8602450 20170927060602
+5.167.13.77 7 106 3080202 20170922071009
+89.178.7.11 2 39 581104 20170921164046
+178.184.138.121 3 86 1560925 20170930153516
+37.20.189.138 10 136 5509095 20170920185306
+37.21.8.105 4 86 1503649 20170921112551
+5.167.89.162 5 98 1822815 20170925064056
+201.74.155.252 2 2 21161 20170917015627
+31.44.243.182 2 15 367856 20170917123931
+178.184.12.214 15 156 4701620 20170930181055
+84.244.53.166 1 13 48168 20170918114220
+91.192.149.231 3 3 38377 20170922020427
+195.206.34.84 1 1 13790 20170918160607
+91.239.158.61 48 407 16395106 20170930154155
+179.210.26.214 2 2 21161 20170929173352
+128.69.210.205 2 53 372070 20170909113828
+178.184.188.108 5 139 8570948 20170924181010
+195.206.47.50 6 92 1708943 20170929061020
+188.162.245.21 17 152 10080243 20170930043720
+80.83.237.13 3 87 1564125 20170929032605
+5.167.14.241 5 86 1523409 20170920124010
+188.255.91.149 2 23 275330 20170918081018
+78.109.36.30 5 172 3158686 20170930183849
+94.137.216.168 4 94 1678023 20170927171556
+90.154.89.91 4 4 56137 20170924095034
+176.59.144.8 1 66 477000 20170928065136
+91.189.167.17 3 86 1560925 20170929145600
+37.29.41.218 3 83 1492203 20170920151517
+176.212.26.239 1 1 22 20170921031535
+195.178.144.143 7 63 483335 20170918091953
+77.243.119.52 3 86 1560925 20170930135353
+177.140.132.21 2 2 21161 20170929223820
+178.184.215.220 25 240 18516961 20170928160148
+85.234.124.8 4 83 2399555 20170918105329
+37.112.118.200 6 100 1809815 20170927122818
+176.215.240.36 6 92 1600253 20170925033350
+185.54.179.34 17 138 7942929 20170918124854
+5.167.28.231 4 89 1574942 20170922082044
+195.206.51.186 11 132 8093676 20170920053604
+176.215.232.83 6 98 4687852 20170929180508
+128.68.37.18 2 23 275357 20170930100947
+92.124.49.230 7 108 3654319 20170926090313
+95.28.225.223 3 24 275264 20170913192409
+132.148.82.151 4 4 42322 20170929152644
+46.242.73.11 2 51 372403 20170917152102
+37.20.139.8 3 83 1522233 20170921140052
+178.184.180.44 3 83 1521721 20170922071601
+109.194.154.13 2 2 21161 20170929032102
+109.194.18.45 5 114 5577179 20170930073117
+177.142.145.184 2 2 21161 20170927185002
+85.234.125.80 18 368 17767344 20170927094826
+82.145.222.234 3 88 1700076 20170924191248
+176.104.195.243 2 2 21161 20170929025507
+188.43.15.157 3 83 1492208 20170920120021
+195.211.23.206 0 2 24046 
+5.167.66.142 4 93 1663261 20170922141743
+91.185.49.129 12 208 4049984 20170926104041
+178.217.67.153 14 15 93949 20170925172600
+217.12.72.139 1 1 13403 20170917191130
+91.246.0.167 3 83 1492083 20170920090053
+185.84.188.78 5 89 1592050 20170929170913
+185.54.179.152 11 176 3109968 20170925141455
+195.206.61.210 1 1 13997 20170922041912
+80.83.237.35 22 152 5965758 20170922082338
+80.83.235.11 8 182 3367489 20170927060650
+2.95.140.235 6 109 3188082 20170925025746
+150.70.173.44 1 1 68465 20170918081456
+109.173.60.189 2 54 392523 20170927155209
+109.194.18.58 5 87 1729010 20170919073204
+158.255.129.115 4 4 217504 20170915123356
+176.215.240.83 5 122 8056938 20170920063827
+37.49.188.125 6 134 2678341 20170921102053
+178.184.250.118 3 86 1577743 20170930191346
+177.35.54.81 2 2 21161 20170928231048
+176.59.145.23 2 32 234222 20170927123729
+186.205.205.79 2 2 21161 20170927124443
+176.215.255.68 8 175 2972367 20170919051745
+195.208.11.130 10 123 5294678 20170925042947
+95.108.225.213 4 9 115939 20170924181752
+37.29.40.142 6 97 2317281 20170916043420
+188.32.128.11 2 52 373186 20170910061946
+177.83.213.175 2 2 21161 20170928021721
+109.126.223.65 1 1 14008 20170922061017
+176.212.28.140 5 140 2880730 20170930113311
+91.185.45.84 14 193 15215463 20170930134331
+179.154.82.75 2 2 21161 20170928084708
+138.201.255.45 2 2 32542 20170911032111
+80.83.237.5 2 2 27196 20170916041459
+195.206.38.158 10 109 2486550 20170926042204
+192.222.236.195 2 2 21161 20170928005019
+109.194.243.10 3 84 1524941 20170922063200
+195.211.23.216 0 2 38260 
+85.115.243.118 9 103 6243744 20170918142344
+37.20.199.109 15 142 7057083 20170921153224
+176.215.224.69 5 88 1588831 20170930103439
+5.228.124.152 2 51 372962 20170920174947
+91.185.47.47 4 84 1498477 20170918091726
+178.184.24.231 18 233 9020236 20170926182907
+95.24.11.59 2 23 191468 20170919151937
+176.59.143.195 3 86 1541369 20170925043629
+92.127.224.253 2 2 21161 20170929054714
+195.206.47.96 12 107 1824993 20170926041045
+185.13.123.69 11 121 1771440 20170916180320
+178.184.161.61 6 145 9675108 20170921203915
+5.167.69.218 18 137 6634610 20170919155613
+189.7.220.2 2 2 21161 20170916105838
+66.102.9.61 13 142 4869168 20170928070344
+184.163.233.80 2 2 21161 20170929013620
+95.79.88.202 2 23 275439 20170911220907
+212.119.194.114 5 95 1659938 20170925124120
+176.15.227.107 2 53 369649 20170922120334
+81.163.99.197 3 87 1564147 20170930122214
+176.59.138.131 6 104 2103951 20170930021056
+92.124.46.106 4 82 1418505 20170918145036
+94.154.80.137 3 86 1541369 20170925044456
+24.10.101.48 2 2 21161 20170916234413
+94.180.196.86 1 1 5719 20170917063119
+189.122.28.210 2 2 21161 20170928172438
+176.59.141.19 22 184 15731747 20170918175119
+37.49.175.113 8 105 5293778 20170918140115
+146.120.250.93 1 1 13761 20170910065222
+85.115.243.107 3 83 1508804 20170918054501
+189.122.75.125 2 2 21161 20170929043245
+5.167.20.131 3 15 43979 20170930104039
+92.124.33.115 3 85 1545964 20170922113422
+38.80.23.61 1 1 68514 20170917085038
+158.69.27.211 12 12 665885 20170923222530
+82.194.181.15 8 161 12615209 20170922005559
+185.54.179.121 3 94 7229378 20170923142908
+178.184.187.218 16 109 14445850 20170922024650
+37.20.251.234 3 86 1560928 20170928075327
+92.124.28.187 9 96 1686072 20170927042712
+176.59.132.182 7 87 1420967 20170916044905
+179.218.1.251 2 2 21161 20170928002818
+186.220.169.172 2 2 21161 20170928153938
+195.206.61.221 5 95 2154179 20170918133215
+188.162.245.81 10 244 11340543 20170926033718
+90.188.249.139 5 132 5112023 20170928082526
+178.184.212.124 1 1 13967 20170921024512
+185.54.179.159 10 114 3737501 20170919131248
+185.54.179.83 3 83 1522237 20170922044840
+177.82.245.15 2 2 21161 20170917021841
+176.59.140.173 3 84 1509869 20170916084859
+176.59.144.255 21 159 7561844 20170925163438
+176.215.244.13 4 87 1562195 20170927153706
+178.184.195.110 19 140 6713781 20170921144211
+31.132.225.14 38 130 2091791 20170918091658
+164.215.81.197 3 83 1480101 20170917195035
+188.32.21.176 2 30 417849 20170929121719
+93.85.82.48 16 252 4786525 20170925104216
+5.189.205.157 1 1 10733 20170919160731
+31.132.225.155 13 147 7067573 20170929153241
+82.145.221.127 3 83 1521721 20170922081516
+146.120.250.170 1 1 13763 20170910065215
+95.220.71.32 2 80 1347486 20170919150541
+37.20.150.9 7 96 1634406 20170918051502
+37.20.173.55 11 146 10812766 20170920180120
+195.211.23.212 0 1 29418 
+178.184.238.195 3 84 1483321 20170918020452
+90.188.237.125 26 135 4553003 20170922163042
+37.20.165.201 8 147 8804143 20170925115827
+185.23.9.126 3 81 1411995 20170920035635
+5.167.85.7 6 144 8034811 20170925182253
+50.75.220.238 2 2 21161 20170928220225
+78.109.36.57 4 92 1614082 20170928081005
+146.120.250.153 1 1 13761 20170910065223
+87.229.193.106 10 124 5469506 20170921075259
+37.144.50.31 2 30 417929 20170930142414
+31.132.225.66 7 124 6584797 20170925164028
+80.83.237.57 4 88 1578103 20170930174813
+109.194.250.122 6 102 1866112 20170929013748
+91.246.1.80 1 63 435132 20170916094500
+179.159.52.191 2 2 21161 20170927185003
+91.185.47.251 7 105 2628766 20170920063137
+77.243.124.30 7 135 7138966 20170929165637
+176.59.129.58 1 1 22 20170926035749
+195.211.23.215 0 1 41505 
+91.246.1.33 5 99 2240395 20170922180850
+31.132.225.147 3 86 1561137 20170926180232
+46.242.73.10 4 132 1627394 20170924065152
+176.59.142.95 1 1 13997 20170921211447
+176.59.136.173 3 82 1415237 20170919042641
+188.255.104.120 2 51 372786 20170918203647
+92.124.55.73 32 319 23083305 20170926023205
+163.172.4.153 5 5 73981 20170925225445
+77.243.116.38 3 86 1541368 20170925061140
+37.59.24.139 1 1 14145 20170927055738
+85.234.125.14 3 86 1560284 20170929102920
+188.168.26.139 3 86 1561141 20170927083801
+176.59.140.38 3 80 1302450 20170916040238
+188.168.158.118 5 88 1522579 20170921053201
+90.188.250.122 7 106 3404265 20170922052045
+176.215.254.4 4 87 1487305 20170919032750
+80.83.235.42 3 84 1495425 20170921021023
+95.108.244.49 15 158 6930754 20170929160440
+195.206.39.222 5 138 8314954 20170929055149
+84.244.41.145 3 86 1560924 20170929162247
+52.166.130.42 1 1 10470 20170922020306
+178.184.161.74 1 1 22 20170930155121
+176.59.143.218 7 98 1938534 20170916114522
+87.103.173.226 3 83 1492231 20170921063659
+176.59.141.111 3 86 1541345 20170925032446
+31.172.81.35 1 1 10469 20170922022722
+188.162.245.75 7 107 2549039 20170918060655
+37.140.189.209 3 86 1561140 20170926084839
+37.20.227.245 7 94 1575921 20170920181037
+176.117.234.5 6 115 3377363 20170925045348
+188.32.176.159 4 133 1800697 20170921102310
+80.83.235.38 4 83 1429400 20170926062916
+95.220.67.24 2 51 373000 20170921153319
+46.188.107.69 2 62 724386 20170923103557
+37.20.158.127 5 92 1623316 20170920150943
+37.110.146.217 2 23 275407 20170913115246
+193.106.2.58 3 83 1492080 20170920060345
+178.154.148.91 1 1 13792 20170919081945
+85.115.243.120 7 90 1488379 20170918044927
+5.188.216.82 1 1 13590 20170916043324
+85.115.243.52 3 87 1564362 20170927025848
+95.189.27.145 5 88 1522606 20170921090018
+109.194.18.246 6 96 1787719 20170918041404
+176.215.232.19 5 100 3007505 20170920183245
+188.168.23.101 1 63 460835 20170921150620
+95.189.17.81 1 1 22 20170930033056
+80.83.237.29 1 1 22 20170924210354
+92.124.25.129 13 138 3549978 20170919033744
+31.163.154.62 2 2 21161 20170928211815
+109.163.244.137 7 115 4928144 20170921084945
+141.105.47.145 9 130 6565483 20170920134758
+178.184.56.194 4 86 3199071 20170906112320
+37.49.185.21 4 91 2186874 20170921112902
+194.186.76.198 16 280 17740419 20170925112520
+52.211.229.193 2 2 197830 20170906131121
+195.211.23.221 0 2 56650 
+85.115.243.38 6 157 2215842 20170929005151
+31.148.48.26 11 96 1709149 20170930160018
+176.117.234.100 4 97 1717875 20170927041820
+95.189.26.20 24 155 7470344 20170919154249
+31.132.225.169 10 110 2713376 20170918085431
+176.117.234.74 7 100 1947623 20170918165505
+5.228.6.246 2 30 417789 20170918140458
+95.220.214.160 2 54 365776 20170930110915
+176.59.136.208 1 1 22 20170928044739
+188.255.104.126 2 51 372592 20170916023935
+92.124.53.198 13 122 3769907 20170925082135
+176.212.23.106 3 81 1411995 20170919172445
+189.33.134.239 2 2 21161 20170929074726
+176.215.240.116 1 1 10074 20170926090235
+195.206.52.248 8 93 1626205 20170922073406
+195.206.49.121 18 116 4497950 20170919113143
+185.54.179.128 4 91 1971699 20170921080915
+185.54.179.102 3 83 1522232 20170921160356
+208.90.57.196 1 1 67236 20170918154949
+176.59.133.57 3 70 773098 20170930065515
+46.188.100.202 2 23 275221 20170911220904
+52.164.240.201 1 1 12357 20170922020333
+37.29.41.40 1 1 22 20170928070344
+66.102.9.140 47 640 20123263 20170930104032
+176.15.224.76 2 23 275451 20170929114953
+5.167.86.40 29 158 5865741 20170917160251
+128.75.28.81 0 9 89998 
+31.47.191.226 5 95 1672766 20170925025131
+189.122.124.225 2 2 21161 20170929184655
+195.211.23.222 0 2 61985 
+104.45.18.178 2 4 113034 20170915113823
+66.249.93.48 1 25 407870 20170924213909
+93.115.95.202 1 1 18782 20170903104059
+188.168.17.10 3 83 1522235 20170921180721
+95.189.49.164 3 86 1541368 20170924214146
+189.122.178.89 2 2 21161 20170929182125
+189.123.161.99 2 2 21161 20170927215041
+217.150.42.25 22 182 7395611 20170928082510
+23.129.64.20 1 1 68459 20170918073703
+178.217.68.204 32 114 969685 20170929104612
+176.59.139.51 3 62 536218 20170930105533
+176.59.140.5 6 99 2203981 20170924201640
+37.20.231.71 52 228 9671505 20170916073740
+5.167.80.211 16 184 12559400 20170926145056
+78.153.143.173 23 183 6647182 20170930164558
+109.63.166.171 2 23 275437 20170924020311
+178.140.87.197 2 51 372400 20170916163436
+179.219.178.74 2 2 21161 20170917005021
+176.215.228.2 4 94 1678444 20170926053833
+18.221.158.19 1 1 13931 20170928193740
+191.184.252.143 2 2 21161 20170927173933
+134.19.131.25 13 268 4565858 20170926103831
+54.71.118.127 1 1 13557 20170914211043
+91.185.49.12 4 84 1528725 20170922042845
+95.27.167.152 2 30 417798 20170921115435
+91.246.1.42 10 253 4469101 20170930071406
+176.193.113.226 2 85 1496418 20170929032352
+178.184.131.195 4 82 1413266 20170919133126
+37.204.50.137 1 17 89221 20170930090629
+220.181.132.181 3 55 405169 20170927034439
+189.60.41.3 2 2 21161 20170928153938
+5.167.15.29 21 116 1766528 20170916115218
+176.77.8.28 4 59 399149 20170914070256
+178.140.117.133 2 23 275218 20170911135735
+37.20.93.26 9 128 7338060 20170918162406
+78.109.36.33 19 138 6770371 20170921033110
+194.84.85.46 7 102 1833559 20170926114424
+187.107.193.10 2 2 21161 20170916135324
+92.126.45.12 7 84 1991773 20170930173655
+91.192.148.231 2 2 22805 20170922020333
+77.41.94.47 2 54 369911 20170924153012
+176.59.135.93 27 158 5731146 20170919171333
+85.234.127.103 7 114 3939702 20170918061125
+178.184.233.54 4 97 1717479 20170929071221
+176.15.197.165 1 36 277686 20170930090634
+204.13.201.137 1 1 68465 20170918073638
+95.165.131.246 2 53 375059 20170920200342
+95.189.26.94 4 84 1429048 20170916102632
+94.23.171.176 1 1 18782 20170903111449
+141.105.35.86 3 86 2603958 20170925074346
+95.189.32.253 4 87 1508300 20170918095851
+179.218.248.157 2 2 21161 20170929200906
+178.184.233.212 3 80 1302452 20170916032349
+95.220.95.92 2 54 371061 20170928091519
+188.162.245.140 1 1 13777 20170919155339
+186.204.90.39 2 2 21161 20170916230014
+93.80.41.31 2 57 387489 20170912081528
+185.54.179.167 6 170 3024603 20170925134136
+78.109.34.26 7 140 8616470 20170927074144
+176.215.237.51 4 93 1662508 20170930083842
+195.211.23.220 0 2 50089 
+176.215.248.117 4 97 1698086 20170926041236
+52.174.57.224 1 1 13911 20170922020122
+95.28.55.14 2 30 417788 20170916130510
+188.43.117.41 5 94 3955711 20170920024528
+95.156.66.66 5 102 1828385 20170928062650
+95.189.23.129 3 83 1509023 20170920171341
+177.142.163.9 2 2 21161 20170929230644
+91.246.2.45 5 130 2179536 20170929162052
+186.204.190.139 2 2 21161 20170927153320
+95.108.141.63 12 171 12159705 20170925190023
+195.46.122.34 17 287 8691177 20170929122120
+84.244.42.146 5 93 1718540 20170916112330
+187.107.173.10 2 2 21161 20170927170430
+195.211.23.209 0 1 127125 
+37.112.113.36 3 86 1560925 20170929164135
+82.146.61.114 1 1 102539 20170905180744
+51.15.64.133 2 2 21161 20170916121423
+95.221.62.155 4 56 375895 20170915012632
+195.208.10.62 48 392 17042586 20170928053336
+176.59.139.189 3 83 1492233 20170921055923
+37.145.8.142 1 1 5728 20170930100949
+95.28.182.226 2 53 366522 20170929211527
+5.167.29.78 5 120 6519865 20170926180346
+91.79.18.231 4 4 225422 20170910175353
+188.162.245.120 4 92 1826960 20170926063224
+178.184.188.244 5 171 3082716 20170925142417
+178.184.153.134 26 219 4936082 20170924082914
+176.215.224.125 2 18 1665231 20170930160653
+185.54.179.94 26 382 17387876 20170930144358
+46.254.240.130 4 84 1498476 20170918064716
+176.114.153.20 5 84 1505961 20170916053110
+195.46.112.185 8 171 14871101 20170927123134
+80.83.237.41 7 100 1823754 20170918145114
+164.215.81.66 2 63 371423 20170921152427
+46.252.124.7 1 1 13998 20170922021911
+92.124.32.35 3 83 1480100 20170918025727
+201.53.1.236 2 2 21161 20170929004332
+31.44.245.158 6 61 432556 20170930031440
+176.117.234.60 3 82 1415233 20170919114850
+13.59.45.146 1 1 14147 20170927030359
+91.185.59.103 23 162 6346303 20170925054715
+37.49.172.245 10 111 3385686 20170920090810
+178.140.118.119 2 30 417932 20170915182528
+37.29.40.93 4 89 1460354 20170919170050
+93.189.204.217 4 86 1434240 20170919075109
+195.211.23.223 0 2 45224 
+5.228.177.123 2 51 373008 20170921140044
+176.59.143.126 3 87 1564146 20170930164336
+186.204.110.162 2 2 21161 20170929011100
+95.220.93.227 0 28 180262 
+95.108.141.61 7 129 4895352 20170921174226
+178.184.232.77 6 114 7749813 20170928162114
+85.115.243.42 5 85 1450887 20170917191614
+84.244.7.90 1 19 78697 20170930125422
+176.215.228.102 3 36 1202329 20170920153903
+77.243.113.192 5 116 8293436 20170922070532
+37.20.218.46 3 86 1541366 20170925201747
+37.29.40.76 3 80 1411600 20170919114249
+80.83.235.16 10 153 3662265 20170918100837
+195.93.129.82 5 86 1560716 20170918054747
+179.218.80.4 2 2 21161 20170929061919
+188.255.23.139 2 23 275306 20170923135231
+195.239.81.68 88 661 51574554 20170929065605
+103.27.220.137 2 2 19241 20170909185813
+176.59.130.200 3 87 1564146 20170930074424
+207.164.160.250 2 2 21161 20170927221601
+77.243.112.226 6 89 1528454 20170920064021
+178.184.209.64 1 1 22 20170922183405
+66.249.93.44 1 37 869413 20170924213905
+185.54.179.61 11 231 10443461 20170929132615
+176.59.130.1 1 1 22 20170926132353
+37.20.208.5 26 284 14805672 20170924194242
+188.162.245.25 12 189 15193479 20170926051758
+178.184.214.172 4 84 1505924 20170920073341
+37.112.238.150 2 53 397258 20170922095156
+37.29.40.9 40 270 10058657 20170930044418
+178.184.183.65 7 97 1716340 20170929160550
+91.206.19.171 10 165 10102115 20170929092726
+188.168.23.164 5 93 1628555 20170926185315
+186.207.140.174 2 2 21161 20170927114423
+178.184.253.145 7 101 1850723 20170925182412
+80.83.237.58 1 1 13953 20170929130102
+178.184.244.160 3 87 1564363 20170926190141
+92.126.11.151 1 1 22 20170916094329
+37.20.242.186 7 104 3275228 20170920151030
+194.28.152.151 3 85 1560537 20170930124854
+189.122.69.39 2 2 21161 20170929233624
+37.29.41.211 8 108 1992282 20170929154547
+176.14.207.97 3 59 390394 20170928193558
+176.15.194.186 2 54 374440 20170925144822
+91.206.18.94 5 105 3896598 20170920024032
+5.167.90.149 12 133 6619197 20170921154134
+31.44.245.168 1 1 13953 20170929144003
+128.75.24.50 2 82 1427713 20170920195407
+95.28.172.46 4 76 672560 20170922133912
+5.164.170.233 2 53 369306 20170927063107
+176.193.170.64 3 86 1541344 20170925141927
+5.167.85.145 16 195 14192661 20170925203932
+185.54.179.117 3 86 1561141 20170927060744
+194.176.114.38 8 142 6851470 20170928064956
+31.44.240.235 12 105 2571987 20170916065308
+109.194.240.182 16 134 6546137 20170919140858
+176.59.128.45 4 88 1574594 20170926071043
+176.117.247.62 3 84 1495207 20170918055255
+66.249.93.27 15 65 2138520 20170930044339
+176.117.250.180 1 60 351959 20170924181737
+141.105.46.224 7 109 3823741 20170918053116
+188.32.235.65 2 30 417899 20170915012533
+176.59.141.178 26 148 8920894 20170921033805
+80.83.235.32 1 43 260103 20170925231534
+31.44.254.253 31 219 14239456 20170927124241
+46.188.18.20 2 2 91436 20170917134508
+109.63.230.51 2 23 275247 20170913192407
+178.184.248.0 4 84 1481368 20170916112249
+92.124.22.89 4 94 1678020 20170930124915
+188.32.236.226 2 54 392520 20170930150131
+177.142.163.76 2 2 21161 20170929043247
+80.83.237.28 2 2 44 20170922022239
+179.218.130.134 2 2 21161 20170917063853
+109.173.32.125 2 82 1415613 20170916141847
+178.140.231.7 2 23 275316 20170927015305
+176.14.186.54 2 30 417932 20170922120304
+95.108.225.228 1 19 959028 20170924181337
+176.215.228.12 14 135 6656545 20170922143135
+93.80.235.228 2 54 392741 20170926114455
+93.189.202.129 35 281 19137680 20170927170212
+189.121.89.114 2 2 21161 20170917011222
+24.113.145.90 2 2 21161 20170929175727
+179.232.230.12 2 2 21161 20170927170430
+31.132.225.68 10 145 9906765 20170918153704
+87.103.129.94 3 83 1489827 20170916085515
+176.59.145.252 3 87 1564147 20170929070340
+109.194.123.222 1 1 10956 20170911150207
+95.211.225.158 4 4 336174 20170914200807
+66.102.9.57 15 160 5890692 20170926132352
+109.163.245.122 7 149 3012311 20170929151811
+37.29.41.111 1 1 22 20170930023102
+188.168.28.141 23 148 5469732 20170918061653
+178.184.140.52 3 46 947675 20170926050123
+80.83.235.43 3 84 1483324 20170916121821
+77.243.125.105 11 146 10451267 20170918064328
+78.109.36.16 17 175 9662549 20170929152200
+31.44.249.35 5 90 2587808 20170920034019
+95.220.120.185 2 53 367721 20170930034819
+66.249.93.28 9 62 2768198 20170930044348
+91.234.172.57 20 271 13976589 20170929145025
+188.168.148.235 1 1 13401 20170918030317
+188.255.23.62 2 64 451022 20170925113838
+195.211.23.208 0 1 101019 
+194.190.85.141 38 414 23450005 20170925065217
+66.102.9.59 11 144 5156479 20170926040955
+5.254.242.50 5 103 2424825 20170929151146
+148.251.48.178 1 1 70928 20170922135720
+37.49.174.170 3 85 1560543 20170929025203
+188.32.142.69 2 23 275322 20170925095617
+91.185.47.109 6 125 8091844 20170920112326
+46.188.107.47 0 15 213302 
+37.20.232.219 8 107 5283935 20170919091754
+176.215.224.9 15 170 14705605 20170920153426
+95.108.225.204 20 234 7598585 20170918101308
+176.215.252.93 30 344 21098682 20170928151817
+177.142.88.54 2 2 21161 20170929182125
+176.215.237.111 3 84 1525456 20170922032614
+179.210.124.199 2 2 21161 20170917013435
+176.59.128.18 3 80 1302452 20170916040909
+176.59.143.20 3 24 179663 20170922145655
+188.162.245.169 12 183 3230914 20170918165926
+92.124.38.205 5 85 1453378 20170919210020
+94.137.208.56 6 97 5992489 20170928150743
+149.210.223.120 2 2 129622 20170916055310
+176.215.232.56 12 140 7163893 20170927161210
+194.67.45.230 5 98 1731437 20170929083424
+31.47.178.47 10 143 7417952 20170925205809
+77.37.242.29 2 30 417938 20170929210031
+82.146.49.235 13 13 980321 20170930030801
+77.37.169.25 6 255 4469966 20170929190909
+95.189.0.6 7 128 7639140 20170921054052
+91.185.49.189 8 99 2150641 20170916073122
+178.184.167.86 3 83 1492201 20170920140601
+176.117.234.11 1 1 22 20170924213910
+185.54.179.92 2 2 28022 20170922062414
+176.59.151.234 1 1 13869 20170918042555
+87.252.225.158 3 85 1545938 20170922094123
+176.59.137.233 6 104 2520841 20170918023937
+201.82.183.22 2 2 21161 20170928013257
+176.59.129.73 1 1 14206 20170927111800
+85.91.192.43 2 53 374013 20170914112948
+176.215.228.99 5 101 2659934 20170920132110
+91.185.45.124 4 89 1552836 20170925081759
+89.178.6.166 2 30 417851 20170928193559
+158.69.206.235 2 2 21161 20170929184721
+5.228.21.77 2 54 392663 20170924201245
+37.20.104.59 7 85 1453402 20170919094350
+94.137.216.60 4 91 2293361 20170920154742
+176.59.132.108 9 37 1080482 20170916120606
+5.228.75.30 2 23 275439 20170922144922
+46.252.120.183 3 87 1564151 20170929042019
+37.218.156.90 1 1 9923 20170930163417
+188.162.245.183 1 1 13955 20170928161741
+31.47.162.153 3 86 1560925 20170928181941
+82.145.220.252 1 1 13996 20170922020646
+5.254.240.65 4 93 1663249 20170922131025
+5.167.93.82 5 90 1542818 20170919174025
+177.142.73.79 2 2 21161 20170928015528
+95.108.141.54 3 88 1680001 20170924181321
+37.204.40.246 2 53 375214 20170922144929
+109.194.251.105 3 86 1561141 20170926072328
+164.215.86.96 3 83 1491979 20170918050009
+37.110.33.138 2 69 2198238 20170930143343
+37.49.168.218 4 97 1717488 20170928052617
+91.246.1.22 12 154 9249652 20170925071352
+95.24.22.98 2 23 275262 20170923135232
+185.23.11.179 8 95 1766290 20170929043247
+85.115.243.43 3 82 1491692 20170920091459
+185.184.233.175 1 27 139298 20170926042711
+128.69.218.158 2 54 392522 20170927120641
+82.145.220.234 3 83 1492202 20170920165437
+23.101.61.176 1 2 60216 20170919053750
+176.59.132.105 2 27 949656 20170918042847
+185.54.179.39 23 141 4956154 20170921172342
+109.194.250.228 6 86 1534108 20170920174538
+37.112.114.228 4 89 1529045 20170919143130
+37.29.41.92 28 116 1830374 20170921003833
+187.64.95.247 2 2 21161 20170929020542
+189.34.173.153 2 2 21161 20170917024011
+179.218.95.137 2 2 21161 20170916160640
+145.239.82.79 1 1 68374 20170920074000
+195.208.13.254 4 87 1562193 20170929081130
+176.215.254.63 26 198 7151087 20170930110522
+201.53.146.16 2 2 21161 20170927173846
+134.19.131.122 3 86 1541366 20170925174804
+176.215.244.122 4 94 2373240 20170919180416
+212.83.183.78 1 1 68459 20170918073741
+37.20.192.252 20 169 10884162 20170921042344
+37.20.172.50 3 81 1384346 20170918044533
+37.110.150.20 1 1 5607 20170915170852
+159.255.64.145 5 132 5112024 20170928075534
+95.220.86.54 2 25 186649 20170930000132
+176.193.190.213 2 82 1415591 20170917154739
+188.162.245.42 6 106 3745949 20170920144404
+92.124.54.222 3 83 1492204 20170921042937
+176.59.151.56 3 29 230880 20170928185411
+37.20.190.25 10 94 1535724 20170919155311
+176.215.248.79 3 83 1489315 20170916092350
+91.240.102.111 13 116 1906408 20170925061932
+176.59.143.199 5 86 1522703 20170918053623
+37.20.250.172 3 87 1564153 20170928171308
+141.105.54.232 3 83 1492205 20170920214840
+31.132.226.151 28 191 9173106 20170930123545
+178.217.71.16 3 86 1561142 20170927062820
+195.239.198.22 42 262 6848059 20170926085745
+188.226.129.55 1 1 13751 20170919182203
+176.215.224.82 5 131 7108779 20170930135808
+77.37.221.104 4 84 810338 20170929030726
+95.213.218.172 13 226 11015879 20170925035753
+95.189.15.250 3 81 1412011 20170919111951
+178.140.235.159 2 85 1496438 20170927202610
+89.178.91.242 2 23 275440 20170910111639
+176.59.128.106 9 104 6374491 20170919093958
+85.115.243.53 3 87 1564367 20170926054324
+37.140.189.221 1 35 5536126 20170924181346
+176.59.133.201 4 82 1413279 20170918120415
+164.215.91.38 3 81 1412013 20170918173113
+95.189.47.207 3 87 1564145 20170929154229
+31.172.81.30 1 1 12337 20170922022806
+91.242.40.127 2 70 1959557 20170930160634
+195.93.149.77 3 83 1492204 20170920174920
+195.206.52.230 3 86 1560929 20170929044840
+66.102.9.142 46 605 22256807 20170930104038
+107.191.62.53 2 2 204022 20170905112614
+84.244.52.165 3 86 1560924 20170930034330
+128.69.161.97 2 24 355492 20170914070206
+176.215.240.122 7 148 10239464 20170920155344
+195.206.45.150 5 100 3007094 20170920062353
+179.208.75.126 2 2 21161 20170927212452
+82.208.131.180 2 2 5697 20170930035002
+176.215.244.75 10 169 9753824 20170930153950
+38.80.27.72 1 1 20948 20170917084951
+78.109.36.17 22 56 1245074 20170930154656
+195.211.23.213 1 2 148784 20170928182320
+94.180.147.36 2 23 275440 20170912112527
+176.193.146.68 2 91 6885605 20170929225350
+91.79.28.47 1 1 69556 20170929001344
+179.210.194.254 2 2 21161 20170929173352
+5.167.122.96 2 15 204502 20170911150213
+77.243.119.121 3 83 1492206 20170920193824
+185.54.179.8 41 402 20146418 20170926133854
+37.29.40.66 3 74 852121 20170928054901
+176.59.131.160 5 110 4234405 20170927182810
+5.167.93.147 1 63 369650 20170916101315
+176.215.232.116 1 1 14147 20170926140156
+176.215.232.123 4 100 3730946 20170918155813
+195.211.23.211 0 1 85808 
+79.111.49.46 2 53 397254 20170923054311
+95.213.218.218 3 83 1522234 20170921170108
+31.44.247.2 3 83 1492232 20170921071927
+176.59.130.67 4 39 726196 20170920190623
+176.215.244.11 3 79 1366239 20170914063540
+80.83.237.14 12 181 3057264 20170930071909
+186.220.128.253 2 2 21161 20170917000610
+95.220.196.224 2 54 392740 20170927050846
+35.167.202.99 1 1 13759 20170909054820
+179.210.51.171 2 2 21161 20170917000609
+176.215.244.28 2 9 344706 20170917111139
+31.172.81.31 1 1 13910 20170922022811
+80.83.235.46 3 82 1491818 20170920192624
+176.212.19.219 1 1 13958 20170929030014
+86.57.254.57 3 86 1560904 20170928100315
+178.184.4.239 17 175 11416015 20170926151629
+176.117.234.79 3 85 1545965 20170922173815
+84.247.83.59 2 2 21161 20170928113515
+176.59.135.184 28 199 9422317 20170930144454
+85.115.243.37 6 89 1454698 20170919030359
+91.210.163.198 8 87 824524 20170909163050
+80.83.235.51 6 97 2394000 20170927114832
+176.215.228.113 3 85 1545963 20170922155118
+92.124.49.79 5 162 2967840 20170926174707
+37.20.216.252 11 165 10963044 20170918174318
+176.15.228.86 2 54 392525 20170929152411
+95.220.87.38 2 23 275436 20170911135735
+37.29.40.141 5 103 2639379 20170922060314
+176.15.231.136 2 23 275450 20170929091929
+91.185.53.32 9 119 4423636 20170926052301
+179.218.210.107 2 2 21161 20170929034446
+46.19.138.226 1 1 18172 20170906192008
+195.93.148.220 3 87 1564145 20170929101635
+91.246.1.51 7 169 5232923 20170930052856
+178.184.152.172 27 186 7857297 20170928203525
+179.157.14.59 2 2 21161 20170927192720
+178.184.133.192 13 103 1947779 20170918125348
+177.142.138.73 2 2 21161 20170917032332
+80.83.235.59 8 93 1625937 20170929082534
+141.0.13.133 5 63 496950 20170930042650
+94.137.208.106 3 85 1560538 20170930154643
+91.246.2.33 28 370 21125425 20170930174639
+37.147.99.45 2 23 275438 20170914112940
+185.54.179.50 3 76 1035117 20170928161757
+178.20.55.16 1 1 18228 20170907213241
+109.173.60.190 2 30 417820 20170918140458
+185.104.248.67 1 1 13930 20170929185952
+187.107.192.130 2 2 21161 20170929205956
+37.147.236.161 2 28 412550 20170923103626
+188.162.245.83 22 38 456241 20170922050009
+178.217.67.100 5 116 5078626 20170902080546
+109.194.243.43 4 92 1614084 20170928061210
+90.188.249.64 14 146 8166705 20170925094935
+85.234.125.79 6 94 1636645 20170927050503
+188.32.21.170 2 82 1457741 20170922015405
+178.184.49.49 19 153 6227484 20170916112820
+93.189.202.106 6 89 1528909 20170921055243
+178.184.250.126 3 83 1492218 20170920152602
+77.37.141.139 1 1 11882 20170930115017
+5.167.14.65 18 153 11803943 20170922052818
+2.95.119.206 6 95 1645206 20170930173242
+80.83.237.46 0 29 239869 
+37.110.148.171 2 85 1496632 20170926110747
+80.83.237.49 1 1 10598 20170922141250
+43.249.131.219 54 54 571347 20170913230555
+128.69.145.171 2 82 1427758 20170921115440
+46.188.73.169 1 47 343389 20170906092358
+91.185.53.72 3 86 1560928 20170928084304
+91.246.0.109 3 84 1495426 20170920195648
+146.120.251.21 1 1 13760 20170910065218
+77.243.125.19 20 262 12553196 20170926221131
+109.194.18.134 3 83 1492230 20170921072041
+109.194.251.226 1 32 213435 20170927170022
+178.184.249.11 7 101 2526805 20170916044057
+66.249.93.46 0 24 267286 
+91.185.60.77 4 87 1487307 20170919035739
+46.42.162.252 2 51 367394 20170911202717
+106.120.162.97 1 1 13764 20170919075000
+95.29.110.103 1 22 275427 20170918081016
+85.115.243.34 3 72 1454547 20170925161507
+91.185.63.58 7 127 5140776 20170918075652
+95.156.91.84 6 114 3148457 20170926083839
+188.32.235.247 2 23 275360 20170913115246
+204.13.201.139 1 1 68380 20170920074006
+176.117.234.24 3 86 1560927 20170929051021
+80.83.237.26 3 87 1564150 20170928222938
+176.59.131.130 9 106 2490794 20170921150039
+52.166.144.75 1 1 13969 20170922020426
+37.112.114.80 4 87 1579230 20170926175928
+176.59.150.142 1 2 15356 20170929135852
+92.124.23.63 6 102 1862564 20170929165014
+179.159.194.84 2 2 21161 20170928145347
+91.185.44.7 3 83 1492082 20170920060601
+177.183.117.85 2 2 21161 20170927234356
+77.37.182.92 42 220 2297514 20170918124035
+5.166.137.69 1 18 77496 20170914164655
+84.244.53.60 13 175 8715567 20170929154130
+212.98.187.96 1 1 71696 20170926134933
+46.241.7.137 4 77 667983 20170923164145
+93.189.206.163 1 1 22 20170925165315
+176.59.141.143 3 87 1580967 20170929033354
+37.140.189.218 12 177 3105894 20170922180824
+84.201.148.98 1 1 14067 20170925141922
+37.204.40.239 2 82 1473687 20170923093932
+92.126.31.176 3 84 1495425 20170921031424
+195.208.8.102 10 98 1586849 20170918040635
+213.61.149.100 1 1 68459 20170918073742
+5.167.10.92 8 109 3410911 20170921154944
+94.137.201.43 3 86 1561143 20170927021914
+37.29.41.229 11 104 3432859 20170918125840
+195.206.40.142 6 96 1706116 20170927090646
+37.20.173.6 5 102 2442413 20170918182222
+176.215.240.111 6 101 1735346 20170927124335
+176.15.43.101 2 51 367631 20170915122413
+5.101.219.169 1 1 14086 20170924192319
+195.206.61.205 3 84 1525455 20170921191326
+188.162.245.76 3 81 1412013 20170918160003
+176.215.224.124 3 84 1525456 20170922015824
+206.16.134.24 1 1 13765 20170919062429
+85.115.243.62 16 245 10705858 20170930043933
+75.109.164.54 2 2 21161 20170916222146
+46.188.24.123 2 80 1347523 20170918174159
+92.126.38.90 7 134 2973112 20170930143623
+178.62.171.190 4 4 42322 20170928005039
+176.192.212.81 2 23 275441 20170922232917
+91.185.33.17 8 93 1549373 20170921085154
+31.132.225.140 3 86 1560924 20170930142357
+195.211.23.219 0 2 63823 
+95.221.61.68 4 59 400189 20170916130512
+93.171.100.114 3 85 1560540 20170929134006
+201.6.177.226 2 2 21161 20170917021841
+37.29.41.87 9 140 7694734 20170929135815
+85.115.243.45 3 84 1495399 20170921041154
+79.111.92.73 2 88 5830497 20170926203100
+95.28.198.247 2 51 372963 20170920155248
+178.184.131.39 1 1 13969 20170920163303
+201.53.102.78 2 2 21161 20170927192713
+195.211.23.210 0 1 97464 
+5.167.67.143 7 96 1733017 20170926125507
+176.59.145.11 4 97 1698089 20170925155609
+195.206.56.234 4 87 7014513 20170919040128
+128.68.38.237 1 1 13579 20170930073459
+5.167.79.159 3 84 1525456 20170921162621
+189.122.72.209 2 2 21161 20170928223707
+2.92.194.202 2 30 417911 20170912081525
+91.246.2.41 36 338 17997191 20170928063635
+176.117.235.104 1 1 13955 20170927201927
+80.83.235.58 2 2 44 20170924095519
+31.172.81.32 1 1 13996 20170922022852
+95.29.100.141 2 53 368213 20170929174910
+107.167.113.101 10 257 13341374 20170930040758
+176.215.224.117 7 105 876850 20170924174221
+176.193.122.103 4 59 399079 20170913192406
+69.164.206.42 1 1 13819 20170920081916
+176.59.133.50 52 267 8669527 20170930023551
+186.221.157.50 2 2 21161 20170927134256
+93.94.180.79 13 121 3424164 20170921081648
+37.20.196.212 3 3 27905 20170920170829
+85.115.243.49 1 7 43444 20170930154148
+95.108.133.208 3 85 1560538 20170930154838
+45.33.20.249 1 1 13726 20170918084610
+80.83.235.34 1 1 13226 20170916092946
+5.254.245.6 1 1 22 20170922133455
+195.46.122.25 7 108 2571381 20170918051707
+176.215.232.59 2 2 14086 20170925153426
+176.215.240.108 4 86 1446572 20170916043959
+177.141.184.124 2 2 21161 20170929171018
+177.142.19.37 2 2 21161 20170927100123
+37.110.98.79 2 51 372596 20170915170903
+195.206.53.110 3 86 1541366 20170925055534
+176.59.142.242 5 103 3092686 20170921135630
+164.215.92.132 10 109 1906545 20170922020423
+5.189.206.190 1 1 14088 20170925185712
+31.47.175.12 30 184 14307361 20170921161229
+186.88.21.87 2 2 21161 20170928105922
+54.83.92.74 1 1 68374 20170920073332
+189.120.105.124 2 2 21161 20170929045637
+195.211.23.224 0 2 45938 
+5.167.75.94 11 144 7368748 20170930144102
+195.206.53.54 6 96 1584063 20170918072428
+93.171.91.215 2 57 306166 20170930190913
+195.206.41.30 14 250 12356878 20170930125847
+84.237.22.2 14 190 3822355 20170920120738
+5.166.233.78 4 65 544791 20170930110644
+178.184.166.112 5 95 2064947 20170926060607
+176.215.244.6 5 92 2337379 20170921155856
+91.246.2.48 3 86 1561176 20170927114058
+176.215.232.46 24 160 2872118 20170928181605
+95.221.134.12 2 23 275359 20170929091929
+51.52.93.9 2 2 41896 20170917084905
+176.215.244.87 3 78 3084734 20170910061213
+195.46.112.135 7 100 2951186 20170919054216
+146.120.250.109 1 1 13760 20170910065220
+178.217.67.253 3 4 13761 20170910195024
+66.249.93.29 10 66 2795341 20170930044359
+5.16.67.83 2 54 370579 20170927160544
+176.215.232.71 13 132 6715815 20170925125603
+85.115.243.122 27 167 8687946 20170920171002
+185.54.179.46 5 98 1811606 20170920033307
+195.206.61.228 1 1 22 20170929141416
+176.117.234.72 1 1 13867 20170928020441
+37.204.83.253 4 59 399991 20170915182536
+187.67.253.31 2 2 21161 20170929061919
+178.184.165.27 9 147 7773560 20170926182802
+186.221.115.20 2 2 21161 20170928074840
+85.234.125.161 117 692 48281554 20170929084659
+31.44.254.254 3 9 813664 20170929051739
+187.38.165.55 2 2 21161 20170917002806
+5.167.69.242 4 89 2213125 20170919051808
+188.168.21.203 5 87 1569235 20170922103603
+178.184.143.64 3 85 1540981 20170924223647
+37.29.40.195 14 144 5472203 20170918071810
+46.254.240.106 3 83 1480565 20170918041909
+178.184.152.59 4 82 1425767 20170919134521
+31.41.99.73 28 190 11671387 20170925065756
+206.16.134.21 1 1 14068 20170924032433
+109.63.207.101 2 87 5685675 20170930220851
+5.165.254.10 2 53 367717 20170930123231
+188.162.245.184 11 151 5095310 20170929073824
+37.144.42.86 2 23 275356 20170910111630
+179.218.48.187 2 2 21161 20170917053403
+139.59.149.99 1 1 13840 20170920074555
+37.112.232.173 2 53 375208 20170922233017
+185.54.179.27 3 80 1411610 20170919210023
+80.83.237.23 4 70 5108986 20170919141650
+146.120.251.92 1 1 13760 20170910065219
+95.220.101.103 2 23 275438 20170930143153
+91.189.112.7 6 6 411409 20170930212758
+46.252.122.212 5 138 8586742 20170930163743
+195.206.46.218 5 97 2261458 20170920031255
+195.206.34.4 6 101 1786249 20170925143849
+176.59.142.29 1 40 235347 20170918094146
+94.137.213.190 5 85 1540604 20170921163357
+46.242.112.113 2 30 417943 20170929121657
+179.218.160.182 2 2 21161 20170917040654
+128.69.217.63 2 80 1347509 20170919181702
+178.184.201.234 8 91 1547771 20170920102852
+91.76.159.226 1 1 13932 20170929020329
+95.108.141.75 13 33 2499634 20170918063547
+195.211.23.218 0 2 53004 
+95.28.32.251 2 54 392522 20170927125329
+31.47.188.243 16 202 14381100 20170930121055
+84.244.60.231 10 30 1663983 20170921172833
+176.114.188.58 3 81 1412015 20170918170509
+187.37.106.228 2 2 21161 20170927223924
+195.206.61.206 11 134 6644436 20170924223233
+177.142.165.68 2 2 21161 20170929191843
+66.102.9.144 41 611 21388234 20170930155121
+179.218.101.157 2 2 21161 20170929032036
+195.206.61.252 12 136 7116805 20170925173955
+178.184.63.37 1 1 22 20170922181135
+162.243.187.126 1 1 68459 20170918073741
+179.218.245.192 2 2 21161 20170927181327
+80.83.237.34 3 86 1577959 20170926143900
+178.214.63.210 5 88 1444151 20170918174925
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 30
+20170901 20 87 3963055 2
+20170902 9 120 5407489 4
+20170903 3 3 56347 3
+20170904 320 1867 54067557 4
+20170905 3572 4045 22568971 7
+20170906 9307 10159 59994260 7
+20170907 5810 6209 17297324 4
+20170908 3094 3635 34804573 2
+20170909 1863 2080 9898762 9
+20170910 1849 2073 19385207 17
+20170911 3911 4558 30659013 9
+20170912 4235 4705 26158174 7
+20170913 4251 4668 168799090 8
+20170914 6479 7870 47705215 12
+20170915 4444 5987 107776015 15
+20170916 2230 6249 128529665 62
+20170917 92 611 13416612 33
+20170918 6764 15785 325477402 106
+20170919 8837 13444 193235997 63
+20170920 4973 12446 348806748 84
+20170921 3957 11583 341597041 78
+20170922 4984 11561 269207962 89
+20170923 4655 5500 26477366 16
+20170924 2619 4339 59604105 40
+20170925 2928 8954 243118514 72
+20170926 4086 9066 198443871 66
+20170927 5126 10258 219115689 74
+20170928 2562 7100 196887077 71
+20170929 1787 9400 266861189 134
+20170930 596 7699 260737444 96
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 7
+1h+ 44
+5mn-15mn 70
+0s-30s 756
+2mn-5mn 111
+30s-2mn 162
+15mn-30mn 26
+30mn-1h 25
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 298
+/bitrix/components/bitrix/pull.request/ajax.php 44812 2018908 5 21
+/bitrix/tools/public_session.php 21178 42538 1 7
+/bitrix/components/sibhronik/calculator/templates/.default/filter.php 11307 152184545 2 55
+/bitrix/admin/fileman_file_edit.php 3243 21085987 27 4
+/calculator/ 2621 72304078 40 14
+/bitrix/tools/autosave.php 2317 69405 0 0
+/ 1974 43395655 819 242
+/bitrix/admin/1c_exchange.php 1643 40035 4 4
+/bitrix/admin/fileman_admin.php 1198 49016008 17 6
+/bitrix/admin/iblock_element_edit.php 919 41917581 2 0
+/catalog/stalnye_dveri/dveri_modeli_ultra_standartnykh_razmerov_s_obshivkoy_alyuminievym_profilem/ 8 114337 0 0
+/services/ 38 769695 0 2
+/catalog_new/vorota_1/ 18 612496 0 0
+/catalog_new/privody_dlya_razdvizhnykh_dverey/ 1 33549 0 0
+/bitrix/admin/get_search.php 6 4597 0 0
+/catalog_new/vorota/garazhnye-sektsionnye-vorota/ 2 76631 0 0
+/bitrix/admin/aspro.stroy_options.php 34 1407902 3 1
+/projects/vorota/testovyy-proekt-3/ 6 89196 0 0
+/services/proektirovanie-zdaniy/ 2 40546 0 0
+/bitrix/admin/fileman_newfolder.php 18 929701 0 0
+/projects/vorota/garazhnye-sektsionnye-vorota/ 8 223573 0 0
+/bitrix/admin/template_edit.php 2 151655 0 0
+/info/news/ 70 1264480 1 2
+/bitrix/admin/cat_product_edit.php 1 56077 0 0
+/info/more/typograpy/ 6 162616 0 0
+/catalog/dorkhan/vorota_garazhnye_sektsionnye_iz_paneley_doorhan_podemnogo_tipa/garazhnye_sektsionnye_vorota_s_torsionnym_mekhanizmom_rsd02/ 4 129269 0 0
+/bitrix/components/bitrix/catalog.element/ajax.php 6 120 0 0
+/catalog/dorkhan/vorota_otkatnye_ulichnye_v_alyuminievoy_rame_s_zapolneniem_sendvich_panelyami_komplekty/ 1 32145 0 0
+/services/obshchestroitelnye-raboty/ 28 345395 0 3
+/catalog/avtomatika/privody_dlya_sektsionnykh_vorot_bytovoy_sektor/komplekt-privoda-fa-750kit-s-10m-kv-n-2800mm-doorhan/ 1 11591 0 0
+/catalog/promyshlennye_sektsionnye_vorota/ 1 29395 0 0
+/catalog/ograzhdeniya/ 3 75314 0 0
+/bitrix/admin/template_copy.php 30 139851 0 0
+/catalog/dveri/dveri-garazhnye/ 22 577309 0 0
+/catalog/vorota/shlagbaumy/ 7 217589 0 0
+/catalog/avtomatika/avtomatika-dlya-bytovykh-sektsionnykh-vorot/ 8 171237 0 0
+/projects/kalitki/ 15 246241 0 1
+/bitrix/admin/perfmon_hit_list.php 4 188132 0 0
+/bitrix/admin/userfield_edit.php 1 49969 0 0
+/catalog/vorota/garazhnye-sektsionnye-vorota/ 318 7627136 10 12
+/bitrix/admin/cat_vat_admin.php 1 49760 0 0
+/bitrix/components/bitrix/catalog.comments/templates/.default/ajax.php 16 282059 0 0
+/bitrix/admin/cat_group_edit.php 11 524860 0 0
+/catalog/avtomatika/ustroystva_upravleniya/priemnik-vstraivaemyy-dlya-pultov-doorhan/ 1 32898 0 0
+/catalog/dveri/model_komfort_vneshn_otdelka_antik_med_dekor_ottisk_simm_vnutr_otdelka_mdf_4mm_s_pvkh/dver-doorhan-980-2050-komfort-gladk-sim-antik-serebro-kapuchino-melinga-levaya-s-ugl-ramoy-serebro-k/ 1 33312 0 0
+/catalog/avtomatika/komplekt-privoda-sl-2100kit-dlya-vorot-vesom-do-2100-kg-doorhan/ 1 31893 0 0
+/catalog/dorkhan/vorota_raspashnye_doorhan_dhpr000/ 1 27061 0 0
+/catalog/vorota_1/ 1 49177 0 0
+/company/partners/partner-1/ 1 30759 0 0
+/catalog/vorota/rulonnye-vorota/ 22 441987 0 2
+/catalog/stalnye_dveri/model_m_layn_vneshn_vnutr_otdelka_printing_venge_dekor_derevo_nakladnaya_rama_ral_8022_komp/ 1 11122 0 1
+/catalog/shlagmaumy/ 4 46371 0 0
+/bitrix/admin/perfmon_php.php 3 134017 0 0
+/bitrix/templates/aspro-stroy/css/fonts/slick.ttf 4 7568 0 2
+/catalog/stalnye_dveri/model_lamistayl_vneshn_otdelka_antik_med_dekor_ottisk_simm_vnutr_otdelka_laminatsiya_pvkh_plyen/ 3 48568 0 0
+/catalog/besedki/besedka-uyutnyy-vecher/ 2 56077 0 0
+/bitrix/admin/iblock_edit_property.php 25 254222 0 0
+/1c_catalog/dveri_i_kalitki/kalitki/ 1 25397 0 0
+/catalog/kalitki/kalitki-iz-sendvich-paneley/ 11 235018 1 2
+/info/ 3 68978 0 0
+/bitrix/admin/template_admin.php 1 48640 0 0
+/bitrix/components/sibhronik/calculator/templates/.default/filterFirstItem.php 54 131150 0 7
+/perimetr24/kalitka_v_alyuminievoy_rame_s_zapolneniem_sendvich_panelyami/komplekt-dhpk000-kalitka-doorhan-1200-2600/ 1 41423 0 0
+/bitrix/admin/file_dialog.php 63 132401 0 0
+/bitrix/admin/cat_round_list.php 1 48911 0 0
+/1c_catalog/ 7 148691 0 0
+/1c_catalog/vorota_1/otkatnye_vorota/komplekt_4_sdvizhnykh_vorot_5000kh2500_korichnevyy_ral8017/ 1 48105 0 0
+/catalog/bani/ 1 12858 0 0
+/bitrix/admin/fileman_folder.php 3 147706 0 0
+/info/news/effektivnye-resheniya-dlya-chastnykh-i-korporativnykh-klientov-/ 12 165482 0 0
+/projects/ograzhdeniya/zabor-iz-sendvich-paneley/ 17 212876 0 2
+/catalog/dorkhan/avtomatika/ 3 27203 0 2
+/info/stock/razlichnye-usloviya-po-kreditovaniyu/ 1 10044 0 0
+/1c_catalog/vorota_1/ 10 386887 0 0
+/bitrix/admin/1c_admin.php 1 56496 0 0
+/projects/stroitelstvo-domov/dom-200kv-m-v-kottedzhnom-posyelke-schaste-/ 2 18435 0 1
+/catalog_new/ 22 670954 0 0
+/bitrix/components/bitrix/sale.products.gift/ajax.php 16 352 0 0
+/company/ 217 4048650 5 12
+/bitrix/admin/cat_import_setup.php 40 2101392 0 0
+/bitrix/admin/get_start_menu.php 17 9239 0 0
+/catalog/vorota/promyshlennye-sektsionnye-vorota/ 31 820734 0 0
+/1c_catalog/shlagbaumy_1/komplekt_shlagbauma_br_pro4000ledkit_strela_4m_s_podsvetkoy_doorhan/ 1 24868 0 0
+/bitrix/components/bitrix/catalog.section/ajax.php 57 245866 0 0
+/bitrix/admin/currencies.php 1 49542 0 0
+/index.php/admin/ 1 13771 1 1
+/catalog/kalitki/kalitki-iz-proflista/ 13 198933 1 1
+/bitrix/templates/aspro-stroy/vendor/flexslider/fonts/flexslider-icon.woff 29 36772 0 2
+/catalog_new/garazhnye_sektsionnye_vorota/ 2 67558 0 0
+/bitrix/admin/perfmon_panel.php 345 956393 0 0
+/bitrix/tools/upload.php 223 866876 0 0
+/bitrix/admin/cat_export_setup.php 11 553859 0 0
+/catalog/dveri/stalnye-dveri/ 28 564455 0 3
+/bitrix/components/bitrix/iblock.vote/ajax.php 16 800 0 0
+/bitrix/admin/cat_vat_edit.php 1 47429 0 0
+/bitrix/admin/index.php 74 1916792 2 1
+/projects/ograzhdeniya/zabor-iz-polikarbonata/ 16 232754 0 2
+/bitrix/admin/fileman_file_view.php 1 54758 0 0
+/catalog/zabory/zabor-iz-polikarbonata/ 35 730071 2 4
+/info/more/ 13 283550 0 0
+/catalog/doma-iz-otsilindrovanogo-brevna-/dom-tsar-gvidon/ 1 14467 0 0
+/bitrix/admin/checklist.php 61 198634 0 0
+/catalog/avtomatika/ustroystva_upravleniya/pult-transmitter-premium-4-kh-kanalnyy-premium-433mgts-doorhan/ 1 26915 0 0
+/info/news/rasshirena-komplektatsiya-privodov-serii-sectional-pro/ 6 104351 0 0
+/bitrix/admin/iblock_admin.php 86 4204660 0 0
+/bitrix/admin/cat_section_edit.php 101 3906886 0 0
+/catalog/rolstavni/konstruktsiya-rolstaven-016-tip-profilya-profil-rh45n-vysota-konstruktsii-mm-1-000-shirina-konst/ 1 32406 0 0
+/bitrix/admin/get_menu.php 68 63614 0 0
+/bitrix/templates/aspro-stroy/css/fonts/slick.woff 205 282900 0 3
+/bitrix/gadgets/aspro/stroy/ajax.php 76 43852 0 0
+/bitrix/admin/user_options.php 746 18782 0 0
+/bitrix/admin/site_edit.php 3 153486 0 0
+/1c_catalog/vorota_1/garazhnye_sektsionnye_vorota/komplekt_vorot_sektsionnykh_iz_paneley_doorhan_podemnogo_tipa_serii_rsd01biw_2100_2800/ 1 49847 0 0
+/catalog/vorota/avtomatika 1 31242 0 0
+/catalog/dorkhan 1 31186 0 0
+/catalog/vorota 1 9923 1 1
+/catalog/avtomatika/ 160 3955209 1 4
+/info/articles/ 2 38961 0 0
+/catalog/dorkhan1 1 31195 0 0
+/bitrix/admin/iblock_edit.php 89 8393807 3 0
+/bitrix/components/bitrix/map.google.view/settings/settings.php 3 19680 0 0
+/catalog/vorota/testovyy/ 3 50636 0 0
+/bitrix/admin/cat_extra.php 1 48796 0 0
+/catalog/vorota/proekt-doma-iz-penobloka-ar-168/ 2 43761 0 0
+/bitrix/admin/repair_db.php 663 430729 0 0
+/bitrix/fonts/fontawesome-webfont.woff2 1 56780 0 0
+/bitrix/admin/settings.php 25 1317197 1 0
+/info/more/ikonki-resheniya/ 5 81559 0 0
+/contacts/ 93 1740018 6 21
+/company/licenses/ 6 65244 0 0
+/bitrix/admin/fileman_html_edit.php 7 648750 0 0
+/catalog/avtomatika/ustroystva_upravleniya/antenna-433mhz-s-kronshteynom/ 1 32769 0 0
+/catalog/stalnye_dveri/dveri_modeli_ultra_standartnykh_razmerov_s_obshivkoy_alyuminievym_profilem/dver-doorhan-980-2050-ultra/ 2 21138 0 0
+/perimetr24/avtomatika_1/ 3 106621 0 0
+/company/partners/ 11 198629 0 0
+/bitrix/admin/iblock_type_admin.php 7 347140 0 0
+/info/more/buttons/ 8 187330 0 0
+/bitrix/templates/aspro-stroy/css/fonts/font-awesome/fonts/fontawesome-webfont.eot 87 5923250 2 51
+/catalog/dorkhan/aksessuary_doorhan/ 1 33400 0 0
+/catalog/vorota/otkatnye-vorota/ 124 2613525 4 18
+/services/montazh/ 55 1201414 2 2
+/1c_catalog/shlagbaumy_1/ 1 25863 0 0
+/bitrix/admin/fileman_file_upload.php 24 1204226 0 0
+/bitrix/admin/component_props.php 458 5678122 0 1
+/company/requisites/ 1 9976 0 0
+/bitrix/admin/highloadblock_export.php 1 48073 0 0
+/1c_catalog/dveri_i_kalitki/kalitki/komplekt_dhpk000_kalitka_doorhan_1500_2800/ 1 24286 0 0
+/services/proizvodstvo/ 7 70792 0 0
+/info/stock/ 46 641090 0 1
+/bitrix/admin/site_speed.php 9 342371 0 0
+/bitrix/admin/clear_component_cache.php 38 760 0 0
+/catalog/ 358 9056498 1 2
+/bitrix/ 35 2905 4 0
+/bitrix/admin/iblock_type_edit.php 2 99070 0 0
+/catalog/dveri/ 167 3162025 2 15
+/projects/design/testovyy-proekt-3/ 3 55995 0 0
+/catalog/rollety/ 1 29054 0 0
+/catalog/zabory/zabor-iz-proflista/ 92 1281738 5 14
+/catalog_new/vorota/promyshlennye_sektsionnye_vorota/ 2 59603 0 0
+/catalog/dveri/model_komfort_vneshn_otdelka_antik_med_dekor_ottisk_simm_vnutr_otdelka_mdf_4mm_s_pvkh/ 4 125398 0 0
+/info/news/obshchaya-novost/ 5 73878 0 0
+/projects/vorota/raspashnye-vorota/ 32 384379 0 10
+/1c_catalog/vorota_1/garazhnye_sektsionnye_vorota/ 1 49249 0 0
+/bitrix/admin/public_undo.php 3 0 0 0
+/bitrix/admin/cache.php 14 547136 0 0
+/catalog/avtomatika_1/ 1 49557 0 0
+/catalog/shlagbaumy/ 99 2521694 0 4
+/bitrix/admin/perfmon_hit_grouped.php 3 141385 0 0
+/bitrix/admin/iblock_templates.ajax.php 558 399496 0 0
+/bitrix/templates/aspro-stroy/vendor/flexslider/fonts/flexslider-icon.eot 36 72870 0 0
+/catalog/news.php 2 39955 1 0
+/bitrix/admin/sale_tax_rate.php 1 49960 0 0
+/catalog/shlagbaumy/opora-strely-sharnirnaya/ 1 11488 0 0
+/bitrix/tools/conversion/ajax_counter.php 851 18240 26 291
+/catalog/doma-iz-otsilindrovanogo-brevna-/ 2 23980 1 0
+/catalog/aksessuary/pulty/ 2 64080 0 0
+/catalog/zabory/proekt-karkasnogo-doma-kr-166/ 5 125367 0 1
+/form/ 13 131881 0 1
+/catalog/stalnye_dveri/model_komfort_vneshn_otdelka_antik_med_dekor_ottisk_simm_vnutr_otdelka_mdf_4mm_s_pvkh/ 3 64788 0 0
+/bitrix/fonts/fontawesome-webfont.woff 1 71508 0 0
+/catalog/kalitki/kalitki-iz-setki/ 7 138504 0 0
+/bitrix/admin/update_system_partner.php 1 51821 0 0
+/bitrix/admin/iblock_element_search.php 7 81638 0 0
+/bitrix/admin/sale_graph_legend.php 38 2945 0 0
+/bitrix/tools/catalog/subscription_card_product.php 4 288 0 0
+/bitrix/templates/aspro-stroy/css/fonts/slick.eot 12 22528 0 2
+/filter_search/ 7 64578 0 0
+/bitrix/components/sibhronik/calculator/templates/.default/filterHeight.php 605 677554 1 4
+/ajax/form.php 98 841216 0 10
+/catalog/stalnye_dveri/model_optim_vneshn_otdelka_met_tsvet_antik_med_dekor_simm_vnutr_otdelka_panel_mdf_6mm_b/ 2 59232 0 0
+/bitrix/admin/fileman_menu_edit.php 19 973770 0 0
+/bitrix/admin/public_file_edit_src.php 110 734129 0 0
+/catalog/avtomatika/komplekt-privoda-sl-1300kit-dlya-vorot-do-1300-kg-doorhan/ 4 115940 0 0
+/bitrix/admin/phpinfo.php 1 106558 0 0
+/catalog_new/vorota_1/otkatnye_vorota/ 8 269712 0 0
+/bitrix/fonts/opensans-bold.woff 3 209892 0 0
+/catalog/garazhnye_sektsionnye_vorota/komplekt_vorot_sektsionnykh_iz_paneley_doorhan_podemnogo_tipa_serii_rsd01biw_2100_2200/ 2 79289 0 0
+/projects/vorota/sektsionnye-vorota/ 39 669691 0 5
+/catalog/doma-iz-penoblokov/proekt-doma-iz-penobloka-ar-168/ 3 43280 1 1
+/catalog/avtomatika/ustroystva_upravleniya/ 20 741595 0 0
+/bitrix/admin/sale_tax.php 2 95051 0 0
+/catalog_new/vorota/ 2 77913 0 0
+/bitrix/admin/urlrewrite_list.php 6 159932 0 0
+/catalog/dveri/fakhverk-brus-0250/ 2 57911 0 0
+/catalog/doma-iz-kleenogo-brusa/ 1 13540 0 0
+/bitrix/admin/highloadblock_row_edit.php 4 197731 0 0
+/services/izgotovlenie/ 63 1152394 0 3
+/1c_catalog/dveri_i_kalitki/stalnye_dveri_1/ 1 26059 0 0
+/catalog_new/avtomatika_1/ 1 34106 0 0
+/catalog/kalitki/ 62 1272747 0 3
+/bitrix/admin/enable_component.php 4 80 0 0
+/info/faq/ 5 146772 0 0
+/company/vacancy/ 2 22905 0 0
+/catalog/avtomatika/avtomatika-dlya-promyshlennykh-sektsionnykh-vorot/ 1 11041 0 0
+/catalog/karkasnye-doma/ 1 13316 0 1
+/catalog/zabory/zabor-iz-sendvich-paneley/ 42 868799 2 7
+/1c_catalog/dveri_i_kalitki/ 4 101964 0 0
+/catalog/doma-iz-penoblokov/ 4 46673 1 0
+/catalog/avtomatika/privody_dlya_sektsionnykh_vorot_bytovoy_sektor/ 3 36270 0 0
+/company/reviews/ 1 10584 0 0
+/1c_catalog/vorota_1/otkatnye_vorota/ 9 330043 0 0
+/catalog/stalnye_dveri/model_lamistayl_vneshn_otdelka_antik_med_dekor_ottisk_simm_vnutr_otdelka_laminatsiya_pvkh_plyen/dver-doorhan-880-2050-lamistayl-s-gl-simm-gl-antik-med-pvkh-venge-levaya-s-ugl-ramoy-ser-kl-vert/ 1 27050 0 0
+/bitrix/fonts/opensans-bold.eot 4 176403 0 0
+/catalog/bani/banya-brus-01-pr/ 1 13321 0 0
+/1c_catalog/avtomatika_1/ 1 26615 0 0
+/projects/vorota/otkatnye-vorota/ 16 204781 2 6
+/catalog/avtomatika/avtomatika-dlya-raspashnykh-vorot/ 5 77769 0 1
+/info/more/icons/ 3 86243 0 0
+/bitrix/admin/ 708 6372629 107 108
+/bitrix/admin/graph_legend.php 76 5814 0 0
+/bitrix/admin/iblock_property_admin.php 2 103288 0 0
+/catalog/dorkhan/ 26 687951 0 0
+/info/news/ustanovka-vorot-stala-vygodney-/ 13 171544 0 0
+/bitrix/components/sibhronik/calculator/templates/.default/result_modifier.php 1 0 0 0
+/catalog/avtomatika/avtomatika-dlya-otkatnykh-vorot/ 5 77965 0 1
+/perimetr24/ 3 87692 0 0
+/catalog/dorkhan/shlagbaumy/ 3 82558 0 0
+/catalog/besedki/ 2 53066 0 0
+/catalog/rolstavni/ 89 2221528 0 0
+/catalog_new/promyshlennye_sektsionnye_vorota/ 2 67062 0 0
+/catalog/vorota/raspashnye-vorota/ 62 1127634 6 7
+/catalog/dorkhan/vorota_garazhnye_sektsionnye_iz_paneley_doorhan_podemnogo_tipa/ 10 255087 0 0
+/bitrix/admin/highloadblock_rows_list.php 5 261691 0 0
+/catalog/stalnye_dveri/model_komfort_vneshn_otdelka_antik_med_dekor_ottisk_simm_vnutr_otdelka_mdf_4mm_s_pvkh/dver-doorhan-980-2050-komfort-gladk-sim-antik-serebro-kapuchino-melinga-levaya-s-ugl-ramoy-serebro-k/ 2 61217 0 0
+/catalog/zabory/ 385 6463619 13 35
+/company/staff/ 4 57016 0 0
+/bitrix/admin/sale_stat_graph.php 152 348090 0 0
+/catalog/aksessuary/ 5 113425 0 0
+/search/ 25 361473 3 5
+/bitrix/admin/perfmon_cluster_graph.php 32 30816 0 0
+/catalog/zabory/zabor-iz-setki/ 44 747065 8 9
+/catalog/dorkhan/vorota_garazhnye_sektsionnye_iz_paneley_doorhan_podemnogo_tipa/garazhnye_sektsionnye_vorota_s_torsionnym_mekhanizmom_rsd02/komplekt-vorot-sektsionnykh-iz-paneley-doorhan-podemnogo-tipa-6000-3100/ 1 32559 0 0
+/catalog/shlagbaumy/shlagbaumy1/ 7 245669 0 1
+/price/ 104 1733065 1 14
+/bitrix/admin/public_menu_edit.php 85 508221 0 0
+/catalog/vorota/filter/clear/apply/ 1 45073 0 0
+/company/index.php 1 11217 0 0
+/bitrix/templates/aspro-stroy/css/fonts/font-awesome/fonts/fontawesome-webfont.woff2 660 42546240 15 42
+/catalog/stalnye_dveri/ 52 1044321 0 3
+/info/processing/ 2 21375 0 0
+/projects/kalitki/kalitki/ 14 303002 0 0
+/bitrix/admin/checklist_detail.php 4 26245 0 0
+/bitrix/admin/site_admin.php 2 92545 0 0
+/bitrix/templates/aspro-stroy/css/fonts/font-awesome/fonts/fontawesome-webfont.woff 42 3413928 0 6
+/bitrix/admin/iblock_section_edit.php 34 3450534 0 0
+/bitrix/admin/cat_group_admin.php 18 791664 2 0
+/catalog/vorota/portivopozharnye-vorota/ 9 287422 0 0
+/catalog/garazhnye_sektsionnye_vorota/komplekt_vorot_sektsionnykh_iz_paneley_doorhan_podemnogo_tipa_2000_1800/ 1 30311 0 0
+/bitrix/gadgets/bitrix/admin_stat/getdata.php 3 13453 0 0
+/projects/ograzhdeniya/dom-200kv-m-v-kottedzhnom-posyelke-schaste-/ 5 113895 0 0
+/bitrix/admin/iblock_list_admin.php 787 36859290 7 0
+/catalog/vorota/ 802 17778182 18 38
+/projects/ograzhdeniya/zabor-iz-proflista/ 34 473950 0 9
+/catalog_new/otkatnye_vorota/ 15 503351 0 0
+/bitrix/components/bitrix/sale.products.gift.section/ajax.php 123 2706 0 0
+/bitrix/admin/highloadblock_directory_ajax.php 2 8416 0 0
+/projects/ 85 1426818 2 6
+/bitrix/admin/fileman_component_params.php 194 1136592 0 0
+/bitrix/admin/aspro.stroy_mc.php 10 194818 0 0
+/services/remont/ 34 540347 0 1
+/bitrix/admin/public_file_edit.php 49 1278897 0 0
+/catalog/vorota/skorostnye-i-pvkh-vorota/ 9 264204 0 0
+/info/more/elements/ 9 225599 0 0
+/catalog/rolstavni/rolstavni/ 10 265250 0 1
+/bitrix/admin/highloadblock_index.php 2 92858 0 0
+/catalog/shlagbaumy/komplekt-bazovyy-shlagbauma-barrier-n-4000-strela-4m-doorhan/ 3 68042 0 0
+/services/otdelochnye-raboty/ 1 26002 0 0
+/bitrix/gadgets/bitrix/rssreader/getdata.php 75 164793 0 0
+/catalog/shlagbaumy_1/komplekt_bazovyy_shlagbauma_barrier_pro4000r_kruglaya_strela_4m_doorhan/ 2 78073 0 0
+/catalog/doma-iz-kleenogo-brusa/fakhverk-brus-0250/ 1 12529 0 0
+/bitrix/admin/traffic_graph.php 75 1576215 0 0
+/projects/vorota/ 69 1253206 1 3
+/catalog/dveri-i-kalitki/dom-tsar-gvidon/ 1 14642 0 0
+/catalog/rolstavni/vyklyuchatel-klavishnyy-swb-dlya-nakladnogo-montazha-rollhan-swb/ 2 19934 0 0
+/projects/ograzhdeniya/sovremeenyy-dom-ploshchadyu-249kv-m/ 1 12205 0 0
+/index.php 1 18784 1 0
+/projects/ograzhdeniya/ 40 735057 0 3
+/bitrix/admin/%3C 1 45649 0 0
+END_SIDER

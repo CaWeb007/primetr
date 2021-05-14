@@ -1,0 +1,57 @@
+Options -Indexes 
+ErrorDocument 404 /404.php
+
+RewriteCond %{HTTP_USER_AGENT} SemrushBot
+RewriteRule (.*) - [F,L]
+RewriteCond %{HTTP_USER_AGENT} AhrefsBot
+RewriteRule (.*) - [F,L]
+RewriteCond %{HTTP_USER_AGENT} MJ12bot
+RewriteRule (.*) - [F,L]
+RewriteCond %{HTTP_USER_AGENT} Riddler
+RewriteRule (.*) - [F,L]
+RewriteCond %{HTTP_USER_AGENT} aiHitBot
+RewriteRule (.*) - [F,L]
+RewriteCond %{HTTP_USER_AGENT} trovitBot
+RewriteRule (.*) - [F,L]
+RewriteCond %{HTTP_USER_AGENT} Detectify
+RewriteRule (.*) - [F,L]
+RewriteCond %{HTTP_USER_AGENT} BLEXBot
+RewriteRule (.*) - [F,L]
+RewriteCond %{HTTP_USER_AGENT} LinkpadBot
+RewriteRule (.*) - [F,L]
+RewriteCond %{HTTP_USER_AGENT} dotbot
+RewriteRule (.*) - [F,L]
+RewriteCond %{HTTP_USER_AGENT} FlipboardProxy
+RewriteRule (.*) - [F,L]
+RewriteCond %{HTTP_HOST} ^www\.(.*)$
+RewriteRule ^(.*)$ https://%1/$1 [L,R=301]
+
+<IfModule mod_php5.c>
+  php_flag session.use_trans_sid off
+  #php_value display_errors 1
+  #php_value mbstring.internal_encoding UTF-8
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  Options +FollowSymLinks
+  RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !/bitrix/urlrewrite.php$
+  RewriteRule ^(.*)$ /bitrix/urlrewrite.php [L]
+  RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization}]
+</IfModule>
+
+<IfModule mod_dir.c>
+  DirectoryIndex index.php index.html
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive on
+  ExpiresByType image/jpeg "access plus 3 day"
+  ExpiresByType image/gif "access plus 3 day"
+  ExpiresByType image/png "access plus 3 day"
+  ExpiresByType text/css "access plus 3 day"
+  ExpiresByType application/javascript "access plus 3 day"  
+</IfModule>

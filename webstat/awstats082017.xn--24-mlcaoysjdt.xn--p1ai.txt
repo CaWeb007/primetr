@@ -1,0 +1,461 @@
+AWSTATS DATA FILE 7.0 (build 1.971)
+# If you remove this file, all statistics for date 201708 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.xn--24-mlcaoysjdt.xn--p1ai.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 2006                
+POS_TIME 2679                
+POS_VISITOR 7575                
+POS_DAY 9501                
+POS_DOMAIN 3384                
+POS_LOGIN 3617                
+POS_ROBOT 3772                
+POS_WORMS 4148                
+POS_EMAILSENDER 4279                
+POS_EMAILRECEIVER 4422                
+POS_SESSION 10049               
+POS_SIDER 10255               
+POS_FILETYPES 4557                
+POS_DOWNLOADS 4818                
+POS_OS 4884                
+POS_BROWSER 5028                
+POS_SCREENSIZE 5555                
+POS_UNKNOWNREFERER 5629                
+POS_UNKNOWNREFERERBROWSER 5940                
+POS_ORIGIN 6091                
+POS_SEREFERRALS 6230                
+POS_PAGEREFS 6385                
+POS_SEARCHWORDS 6715                
+POS_KEYWORDS 6867                
+POS_MISC 2342                
+POS_ERRORS 6926                
+POS_CLUSTER 3473                
+POS_SIDER_404 7063                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20170901035235 1 0 13342411372931
+FirstTime 20170809130047
+LastTime 20170831172358
+LastUpdate 20170901040144 1 0 0 0 0
+TotalVisits 73                  
+TotalUnique 47                  
+MonthHostsKnown 0                   
+MonthHostsUnknown 47                  
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 36 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 22 22 243856 45 46 25549
+1 8 8 137235 2 2 3340
+2 7 7 33874 1 2 5736
+3 5 5 22740 1 1 7
+4 33 147 8565407 3 6 33940
+5 172 320 11251095 1 5 25539
+6 347 578 7202641 13 21 323132
+7 418 616 8347550 4 12 47604
+8 420 436 953887 0 5 35908
+9 591 805 4887085 4 12 63212
+10 455 617 2956416 9 15 146920
+11 315 315 174758 2 3 6511
+12 280 280 46180 0 2 0
+13 2 2 11134 0 2 30172
+14 85 255 8584413 1 5 60344
+15 0 0 0 0 0 0
+16 83 283 7234599 7 10 148245
+17 5 5 27978 2 2 108932
+18 11 11 61237 1 4 93115
+19 0 0 0 1 1 2868
+20 1 3 50898 0 1 2868
+21 1 1 18674 0 0 0
+22 0 0 0 1 1 5567
+23 0 0 0 0 0 0
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+ip 3261 4716 60811657
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 7
+no_user_agent 15 251762 20170831074554 0
+unknown 7 0 20170824120613 7
+bot[\s_+:,\.\;\/\\-] 5 41050 20170830104217 0
+phantom 4 93115 20170810183309 0
+surveybot 1 18673 20170829105215 0
+yandex 1 472 20170827114612 0
+crawl 1 5567 20170819225341 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 10
+css 256 2564328 0 0
+png 388 12621369 0 0
+woff2 11 709104 0 0
+woff 5 209512 0 0
+php 3001 10154816 0 0
+html 244 4035850 0 0
+jpg 292 25241391 0 0
+js 377 5008017 0 0
+svg 3 5158 0 0
+gif 139 262112 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 1
+/robots.txt 7 0 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS 10
+macosx 4
+linuxandroid 5
+winxp 15
+winlong 2
+win2003 1
+winnt 3829
+Unknown 34
+winvista 15
+linux 9
+win7 802
+END_OS
+
+# Browser ID - Hits
+BEGIN_BROWSER 26
+chrome52.0.2743.116 73
+chrome34.0.1847.137 1
+chrome37.0.2049.0 10
+firefox26.0 1
+chrome31.0.1650.57 1
+firefox34.0 1
+msie11 4
+chrome23.0.1271.95 1
+chrome58.0.3029.110 2
+chrome60.0.3112.78 700
+chrome45.0.2454.94 1
+chrome18.0.1025.133 4
+mozilla 3
+firefox39.0 1
+netscape5.0 4
+chrome57.0.2987.133 1
+chrome37.0.2062.120 8
+chrome60.0.3112.101 3475
+firefox16.0 10
+chrome44.0.2403.89 3
+chrome60.0.3112.90 375
+firefox36.0 1
+chrome30.0.1599.101 2
+Unknown 29
+firefox15.0.1 1
+firefox35.0 4
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 5
+Mozilla/5.0_(compatible;_Redirector/1.1) 20170814095214
+Mozilla/5.0_(compatible;_Dataprovider.com;) 20170818022333
+Go-http-client/1.1 20170831003823
+Go_1.1_package_http 20170829213742
+Mozilla/5.0_Firefox/35.0 20170813034620
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 2
+Go-http-client/1.1 20170831003823
+Go_1.1_package_http 20170829213742
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 99 115
+From1 0 0
+From2 1 1
+From3 9 9
+From4 3152 4591
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 1
+google 1 1
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 4
+http://burger-imperia.com 4 4
+http://pizza-tycoon.com 3 3
+http://pizza-imperia.com 1 1
+http://\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb8\xd0\xbc\xd0\xb5\xd1\x82\xd1\x8024.\xd1\x80\xd1\x84 1 1
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 5
+302 21 279344
+503 43 7740
+500 1 2920
+301 3 1023
+404 20 127523
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 6
+/sitemap.xml 1 -
+/old/wp-admin/setup-config.php 1 -
+/blog/ 1 http://xn--24-mlcaoysjdt.xn--p1ai/blog/
+/robots.txt 14 -
+/wordpress/wp-admin/setup-config.php 2 -
+/mm5/admin.mvc 1 xn--24-mlcaoysjdt.xn--p1ai
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 47
+195.46.109.165 3006 4044 43471590 20170831103823
+94.24.236.2 81 294 9027372 20170824142628
+178.217.70.64 80 280 7217898 20170824164417
+37.59.24.139 20 20 237817 20170831003823
+82.146.49.235 10 10 143274 20170831011010
+95.211.225.158 8 8 34346 20170829051040
+163.172.4.153 3 3 16701 20170822125311
+167.114.172.225 3 3 16701 20170818022334
+82.202.212.120 2 2 37564 20170830113638
+62.109.27.164 2 2 11134 20170816175411
+54.191.182.197 1 1 18785 20170831140956
+82.146.63.123 1 1 18674 20170829213742
+146.120.250.91 1 1 5567 20170810183306
+82.146.58.161 1 1 5567 20170820041948
+94.23.171.176 1 1 5567 20170815102133
+37.46.133.249 1 1 5567 20170818165543
+146.120.250.203 1 1 5567 20170810183305
+146.120.250.11 1 1 5567 20170810183306
+172.104.130.244 1 1 5567 20170814095214
+185.163.1.11 1 1 5567 20170821105344
+91.210.147.13 1 1 472 20170826012918
+199.19.104.163 1 1 18783 20170831074553
+163.172.67.180 2 2 11134 20170813013725
+78.155.199.89 2 2 37565 20170830112331
+124.206.180.130 2 2 11134 20170813034620
+35.162.113.224 1 1 5567 20170820040621
+62.109.24.115 1 1 5567 20170810164753
+146.120.251.172 1 1 5567 20170810183304
+94.242.246.23 1 1 5567 20170812142538
+158.69.228.56 1 3 50898 20170813200520
+52.39.93.44 1 1 5567 20170812043510
+37.46.128.186 2 2 11134 20170822015140
+77.244.215.8 1 1 18782 20170830112355
+146.120.250.129 1 1 5567 20170810183304
+198.27.85.233 1 1 472 20170828144236
+37.220.35.202 2 2 11134 20170814035216
+82.202.212.187 2 2 37564 20170830113753
+146.120.251.138 1 1 5567 20170810183306
+138.201.255.45 2 2 6039 20170825065555
+23.101.61.176 2 4 208386 20170829075033
+51.15.45.131 2 2 11134 20170812182844
+52.32.133.32 1 1 472 20170827031723
+80.93.182.229 1 1 18782 20170830112338
+146.120.250.161 1 1 5567 20170810183307
+77.244.215.182 1 1 10805 20170831172358
+82.146.58.176 1 1 472 20170827172700
+146.120.251.21 1 1 5567 20170810183304
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 22
+20170809 3 3 16701 2
+20170810 13 13 72371 12
+20170811 2 2 11134 1
+20170812 6 6 33402 5
+20170813 4 6 67599 3
+20170814 4 4 22268 3
+20170815 2 2 11134 2
+20170816 3 3 16701 3
+20170817 1 1 5567 1
+20170818 4 4 22268 2
+20170819 1 1 5567 1
+20170820 2 2 11134 2
+20170821 1 1 5567 1
+20170822 3 3 16701 3
+20170824 1011 1729 23190551 5
+20170825 1792 2054 19831890 2
+20170826 2 2 944 2
+20170827 2 2 944 2
+20170828 4 4 6531 2
+20170829 36 171 7333200 6
+20170830 289 586 8384332 6
+20170831 76 117 1745151 7
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 7
+1h+ 3
+5mn-15mn 3
+30s-2mn 1
+2mn-5mn 2
+15mn-30mn 1
+0s-30s 62
+30mn-1h 1
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 90
+/bitrix/components/bitrix/pull.request/ajax.php 1457 65565 0 4
+/bitrix/tools/public_session.php 939 1878 0 1
+/index.php 175 166025 0 0
+/ 128 2229641 69 60
+/bitrix/admin/update_system_call.php 53 1613 0 0
+/bitrix/admin/user_options.php 41 902 0 0
+/bitrix/admin/update_system_partner_call.php 34 1062 0 0
+/filter_search/ 31 299805 0 1
+/bitrix/admin/wizard_install.php 31 3391046 0 0
+/bitrix/tools/autosave.php 22 658 0 0
+/bitrix/ 3 249 0 0
+/catalog/ 4 70426 0 0
+/company/ 2 22032 0 1
+/catalog/besedki/ 1 12178 0 0
+/bitrix/fonts/opensans-semibold.woff 1 69684 0 0
+/bitrix/admin/get_start_menu.php 1 524 0 0
+/bitrix/admin/partner_modules.php 11 446410 0 0
+/services/ 1 9908 0 0
+/bitrix/admin/user_edit.php 15 424822 1 0
+/bitrix/admin/wizard_list.php 2 83107 0 0
+/bitrix/admin/get_search.php 3 1274 0 0
+/bitrix/admin/fileman_file_edit.php 3 132065 0 0
+/bitrix/templates/aspro-stroy/vendor/flexslider/fonts/flexslider-icon.woff 2 2536 0 0
+/bitrix/fonts/opensans-regular.woff 1 67328 0 0
+/bitrix/admin/aspro.stroy_options.php 19 934616 0 0
+/catalog/doma-iz-otsilindrovanogo-brevna-/ 1 29624 0 0
+/bitrix/tools/conversion/ajax_counter.php 11 242 0 2
+/company/staff/ 1 10822 0 0
+/services/proektirovanie-zdaniy/ 1 12714 0 0
+/bitrix/admin/sale_stat_graph.php 16 37034 0 0
+/bitrix/admin/public_seo_tools.php 1 11338 0 0
+/bitrix/admin/update_system_partner.php 8 386967 0 0
+/bitrix/admin/index.php 4 64095 0 0
+/bitrix/admin/sale_graph_legend.php 10 775 0 0
+/bitrix/admin/template_edit.php 1 43374 0 0
+/info/more/ 1 9572 0 0
+/ajax/form.php 7 55171 0 0
+/bitrix/admin/fileman_admin.php 16 457820 0 0
+/info/more/typograpy/ 1 11050 0 0
+/bitrix/admin/task_admin.php 1 45919 0 0
+/price/ 4 57751 0 0
+/bitrix/tools/oauth/socserv.ajax.php 8 256 0 0
+/bitrix/admin/public_menu_edit.php 4 20684 0 0
+/bitrix/admin/get_menu.php 5 4181 0 0
+/bitrix/admin/public_file_edit_src.php 2 12638 0 0
+/services/obshchestroitelnye-raboty/ 1 12449 0 1
+/bitrix/tools/seo_page_parser.php 1 52 0 0
+/company/index.php 1 11040 0 0
+/bitrix/templates/aspro-stroy/css/fonts/font-awesome/fonts/fontawesome-webfont.woff2 11 709104 0 0
+/bitrix/fonts/opensans-bold.woff 1 69964 0 0
+/bitrix/gadgets/aspro/stroy/ajax.php 6 3462 0 0
+/bitrix/httest/test_404.php 1 7 0 0
+/bitrix/admin/site_admin.php 5 220047 0 0
+/catalog/doma-iz-penoblokov/proekt-doma-iz-penobloka-ar-168/ 8 161288 1 0
+/bitrix/admin/site_edit.php 14 656051 0 0
+/bitrix/admin/user_admin.php 4 192864 0 0
+/catalog/doma-iz-kleenogo-brusa/ 2 41261 0 0
+/projects/ 1 10099 0 0
+/bitrix/admin/template_load.php 1 41566 0 0
+/bitrix/admin/aspro.stroy_mc.php 4 84895 0 0
+/bitrix/admin/group_admin.php 2 90438 0 0
+/bitrix/admin/public_file_edit.php 6 123185 0 0
+/bitrix/admin/update_system.php 7 352232 0 0
+/bitrix/admin/settings.php 10 600113 0 0
+/bitrix/admin/module_admin.php 1 45302 0 0
+/info/more/ikonki-resheniya/ 2 19044 0 0
+/company/vacancy/ 1 11271 0 0
+/bitrix/admin/update_system_partner_act.php 1 21 0 0
+/license.php 1 17393 0 0
+/info/more/elements/ 1 12670 0 0
+/contacts/ 1 10805 1 1
+/catalog/karkasnye-doma/ 5 108974 0 1
+/company/licenses/ 1 11151 0 0
+/services/otdelochnye-raboty/ 1 11115 0 0
+/bitrix/gadgets/bitrix/rssreader/getdata.php 8 39871 0 0
+/catalog/doma-iz-penoblokov/ 16 272713 1 0
+/company/reviews/ 1 10383 0 0
+/catalog/besedki/besedka-uyutnyy-vecher/ 1 13085 0 0
+/catalog/karkasnye-doma/proekt-karkasnogo-doma-kr-166/ 1 28322 0 0
+/bitrix/admin/update_system_act.php 1 21 0 0
+/company/partners/ 2 35995 0 0
+/info/more/buttons/ 2 19191 0 0
+/bitrix/admin/admin_notify.php 2 44 0 0
+/bitrixsetup.php 9 638299 0 0
+/bitrix/admin/template_admin.php 4 170762 0 0
+/bitrix/admin/traffic_graph.php 4 74478 0 0
+/catalog/bani/ 1 12862 0 0
+/bitrix/admin/graph_legend.php 8 612 0 0
+/bitrix/admin/ 15 434994 0 1
+/projects/stroitelstvo-domov/dom-200kv-m-v-kottedzhnom-posyelke-schaste-/ 2 22406 0 0
+END_SIDER
