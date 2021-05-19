@@ -6,9 +6,9 @@ $this->setFrameMode(true);
 <?if($arResult['SECTIONS']):?>
 	<?
 	$qntyItems = count($arResult['SECTIONS']);
-	$colmd = 4;
-	$colsm = 6;
-	$colxs = 6;
+    $colmd = 3;
+    $colsm = 4;
+    $colxs = 6;
 	?>
 
 	<div class="item-views catalog sections front" style="display:none;">
