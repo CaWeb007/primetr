@@ -1187,7 +1187,7 @@ div[id^=smartFilterDropDown] .popup-window-top-row, div[id^=smartFilterDropDown]
 .catalog.sections .item .info{line-height:18px;padding-left:115px;}
 .catalog.sections.front .item .info{padding:0px;position: absolute;bottom: 0px;z-index: 4;margin: 0px 23px 17px;}
 .catalog.sections.front .item .info .text{opacity:0;visibility:hidden;height:0px;color: #fff;font-size: 13px;max-height: 54px;overflow: hidden;/*display:none;*/}
-.title .wrap_outer{position: relative;left: -3px;padding: 3px 0 5px;font-size: 20px;line-height: 20px;background: #d4d4d4;color: #FFF;display: inline;font-weight: 600;}
+.title .wrap_outer{position: relative;left: -3px;padding: 3px 0 5px;font-size: 15px;line-height: 20px;background: #d4d4d4;color: #FFF;display: inline;font-weight: 600;}
 .title .wrap_outer .outer_text {position: relative;left: 15px;background: #d4d4d4;padding: 3px 0 5px;}
 .title .wrap_outer .inner_text {position: relative;left: -7px;color: #FFF;font-style: normal;background: #d4d4d4;z-index: 1;}
 .catalog.sections .item .title{font-size:15px;font-weight:bold;margin-bottom:9px;}
