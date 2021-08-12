@@ -224,8 +224,85 @@
 					})
 				</script>
 			<?endif;?>
-			<?/*element detail planirovki end*/?>		
-			
+			<?/*element detail planirovki end*/?>
+
+
+            <?// projects links?>
+            <?if(!empty($arResult['DISPLAY_PROPERTIES']['LINK_PROJECTS']['VALUE'])):?>
+            <?$arProjects = CCache::CIBlockElement_GetList(array('CACHE' => array('TAG' => CCache::GetIBlockCacheTag(CCache::$arIBlocks[SITE_ID]['aspro_stroy_content']['aspro_stroy_projects'][0]), 'MULTI' => 'Y')), array('ID' => $arResult['DISPLAY_PROPERTIES']['LINK_PROJECTS']['VALUE'], 'ACTIVE' => 'Y', 'GLOBAL_ACTIVE' => 'Y', 'ACTIVE_DATE' => 'Y'), false, false, array('ID', 'NAME', 'IBLOCK_ID', 'DETAIL_PAGE_URL', 'PREVIEW_PICTURE', 'DETAIL_PICTURE'));?>
+
+
+                <div class="row">
+                    <div class="maxwidth-theme">
+                        <div class="col-md-12">
+                            <div class="catalog item-views table front detail">
+                                <div class="top_wrapper_block">
+                                    <h3 class="title_block"><?=(strlen($arParams['T_PROJECTS']) ? $arParams['T_PROJECTS'] : GetMessage('T_PROJECTS'))?></h3>
+                                    <?
+                                    $countmd = 4;
+                                    $countsm = 3;
+                                    $countxs = 2;
+                                    $countxsm = 1;
+                                    $colmd = 3;
+                                    $colsm = 4;
+                                    $colxs = 6;
+                                    $qntyItems = count($arProjects);
+                                    ?>
+                                    <div class="flexslider unstyled row" data-plugin-options='{"animation": "slide", "directionNav": true, "itemMargin":30, "controlNav" :true, "animationLoop": true, "slideshow": false, "counts": [<?=$countmd?>, <?=$countsm?>, <?=$countxs?>, <?=$countxsm?>]}'>
+                                        <ul class="slides">
+                                            <?foreach($arProjects as $i => $arItem){
+                                                // edit/add/delete buttons for edit mode
+                                                $arItemButtons = CIBlock::GetPanelButtons($arItem['IBLOCK_ID'], $arItem['ID'], 0, array('SESSID' => false, 'CATALOG' => true));
+                                                $this->AddEditAction($arItem['ID'], $arItemButtons['edit']['edit_element']['ACTION_URL'], CIBlock::GetArrayByID($arItem['IBLOCK_ID'], 'ELEMENT_EDIT'));
+                                                $this->AddDeleteAction($arItem['ID'], $arItemButtons['edit']['delete_element']['ACTION_URL'], CIBlock::GetArrayByID($arItem['IBLOCK_ID'], 'ELEMENT_DELETE'), array('CONFIRM' => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
+                                                $thumb = $arItem['PREVIEW_PICTURE'] ? $arItem['PREVIEW_PICTURE'] : $arItem['DETAIL_PICTURE'];
+                                                if($thumb){
+                                                    $img=CFile::ResizeImageGet($thumb, array('width' => 256, 'height' => 192), BX_RESIZE_IMAGE_PROPORTIONAL_ALT, true);
+                                                    // print_r($arItem);
+                                                }?>
+                                                <li class="col-md-<?=$colmd?> col-sm-<?=$colsm?> col-xs-<?=$colxs?>">
+                                                    <div class="item" id="<?=$this->GetEditAreaId($arItem['ID'])?>">
+                                                        <div>
+                                                            <div class="image">
+                                                                <a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="blink">
+                                                                    <?if($thumb):?>
+                                                                        <img src="<?=$img["src"];?>" alt="<?=$arItem['NAME']?>" title="<?=$arItem['NAME']?>" class="img-responsive" />
+                                                                    <?else:?>
+                                                                        <img class="img-responsive" src="<?=SITE_TEMPLATE_PATH?>/images/noimage.png" alt="<?=$arItem['NAME']?>" title="<?=$arItem['NAME']?>" />
+                                                                    <?endif;?>
+                                                                </a>
+                                                            </div>
+                                                            <div class="text">
+                                                                <div class="cont">
+                                                                    <?// element name?>
+                                                                    <div class="title">
+                                                                        <a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="color_link">
+                                                                            <span><?=$arItem['NAME']?></span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            <?}?>
+                                        </ul>
+                                    </div>
+                                    <script type="text/javascript">
+                                        $(document).ready(function(){
+                                            $('.catalog.item-views.table .item .image').sliceHeight({slice: <?=$qntyItems?>, autoslicecount: false, lineheight: -4});
+                                            // $('.catalog.item-views.table .title').sliceHeight({slice: <?=$qntyItems?>, autoslicecount: false});
+                                            $('.catalog.item-views.table .cont').sliceHeight({slice: <?=$qntyItems?>, autoslicecount: false});
+                                            $('.catalog.item-views.table .item').sliceHeight({slice: <?=$qntyItems?>, autoslicecount: false, classNull: '.footer_button'});
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        <?endif;?>
 
 			<?/*characteristics and docs files block start*/?>
 			<?if($arResult['CHARACTERISTICS'] || $arResult['DISPLAY_PROPERTIES']['DOCUMENTS']['VALUE']):?>
@@ -272,6 +349,7 @@
 								</div>					
 							</div>
 						</div>
+                </div>
 					<?endif;?>
 					<?// docs files?>
 					<?if($arResult['DISPLAY_PROPERTIES']['DOCUMENTS']['VALUE']):?>

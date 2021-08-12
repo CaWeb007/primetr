@@ -158,7 +158,7 @@ $APPLICATION->SetTitle("Каталог");
 		"S_ORDER_PRODUCT" => "Рассчитать",
 		"T_GALLERY" => "",
 		"T_DOCS" => "",
-		"T_PROJECTS" => "",
+		"T_PROJECTS" => "Виды",
 		"T_CHARACTERISTICS" => "",
 		"FILTER_URL_TEMPLATE" => "#SECTION_CODE_PATH#/filter/#SMART_FILTER_PATH#/apply/",
 		"COMPONENT_TEMPLATE" => "catalog",
