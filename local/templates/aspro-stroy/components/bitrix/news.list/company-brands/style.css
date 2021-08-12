@@ -4,3 +4,10 @@
 .catalog.item-views.front.front-brands .item .image{
     padding: 8px;
 }
+.catalog.item-views.front.front-brands .item .image .img-responsive{
+    filter: grayscale(100%);
+    transition: filter .5s;
+}
+.catalog.item-views.front.front-brands .flexslider .slides li:hover .image .img-responsive{
+    filter: grayscale(0%);
+}
