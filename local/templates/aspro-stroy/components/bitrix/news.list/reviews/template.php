@@ -23,7 +23,11 @@
 						</div>
 					<?endif;?>
 				<?endif;?>
-				
+                <div class="add_review">
+                    <div class="button">
+                        <span class="btn btn-default btn-lg animate-load" data-event="jqm" data-param-additional="YTo0OntzOjU6InByb3BzIjthOjI6e2k6MDtzOjA6IiI7aToxO3M6MDoiIjt9czoxMToiaWJsb2NrX3R5cGUiO3M6MTk6ImFzcHJvX3N0cm95X2NvbnRlbnQiO3M6ODoic2V0X25hbWUiO3M6MToiWSI7czoxMDoiZGVhY3RpdmF0ZSI7czoxOiJZIjt9" data-param-id="8" data-name="add_review">Оставить свой отзыв</span>
+                    </div>
+                </div>
 				<?// show section items?>
 				<div class="row sid-<?=$arSection['ID']?> items">
 					<?foreach($arSection['ITEMS'] as $i => $arItem):?>
@@ -33,12 +37,18 @@
 						$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem['IBLOCK_ID'], 'ELEMENT_DELETE'), array('CONFIRM' => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
 						// post
 						$post = $arItem['DISPLAY_PROPERTIES']['POST']['VALUE'];
+						$name = '';
+						if (strlen($arItem['DISPLAY_PROPERTIES']['NAME']['VALUE'])) $name = $arItem['DISPLAY_PROPERTIES']['NAME']['VALUE'];
+						else $name = $arItem['NAME'];
+						$text = '';
+                        if (strlen($arItem['DISPLAY_PROPERTIES']['REVIEW']['VALUE']['TEXT'])) $text = $arItem['DISPLAY_PROPERTIES']['REVIEW']['VALUE']['TEXT'];
+                        else $text = $arItem['FIELDS']['PREVIEW_TEXT'];
 						?>
 						<div class="col-md-12">
 							<div class="item review" id="<?=$this->GetEditAreaId($arItem['ID'])?>">
 								<div class="it">
 									<?// element preview text?>
-									<div class="text"><?=$arItem['FIELDS']['PREVIEW_TEXT']?></div>
+									<div class="text"><?=$text?></div>
 									<?// docs files?>
 									<?if($arItem['DISPLAY_PROPERTIES']['DOCUMENTS']['VALUE']):?>
 										<div class="row docs">
@@ -66,8 +76,8 @@
 								</div>
 								<div class="info">
 									<?// element name?>
-									<?if(strlen($arItem['FIELDS']['NAME'])):?>
-										<div class="title"><?=$arItem['NAME']?></div>
+									<?if(strlen($name)):?>
+										<div class="title"><?=$name?></div>
 									<?endif;?>
 									<div class="post"><?=$post?></div>
 								</div>
