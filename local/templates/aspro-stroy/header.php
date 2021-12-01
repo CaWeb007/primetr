@@ -45,6 +45,15 @@
 		<?/*$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/nouislider.js');*/?>
 		<?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/ion.rangeSlider.js');?>
 		<?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/slick.js');?>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TPSDCCF');</script>
+<!-- End Google Tag Manager -->
+
 <!-- Facebook Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -62,22 +71,29 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=985673835304881&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Facebook Pixel Code -->
-<script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-123340477-1']);
-  _gaq.push(['_trackPageview']);
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
+   ym(45980856, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
 </script>
+<noscript><div><img src="https://mc.yandex.ru/watch/45980856" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 
 	</head>
 	<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPSDCCF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 		<?CAjax::Init();?>
 		<div id="panel"><?$APPLICATION->ShowPanel();?></div>
 		<?if(!CModule::IncludeModule("aspro.stroy")):?>
@@ -139,26 +155,36 @@ src="https://www.facebook.com/tr?id=985673835304881&ev=PageView&noscript=1"
 									<div class="callback pull-right hidden-xs" data-event="jqm" data-param-id="<?=CCache::$arIBlocks[SITE_ID]["aspro_stroy_form"]["aspro_stroy_callback"][0]?>" data-name="callback">
 										<span class="btn btn-default white"><?=GetMessage("S_CALLBACK")?></span>
 									</div>
-									<div class="phone pull-right hidden-xs c_2">
-										<div class="phone-number">
-											<i class="fa fa-phone"></i>
-											<div>
-											<?$APPLICATION->IncludeFile(SITE_DIR."include/site-phone.php", array(), array(
-													"MODE" => "html",
-													"NAME" => "Phone",
-												)
-											);?>
-											</div>
-										</div>
-									</div>
-									<div class="email pull-right">
-										<i class="fa fa-envelope"></i>
-										<div><?$APPLICATION->IncludeFile(SITE_DIR."include/site-email.php", array(), array(
-												"MODE" => "html",
-												"NAME" => "E-mail",
-											)
-										);?></div>
-									</div>
+                                    <div class="header-contacts-container pull-right hidden-xs c_2">
+                                        <div class="address-number">
+                                            <i class="fa fa-map-marker"></i>
+                                            <div>
+                                                <?$APPLICATION->IncludeFile(SITE_DIR."include/site-address.php", array(), array(
+                                                        "MODE" => "html",
+                                                        "NAME" => "Address",
+                                                    )
+                                                );?>
+                                            </div>
+                                        </div>
+                                        <div class="phone-number">
+                                            <i class="fa fa-phone"></i>
+                                            <div>
+                                                <?$APPLICATION->IncludeFile(SITE_DIR."include/site-phone.php", array(), array(
+                                                        "MODE" => "html",
+                                                        "NAME" => "Phone",
+                                                    )
+                                                );?>
+                                            </div>
+                                        </div>
+                                        <div class="email-number">
+                                            <i class="fa fa-envelope"></i>
+                                            <div><?$APPLICATION->IncludeFile(SITE_DIR."include/site-email.php", array(), array(
+                                                        "MODE" => "html",
+                                                        "NAME" => "E-mail",
+                                                    )
+                                                );?></div>
+                                        </div>
+                                    </div>
 									<div class="search_top_block pull-right">
 										<div class="search_block hidden-sm">
 											<div class="search-input-div">
@@ -320,4 +346,6 @@ src="https://www.facebook.com/tr?id=985673835304881&ev=PageView&noscript=1"
 									<div class="col-md-9 col-sm-9 content-md">
 								<?endif;?>
 					<?endif;?>
-					<?CStroy::checkRestartBuffer();?>
+
+
+<?CStroy::checkRestartBuffer();?>
