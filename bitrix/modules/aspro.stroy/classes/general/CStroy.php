@@ -747,7 +747,7 @@ class CStroy{
 	}
 
 	function GetCurrentSectionElementFilter(&$arVariables, &$arParams, $CurrentSectionID = false){
-		$arFilter = array('IBLOCK_ID' => $arParams['IBLOCK_ID'], 'INCLUDE_SUBSECTIONS' => 'N');
+		$arFilter = array('IBLOCK_ID' => $arParams['IBLOCK_ID'], 'INCLUDE_SUBSECTIONS' => 'Y');
 		if($arParams['CHECK_DATES'] == 'Y'){
 			$arFilter = array_merge($arFilter, array('ACTIVE' => 'Y', 'SECTION_GLOBAL_ACTIVE' => 'Y', 'ACTIVE_DATE' => 'Y'));
 		}
@@ -951,7 +951,7 @@ class CStroy{
 		if(strlen($strPrice = trim($strPrice))){
 			$arCur = array(
 				'$' => 'USD',
-				'€' => 'EUR',
+				'пїЅ' => 'EUR',
 				GetMessage('STROY_CUR_RUB1') => 'RUB',
 				GetMessage('STROY_CUR_RUB2') => 'RUB',
 				GetMessage('STROY_CUR_UAH1') => 'UAH',
@@ -1569,7 +1569,7 @@ class CStroy{
 		$IconsArr = scandir($IconsServerDir);
 		if($IconsArr){
 			echo '<div class="row">';
-			$lineCount = 0;//счетчик для строки
+			$lineCount = 0;//пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 			for($i = 0; $i != count($IconsArr); $i++){
 				if($IconsArr[$i] != "." and $IconsArr[$i] != ".."){
 					$href=$IconsDir.'/'.$IconsArr[$i];
