@@ -147,6 +147,9 @@
 header.fixed .logo_and_menu-row{
 	height: 95px;
 }
+.item-views.catalog.sections.sections-tags .item{
+	margin-bottom: 20px;
+}
 @media (max-width: 767px){
 	.top-header-theme{
 		height: 70px;

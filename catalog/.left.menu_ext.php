@@ -7,7 +7,11 @@ if($arMenuParametrs = CStroy::GetDirMenuParametrs(__DIR__)){
 		$arSections = CCache::CIBlockSection_GetList(array('SORT' => 'ASC', 'ID' => 'ASC', 'CACHE' => array('TAG' => CCache::GetIBlockCacheTag(CCache::$arIBlocks[SITE_ID]['aspro_stroy_catalog']['aspro_stroy_catalog'][0]), 'MULTI' => 'Y')), array('IBLOCK_ID' => CCache::$arIBlocks[SITE_ID]['aspro_stroy_catalog']['aspro_stroy_catalog'][0], 'ACTIVE' => 'Y', 'GLOBAL_ACTIVE' => 'Y', 'ACTIVE_DATE' => 'Y'));
 		$arSectionsByParentSectionID = CCache::GroupArrayBy($arSections, array('MULTI' => 'Y', 'GROUP' => array('IBLOCK_SECTION_ID')));
 	}
-
+    $arSectionsUnset = array();
+	foreach ($arSections as $item){
+	    if ($item['DEPTH_LEVEL'] < 3) continue;
+	    $arSectionsUnset[] = (int)$item['ID'];
+    }
 	if($arMenuParametrs['MENU_SHOW_ELEMENTS'] == 'Y'){
 		$arItems = CCache::CIBlockElement_GetList(array('SORT' => 'ASC', 'ID' => 'DESC', 'CACHE' => array('TAG' => CCache::GetIBlockCacheTag(CCache::$arIBlocks[SITE_ID]['aspro_stroy_catalog']['aspro_stroy_catalog'][0]), 'MULTI' => 'Y')), array('IBLOCK_ID' => CCache::$arIBlocks[SITE_ID]['aspro_stroy_catalog']['aspro_stroy_catalog'][0], 'ACTIVE' => 'Y', 'SECTION_GLOBAL_ACTIVE' => 'Y', 'ACTIVE_DATE' => 'Y', 'INCLUDE_SUBSECTIONS' => 'Y'));
 		if($arMenuParametrs['MENU_SHOW_SECTIONS'] == 'Y'){
@@ -18,6 +22,7 @@ if($arMenuParametrs = CStroy::GetDirMenuParametrs(__DIR__)){
 			$arItems = array_merge((array)$arItems, (array)$arItemsRoot);
 		}
 	}
+    $arItemsBySectionID = array_diff_key($arItemsBySectionID, array_flip($arSectionsUnset));
 
 	if($arSections){
 		CStroy::getSectionChilds(false, $arSections, $arSectionsByParentSectionID, $arItemsBySectionID, $aMenuLinksExt);

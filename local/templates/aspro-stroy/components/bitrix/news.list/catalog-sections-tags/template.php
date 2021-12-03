@@ -8,7 +8,7 @@ $this->setFrameMode(true);
 	$colmd = ($qntyItems > 1 ? 6 : 12);
 	$colsm = 12;
 	?>
-	<div class="item-views catalog sections">
+	<div class="item-views catalog sections sections-tags">
 		<div class="items row">
 			<?foreach($arResult['SECTIONS'] as $arItem):?>
 				<?
@@ -17,13 +17,13 @@ $this->setFrameMode(true);
 				$this->AddEditAction($arItem['ID'], $arSectionButtons['edit']['edit_section']['ACTION_URL'], CIBlock::GetArrayByID($arItem['IBLOCK_ID'], 'SECTION_EDIT'));
 				$this->AddDeleteAction($arItem['ID'], $arSectionButtons['edit']['delete_section']['ACTION_URL'], CIBlock::GetArrayByID($arItem['IBLOCK_ID'], 'SECTION_DELETE'), array('CONFIRM' => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
 				// preview picture
-				if($bShowSectionImage = in_array('PREVIEW_PICTURE', $arParams['FIELD_CODE'])){
+				/*if($bShowSectionImage = in_array('PREVIEW_PICTURE', $arParams['FIELD_CODE'])){
 					$bImage = strlen($arItem['PICTURE']);
 					$arSectionImage = ($bImage ? CFile::ResizeImageGet($arItem['PICTURE'], array('width' => 100, 'height' => 87), BX_RESIZE_IMAGE_PROPORTIONAL, true) : array());
 					$imageSectionSrc = ($bImage ? $arSectionImage['src'] : SITE_TEMPLATE_PATH.'/images/noimage_sections.png');
-				}
+				}*/
 				?>
-				<div class="col-md-<?=$colmd?> col-sm-<?=$colsm?>">
+				<div class="col-md-2 col-sm-2">
 					<div class="item noborder<?=($bShowSectionImage ? '' : ' wti')?>" id="<?=$this->GetEditAreaId($arItem['ID'])?>">
 						<?// icon or preview picture?>
 						<?if($bShowSectionImage):?>

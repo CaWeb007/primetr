@@ -746,8 +746,8 @@ class CStroy{
 		return $arFilter;
 	}
 
-	function GetCurrentSectionElementFilter(&$arVariables, &$arParams, $CurrentSectionID = false){
-		$arFilter = array('IBLOCK_ID' => $arParams['IBLOCK_ID'], 'INCLUDE_SUBSECTIONS' => 'Y');
+	function GetCurrentSectionElementFilter(&$arVariables, &$arParams, $CurrentSectionID = false, $includeSubsection = 'N'){
+		$arFilter = array('IBLOCK_ID' => $arParams['IBLOCK_ID'], 'INCLUDE_SUBSECTIONS' => $includeSubsection);
 		if($arParams['CHECK_DATES'] == 'Y'){
 			$arFilter = array_merge($arFilter, array('ACTIVE' => 'Y', 'SECTION_GLOBAL_ACTIVE' => 'Y', 'ACTIVE_DATE' => 'Y'));
 		}

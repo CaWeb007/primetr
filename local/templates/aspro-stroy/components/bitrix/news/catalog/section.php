@@ -2,8 +2,9 @@
 <?
 $this->setFrameMode(true);
 global $APPLICATION;
+$includeSubsection = 'N';
 // get section items count and subsections
-$arItemFilter = CStroy::GetCurrentSectionElementFilter($arResult["VARIABLES"], $arParams);
+$arItemFilter = CStroy::GetCurrentSectionElementFilter($arResult["VARIABLES"], $arParams, false, $includeSubsection);
 $arSectionFilter = CStroy::GetCurrentSectionFilter($arResult["VARIABLES"], $arParams);
 $itemsCnt = CCache::CIblockElement_GetList(array("CACHE" => array("TAG" => CCache::GetIBlockCacheTag($arParams["IBLOCK_ID"]))), $arItemFilter, array());
 $arSection = CCache::CIblockSection_GetList(array("CACHE" => array("TAG" => CCache::GetIBlockCacheTag($arParams["IBLOCK_ID"]), "MULTI" => "N")), $arSectionFilter, false, array('ID', 'DESCRIPTION', 'PICTURE', 'DETAIL_PICTURE'), true);
@@ -24,11 +25,14 @@ $arSubSections = CCache::CIblockSection_GetList(array("CACHE" => array("TAG" => 
 	<?if(!$arSubSections && !$itemsCnt):?>
 		<div class="alert alert-warning"><?=GetMessage("SECTION_EMPTY")?></div>
 	<?endif;?>
+    <?
+        $sectionTemplate = 'catalog-sections'
+    ?>
 	<?if($arSubSections):?>
 		<?// sections list?>
 		<?$APPLICATION->IncludeComponent(
 			"bitrix:news.list",
-			"catalog-sections-tags",
+            $sectionTemplate,
 			Array(
 				"IBLOCK_TYPE"	=>	$arParams["IBLOCK_TYPE"],
 				"IBLOCK_ID"	=>	$arParams["IBLOCK_ID"],
