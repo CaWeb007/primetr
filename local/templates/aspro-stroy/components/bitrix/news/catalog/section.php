@@ -28,6 +28,8 @@ $arSubSections = CCache::CIblockSection_GetList(array("CACHE" => array("TAG" => 
     <?
         $sectionTemplate = 'catalog-sections'
     ?>
+    <div class="catalog item-views table">
+    <div class="row items" itemscope itemtype="http://schema.org/ItemList">
 	<?if($arSubSections):?>
 		<?// sections list?>
 		<?$APPLICATION->IncludeComponent(
@@ -152,5 +154,7 @@ $arSubSections = CCache::CIblockSection_GetList(array("CACHE" => array("TAG" => 
 		),
 		$component
 	);?>
+    </div>
+    </div>
 	<?$frame->end();?>
 <?endif;?>

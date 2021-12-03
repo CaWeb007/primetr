@@ -8,13 +8,13 @@ $colmd = floor(12 / $arParams['COUNT_IN_LINE']);
 $colsm = floor(12 / round($arParams['COUNT_IN_LINE'] / 2));
 $bShowImage = in_array('PREVIEW_PICTURE', $arParams['FIELD_CODE']);
 ?>
-<div class="catalog item-views table">
+<!--<div class="catalog item-views table">-->
 	<?if($arResult["ITEMS"]):?>
 		<?if($arParams["DISPLAY_TOP_PAGER"]):?>
 			<?=$arResult["NAV_STRING"]?>
 		<?endif;?>
 
-		<div class="row items" itemscope itemtype="http://schema.org/ItemList">
+<!--		<div class="row items" itemscope itemtype="http://schema.org/ItemList">-->
 			<?foreach($arResult["ITEMS"] as $arItem):?>
 				<?
 				// edit/add/delete buttons for edit mode
@@ -82,7 +82,7 @@ $bShowImage = in_array('PREVIEW_PICTURE', $arParams['FIELD_CODE']);
 								
 								<?// element article?>
 								<?if(strlen($arItem['DISPLAY_PROPERTIES']['ARTICLE']['VALUE'])):?>
-									<span class="article" itemprop="description"><?=GetMessage('S_ARTICLE')?>: <span><?=$arItem['DISPLAY_PROPERTIES']['ARTICLE']['VALUE']?></span></span>
+									<span class="article" itemprop="description"><?=GetMessage('S_ARTICLE')?>:ï¿½<span><?=$arItem['DISPLAY_PROPERTIES']['ARTICLE']['VALUE']?></span></span>
 								<?endif;*/?>
 								
 							</div>
@@ -124,7 +124,7 @@ $bShowImage = in_array('PREVIEW_PICTURE', $arParams['FIELD_CODE']);
 												<span class="name"><?=$arChar["NAME"];?>: </span>
 												<span class="value">
 												<?if(is_array($arChar["VALUE"])):?>
-													<?=implode(' / ', $arChar["VALUE"]);?>
+													<?=implode('ï¿½/ ', $arChar["VALUE"]);?>
 												<?else:?>
 													<?=$arChar["VALUE"];?><?=(strpos($key, 'SIZE_') !== false ? GetMessage('SIZE_UNIT') : '')?>
 												<?endif;?>
@@ -152,7 +152,7 @@ $bShowImage = in_array('PREVIEW_PICTURE', $arParams['FIELD_CODE']);
 				}
 			});
 			</script>
-		</div>
+<!--		</div>-->
 		
 		<?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
 			<?=$arResult["NAV_STRING"]?>
@@ -166,5 +166,5 @@ $bShowImage = in_array('PREVIEW_PICTURE', $arParams['FIELD_CODE']);
 			<div class="cat-desc"><hr style="<?=(strlen($arResult['NAV_STRING']) && $arParams['DISPLAY_BOTTOM_PAGER'] ? 'margin-top:20px;' : 'border-color:transparent;margin-top:0;margin-bottom:10px;')?>" /><?=$arCurSectionPath["DESCRIPTION"]?></div>
 		<?endif;?>
 	<?endif;?>
-</div>
+<!--</div>-->
 <?$frame->end();?>
