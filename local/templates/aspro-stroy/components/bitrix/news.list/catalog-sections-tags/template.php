@@ -8,8 +8,8 @@ $this->setFrameMode(true);
 	$colmd = ($qntyItems > 1 ? 6 : 12);
 	$colsm = 12;
 	?>
-	<div class="item-views catalog sections sections-tags">
-		<div class="items row">
+	<div class="sections-tags">
+		<div class="row">
 			<?foreach($arResult['SECTIONS'] as $arItem):?>
 				<?
 				// edit/add/delete buttons for edit mode
@@ -23,17 +23,10 @@ $this->setFrameMode(true);
 					$imageSectionSrc = ($bImage ? $arSectionImage['src'] : SITE_TEMPLATE_PATH.'/images/noimage_sections.png');
 				}*/
 				?>
-				<div class="col-md-2 col-sm-2">
-					<div class="item noborder<?=($bShowSectionImage ? '' : ' wti')?>" id="<?=$this->GetEditAreaId($arItem['ID'])?>">
+				<div class="col-md-2 col-sm-2 col-xs-2">
+					<div class="sections-tags__item">
 						<?// icon or preview picture?>
-						<?if($bShowSectionImage):?>
-							<div class="image">
-								<a href="<?=$arItem['SECTION_PAGE_URL']?>">
-									<img src="<?=$imageSectionSrc?>" alt="<?=$arItem['NAME']?>" title="<?=$arItem['NAME']?>" class="img-responsive" />
-								</a>
-							</div>
-						<?endif;?>
-						
+
 						<div class="info">
 							<?// section name?>
 							<?if(in_array('NAME', $arParams['FIELD_CODE'])):?>
@@ -55,11 +48,5 @@ $this->setFrameMode(true);
 				</div>
 			<?endforeach;?>
 		</div>
-		<script type="text/javascript">
-		$(document).ready(function(){
-			$('.catalog.item-views.sections .item .title').sliceHeight();
-			$('.catalog.item-views.sections .item').sliceHeight();
-		});
-		</script>
 	</div>
 <?endif;?>

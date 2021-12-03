@@ -138,7 +138,13 @@ $bShowImage = in_array('PREVIEW_PICTURE', $arParams['FIELD_CODE']);
 					</div>
 				</div>
 			<?endforeach;?>
-			
+            <div class="catalog-items__nav">
+                <div class="row">
+                    <?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
+                        <?=$arResult["NAV_STRING"]?>
+                    <?endif;?>
+                </div>
+            </div>
 			<?// slice elements height?>
 			<script type="text/javascript">
 			var templateName = '<?=$templateName?>';
@@ -153,13 +159,9 @@ $bShowImage = in_array('PREVIEW_PICTURE', $arParams['FIELD_CODE']);
 			});
 			</script>
 <!--		</div>-->
-		
-		<?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
-			<?=$arResult["NAV_STRING"]?>
-		<?endif;?>
+
 	<?endif;?>
 	
-	<?// section description?>
 	<?if(is_array($arResult["SECTION"]["PATH"])):?>
 		<?$arCurSectionPath = end($arResult["SECTION"]["PATH"]);?>
 		<?if(strlen($arCurSectionPath["DESCRIPTION"]) && strpos($_SERVER["REQUEST_URI"], "PAGEN") === false):?>

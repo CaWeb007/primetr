@@ -3,11 +3,18 @@
 $this->setFrameMode(true);
 global $APPLICATION;
 $includeSubsection = 'N';
+$sectionTemplate = 'catalog-sections';
+
 // get section items count and subsections
-$arItemFilter = CStroy::GetCurrentSectionElementFilter($arResult["VARIABLES"], $arParams, false, $includeSubsection);
 $arSectionFilter = CStroy::GetCurrentSectionFilter($arResult["VARIABLES"], $arParams);
+$arSection = CCache::CIblockSection_GetList(array("CACHE" => array("TAG" => CCache::GetIBlockCacheTag($arParams["IBLOCK_ID"]), "MULTI" => "N")), $arSectionFilter, false, array('ID', 'DESCRIPTION', 'PICTURE', 'DETAIL_PICTURE','DEPTH_LEVEL'), true);
+if($arSection['DEPTH_LEVEL'] > 1){
+    $includeSubsection = 'Y';
+    $sectionTemplate = 'catalog-sections-tags';
+}
+$arItemFilter = CStroy::GetCurrentSectionElementFilter($arResult["VARIABLES"], $arParams, false, $includeSubsection);
 $itemsCnt = CCache::CIblockElement_GetList(array("CACHE" => array("TAG" => CCache::GetIBlockCacheTag($arParams["IBLOCK_ID"]))), $arItemFilter, array());
-$arSection = CCache::CIblockSection_GetList(array("CACHE" => array("TAG" => CCache::GetIBlockCacheTag($arParams["IBLOCK_ID"]), "MULTI" => "N")), $arSectionFilter, false, array('ID', 'DESCRIPTION', 'PICTURE', 'DETAIL_PICTURE'), true);
+
 CStroy::AddMeta(
 	array(
 		'og:description' => $arSection['DESCRIPTION'],
@@ -25,9 +32,6 @@ $arSubSections = CCache::CIblockSection_GetList(array("CACHE" => array("TAG" => 
 	<?if(!$arSubSections && !$itemsCnt):?>
 		<div class="alert alert-warning"><?=GetMessage("SECTION_EMPTY")?></div>
 	<?endif;?>
-    <?
-        $sectionTemplate = 'catalog-sections'
-    ?>
     <div class="catalog item-views table">
     <div class="row items" itemscope itemtype="http://schema.org/ItemList">
 	<?if($arSubSections):?>

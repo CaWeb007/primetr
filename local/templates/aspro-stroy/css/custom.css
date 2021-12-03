@@ -147,8 +147,17 @@
 header.fixed .logo_and_menu-row{
 	height: 95px;
 }
-.item-views.catalog.sections.sections-tags .item{
+.sections-tags__item{
+	padding: 0 20px;
 	margin-bottom: 20px;
+}
+.sections-tags__item a{
+	color: #d64438;
+	font-size: 16px;
+	font-weight: bold;
+}
+.catalog-items__nav{
+	clear: both;
 }
 @media (max-width: 767px){
 	.top-header-theme{
