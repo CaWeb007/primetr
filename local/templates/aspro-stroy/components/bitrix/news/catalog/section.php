@@ -4,6 +4,7 @@ $this->setFrameMode(true);
 global $APPLICATION;
 $includeSubsection = 'N';
 $sectionTemplate = 'catalog-sections';
+$showPriceBlock = 'N';
 
 // get section items count and subsections
 $arSectionFilter = CStroy::GetCurrentSectionFilter($arResult["VARIABLES"], $arParams);
@@ -11,6 +12,7 @@ $arSection = CCache::CIblockSection_GetList(array("CACHE" => array("TAG" => CCac
 if($arSection['DEPTH_LEVEL'] > 1){
     $includeSubsection = 'Y';
     $sectionTemplate = 'catalog-sections-tags';
+    $arParams['LIST_PROPERTY_CODE'][] = 'PRICE';
 }
 $arItemFilter = CStroy::GetCurrentSectionElementFilter($arResult["VARIABLES"], $arParams, false, $includeSubsection);
 $itemsCnt = CCache::CIblockElement_GetList(array("CACHE" => array("TAG" => CCache::GetIBlockCacheTag($arParams["IBLOCK_ID"]))), $arItemFilter, array());
@@ -155,6 +157,7 @@ $arSubSections = CCache::CIblockSection_GetList(array("CACHE" => array("TAG" => 
 			"SHOW_DETAIL_LINK" => $arParams["SHOW_DETAIL_LINK"],
 			"COUNT_IN_LINE" => "3",
 			"IMAGE_POSITION" => "left",
+            "SHOW_PRICE_BLOCK" => $showPriceBlock
 		),
 		$component
 	);?>
