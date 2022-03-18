@@ -1,0 +1,6 @@
+.social-icons li a.telegram{
+    background-image: url("./images/telegram.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 56%;
+}
