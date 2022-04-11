@@ -33,7 +33,7 @@
 		<?endif;?>
 		<!--<?if(!empty($arResult['SOCIAL_INSTAGRAM'])):?>-->
 			<li class="instagram">
-				<a href="https://www.instagram.com/perimeter24/" target="_blank" rel="nofollow" title="<?=GetMessage('TEMPL_SOCIAL_INSTAGRAM')?>">
+				<a href="<?=$arResult['SOCIAL_INSTAGRAM']?>" target="_blank" rel="nofollow" title="<?=GetMessage('TEMPL_SOCIAL_INSTAGRAM')?>">
 					<?=GetMessage('TEMPL_SOCIAL_INSTAGRAM')?>
 					<i class="fa fa-instagram"></i>
 					<i class="fa fa-instagram hide"></i>
@@ -41,15 +41,7 @@
 			</li>
 		<!--<?endif;?>-->
 
-        <!--<?if(!empty($arResult['SOCIAL_INSTAGRAM'])):?>-->
-        <li class="instagram">
-            <a href="https://www.instagram.com/perimeter24/" target="_blank" rel="nofollow" title="<?=GetMessage('TEMPL_SOCIAL_INSTAGRAM')?>">
-                <?=GetMessage('TEMPL_SOCIAL_INSTAGRAM')?>
-                <i class="fa fa-instagram"></i>
-                <i class="fa fa-instagram hide"></i>
-            </a>
-        </li>
-        <!--<?endif;?>-->
+
 		<?if(!empty($arResult['SOCIAL_YOUTUBE'])):?>
 			<li class="lj">
 				<a href="<?=$arResult['SOCIAL_YOUTUBE']?>" target="_blank" rel="nofollow" title="<?=GetMessage('TEMPL_SOCIAL_YOUTUBE')?>">
