@@ -8,7 +8,7 @@
 /* DANNII FAIL ZATIRAETSYA PRI OBNOVLENII, ne izmenyaite ego!!! */
 /* DANNII FAIL ZATIRAETSYA PRI OBNOVLENII, ne izmenyaite ego!!! */
 
-body{background-color:white;font:13px/20px "Exo 2", Arial, sans-serif;}
+body{background-color:white;font-family: 'Exo 2', sans-serif !important;}
 a{text-decoration:none !important;outline:none !important;}
 /*a:hover{text-decoration:none;}*/
 h1,h2,h3,h4,h5,h6{margin:0;font-weight:600;margin:0 0 16px 0;font-family:"Exo 2", Arial, sans-serif;}

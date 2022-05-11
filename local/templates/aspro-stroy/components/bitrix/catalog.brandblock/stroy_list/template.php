@@ -51,7 +51,7 @@ foreach ($arResult["BRAND_BLOCKS"] as $blockId => $arBB)
 					<?if($bImage):?>
 						<div class="image">
 							<?if($useLink):?><a href="<?=$arBB['LINK']?>"><?endif;?>
-							<img src=<?=$imageSrc?> alt="<?=$arBB['NAME']?>" title="<?=$arBB['NAME']?>" />
+							<img src=<?=$bImage?> />
 							<?if($useLink):?></a><?endif;?>
 						</div>
 					<?endif;?>

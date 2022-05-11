@@ -76,6 +76,13 @@
 }
 
 @media (max-width: 479px) {
+	#footer{
+		margin-top: 0 !important;
+	}
+
+	.main{
+		padding: 0px !important;
+	}
 
 	/* Base */
 	body {

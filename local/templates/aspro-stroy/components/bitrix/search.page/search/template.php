@@ -97,9 +97,9 @@
 		<?foreach($arResult["SEARCH"] as $arItem):?>
 			<a href="<?=$arItem["URL"]?>"><?=$arItem["TITLE_FORMATED"]?></a>
 			<?if($arItem["CHAIN_PATH"]):?>
-				<ul class="path"><?=$arItem["CHAIN_PATH"]?></ul>
+				<!--<ul class="path"><?=$arItem["CHAIN_PATH"]?></ul>--!>
 			<?endif;?>
-			<div class="text"><?=$arItem["BODY_FORMATED"]?></div>
+			<!--<div class="text"><?=$arItem["BODY_FORMATED"]?></div>--!>
 			<?if (
 				$arParams["SHOW_RATING"] == "Y"
 				&& strlen($arItem["RATING_TYPE_ID"]) > 0
@@ -125,10 +125,10 @@
 					);?>
 				</div>
 			<?endif;?>
-			<hr />
+			<br />
 		<?endforeach;?>
 		<?if($arParams["DISPLAY_BOTTOM_PAGER"] != "N") echo $arResult["NAV_STRING"]?>
-		<br />
+		<hr />
 		<p>
 		<?if($arResult["REQUEST"]["HOW"]=="d"):?>
 			<a href="<?=$arResult["URL"]?>&amp;how=r<?=$arResult["REQUEST"]["FROM"]? '&amp;from='.$arResult["REQUEST"]["FROM"]: ''?><?=$arResult["REQUEST"]["TO"]? '&amp;to='.$arResult["REQUEST"]["TO"]: ''?>"><?=GetMessage("SEARCH_SORT_BY_RANK")?></a>&nbsp;|&nbsp;<b><?=GetMessage("SEARCH_SORTED_BY_DATE")?></b>

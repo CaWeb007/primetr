@@ -1,0 +1,1814 @@
+.custom_project_block .item-views{
+    margin-bottom: 0!important;
+}
+.custom_project_block .item-views .top_wrapper_block{
+    margin-bottom: 0!important;
+}
+.custom_project_block .item-views .top_wrapper_block .flex-viewport{
+    padding-bottom: 0!important;
+}
+
+body {
+	background-color: #f7f7f8 !important;
+	font-family: 'Exo 2', sans-serif !important;
+}
+
+select {
+  height: unset !important;
+}
+
+.desktop-hidden {
+	display: none !important;
+}
+
+.container {
+	max-width: 1150px !important;
+}
+
+.product-row {
+	background-color: #fff;
+	display: table-cell;
+}
+
+.product-row .gallery-block {
+	flex-basis: 59%;
+	position: relative;
+	padding: 0;
+}
+
+.gallery-block .carousel .item {
+	height: 460px;
+	width: 100%;
+	cursor:pointer;
+}
+
+.gallery-block .carousel .item img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.gallery-block .list-line {
+	left: 0px;
+	width: 100%;
+	margin-left: 0;
+	bottom: -110px;
+	margin-bottom: 0;
+}
+
+.gallery-block .carousel-indicators li{
+	width: auto;
+	height: auto;
+	margin: 0px 5px;
+	display: inline-block;
+	text-indent: inherit;
+	cursor: pointer;
+	border: none;
+	border-radius: none !important;
+	width: 115px;
+	height: 95px;
+	position: relative;
+}
+
+.gallery-block .carousel-indicators li:first-child {
+	margin-left: 0;
+}
+
+.gallery-block .carousel-indicators li:last-child {
+	margin-right: 0;
+}
+
+.gallery-block .carousel-indicators li.active{
+	background: transparent;
+}
+
+.gallery-block .carousel-indicators li img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover !important;
+}
+
+.carousel-control {
+	background-image: none !important;
+	width: 50px !important;
+	height: 65px;
+	opacity: 1 !important;
+	top: 45% !important;
+	padding: 15px;
+}
+
+.carousel-control.right {
+	padding-right: 0px;
+}
+.carousel-control.left {
+	padding-left: 0px;
+}
+
+.carousel-control img {
+	max-height: 35px;
+	max-width: 35px;
+	width: 100%;
+}
+
+.carousel-control.right img {
+	transform: rotate(180deg);
+}
+
+.right-side a .demo-play,
+.carousel-indicators li>.demo-play {
+	opacity: 0;
+	position: absolute;
+	backdrop-filter: blur(15px);
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	transition: all .2s ease-in-out;
+}
+
+.right-side a .demo-play {
+	backdrop-filter: none;
+	color: #fff;
+	font-size: 90px;
+	opacity: 1;
+}
+
+.gallery-block .demo-play i {
+	color: #fff;
+	font-size: 64px;
+	opacity: 0.9;
+}
+
+.carousel-indicators li:hover>.demo-play {
+	opacity: 1;
+}
+
+.image-modal {
+	position: relative;
+}
+
+.modal.image-modal .modal-dialog {
+	max-width: 800px;
+	margin-top: 5rem;
+	position: unset;
+}
+
+.modal.image-modal .modal-content {
+	background-color: transparent !important;
+	border: none;
+	box-shadow:none;
+}
+
+.image-modal .close {
+	position: absolute;
+	right: -20px;
+	top: -30px;
+	font-size: 30px;
+	text-shadow: none;
+	opacity: 1;
+}
+
+.top-row {
+	display: table;
+	table-layout: fixed;
+    width: 100%;
+}
+
+.avail-row,
+.price-row,
+.made-logo,
+.rating {
+	padding: 0 !important;
+	vertical-align: middle;
+	display: table-cell;
+	float: none !important;
+}
+
+.avail-row {
+	vertical-align: bottom;
+	text-align: end;
+}
+
+.made-logo {
+	text-align: end;
+}
+
+.top-row .fa-star {
+	font-size: 18px;
+	line-height: 18px;
+}
+
+.red-color,
+.red-color:hover,
+.conditions-link,
+.conditions-link:hover,
+.rate {
+	color: #d33c2e;
+}
+
+.top-row a:hover,
+.top-row a {
+	text-decoration: underline;
+	color: #494949;
+	font-size: 14px;
+	line-height: 18px;
+	position: relative;
+	top: -2px;
+	margin-left: 5px;
+}
+
+.price-block {
+	padding:20px !important;
+}
+
+.price-select-block {
+	margin-top: 20px;
+	box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+	padding: 15px;
+	margin-bottom: 20px;
+}
+
+.price-before {
+	color: #c5c5c5;
+	font-size: 22px;
+	line-height: 26px;
+	text-decoration: line-through;
+}
+
+.price-now {
+	font-size: 35px;
+	line-height: 110%;
+	font-weight: 600;
+	position: relative;
+}
+
+.text-right {
+	text-align: right;
+	position: relative;
+}
+
+.avail {
+	font-size: 18px;
+	line-height: 20px;
+	color: #333;
+}
+
+.avail i {
+	color: #25ed2a;
+}
+
+.col {
+	padding: 0 !important;
+}
+
+.share-icon {
+	font-size: 20px !important;
+	padding: 8px 12px;
+	border:1px solid #333;
+	position: absolute !important;
+	right: 0px;
+	border-radius: 10px;
+}
+
+.conditions-link {
+	text-decoration: underline;
+	font-size: 20px;
+	margin-bottom: 10px;
+	display: block;
+}
+
+.size-wrapper select {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.size-wrapper a:hover,
+.size-wrapper a {
+	background: linear-gradient(90deg, rgba(211,60,46,1) 0%, rgba(211,89,46,1) 100%);
+	display: block;
+	margin-top: 8px;
+	text-align: center;
+	border-radius:10px;
+	padding: 10px 0px;
+	color:#fff;
+	font-size: 18px;
+	text-transform: uppercase;
+	line-height: 22px;
+	transition: all .3s ease-in;
+	text-decoration: none;
+}
+
+.testimonials {
+	padding: 0 20px;
+}
+
+.testimonials-item {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	border:1px solid #333;
+	margin-bottom: 8px;
+	border-radius: 10px;
+	font-size: 18px;
+	color: #333;
+	position: relative;
+	cursor: pointer;
+}
+
+.testimonials-item:active,
+.testimonials-item:visited,
+.testimonials-item:hover {
+	text-decoration: none;
+	color: #333;
+}
+
+.testimonials-item img {
+	padding-right: 10px;
+}
+
+.badge-action {
+	margin: 0px 20px;
+	padding: 10px 25px;
+	margin-top: 20px;
+	background-color: #fff1eb;
+	border-radius:10px;
+	font-size: 14px;
+}
+
+.badge-action span {
+	font-weight: 600;
+	font-size: 18px;
+}
+
+.badge-action a:hover,
+.badge-action a {
+	font-weight: 600;
+	color: #333;
+	text-decoration: underline;
+}
+
+.accordion-row {
+	margin-top: 20px;
+}
+
+.accordion-row .nav-tabs:hover,
+.accordion-row .nav-tabs {
+	border-bottom: none !important;
+}
+
+.accordion-row ul li {
+	font-size: 16px;
+	line-height: 18px;
+	margin-right: 19px;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+	border: none;
+}
+
+.accordion-row ul li:last-child {
+	margin-right: 0;
+}
+
+.accordion-row ul li a:hover,
+.accordion-row ul li a {
+	color: #333;
+	background-color: #dadad7;
+	border-radius: 25px;
+	border: 1px solid transparent;
+	box-shadow: 0px 6px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.accordion-row ul li.active a {
+	border-radius: 25px 25px 0px 0px;
+	padding-bottom: 25px;
+	border: 1px solid transparent !important;
+	margin: 0;
+	box-shadow: none;
+}
+
+.tab-pane h2 {
+	background-color: #fff;
+	margin: 0;
+	padding: 20px;
+	font-size: 22px;
+	position: relative;
+	z-index: 3;
+}
+
+.white-bg-wrapper {
+	background-color: #fff;
+	position: relative;
+	z-index: 3;
+	display: table-row;
+	min-height: 100px;
+	width: 100%;
+	display: block;
+}
+
+.left-side,
+.right-side {
+	display: table-cell;
+	vertical-align: top;
+}
+
+.left-side {
+	padding: 0px 40px 20px 20px;
+}
+
+.right-side a {
+	width: 100%;
+	height: 100%;
+	display: block;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	font-size: 18px;
+	position: relative;
+}
+
+.right-side a img {
+	max-height: 300px;
+	width: 500px;
+}
+
+.text-block p {
+	text-align: justify;
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	line-height: 18px;
+	margin-top: 10px;
+}
+
+.text-block p:first-child {
+	margin-top: 0;
+}
+
+.gates-testimonials {
+	background: #f0f0f0;
+	padding: 20px;
+	margin-top: 30px;
+}
+
+.gates-testimonials h2 {
+	font-size: 22px;
+	line-height: 26px;
+	text-align: center;
+}
+
+.g-testim-row {
+	margin-top: 30px;
+}
+
+.testim-item {
+	text-align: center;
+	display: table-cell;
+	width: 20%;
+	padding: 15px;
+}
+
+.testim-item img {
+	height: 31px;
+}
+
+.testim-item p {
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 600;
+	margin-top: 10px;
+}
+
+.call-us-block {
+	text-align: center;
+	margin-top: 30px;
+	background: linear-gradient(90deg, rgba(130,138,143,1) 0%, rgba(174,184,191,1) 100%);
+	padding: 15px;
+}
+
+.white-border {
+	border: 1px solid #fff;
+	padding: 30px;
+}
+
+.white-border a,
+.white-border span {
+	font-size: 22px;
+	color: #fff;
+	display: inline-block;
+}
+
+.white-border a:hover,
+.white-border a {
+	background: #15a502;
+	color:#fff;
+	padding: 10px 25px;
+	border-radius: 8px;
+	margin-left: 10px;
+}
+
+.white-border a i {
+	margin-right: 10px;
+}
+
+.docs-block {
+	background-color: #fff;
+	padding: 20px;
+	margin-top: 30px;
+}
+
+.docs-block h2 {
+	margin: 0;
+	font-size: 22px;
+}
+
+.buttons-row,
+.docs-row {
+	margin-top: 30px;
+	text-align: center;
+}
+
+.docs-row .docs-item {
+	display: inline-block;
+	width: 30%;
+	text-align: center;
+}
+
+.docs-row .docs-item img,
+.docs-row .docs-item a,
+.docs-row .docs-item a:hover,
+.docs-row .docs-item span
+.docs-row  {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	width: fit-content;
+	color: #333;
+}
+.docs-item .icons{
+  width:40px;
+  height:40px;
+}
+.docs-item .xls{background:url("images/docs/xls.png") no-repeat;}
+.docs-item .doc{background:url("images/docs/doc.png") no-repeat;}
+.docs-item .pdf{background:url("images/docs/pdf.png") no-repeat;}
+.docs-item .jpg{background:url("images/docs/jpg.png") no-repeat;}
+.docs-item .png{background:url("images/docs/png.png") no-repeat;}
+.docs-item .ppt{background:url("images/docs/ppt.png") no-repeat;}
+.docs-item .tif{background:url("images/docs/tif.png") no-repeat;}
+.docs-item .txt{background:url("images/docs/txt.png") no-repeat;}
+
+
+
+.reviews-block {
+	margin-top: 30px;
+}
+
+.reviews-block h2 {
+	margin: 0;
+	padding: 0px 5px 0px 20px;
+	display: inline-block;
+	font-size: 22px;
+}
+
+.reviews-block .count {
+	font-size: 22px;
+	font-weight: 700;
+}
+
+.reviews-row .review-item {
+	background: #e7e7e7;
+	padding: 20px;
+	display: inline-block;
+	width: 32%;
+	min-height: 515px;
+	vertical-align: top;
+  margin-bottom: 19px;
+}
+
+.reviews-row .review-item:nth-child(3n+2) {
+	margin: 0px 19px;
+}
+
+.reviews-row .review-item:nth-child(n+4) {
+	 display:none;
+}
+
+.reviews-row .name {
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 600;
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+
+.reviews-row .date {
+	font-size: 14px;
+	line-height: 16px;
+	font-weight: 600;
+	display: inline-block;
+	margin-left: 10px;
+	color: #8c8c8c;
+}
+
+.rating-row .rate {
+	color: #d33c2e;
+	font-size: 16px;
+	margin: 10px 0px;
+}
+
+.rating-row span{
+	font-weight: 700;
+	margin-left: 10px;
+}
+
+.review-item .text-block {
+	font-size: 14px;
+	line-height: 18px;
+}
+.review-item .read-more {
+	font-size: 14px;
+	line-height: 18px;
+	font-weight: 700;
+}
+
+.buttons-row a {
+	padding: 10px 0px;
+	margin:10px;
+	text-transform: uppercase;
+	font-size: 13px;
+	background: #dadad7;
+	transition: background .3s;
+	color: #333;
+	min-width: 250px;
+	display: inline-block;
+}
+
+.buttons-row button {
+	padding: 10px 0px;
+	margin:10px;
+	text-transform: uppercase;
+	font-size: 13px;
+	background: #dadad7;
+	transition: background .3s;
+	color: #333;
+	min-width: 250px;
+	display: inline-block;
+  border: unset !important;
+}
+
+.buttons-row button:hover {
+	background: #686868;
+	color:#fff;
+	text-decoration: none;
+}
+
+.buttons-row a:hover {
+	background: #686868;
+	color:#fff;
+	text-decoration: none;
+}
+
+.bottom-row-links {
+	height: 80px;
+	width: 100%;
+	background-color: #fff;
+	margin-top: 50px;
+}
+
+.bottom-row-links .container {
+	position: relative;
+}
+
+.back-link,
+.next-project-link,
+.back-link:hover,
+.next-project-link:hover {
+	position: absolute;
+	top: 15px;
+	color: #686868;
+	text-decoration: none;
+}
+
+.back-link {
+	left: 0;
+}
+
+.next-project-link {
+	right: 0;
+}
+
+.to-top,
+.back-link span,
+.next-project-link span {
+	border: 1px solid #686868;
+	padding: 4px 10px;
+	border-radius: 3px;
+	background-color: #686868;
+	color:#fff;
+	font-size: 18px;
+	line-height: 18px;
+}
+
+.to-top {
+	position: fixed;
+	right: 30px;
+	bottom: 30px;
+	padding: 10px;
+	display: none;
+}
+
+.to-top:focus,
+.to-top:visited,
+.to-top:hover {
+	color: #fff;
+}
+
+.tooltiptext {
+	position: absolute;
+	left: -95%;
+	top:0;
+	width: 350px;
+	z-index: 99;
+	background-color: #fff;
+	box-shadow: 0px 0px 18px 0px rgba(34, 60, 80, 0.2);
+	font-size: 14px;
+	color: rgba(0,0,0,.5);
+	padding: 20px;
+	display: none;
+}
+
+.tooltiptext i {
+	margin-right: 5px;
+}
+
+.tooltiptext p {
+	display: block;
+}
+
+.tooltiptext a {
+	display: block;
+	font-weight: 700;
+}
+
+.tooltiptext:after {
+	content: " ";
+	position: absolute;
+	top:10%;
+	left: 100%; /* To the right of the tooltip */
+	margin-top: -5px;
+	border-width: 8px;
+	border-style: solid;
+	border-color: transparent transparent transparent white;
+}
+
+.testimonials-item:hover>.tooltiptext {
+	display: block;
+}
+
+
+/*tablet styles*/
+
+@media (min-width: 576px) and (max-width: 998px) {
+	.gallery-block .carousel .item {
+		height: 440px;
+	}
+
+	.gallery-block .list-line {
+		bottom: -80px;
+	}
+
+	.gallery-block .carousel-indicators li{
+		margin: 0px 3px;
+		width: 75px;
+		height: 75px;
+	}
+
+	.carousel-control.right {
+		padding-right: 5px;
+	}
+	.carousel-control.left {
+		padding-left: 5px;
+	}
+
+	.right-side a .demo-play {
+		font-size: 60px;
+	}
+
+	.gallery-block .demo-play i {
+		font-size: 34px;
+	}
+
+	.top-row .fa-star {
+		font-size: 16px;
+	}
+
+	.top-row a:hover,
+	.top-row a {
+		top: 0px;
+		margin-left: 0;
+		display: block;
+	}
+
+	.price-block {
+		padding:15px !important;
+		padding-right: 0 !important;
+	}
+
+	.price-select-block {
+		margin-top: 10px;
+		padding: 10px;
+		margin-bottom: 10px;
+	}
+
+	.made-logo {
+		text-align: left;
+	}
+
+	.avail {
+		position: absolute;
+		top: 0;
+		left: -40px;
+		font-size: 16px;
+	}
+
+	.price-before {
+		font-size: 16px;
+		line-height: 20px;
+	}
+
+	.price-now {
+		font-size: 28px;
+		margin-top: 10px;
+	}
+
+	.share-icon {
+		font-size: 16px !important;
+		padding: 6px 10px;
+	}
+
+	.testimonials-item {
+		font-size: 16px;
+		line-height: 8px;
+		font-weight: 500;
+	}
+
+	.testimonials-item img {
+		padding-right: 10px;
+	}
+
+	.testimonials-item span.red-color {
+		display: inline-block;
+		margin-left: 30px;
+	}
+
+	.badge-action {
+		margin: 0px 20px;
+		padding: 8px 10px;
+		margin-top: 10px;
+		border-radius: 4px;
+		font-size: 12px;
+	}
+
+	.badge-action span {
+		font-size: 16px;
+	}
+
+	.accordion-row ul li {
+		font-size: 12px;
+		margin-right: 5px;
+	}
+
+	.accordion-row ul li a:hover,
+	.accordion-row ul li a {
+		border-radius: 20px;
+		box-shadow: 0px 2px 5px 0px rgba(34, 60, 80, 0.2);
+		line-height: 100%;
+		padding: 5px 15px;
+		text-align: center;
+		max-width: 140px;
+		height: 40px;
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.accordion-row ul li.active a {
+
+		border-radius: 25px 25px 0px 0px;
+		padding-bottom: 15px;
+		border: 1px solid transparent !important;
+		margin: 0;
+		box-shadow: none;
+	}
+
+	.left-side {
+		padding: 0px 20px 20px 20px;
+	}
+
+	.right-side {
+		max-width: 220px;
+		overflow: hidden;
+	}
+
+	.right-side a {
+		font-size: 11px;
+		line-height: 11px;
+		font-weight: 500;
+	}
+
+	.right-side a img {
+		object-fit: cover;
+		object-position: center;
+	}
+
+	.text-block p {
+		font-size: 14px;
+		line-height: 16px;
+	}
+
+	.gates-testimonials h2 {
+		font-size: 20px;
+	}
+
+	.g-testim-row {
+		margin-top: 20px;
+	}
+
+	.testim-item {
+		padding: 5px;
+	}
+
+	.testim-item p {
+		font-size: 14px;
+		line-height: 16px;
+	}
+
+	.white-border {
+		display: table-cell;
+		padding: 15px 60px;
+	}
+
+	.white-border span {
+		max-width: 350px;
+		text-align: right;
+	}
+
+	.white-border a,
+	.white-border span {
+		font-size: 16px;
+		color: #fff;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.white-border a:hover,
+	.white-border a {
+		padding: 10px 20px;
+	}
+
+	.buttons-row,
+	.docs-row {
+		margin-top: 20px;
+	}
+
+	.docs-row .docs-item img,
+	.docs-row .docs-item a,
+	.docs-row .docs-item a:hover,
+	.docs-row .docs-item span {
+		font-size: 11.5px;
+	}
+
+	.docs-row .docs-item a {
+		font-weight: 600;
+	}
+
+	.reviews-row .review-item {
+		width: 49%;
+	}
+
+	.reviews-row .review-item:nth-child(2) {
+		margin: 0px 0px 0px 10px !important;
+	}
+
+	.reviews-row .review-item:last-child {
+		display: none;
+	}
+
+	.bottom-row-links {
+		margin-top: 30px;
+	}
+
+	.bottom-row-links .container {
+		position: relative;
+	}
+
+	.back-link,
+	.next-project-link,
+	.back-link:hover,
+	.next-project-link:hover {
+		top: 20px;
+	}
+
+	.to-top {
+		bottom: 20px;
+	}
+
+	.testimonials-item:hover>.tooltiptext {
+		display: none;
+	}
+
+}
+
+@media screen and (max-width: 575px) {
+	body {
+		background: #fff !important;
+	}
+
+	.mobile-hidden {
+		display: none;
+	}
+
+	.desktop-hidden {
+		display: block !important;
+	}
+
+	.product-row .price-block,
+	.product-row .gallery-block {
+		width: 100%;
+	}
+
+	.gallery-block .carousel .item {
+		height: 300px;
+	}
+
+	.gallery-block .list-line {
+		display: none;
+	}
+
+	.carousel-control.right {
+		padding-right: 5px;
+		opacity: 0.7 !important;
+	}
+	.carousel-control.left {
+		padding-left: 5px;
+		opacity: 0.7 !important;
+	}
+
+	.right-side a .demo-play {
+		backdrop-filter: none;
+		color: #fff;
+		font-size: 90px;
+		opacity: 1;
+	}
+
+	.modal.image-modal .modal-dialog {
+		max-width: 95vw;
+	}
+
+	.avail-row {
+		vertical-align: middle;
+		text-align: end;
+	}
+
+	.price-block {
+		padding:0px !important;
+	}
+
+	.price-select-block {
+		margin-top: 20px;
+		box-shadow: none;
+		padding: 0px;
+		margin-bottom: 20px;
+	}
+
+	.price-before {
+		font-size: 25px;
+	}
+
+	.price-now {
+		font-size: 40px;
+	}
+
+	.avail {
+		font-weight: 600;
+	}
+
+	.desktop-hidden .conditions-link {
+		font-size: 20px;
+		display: block;
+		margin-top: 10px;
+		color:#d33c2e;
+	}
+
+	.size-wrapper select {
+		margin-top: 20px;
+	}
+
+	.testimonials {
+		padding: 10px 0px;
+	}
+
+	.badge-action {
+		margin: 0px;
+		padding: 25px 10px;
+		font-size: 16px;
+	}
+
+	.badge-action span {
+		font-weight: 600;
+		font-size: 18px;
+		margin-bottom: 10px;
+		display: block;
+	}
+
+	.badge-action a:hover,
+	.badge-action a {
+		font-weight: 600;
+		color: #333;
+		text-decoration: underline;
+	}
+
+	.accordion-row {
+		margin-top: 20px;
+	}
+
+	.panel-group .panel {
+		border-radius: 0px !important;
+	}
+
+	.gates-testimonials h2:hover,
+	.gates-testimonials h2 {
+		font-size: 22px;
+		line-height: 26px;
+		text-align: center;
+		max-width: 250px;
+		margin-left: auto;
+		margin-right: auto;
+		color: #333;
+	}
+
+	.gates-testimonials {
+		background-color: #fff;
+		margin-top: 0;
+	}
+
+	.testim-item {
+		text-align: center;
+		display: block;
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 15px;
+	}
+
+	.call-us-block {
+		background: #d33c2e;
+		padding: 100px 15px;
+	}
+
+	.white-border {
+		border: none;
+	}
+
+	.white-border span {
+		font-size: 52px;
+		color: #fff;
+		display: inline-block;
+	}
+
+	.white-border a:hover,
+	.white-border a {
+		padding: 10px 30px;
+		margin-left: 0px;
+	}
+
+	.docs-block h2 {
+		margin: 0;
+		font-size: 22px;
+	}
+
+	.buttons-row,
+	.docs-row {
+		margin-top: 30px;
+		text-align: center;
+	}
+
+	.docs-row .docs-item {
+		width: 32%;
+	}
+
+	.docs-row .docs-item a {
+		width: 110px;
+		font-size: 10px;
+		font-weight: 700;
+		height: 30px;
+	}
+
+	.docs-row .docs-item span {
+		font-size: 8px;
+	}
+
+	.reviews-block h2 {
+		margin-left: 30%;
+	}
+
+	.carousel .review-item,
+	.reviews-row .review-item {
+		background: #e7e7e7;
+		padding: 20px;
+		display: inline-block;
+		width: 100%;
+		min-height: 515px;
+		vertical-align: top;
+	}
+
+	.back-link,
+	.next-project-link,
+	.back-link:hover,
+	.next-project-link:hover {
+		top: 25px;
+	}
+
+	.back-link {
+		left: 10px;
+	}
+
+	.next-project-link {
+		right: 10px;
+	}
+
+	#carouselreviews .carousel-control {
+		filter: brightness(.5);
+	}
+
+	.carousel-control.right {
+		right: -15px !important;
+	}
+
+	.carousel-control.left {
+		left: -15px !important;
+	}
+
+	.to-top {
+		right: 10px;
+		bottom: 90px;
+		padding: 10px;
+	}
+
+	.testimonials-item:hover>.tooltiptext {
+		display: none;
+	}
+
+	.mobile-top-rate {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		font-size: 16px;
+	}
+
+	.mobile-top-rate .reviews-link:hover,
+	.mobile-top-rate .reviews-link {
+		text-decoration: underline;
+		color: #333;
+		font-size: 16px;
+	}
+}
+
+.review-visible {
+	display:inline-block !important;
+}
+
+
+div.reviews-info-box
+{
+	padding:0.5em 1.117em;
+	border-width: 1px;
+	border-style: solid;
+	line-height: 1.5em;
+	margin-bottom:2em;
+	zoom: 1;
+}
+/* Header */
+div.reviews-header-box
+{
+	font-size:1em;
+	padding:0.462em 1.117em;
+	vertical-align:middle;
+}
+/* Link to forum */
+div.reviews-link-box
+{
+	font-size:1em;
+	padding:0.462em;
+	vertical-align:middle;
+	margin-bottom: 1em;
+}
+/* Page navigation */
+div.reviews-navigation-box
+{
+	padding:0 1.117em;
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+	line-height:1.5em;
+	overflow: hidden;
+	zoom:1;
+}
+div.reviews-navigation-bottom {
+	margin-top: 0;
+	margin-bottom: 2em;
+	border-top:none;
+}
+/* Topic posts table */
+table.reviews-post-table
+{
+	width: 100%;
+	line-height:1.5em;
+	border-bottom: 1px solid #dadada;
+	margin-bottom: 0.7em;
+	padding: 1px 3px 1px 0;
+	table-layout:fixed;
+}
+
+table.reviews-post-hidden {
+	background: none repeat scroll 0 0 #E5F8E3 !important;
+}
+
+table.reviews-post-table thead td
+{
+	color: #7e7e7e;
+}
+
+table.reviews-post-table thead td
+{
+	line-height: 30px;
+}
+table.reviews-post-table thead td, table.reviews-post-table tbody td div.reviews-text
+{
+	padding-top: 0.5em;
+}
+table.reviews-post-table thead td .message-post-date {
+	font-size: 0.85em;
+}
+table.reviews-post-table thead td .review-avatar {
+	background-color: #ECEAEC;
+	border: 1px solid #C4C4C4;
+	float: left;
+	height: 30px;
+	margin-right: 0.5em;
+	width: 30px;
+}
+table.reviews-post-table thead td .review-rating {
+	float: right;
+}
+
+table.reviews-post-table thead td .review-rating .rating-vote {
+	line-height: 24px;
+}
+/* First Post Table */
+table.reviews-post-first {}
+
+/* Odd Post Table */
+table.reviews-post-odd {}
+
+/* Even Post Table */
+table.reviews-post-even {}
+
+/* Last Post Table */
+table.reviews-post-last {
+	margin-bottom:0;
+}
+
+/* Post Table Cell */
+table.reviews-post-table td { padding: 0; vertical-align: top; }
+
+/* Post Table: Post and Actions Cell */
+table.reviews-post-table td.reviews-cell-post, table.reviews-post-table td.reviews-cell-actions { border-right-width: 1px; border-right-style: solid; }
+
+/* Post Table: User Contacts and Actions Cell */
+table.reviews-post-table td.reviews-cell-contact, table.reviews-post-table td.reviews-cell-actions { border-top-width: 1px; border-top-style: dashed; height: 1.5em; }
+
+div.reviews-post-date, div.reviews-post-entry { padding:0.5em 1em 0.5em 1em; font-size:1em; font-weight:normal; }
+
+div.reviews-post-date { border-bottom-width:1px; border-bottom-style: dashed; }
+
+div.reviews-post-text { padding:0.5em 0; }
+/* Post Table: Quote and Author Name Links*/
+div.reviews-post-reply-buttons {
+	height:21px;
+	padding:0;
+	position:relative;
+}
+div.reviews-post-reply-buttons span.separator {
+	background-color: #E0E0E0;
+	display: inline-block;
+	margin: 0 1px;
+	height: 7px;
+	line-height: 5px;
+	width:1px;
+}
+table.reviews-post-table .reply-action-note {
+	color: #777777;
+	font-style: italic;
+	line-height: 18px;
+	font-size: 11px;
+	display: inline-block;
+	margin:2px;
+}
+table.reviews-post-table .reply-action-note:hover {
+	text-decoration: none;
+}
+div.reviews-post-reply-buttons a {
+	color: #969696;
+	font-size: 11px;
+	margin-left:2px;
+	text-decoration: none;
+}
+div.reviews-post-reply-buttons a:hover {
+	text-decoration: underline;
+}
+
+/* Post Attachments */
+div.reviews-post-attachments { margin:1.5em 0;}
+div.reviews-post-attachments label { font-weight: bold; padding-bottom:0.5em;}
+div.reviews-post-attachment { padding-left: 0.5em;}
+
+div.reviews-post-lastedit { padding:0.5em 0; font-style: italic;}
+span.reviews-post-lastedit-user { font-weight: bold;}
+
+div.reviews-user-info { padding:0.5em 1em 1.5em 1em; }
+
+div.reviews-user-avatar { margin: 0.5em 0; }
+
+div.reviews-user-status { margin-bottom: 0.5em; }
+
+div.reviews-user-name span { font-size:1em; font-weight:bold; line-height:1.1em;}
+
+span.reviews-vote-user a { text-decoration: none; vertical-align: top; font-size:1.1em;}
+
+div.reviews-contact-links { padding:0.5em 1em 0.5em 1.5em; }
+
+div.reviews-action-links { padding:0.5em 1.5em 0.5em 1em; text-align:right; }
+div.reviews-action-links span {white-space: nowrap;}
+
+div.reviews-post-entry { font-size:1em; padding-bottom:1em; height:100%;}
+
+/*BBCode: List*/
+div.reviews-post-entry ul, div.reviews-post-entry ol { padding:0.5em 0 0.5em 2em; }
+
+div.reviews-post-entry table.forum-quote, div.reviews-post-entry table.forum-code { width: 95%; margin: 0.5em 0 0;}
+
+table.forum-quote th, table.forum-code th {font-weight:bold; padding: 0.25em 1em; text-align:left;}
+table.forum-quote td, table.forum-code td { padding:0.9em 1em 0; }
+
+div.reviews-code-box
+{
+	font-family: "Consolas", "Monaco", "Courier New", Courier, monospace;
+	font-size: 1em;
+	width: 100%;
+	overflow: auto;
+	border-width:1px;
+	border-style: solid;
+	margin:0.5em 0;
+}
+
+div.reviews-code-box ol, div.reviews-code-box ol li, div.reviews-code-box ol li span { margin: 0; padding: 0; border: none; }
+
+div.reviews-code-box ol { list-style: decimal; margin-left: 3em; padding:0.5em 0;}
+
+div.reviews-code-box ol li
+{
+	list-style: decimal-leading-zero;
+	list-style-position: outside !important;
+	padding: 0 0.5em 0 1.5em !important;
+	margin: 0;
+	line-height: 1.5em;
+}
+
+/* Reply Form*/
+div.reviews-reply-form
+{
+	border-style:solid;
+	border-width:1px;
+	line-height:1.5em;
+	margin-bottom:1em;
+}
+
+div.reviews-reply-header
+{
+	font-size:1em;
+	padding:0.462em 1.117em;
+	vertical-align:middle;
+}
+
+div.reviews-note-box {border-width:1px; border-style: solid; margin: 1.117em 0; padding: 0.4em 1.117em;}
+div.reviews-reply-form div.reviews-note-box { margin: 1.117em;}
+div.reviews-note-box ul {padding:0.3em 0 0.3em 2em; margin:0;}
+div.reviews-note-box ul li {margin:0; padding:0;}
+
+div.reviews-reply-fields { padding:0 1.117em 0.8em; }
+
+div.reviews-reply-field { padding-bottom: 0.462em; margin-top: 0.462em; }
+
+div.reviews-reply-field-title input, div.reviews-reply-field-desc input { width: 80%;}
+
+div.reviews-reply-field-title label, div.reviews-reply-field-desc label, div.reviews-reply-field-tags label, div.reviews-reply-field-captcha-label label,
+div.reviews-reply-field-lastedit-reason label {display: block;}
+
+div.reviews-reply-field-user {width: 100%; /*IE Fix or zoom:1 */}
+
+div.reviews-reply-field-author, div.reviews-reply-field-email { float:left; width:39%; }
+
+div.reviews-reply-field-user-sep { width:2%; float: left;}
+
+div.reviews-reply-field-author input, div.reviews-reply-field-email input { width:100%; }
+
+div.reviews-reply-field-bbcode { line-height: 1.7em; zoom:1;}
+
+
+div.reviews-bbcode-line { margin-right: 2em; float: left;}
+div.reviews-smiles-line { white-space: nowrap; float: left; }
+div.reviews-bbcode-line img, div.reviews-smiles-line img { border: 0;}
+div.reviews-bbcode-line a, div.reviews-smiles-line a {vertical-align: middle;}
+
+div.reviews-bbcode-line a
+{
+	width: 20px;
+	height: 20px;
+	float: left;
+	margin-right: 0.2em;
+	background-position: center center;
+	background-repeat:no-repeat;
+	display: block;
+}
+div.reviews-bbcode-line a, div.reviews-bbcode-line img, div.reviews-smiles-line a, div.reviews-smiles-line img { outline: none; }
+div.reviews-bbcode-line select { float: left; margin-left:3px; padding:0px; height:20px;}
+
+/*BBCode Icons*/
+a.reviews-bbcode-bold {background-image: url(images/bbcode/font_bold.gif);}
+a.reviews-bbcode-italic {background-image: url(images/bbcode/font_italic.gif);}
+a.reviews-bbcode-color {background-image: url(images/bbcode/font_color.gif);}
+a.reviews-bbcode-underline{background-image: url(images/bbcode/font_underline.gif);}
+a.reviews-bbcode-strike{background-image: url(images/bbcode/font_strike.gif);}
+a.reviews-bbcode-url{background-image: url(images/bbcode/font_link.gif);}
+a.reviews-bbcode-img{background-image: url(images/bbcode/font_image.gif);}
+a.reviews-bbcode-video{background-image: url(images/bbcode/font_video.gif);}
+a.reviews-bbcode-code{background-image: url(images/bbcode/font_code.gif);}
+a.reviews-bbcode-quote{background-image: url(images/bbcode/font_quote.gif);}
+a.reviews-bbcode-video{background-image: url(images/bbcode/font_video.gif);}
+a.reviews-bbcode-list{background-image: url(images/bbcode/font_list.gif);}
+a.reviews-bbcode-translit{background-image: url(images/bbcode/font_translit.gif);}
+
+div.reviews-reply-field-tags { display: none; }
+div.reviews-reply-field-tags input { width:80%; }
+
+div.reviews-reply-field-lastedit-reason input { width: 80%;}
+
+div.reviews-reply-field-captcha input { width: 180px;}
+
+div.reviews-reply-field-settings input, div.reviews-uploaded-file input, div.reviews-reply-field-lastedit-view input { width:1.55em; height:1.55em; margin:0 0 0 -0.25em; vertical-align: middle; font-size:1em; }
+div.reviews-reply-field-settings label, div.reviews-uploaded-file a, div.reviews-reply-field-lastedit label { vertical-align: middle; }
+
+div.reviews-reply-field-upload a { outline: none;}
+div.reviews-upload-file-hint { display: none;}
+div.reviews-upload-file-hint span { font-weight: bold;}
+div.reviews-upload-file {display: none; margin-top: 0.262em;}
+div.reviews-upload-file input {font-size:1.184em; }
+
+div.reviews-reply-buttons { margin-top: 1em;}
+div.reviews-reply-buttons input { padding:0 0.5em; font-size:1.184em; overflow: visible; /*IE paddings*/}
+
+/* Utils */
+div.reviews-clear-float { clear: both; }
+
+
+/* Table Header, Reply Form Header, BBCode Icons Highlighting */
+div.reviews-reply-header, div.reviews-bbcode-line a:hover, div.reviews-bbcode-line a:hover img { background-color: #e7e7e7; }
+
+/* Table Cell Border */
+div.reviews-info-box, div.reviews-reply-form { border-color: #e1e1e1;}
+
+/* Table Cell, Info Box, Reply Form */
+div.reviews-info-box, div.reviews-reply-form { background:#fbfbfb; }
+
+div.reviews-post-date { background: #eaeaea; border-bottom: none; }
+
+/* ---------------------------------------------------Text Color-------------------------------------------------- */
+
+/* Header Box Right Links*/
+div.reviews-header-box a:link,
+div.reviews-header-box a:visited,
+div.reviews-header-box a:active,
+div.reviews-header-box a:hover { color: #fff; }
+
+.reviews-required-field { color: red; }
+
+/* --------------------------------------------------Special Elements---------------------------------------------- */
+
+div.reviews-header-box { color: #fff; background:#6c6c6c; border-color: #7a7a7a;}
+
+/* Page navigation */
+div.reviews-navigation-box { background:#fff; border-color: #e1e1e1; }
+
+/*BBCode: Quote and Code*/
+table.reviews-quote, table.reviews-code, div.reviews-code-box {  border-color: #c3c3c3; }
+table.reviews-quote td, table.reviews-code td, div.reviews-code-box ol {background:#fff !important; color:#696969;}
+table.reviews-quote th, table.reviews-code th, div.reviews-code-box {background:#e6e6e6 !important; color:#616161;}
+
+div.reviews-note-box {border-color: #ffc85e; background: #fffdc7; }
+/* --------------------------------------------------Icons---------------------------------------------- */
+table.palette{border:1px solid gray; background-color:gray; border-collapse:collapse;}
+table.palette td{border:1px solid gray; width:10px; height:10px; padding:0px; margin:0;}
+table.palette td img{width:10px; height:10px; border:none; padding:0px; margin:0;}
+/* Popups */
+div.reviews-popup-postform {
+	width:502px;
+	padding:0px;
+	margin:0;
+	overflow:hidden;
+	color:black;}
+div.reviews-popup-postform table.reviews-popup {
+	border:1px solid gray;
+	width:500px;
+	background-color:white;
+	font-size:1em;
+	cursor:default;}
+div.reviews-popup-postform table.reviews-popup td {
+	font-size:1em;
+	border:none;
+	background-color:white;
+	font-size:1em;}
+div.reviews-popup-postform table.reviews-popup thead td {
+	font-weight:bold;
+	padding:0.5em 0.5em 0.1em 0.8em;
+	font-size:1.1em;
+	text-align:left;}
+div.reviews-popup-postform table.reviews-popup thead td div.close{
+	cursor:pointer;
+	cursor:hand;
+	background-image: url('images/close.gif');
+	background-position: center center;
+	background-repeat:no-repeat;
+	overflow:hidden;
+	width:13px;
+	height:13px;
+	float:right;}
+div.reviews-popup-postform table.reviews-popup tbody td {padding:1em;}
+div.reviews-popup-postform table.reviews-popup tbody td div.reviews-field{width:100%;}
+div.reviews-popup-postform table.reviews-popup tbody td div.reviews-field span.title{width:100%; display:block;}
+div.reviews-popup-postform table.reviews-popup tbody td div.reviews-field input {width:95%;}
+div.reviews-popup-postform table.reviews-popup tfoot td {padding:0.3em; text-align:center;}
+/*/Popups */
+
+div.reviews-smiles-line, div.reviews-smiles-line a, div.reviews-reply-field-bbcode div.reviews-reply-field-showsmiles{float:left;}
+div.reviews-smiles-line span.reviews-smiles-item{display:block;float:left;border:none;margin:0;padding:0;overflow:hidden;}
+div.reviews-smiles-line span.reviews-smiles-item a{text-decoration:none;border:none;float:left;margin-right:5px;}
+div.reviews-smiles-line div.reviews-smiles-item{float:left;}
+div.reviews-smiles-corrected{overflow:hidden;}
+
+body.reviews-popup-body{padding:1.51em; font-size:0.75em;}
+form.reviews-form{ background-color: #F1F1F1; margin: 0; padding: 0.8em;}
+div.reviews-text table.forum-quote {
+	background: url("images/font_quote.gif") no-repeat scroll left top #F8F2D4;
+	border-color: #EEE9CC;
+	color: #4A483F;
+}
+div.reviews-text table.forum-quote thead {
+	display: none;
+}
+div.reviews-text table.forum-code thead {
+	display: table-cell;
+}
+div.reviews-text table.forum-quote, div.reviews-text table.forum-spoiler, div.reviews-text table.forum-code, div.reviews-text div.forum-code-box {
+	border: 1px solid #dddddd;
+	table-layout:fixed;
+	padding: 3px;
+	width: 100%;
+}
+div.reviews-text table.forum-quote td, div.reviews-text table.forum-spoiler td, div.reviews-text table.forum-code td,div.reviews-text  div.forum-code-box ol {
+	color: #696969;
+}
+div.reviews-text table.forum-quote th, div.reviews-text table.forum-spoiler th, div.reviews-text table.forum-code th, div.reviews-text div.forum-code-box {
+	font-weight:bold;
+	text-align:left;
+	color: #888;
+}
+div.reviews-text table.forum-code pre {
+	overflow: auto;
+	width:100%;
+}
+div.reviews-text table.forum-code td, div.reviews-text div.forum-code-box td{
+	font-family: "Lucida Console", "DejaVu Sans Mono", Monaco, monospace;
+	font-size:12px;
+}
+div.reviews-collapse {
+	/*float: right;*/
+	width:100%;
+}
+div.reviews-collapse a {
+	line-height: 55px;
+	margin-right: 30px;
+	padding: 0.462em;
+}
+div.reviews-expanded {
+	width: auto;
+	float:right;
+}
+
+div.reviews-post-entry table.forum-quote {
+	background: url("images/font_quote.gif") no-repeat scroll left top #F8F2D4;
+	border-color: #EEE9CC;
+	color: #4A483F;
+}
+div.reviews-post-entry table.forum-quote thead {
+	display: none;
+}
+div.reviews-post-entry table.forum-code thead {
+	display: table-cell;
+}
+div.reviews-post-entry table.forum-quote, div.reviews-post-entry table.forum-spoiler, div.reviews-post-entry table.forum-code, div.reviews-post-entry div.forum-code-box {
+	border: 1px solid #dddddd;
+	padding: 3px;
+	width: 100%;
+}
+div.bx-edit-tab-inner table.bx-edit-table div.reviews-post-entry table.forum-quote td,
+div.bx-edit-tab-inner table.bx-edit-table div.reviews-post-entry table.forum-code td
+{
+	background-color:transparent;
+	padding: 0.9em 1em;
+}
+div.reviews-post-entry table.forum-quote td, div.reviews-post-entry table.forum-spoiler td, div.reviews-post-entry table.forum-code td,div.reviews-post-entry  div.forum-code-box ol {
+	color: #696969;
+}
+div.reviews-post-entry table.forum-quote th, div.reviews-post-entry table.forum-spoiler th, div.reviews-post-entry table.forum-code th, div.reviews-post-entry div.forum-code-box {
+	font-weight:bold;
+	text-align:left;
+	color: #888;
+}
+.reviews-actions .ilike-light .bx-ilike-right-wrap {
+	margin-right: 2px;
+}
+.reviews-actions .ilike-light .bx-ilike-right {
+	padding: 0px 1px 0 11px; font-size: 11px; line-height: 19px;
+}
+.reviews-actions .ilike-light .bx-ilike-text {
+	padding: 0;
+}
+.reviews-post-reply-buttons .bx-rating span, .reviews-post-reply-buttons  .bx-rating a { color: #929292; font-size: 11px;}
+/* autosave */
+a.postFormAutosave {
+	float: right;
+	display:block;
+	width:18px;
+	height:18px;
+	margin:0 -4px 0 0;
+	position:relative;
+	z-index:2;
+}
+.forum-notify-bar {
+	width: 100%;
+	height: 2em;
+	background: url("/bitrix/js/main/core/images/panel/sprite04.png") repeat-x scroll 0 -1178px #FFEB8D !important;
+	position:relative;
+}
+.forum-notify-close {
+	display: block !important;
+	height: 12px !important;
+	margin: 3px 6px 0 0;
+	padding: 0 !important;
+	position: absolute !important;
+	right: 5px !important;
+	top: 5px !important;
+	width: 12px !important;
+}
+.forum-notify-close a {
+	background: url("/bitrix/js/main/core/images/panel/sprite04.png") no-repeat scroll -268px -243px transparent !important;
+	display: block !important;
+	height: 12px !important;
+	width: 12px !important;
+	cursor:pointer;
+}
+.forum-notify-text {
+	color: #000000 !important;
+	margin: 0 !important;
+	padding: 3px 20px 5px !important;
+	text-align: center !important;
+}
+.forum-notify-text a.postFormAutorestore {
+	position:relative;
+	color: #ff0000;
+	cursor:pointer;
+	text-decoration:underline;
+	margin-right: 9px;
+	margin-top: 5px;
+	z-index:2;
+}

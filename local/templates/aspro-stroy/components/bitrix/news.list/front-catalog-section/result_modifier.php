@@ -19,6 +19,7 @@ if($arResult['ITEMS']){
 			$arGoodsSectionsIDs[] = $arItem["IBLOCK_SECTION_ID"];
 		}
 	}
+	
 	// get good`s section name
 	if($arGoodsSectionsIDs){
 		$arGoodsSectionsIDs = array_unique($arGoodsSectionsIDs);

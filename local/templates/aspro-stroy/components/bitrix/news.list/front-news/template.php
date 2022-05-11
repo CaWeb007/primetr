@@ -25,7 +25,7 @@
 			$bDetailLink = $arParams['SHOW_DETAIL_LINK'] != 'N' && (!strlen($arItem['DETAIL_TEXT']) ? $arParams['HIDE_LINK_WHEN_NO_DETAIL'] !== 'Y' : true);
 			// preview image
 			$bImage = strlen($arItem['FIELDS']['PREVIEW_PICTURE']['SRC']);
-			$arImage = ($bImage ? CFile::ResizeImageGet($arItem['FIELDS']['PREVIEW_PICTURE']['ID'], array('width' => 105, 'height' => 70), BX_RESIZE_IMAGE_PROPORTIONAL_ALT, true) : array());
+			$arImage = ($bImage ? CFile::ResizeImageGet($arItem['FIELDS']['PREVIEW_PICTURE']['ID'], array('width' => 135, 'height' => 135), BX_RESIZE_IMAGE_PROPORTIONAL_ALT, true) : array());
 			$imageSrc = ($bImage ? $arImage['src'] : false);
 			$bActiveDate = strlen($arItem['DISPLAY_PROPERTIES']['PERIOD']['VALUE']) || ($arItem['DISPLAY_ACTIVE_FROM'] && in_array('DATE_ACTIVE_FROM', $arParams['FIELD_CODE']));
 			?>
