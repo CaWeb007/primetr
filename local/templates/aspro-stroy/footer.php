@@ -211,6 +211,11 @@
                 )
             );?>
         </div>
+        <?$APPLICATION->IncludeFile(SITE_DIR."include/autoform.php", Array(), Array(
+                "MODE" => "php",
+                "NAME" => "AutoForm",
+            )
+        );?>
         <?CStroy::SetMeta();?>
                     <script>
                         (function(w,d,u){
