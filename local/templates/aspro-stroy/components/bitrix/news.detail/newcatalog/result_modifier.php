@@ -91,4 +91,14 @@ if($arResult['DISPLAY_PROPERTIES']){
 		}
 	}
 }
+
+$db = CIBlockElement::GetList(array(),array('IBLOCK_ID' => 21, 'ACTIVE' => 'Y','PROPERTY_LINK_GOODS.ID' => $arResult['ID']));
+while ($ar = $db->GetNextElement()){
+    $arResult['SALES'][] = $ar->GetFields();
+}
+if ($arResult['PROPERTIES']['DESC_RIGHT_SIDE']['VALUE']){
+    $arResult['PROPERTIES']['DESC_RIGHT_SIDE']['FILE'] = \CFile::GetFileArray($arResult['PROPERTIES']['DESC_RIGHT_SIDE']['VALUE']);
+    $arResult['PROPERTIES']['DESC_RIGHT_SIDE']['IS_IMAGE'] = \CFile::IsImage($arResult['PROPERTIES']['DESC_RIGHT_SIDE']['FILE']['FILE_NAME'], $arResult['PROPERTIES']['DESC_RIGHT_SIDE']['FILE']['CONTENT_TYPE']);
+}
+
 ?>

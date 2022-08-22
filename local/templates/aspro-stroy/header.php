@@ -280,16 +280,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 );?>
 										</div>
 									</div>
-<? $dir = $APPLICATION->GetCurDir();?>
-		<? $catalog="/\/catalog\/[^\/]*\/[^\/]*\//";?>
-<?if (!preg_match($catalog, $dir)):?>
-
-									<div class="row">
-										<div class="col-md-12">
-											<h1><?$APPLICATION->ShowTitle(false)?></h1>
-										</div>
-									</div>
-<?endif;?>
+                                    <? $dir = $APPLICATION->GetCurDir();?>
+                                            <? $catalog="/\/catalog\/[^\/]*\/[^\/]*\//";?>
+                                    <?if (!$USER->IsAdmin() || !preg_match($catalog, $dir)):?>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h1><?$APPLICATION->ShowTitle(false)?></h1>
+                                            </div>
+                                        </div>
+                                    <?endif;?>
 								</div>
 							</div>
 						</div>

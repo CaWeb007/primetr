@@ -15,11 +15,19 @@ while ($el = $rsData->fetch()) {
     $count += 1;
 }
 $avg = $sum / $count;
+$tabPropertyCode = array('DESCRIPTION_DESK','DESCRIPTION_SIZETABLE','DESCRIPTION_SURFTYPE','DESCRIPTION_EQUIP','DESCRIPTION_ADDEQUIP');
+$tabCount = 0;
+foreach ($tabPropertyCode as $code)
+    if (!empty($arResult['PROPERTIES'][$code]['VALUE'])) $tabCount++;
+$name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE']:$arResult['NAME'];
 ?>
 <!--<h2 itemprop="name"><//?=$arResult['NAME']?> <span class="orange-badge">Хит продаж</span></h2>-->
 <div class="heading-wrapper">
-    <h2 itemprop="name" class="mobile-heading"><?= $arResult['NAME'] ?> <span class="orange-badge mobile-hidden">Хит продаж</span>
-    </h2>
+    <h1 itemprop="name" class="mobile-heading"><?= $name ?>
+        <?if($arResult['DISPLAY_PROPERTIES']['STIKERS']['DISPLAY_VALUE']):?>
+            <span class="orange-badge mobile-hidden"><?=$arResult['DISPLAY_PROPERTIES']['STIKERS']['DISPLAY_VALUE']?></span>
+        <?endif?>
+    </h1>
     <div class="made-logo desktop-hidden">
         <img src="<?= CFile::GetPath($arResult['PROPERTIES']['PRODUCT_LOGO']['VALUE']); ?>" alt="">
     </div>
@@ -54,7 +62,9 @@ $avg = $sum / $count;
     </div>
     <div class="mobile-slider-container">
         <div class="gallery-block col-lg-7 col-xs-7">
-            <span class="orange-badge desktop-hidden">Хит продаж</span>
+            <?if($arResult['DISPLAY_PROPERTIES']['STIKERS']['DISPLAY_VALUE']):?>
+                <span class="orange-badge desktop-hidden"><?=$arResult['DISPLAY_PROPERTIES']['STIKERS']['DISPLAY_VALUE']?></span>
+            <?endif?>
             <div id="carouselImage" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner" role="listbox">
                     <? $countAll = count($arResult['GALLERY']); ?>
@@ -161,7 +171,7 @@ $avg = $sum / $count;
                         <div class="price-now">
                             <?= $arResult['DISPLAY_PROPERTIES']['PRICE']['VALUE'] ?>
                         </div>
-                        <a href="#" class="conditions-link mobile-hidden">Кредит 0-0-6</a>
+                        <a href="/info/articles/vozmozhnye-sposoby-oplaty/" class="conditions-link mobile-hidden">Рассрочка 0-0-12</a>
                     </div>
                 <? endif; ?>
                 <div class="avail-row">
@@ -174,8 +184,10 @@ $avg = $sum / $count;
                         <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"
                                 async="async"></script>
                     <? endif; ?>
-                    <span class="avail"><i class="fa fa-check" aria-hidden="true"></i> В наличии</span>
-                    <span class="desktop-hidden"><a href="#" class="conditions-link red-color">Кредит 0-0-6</a></span>
+                    <?if ($arResult['PROPERTIES']['IN_STOCK']['VALUE']):?>
+                        <span class="avail"><i class="fa fa-check" aria-hidden="true"></i> В наличии</span>
+                    <?endif?>
+                    <span class="desktop-hidden"><a href="#" class="conditions-link red-color">Рассрочка 0-0-12</a></span>
                 </div>
             </div>
             <? if ($isSizes) { ?>
@@ -204,113 +216,119 @@ $avg = $sum / $count;
                 </div>
             <? } ?>
         </div>
-        <div class="testimonials">
-            <div class="testimonials-item-wrapper">
-                <div class="testimonials-item">
-                    <img src="<?= SITE_TEMPLATE_PATH ?>/img/ruler1.svg" alt="">Замер по г.Иркутск - <span
-                            class="red-color">бесплатный</span>
-                    <div class="tooltiptext">
-                        <div class="tooltiptext-wrapper" style="padding:20px;">
-                            <p><i class="fa fa-angle-right red-color" aria-hidden="true"></i>Доставим готовые изделия в
-                                любой район г.Иркутска и области</p>
-                            <p><i class="fa fa-angle-right red-color" aria-hidden="true"></i>Работаем с проверенеными
-                                транспортными компаниями. Так же возможен самовывоз</p>
-                            <p><i class="fa fa-angle-right red-color" aria-hidden="true"></i>После комплектации заказа
-                                мы свяжемся с вами, уточним время и дату доставки</p>
-                            <span><a href="#" class="red-color">Читать полностью</a></span>
+        <?if(!empty($arResult['PROPERTIES']['DETAIL_BLOCKS']['VALUE'])):?>
+            <div class="testimonials">
+                <?foreach ($arResult['PROPERTIES']['DETAIL_BLOCKS']['VALUE'] as $value):?>
+                    <?switch ($value): case 'Замер':?>
+                        <div class="testimonials-item-wrapper">
+                            <div class="testimonials-item">
+                                <?$APPLICATION->IncludeComponent('bitrix:main.include','',
+                                    array(
+                                        'PATH' => '/include/detail/measurement.php',
+                                        'AREA_FILE_SHOW' => 'file'
+                                    ))
+                                ?>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonials-item-wrapper">
-                <div class="testimonials-item">
-                    <img src="<?= SITE_TEMPLATE_PATH ?>/img/wrench1.svg" alt="">
-                    Монтаж от 4000 руб.
-                </div>
-            </div>
-            <div class="testimonials-item-wrapper">
-                <div class="testimonials-item">
-                    <img src="<?= SITE_TEMPLATE_PATH ?>/img/truck.svg" alt=""> Доставка
-                    <div class="tooltiptext">
-                        <div class="tooltiptext-wrapper" style="padding:20px;">
-                            <p><i class="fa fa-angle-right red-color" aria-hidden="true"></i>Доставим готовые изделия в
-                                любой район г.Иркутска и области</p>
-                            <p><i class="fa fa-angle-right red-color" aria-hidden="true"></i>Работаем с проверенеными
-                                транспортными компаниями. Так же возможен самовывоз</p>
-                            <p><i class="fa fa-angle-right red-color" aria-hidden="true"></i>После комплектации заказа
-                                мы свяжемся с вами, уточним время и дату доставки</p>
-                            <span><a href="#" class="red-color">Читать полностью</a></span>
+                    <?break; case 'Монтаж':?>
+                        <div class="testimonials-item-wrapper">
+                            <div class="testimonials-item">
+                                <img src="<?= SITE_TEMPLATE_PATH ?>/img/wrench1.svg" alt="">
+                                Монтаж<?if($arResult['PROPERTIES']['MOUNTING_PRICE']['VALUE']) echo " от ".$arResult['PROPERTIES']['MOUNTING_PRICE']['VALUE']." руб."?>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    <?break; case 'Доставка':?>
+                        <div class="testimonials-item-wrapper">
+                            <div class="testimonials-item">
+                                <?$APPLICATION->IncludeComponent('bitrix:main.include','',
+                                    array(
+                                        'PATH' => '/include/detail/delivery.php',
+                                        'AREA_FILE_SHOW' => 'file'
+                                    ))
+                                ?>
+                            </div>
+                        </div>
+                    <?endswitch;?>
+                <?endforeach?>
             </div>
-        </div>
-        <div class="badge-action mobile-hidden">
-            <span class="red-color ">Акция:</span> Ворота размером 4x2м и 4,5x2м за 39000 рублей + монтаж в подарок!
-            <p></p>
-            <p class="badge-text" style="display:none;">Полотно секционных ворот представляет собой два соединенных друг
-                размещаясь в пространстве под потолком, с другом листа стали, заполненных теплоизоляционным материалом -
-                вспененным полиуретаном. Направляющие представляют собой стальные профили с кронштейнами, которые
-                крепятся к проему еоторым осуществляется движение полотна...</p> <a
-                    class="read-more-badge">Подробнее...</a></div>
-        <div class="badge-action desktop-hidden">
-            <span class="red-color ">Акция <br> Ворота размером 4x2м и 4,5x2м за 39000 рублей + монтаж в подарок! </span>
-            <p></p>
-            <p>Полотно секционных ворот представляет собой два соединенных друг размещаясь в пространстве под потолком,
-                с другом листа стали, заполненных теплоизоляционным материалом - вспененным полиуретаном. Направляющие
-                представляют собой стальные профили с кронштейнами, которые крепятся к проему еоторым осуществляется
-                движение полотна...</p>
-        </div>
+        <?endif;?>
+        <?if(!empty($arResult['SALES'])):?>
+            <?foreach ($arResult['SALES'] as $sale):?>
+                <div class="badge-action mobile-hidden">
+                    <span class="red-color ">Акция:</span> <?=$sale['NAME']?>
+                    <p></p>
+                    <?if ($sale['PREVIEW_TEXT']):?>
+                        <p class="badge-text" style="display:none;"><?=$sale['PREVIEW_TEXT']?></p>
+                        <a class="read-more-badge">Подробнее...</a>
+                    <?else:?>
+                        <a href="<?=$sale['DETAIL_PAGE_URL']?>">Подробнее...</a>
+                    <?endif?>
+                </div>
+                <div class="badge-action desktop-hidden">
+                    <span class="red-color ">Акция <br> <?=$sale['NAME']?> </span>
+                    <p></p>
+                    <?if ($sale['PREVIEW_TEXT']):?>
+                    <p><?=$sale['PREVIEW_TEXT']?></p>
+                    <?else:?>
+                        <a href="<?=$sale['DETAIL_PAGE_URL']?>" class="">Подробнее...</a>
+                    <?endif?>
+                </div>
+            <?endforeach?>
+        <?endif?>
     </div>
 </div>
-<? if ($arResult['PROPERTIES']['DESCRIPTION_DESK']['~VALUE']['TEXT'] ||
-        $arResult['PROPERTIES']['DESCRIPTION_SIZETABLE']['~VALUE']['TEXT'] ||
-        $arResult['PROPERTIES']['DESCRIPTION_SURFTYPE']['~VALUE']['TEXT'] ||
-        $arResult['PROPERTIES']['DESCRIPTION_EQUIP']['~VALUE']['TEXT'] ||
-        $arResult['PROPERTIES']['DESCRIPTION_ADDEQUIP']['~VALUE']['TEXT']): ?>
+<? if ($tabCount > 0): ?>
     <div class="accordion-row mobile-hidden">
+        <?if($tabCount > 1):?>
         <ul class="nav nav-tabs" role="tablist">
-            <? if ($arResult['PROPERTIES']['DESCRIPTION_DESK']['~VALUE']['TEXT']): ?>
+            <? if ($arResult['PROPERTIES']['DESCRIPTION_DESK']['VALUE']): ?>
                 <li role="presentation" class="active"><a href="#desk" aria-controls="home" role="tab"
-                                                          data-toggle="tab">Описание и характеристики</a></li>
+                                                          data-toggle="tab"><h2>Описание и характеристики</h2></a></li>
             <? endif; ?>
-            <? if ($arResult['PROPERTIES']['DESCRIPTION_SIZETABLE']['~VALUE']['TEXT']): ?>
-                <li role="presentation"><a href="#sizetable" aria-controls="profile" role="tab" data-toggle="tab">Таблица
-                        размеров</a></li>
+            <? if ($arResult['PROPERTIES']['DESCRIPTION_SIZETABLE']['VALUE']): ?>
+                <li role="presentation"><a href="#sizetable" aria-controls="profile" role="tab" data-toggle="tab"><h2>Цена</h2></a></li>
             <? endif; ?>
-            <? if ($arResult['PROPERTIES']['DESCRIPTION_SURFTYPE']['~VALUE']['TEXT']): ?>
-                <li role="presentation"><a href="#surftype" aria-controls="messages" role="tab" data-toggle="tab">Тип
-                        поверхности</a></li>
+            <? if ($arResult['PROPERTIES']['DESCRIPTION_SURFTYPE']['VALUE']): ?>
+                <li role="presentation"><a href="#surftype" aria-controls="messages" role="tab" data-toggle="tab"><h2>Цвета</h2></a></li>
             <? endif; ?>
-            <? if ($arResult['PROPERTIES']['DESCRIPTION_EQUIP']['~VALUE']['TEXT']): ?>
-                <li role="presentation"><a href="#equip" aria-controls="settings" role="tab" data-toggle="tab">Комплектация</a>
+            <? if ($arResult['PROPERTIES']['DESCRIPTION_EQUIP']['VALUE']): ?>
+                <li role="presentation"><a href="#equip" aria-controls="settings" role="tab" data-toggle="tab"><h2>Комплектация</h2></a>
                 </li>
             <? endif; ?>
-            <? if ($arResult['PROPERTIES']['DESCRIPTION_ADDEQUIP']['~VALUE']['TEXT']): ?>
-                <li role="presentation"><a href="#addequip" aria-controls="settings" role="tab" data-toggle="tab">Доп
-                        комплектация</a></li>
+            <? if ($arResult['PROPERTIES']['DESCRIPTION_ADDEQUIP']['VALUE']): ?>
+                <li role="presentation"><a href="#addequip" aria-controls="settings" role="tab" data-toggle="tab"><h2>Доп
+                            комплектация</h2></a></li>
             <? endif; ?>
         </ul>
+        <?endif?>
         <!-- Tab panes -->
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane in active" id="desk">
-                <h2>Описание и характеристики</h2>
                 <div class="white-bg-wrapper">
-                    <? if ($arResult['PROPERTIES']['DESC_RIGHT_SIDE']['VALUE']): ?>
+                    <?if ($tabCount == 1):?>
+                        <h2>Описание и характеристики</h2>
+                    <?endif?>
+                    <? if ($arResult['PROPERTIES']['DESC_RIGHT_SIDE']['VALUE'] || $arResult['PROPERTIES']['YOUTUBE_RIGHT_SIDE']['VALUE']): ?>
                         <div class="multimedia-wrapper">
-                            <div id="video">
-                                <div class="video-control" id="video-play"><i class="fa fa-play-circle"
-                                                                              aria-hidden="true"></i></div>
-                                <div class="video-control" id="video-over"></div>
-                                <video id="myVideo" preload="auto">
-                                    <source id='mp4'
-                                            src="<?= CFile::GetPath($arResult['PROPERTIES']['DESC_RIGHT_SIDE']['VALUE']) ?>"
-                                            type='video/mp4'/>
-                                </video>
-                            </div>
-                            <button class="red-color play-button">
-                                Принцип работы секционных ворот (смотреть видео)
-                            </button>
+                            <?if($arResult['PROPERTIES']['YOUTUBE_RIGHT_SIDE']['VALUE']):?>
+                                <?=$arResult['PROPERTIES']['YOUTUBE_RIGHT_SIDE']['~VALUE']['TEXT'];?>
+                            <?elseif ($arResult['PROPERTIES']['DESC_RIGHT_SIDE']['IS_IMAGE']):?>
+                                <img src="<?=$arResult['PROPERTIES']['DESC_RIGHT_SIDE']['FILE']['SRC']?>" alt="">
+                            <?else:?>
+                                <div id="video">
+                                    <div class="video-control" id="video-play"><i class="fa fa-play-circle"
+                                                                                  aria-hidden="true"></i></div>
+                                    <div class="video-control" id="video-over"></div>
+                                    <video id="myVideo" preload="auto">
+                                        <source id='mp4'
+                                                src="<?= $arResult['PROPERTIES']['DESC_RIGHT_SIDE']['FILE']['SRC'] ?>"
+                                                type='video/mp4'/>
+                                    </video>
+                                </div>
+                                <!--button class="red-color play-button">
+                                    Принцип работы секционных ворот (смотреть видео)
+                                </button-->
+                            <?endif?>
                         </div>
                     <? endif; ?>
                     <div class="text-block">
@@ -319,127 +337,209 @@ $avg = $sum / $count;
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="sizetable">
-                <h2>Таблица размеров</h2>
                 <div class="white-bg-wrapper">
-                    <? foreach ($arResult['PROPERTIES']['DESCRIPTION_SIZETABLE']['VALUE'] as $file): ?>
-                        <img src="<?= CFile::GetPath($file); ?>" alt="">
+                    <?if ($tabCount == 1):?>
+                        <h2>Цена</h2>
+                    <?endif?>
+                    <? foreach ($arResult['PROPERTIES']['DESCRIPTION_SIZETABLE']['VALUE'] as $key => $file): ?>
+                        <div class="text-block">
+                            <img src="<?= CFile::GetPath($file); ?>" alt="">
+                            <div class="text-block"><?=$arResult['PROPERTIES']['DESCRIPTION_SIZETABLE']['DESCRIPTION'][$key]?></div>
+                        </div>
                     <? endforeach; ?>
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="surftype">
-                <h2>Тип поверхности</h2>
                 <div class="white-bg-wrapper">
-                    <p><?= $arResult['PROPERTIES']['DESCRIPTION_SURFTYPE']['~VALUE']['TEXT'] ?></p>
+                    <?if ($tabCount == 1):?>
+                        <h2>Цвета</h2>
+                    <?endif?>
+                    <div class="text-block">
+                        <div class="row accordion-row__row-flex">
+                            <? foreach ($arResult['PROPERTIES']['DESCRIPTION_SURFTYPE']['VALUE'] as $key => $file): ?>
+                                <div class="col-lg-4 col-md-4 col-sm-6">
+                                    <img src="<?= CFile::GetPath($file); ?>" alt="">
+                                    <div><?=$arResult['PROPERTIES']['DESCRIPTION_SURFTYPE']['DESCRIPTION'][$key]?></div>
+                                </div>
+                            <? endforeach; ?>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="equip">
-                <h2>Комплектация</h2>
                 <div class="white-bg-wrapper">
-                    <?= $arResult['PROPERTIES']['DESCRIPTION_EQUIP']['~VALUE']['TEXT'] ?>
+                    <?if ($tabCount == 1):?>
+                        <h2>Комплектация</h2>
+                    <?endif?>
+                    <div class="text-block">
+                        <div class="row accordion-row__row-flex">
+                            <? foreach ($arResult['PROPERTIES']['DESCRIPTION_EQUIP']['VALUE'] as $key => $file): ?>
+                                <div class="col-lg-4 col-md-4 col-sm-6">
+                                    <img src="<?= CFile::GetPath($file); ?>" alt="">
+                                    <div><?=$arResult['PROPERTIES']['DESCRIPTION_EQUIP']['DESCRIPTION'][$key]?></div>
+                                </div>
+                            <? endforeach; ?>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="addequip">
-                <h2>Доп. комплектация</h2>
                 <div class="white-bg-wrapper">
-                    <?= $arResult['PROPERTIES']['DESCRIPTION_ADDEQUIP']['~VALUE']['TEXT'] ?>
+                    <?if ($tabCount == 1):?>
+                        <h2>Доп. комплектация</h2>
+                    <?endif?>
+                    <div class="text-block">
+                        <div class="row accordion-row__row-flex">
+                            <? foreach ($arResult['PROPERTIES']['DESCRIPTION_ADDEQUIP']['VALUE'] as $key => $file): ?>
+                                <div class="col-lg-4 col-md-4 col-sm-6">
+                                    <img src="<?= CFile::GetPath($file); ?>" alt="">
+                                    <div><?=$arResult['PROPERTIES']['DESCRIPTION_ADDEQUIP']['DESCRIPTION'][$key]?></div>
+                                </div>
+                            <? endforeach; ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 <? endif; ?>
+
+
 </div>
 </div>
 </div>
-<? if ($arResult['PROPERTIES']['DESCRIPTION_DESK']['~VALUE']['TEXT'] ||
-    $arResult['PROPERTIES']['DESCRIPTION_SIZETABLE']['~VALUE']['TEXT'] ||
-    $arResult['PROPERTIES']['DESCRIPTION_SURFTYPE']['~VALUE']['TEXT'] ||
-    $arResult['PROPERTIES']['DESCRIPTION_EQUIP']['~VALUE']['TEXT'] ||
-    $arResult['PROPERTIES']['DESCRIPTION_ADDEQUIP']['~VALUE']['TEXT']): ?>
+
+
+
+<? if ($tabCount > 0): ?>
     <div class="accordion-row desktop-hidden">
         <div class="panel-group" id="accordion">
-            <?if ($arResult['DETAIL_TEXT']):?>
+            <?if ($arResult['PROPERTIES']['DESCRIPTION_DESK']['~VALUE']['TEXT']):?>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="collapsed"
+                        <h2 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class=""
                                aria-expanded="false">Описание и характеристики <i class="fa fa-angle-down"
                                                                                   aria-hidden="true"></i></a>
-                        </h4>
+                        </h2>
                     </div>
-                    <div id="collapseOne" class="panel-collapse collapse" aria-expanded="false">
+                    <div id="collapseOne" class="in" aria-expanded="false">
                         <div class="panel-body">
-                            <p><?= $arResult['PROPERTIES']['DESCRIPTION_DESK']['~VALUE']['TEXT'] ?></p>
+                            <div class="text-block">
+                                <p><?= $arResult['PROPERTIES']['DESCRIPTION_DESK']['~VALUE']['TEXT'] ?></p>
+                            </div>
+                            <? if ($arResult['PROPERTIES']['DESC_RIGHT_SIDE']['VALUE'] || $arResult['PROPERTIES']['YOUTUBE_RIGHT_SIDE']['VALUE']): ?>
+                                <div class="multimedia-wrapper">
+                                    <?if($arResult['PROPERTIES']['YOUTUBE_RIGHT_SIDE']['VALUE']):?>
+                                        <?=$arResult['PROPERTIES']['YOUTUBE_RIGHT_SIDE']['~VALUE']['TEXT'];?>
+                                    <?elseif ($arResult['PROPERTIES']['DESC_RIGHT_SIDE']['IS_IMAGE']):?>
+                                        <img src="<?=$arResult['PROPERTIES']['DESC_RIGHT_SIDE']['FILE']['SRC']?>" alt="">
+                                    <?else:?>
+                                        <div id="video">
+                                            <div class="video-control" id="video-play"><i class="fa fa-play-circle"
+                                                                                          aria-hidden="true"></i></div>
+                                            <div class="video-control" id="video-over"></div>
+                                            <video id="myVideo" preload="auto">
+                                                <source id='mp4'
+                                                        src="<?= $arResult['PROPERTIES']['DESC_RIGHT_SIDE']['FILE']['SRC'] ?>"
+                                                        type='<?= $arResult['PROPERTIES']['DESC_RIGHT_SIDE']['FILE']['CONTENT_TYPE']?>'/>
+                                            </video>
+                                        </div>
+                                        <!--button class="red-color play-button">
+                                            Принцип работы секционных ворот (смотреть видео)
+                                        </button-->
+                                    <?endif?>
+                                </div>
+                            <? endif; ?>
                         </div>
                     </div>
                 </div>
             <?endif;?>
-            <?if ($arResult['PROPERTIES']['DESCRIPTION_SIZETABLE']['~VALUE']['TEXT']):?>
+            <?if ($arResult['PROPERTIES']['DESCRIPTION_SIZETABLE']['VALUE']):?>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4 class="panel-title">
+                        <h2 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed"
                                aria-expanded="false">Таблица размеров <i class="fa fa-angle-down"
                                                                          aria-hidden="true"></i></a>
-                        </h4>
+                        </h2>
                     </div>
                     <div id="collapseTwo" class="panel-collapse collapse" aria-expanded="false">
                         <div class="panel-body">
                             <div class="white-bg-wrapper">
-                                <? foreach ($arResult['PROPERTIES']['DESCRIPTION_SIZETABLE']['VALUE'] as $file): ?>
-                                    <img style="width: 100%;" src="<?= CFile::GetPath($file); ?>" alt="">
+                                <? foreach ($arResult['PROPERTIES']['DESCRIPTION_SIZETABLE']['VALUE'] as $key => $file): ?>
+                                    <div class="accordion-row__panel-body__item">
+                                        <img style="width: 100%;" src="<?= CFile::GetPath($file); ?>" alt="">
+                                        <div class="text-block"><?=$arResult['PROPERTIES']['DESCRIPTION_SIZETABLE']['DESCRIPTION'][$key]?></div>
+                                    </div>
                                 <? endforeach; ?>
                             </div>
                         </div>
                     </div>
                 </div>
             <?endif;?>
-            <?if ($arResult['PROPERTIES']['DESCRIPTION_SURFTYPE']['~VALUE']['TEXT']):?>
+            <?if ($arResult['PROPERTIES']['DESCRIPTION_SURFTYPE']['VALUE']):?>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4 class="panel-title">
+                        <h2 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed"
-                               aria-expanded="false">Тип поверхности <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                        </h4>
+                               aria-expanded="false">Цвета <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        </h2>
                     </div>
                     <div id="collapseThree" class="panel-collapse collapse" aria-expanded="false">
                         <div class="panel-body">
-                            <div class="text-block">
-                                <p><?= $arResult['PROPERTIES']['DESCRIPTION_SURFTYPE']['~VALUE']['TEXT'] ?></p>
+                            <div class="white-bg-wrapper">
+                                <? foreach ($arResult['PROPERTIES']['DESCRIPTION_SURFTYPE']['VALUE'] as $key => $file): ?>
+                                    <div class="accordion-row__panel-body__item">
+                                        <img style="width: 100%;" src="<?= CFile::GetPath($file); ?>" alt="">
+                                        <div class="text-block"><?=$arResult['PROPERTIES']['DESCRIPTION_SURFTYPE']['DESCRIPTION'][$key]?></div>
+                                    </div>
+                                <? endforeach; ?>
                             </div>
                         </div>
                     </div>
                 </div>
             <?endif;?>
-            <?if ($arResult['PROPERTIES']['DESCRIPTION_EQUIP']['~VALUE']['TEXT']):?>
+            <?if ($arResult['PROPERTIES']['DESCRIPTION_EQUIP']['VALUE']):?>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4 class="panel-title">
+                        <h2 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" class="collapsed"
                                aria-expanded="false">Комплектация <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                        </h4>
+                        </h2>
                     </div>
                     <div id="collapseFour" class="panel-collapse collapse collapse" aria-expanded="false">
                         <div class="panel-body">
-                            <div class="text-block">
-                                <p><?= $arResult['PROPERTIES']['DESCRIPTION_EQUIP']['~VALUE']['TEXT'] ?></p>
+                            <div class="white-bg-wrapper">
+                                <? foreach ($arResult['PROPERTIES']['DESCRIPTION_EQUIP']['VALUE'] as $key => $file): ?>
+                                    <div class="accordion-row__panel-body__item">
+                                        <img style="width: 100%;" src="<?= CFile::GetPath($file); ?>" alt="">
+                                        <div class="text-block"><?=$arResult['PROPERTIES']['DESCRIPTION_EQUIP']['DESCRIPTION'][$key]?></div>
+                                    </div>
+                                <? endforeach; ?>
                             </div>
                         </div>
                     </div>
                 </div>
             <?endif;?>
-            <?if ($arResult['PROPERTIES']['DESCRIPTION_ADDEQUIP']['~VALUE']['TEXT']):?>
+            <?if ($arResult['PROPERTIES']['DESCRIPTION_ADDEQUIP']['VALUE']):?>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4 class="panel-title">
+                        <h2 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" class="collapsed"
                                aria-expanded="false">Доп комплектация <i class="fa fa-angle-down"
                                                                          aria-hidden="true"></i></a>
-                        </h4>
+                        </h2>
                     </div>
                     <div id="collapseFive" class="panel-collapse collapse" aria-expanded="false">
                         <div class="panel-body">
-                            <div class="text-block">
-                                <p><?= $arResult['PROPERTIES']['DESCRIPTION_ADDEQUIP']['~VALUE']['TEXT'] ?></p>
+                            <div class="white-bg-wrapper">
+                                <? foreach ($arResult['PROPERTIES']['DESCRIPTION_ADDEQUIP']['VALUE'] as $key => $file): ?>
+                                    <div class="accordion-row__panel-body__item">
+                                        <img style="width: 100%;" src="<?= CFile::GetPath($file); ?>" alt="">
+                                        <div class="text-block"><?=$arResult['PROPERTIES']['DESCRIPTION_ADDEQUIP']['DESCRIPTION'][$key]?></div>
+                                    </div>
+                                <? endforeach; ?>
                             </div>
                         </div>
                     </div>
@@ -450,7 +550,7 @@ $avg = $sum / $count;
 <? endif; ?>
 <div class="container">
     <div class="gates-testimonials">
-        <h2 class="red-color">Преимущества секционных ворот:</h2>
+        <h2 class="red-color">Наши преимущества:</h2>
         <br>
         <? /*tizers block start*/ ?>
         <? $useBrands = ('Y' == $arParams['BRAND_USE']);
@@ -547,7 +647,7 @@ $avg = $sum / $count;
         <div class="modal-content">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h2>Поделиться ссылкой:</h2>
-            <div class="ya-share2" data-services="vkontakte,facebook,twitter,viber,whatsapp,odnoklassniki,moimir"></div>
+            <div class="ya-share2" data-services="vkontakte,telegram,viber,whatsapp,odnoklassniki"></div>
         </div>
     </div>
 </div>
