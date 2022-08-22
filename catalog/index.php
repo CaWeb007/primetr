@@ -3,8 +3,9 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("title", "Забор из евроштакетника с установкой в Иркутске");
 $APPLICATION->SetPageProperty("description", "Забор из евроштакетника с установкой в Иркутске. Бережно доставим. Грамотно установим. Достойное качество на долгие годы. Гарантия выгодной цены.");
 $APPLICATION->SetTitle("Каталог");
-$templateName = 'catalog';
-if ($USER->IsAdmin()) $templateName = 'newcatalog';
+/*$templateName = 'catalog';
+if ($USER->IsAdmin()) $templateName = 'newcatalog';*/
+$templateName = 'newcatalog';
 ?><?$APPLICATION->IncludeComponent(
 	"bitrix:news",
 	$templateName,
@@ -96,10 +97,10 @@ if ($USER->IsAdmin()) $templateName = 'newcatalog';
 		"SHOW_SLIDE_PROP" => array(),
 		"SHOW_TABS" => "Y",
 		"SORT_BY1" => "SORT",
-		"SORT_BY2" => "SORT",
+		"SORT_BY2" => "NAME",
 		"SORT_DIRECTION" => "asc",
-		"SORT_ORDER1" => "DESC",
-		"SORT_ORDER2" => "DESC",
+		"SORT_ORDER1" => "ASC",
+		"SORT_ORDER2" => "ASC",
 		"SORT_PROP" => array(),
 		"SORT_PROP_DEFAULT" => "name",
 		"STRICT_SECTION_CHECK" => "N",

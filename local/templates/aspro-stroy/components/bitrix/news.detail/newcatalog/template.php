@@ -190,33 +190,34 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
                     <span class="desktop-hidden"><a href="#" class="conditions-link red-color">Рассрочка 0-0-12</a></span>
                 </div>
             </div>
-            <? if ($isSizes) { ?>
                 <div class="size-wrapper">
-                    <form>
-                        <div class="select" data-state="">
-                            <div class="select-title">Выберите размер(м)</div>
-                            <div class="select-content">
-                                <input id="Select-0" class="select-input" type="radio" name="singleSelect" checked/>
-                                <label for="Select-0" class="select-label">Выберите размер(м)</label>
-                                <? for ($i = 1; $i < count($arResult['PROPERTIES']['SIZES_PRICE_BEFORE']['VALUE']); $i++): ?>
-                                    <input id="Select-<?= $i ?>" class="select-input" type="radio" name="singleSelect"/>
-                                    <label data-valuea="<?= $arResult['PROPERTIES']['SIZES_PRICE_BEFORE']['VALUE'][$i] ?>"
-                                           data-valueb="<?= $arResult['PROPERTIES']['SIZES_PRICE_AFTER']['VALUE'][$i] ?>"
-                                           for="Select-<?= $i ?>"
-                                           class="select-label"><?= $arResult['PROPERTIES']['SIZES']['VALUE'][$i] ?></label>
-                                <? endfor; ?>
+                    <? if ($isSizes) { ?>
+                        <form>
+                            <div class="select" data-state="">
+                                <div class="select-title">Выберите размер(м)</div>
+                                <div class="select-content">
+                                    <input id="Select-0" class="select-input" type="radio" name="singleSelect" checked/>
+                                    <label for="Select-0" class="select-label">Выберите размер(м)</label>
+                                    <? for ($i = 1; $i < count($arResult['PROPERTIES']['SIZES_PRICE_BEFORE']['VALUE']); $i++): ?>
+                                        <input id="Select-<?= $i ?>" class="select-input" type="radio" name="singleSelect"/>
+                                        <label data-valuea="<?= $arResult['PROPERTIES']['SIZES_PRICE_BEFORE']['VALUE'][$i] ?>"
+                                               data-valueb="<?= $arResult['PROPERTIES']['SIZES_PRICE_AFTER']['VALUE'][$i] ?>"
+                                               for="Select-<?= $i ?>"
+                                               class="select-label"><?= $arResult['PROPERTIES']['SIZES']['VALUE'][$i] ?></label>
+                                    <? endfor; ?>
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                    <? if ($arResult['DISPLAY_PROPERTIES']['FORM_ORDER']['VALUE_XML_ID'] == 'YES'): ?>
+                        </form>
+                    <? } ?>
+
+                    <?// if ($arResult['DISPLAY_PROPERTIES']['FORM_ORDER']['VALUE_XML_ID'] == 'YES'): ?>
                         <div class="callback" data-event="jqm" data-param-id="17" data-name="callback">
                             <a href="#">Заказать</a>
                         </div>
-                    <? endif; ?>
+                    <?// endif; ?>
                 </div>
-            <? } ?>
         </div>
-        <?if(!empty($arResult['PROPERTIES']['DETAIL_BLOCKS']['VALUE'])):?>
+        <?if(!empty($arResult['PROPERTIES']['DETAIL_BLOCKS']['VALUE']) || !empty($arResult['PROPERTIES']['WARRANTY']['VALUE'])):?>
             <div class="testimonials">
                 <?foreach ($arResult['PROPERTIES']['DETAIL_BLOCKS']['VALUE'] as $value):?>
                     <?switch ($value): case 'Замер':?>
@@ -250,6 +251,14 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
                         </div>
                     <?endswitch;?>
                 <?endforeach?>
+                <?if(!empty($arResult['PROPERTIES']['WARRANTY']['VALUE'])):?>
+                    <div class="testimonials-item-wrapper">
+                        <div class="testimonials-item">
+                            <img src="<?= SITE_TEMPLATE_PATH ?>/img/warranty.svg" alt="">
+                            <?= "Гарантия ".$arResult['PROPERTIES']['WARRANTY']['VALUE']?>
+                        </div>
+                    </div>
+                <?endif?>
             </div>
         <?endif;?>
         <?if(!empty($arResult['SALES'])):?>
