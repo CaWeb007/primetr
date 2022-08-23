@@ -559,7 +559,7 @@ color: #000 !important;
 	margin-top: 10px;
 }
 .text-block blockquote{
-	display: flex;
+	display: table;
 }
 .accordion-row .text-block ul li{
 	font-weight: normal;
@@ -904,6 +904,13 @@ color: #000 !important;
 .testimonials-item-wrapper {
 	padding: 0px 20px;
 	padding-bottom: 10px;
+}
+.testimonials-item-link{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
 }
 
 .testimonials-item-wrapper:hover .tooltiptext {

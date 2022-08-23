@@ -256,6 +256,7 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
                         <div class="testimonials-item">
                             <img src="<?= SITE_TEMPLATE_PATH ?>/img/warranty.svg" alt="">
                             <?= "Гарантия ".$arResult['PROPERTIES']['WARRANTY']['VALUE']?>
+                            <a href="/services/remont/" class="testimonials-item-link"></a>
                         </div>
                     </div>
                 <?endif?>
