@@ -1,4 +1,8 @@
 <?if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();?>
+<script type="text/javascript">
+    $('#sidebar_wrapper').remove();
+    $('#content_wrapper').removeClass('col-md-9').removeClass('col-sm-9').addClass('col-md-12');
+</script>
 <?$this->setFrameMode(true);?>
 <?
 // get element
@@ -126,7 +130,7 @@ $arElement = CCache::CIblockElement_GetList(array('CACHE' => array('TAG' => CCac
 						"PAGER_TEMPLATE" => ".default",
 						"DISPLAY_TOP_PAGER" => "N",
 						"DISPLAY_BOTTOM_PAGER" => "Y",
-						"PAGER_TITLE" => "Новости",
+						"PAGER_TITLE" => "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ",
 						"PAGER_SHOW_ALWAYS" => "N",
 						"PAGER_DESC_NUMBERING" => "N",
 						"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
@@ -195,7 +199,7 @@ $arElement = CCache::CIblockElement_GetList(array('CACHE' => array('TAG' => CCac
 						"PAGER_TEMPLATE" => ".default",
 						"DISPLAY_TOP_PAGER" => "N",
 						"DISPLAY_BOTTOM_PAGER" => "Y",
-						"PAGER_TITLE" => "Новости",
+						"PAGER_TITLE" => "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ",
 						"PAGER_SHOW_ALWAYS" => "N",
 						"PAGER_DESC_NUMBERING" => "N",
 						"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
@@ -261,7 +265,7 @@ $arElement = CCache::CIblockElement_GetList(array('CACHE' => array('TAG' => CCac
 						"PAGER_TEMPLATE" => ".default",
 						"DISPLAY_TOP_PAGER" => "N",
 						"DISPLAY_BOTTOM_PAGER" => "Y",
-						"PAGER_TITLE" => "Новости",
+						"PAGER_TITLE" => "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ",
 						"PAGER_SHOW_ALWAYS" => "N",
 						"PAGER_DESC_NUMBERING" => "N",
 						"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",

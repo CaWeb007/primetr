@@ -282,7 +282,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 									</div>
                                     <? $dir = $APPLICATION->GetCurDir();?>
                                             <? $catalog="/\/catalog\/[^\/]*\/[^\/]*\//";?>
-                                    <?if (!$USER->IsAdmin() || !preg_match($catalog, $dir)):?>
+                                    <?if (/*!$USER->IsAdmin() || */!preg_match($catalog, $dir)):?>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <h1><?$APPLICATION->ShowTitle(false)?></h1>
@@ -299,11 +299,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<div class="row">
 							<div class="maxwidth-theme">
 								<?if(!$isMenu):?>
-									<div class="col-md-12 col-sm-12 col-xs-12 content-md">
+									<div id="content_wrapper" class="col-md-12 col-sm-12 col-xs-12 content-md">
 								<?elseif($isMenu && $arTheme["SIDE_MENU"]["VALUE"] == "RIGHT"):?>
-									<div class="col-md-9 col-sm-9 col-xs-8 content-md">
+									<div id="content_wrapper" class="col-md-9 col-sm-9 col-xs-8 content-md">
 								<?elseif($isMenu && $arTheme["SIDE_MENU"]["VALUE"] == "LEFT"):?>
-									<div class="col-md-3 col-sm-3 left-menu-md">
+									<div id="sidebar_wrapper" class="col-md-3 col-sm-3 left-menu-md">
 										<?$APPLICATION->IncludeComponent(
 	"bitrix:menu", 
 	"left", 
@@ -331,7 +331,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 											<?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/under_sidebar.php"), false);?>
 										</div>
 									</div>
-									<div class="col-md-9 col-sm-9 content-md">
+									<div id="content_wrapper" class="col-md-9 col-sm-9 content-md">
 								<?endif;?>
 					<?endif;?>
 
