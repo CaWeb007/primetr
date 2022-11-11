@@ -45,14 +45,15 @@
 		<?/*$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/nouislider.js');*/?>
 		<?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/ion.rangeSlider.js');?>
 		<?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/slick.js');?>
-
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TPSDCCF');</script>
-<!-- End Google Tag Manager -->
+        <!--kviz-->
+        <script defer type="application/javascript" src="//panel.quizgo.ru/common?q=63885"></script>
+        <!-- Google Tag Manager -->
+            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-TPSDCCF');</script>
+        <!-- End Google Tag Manager -->
 
 
 
@@ -282,7 +283,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 									</div>
                                     <? $dir = $APPLICATION->GetCurDir();?>
                                             <? $catalog="/\/catalog\/[^\/]*\/[^\/]*\//";?>
-                                    <?if (!$USER->IsAdmin() || !preg_match($catalog, $dir)):?>
+                                    <?if (/*!$USER->IsAdmin() || */!preg_match($catalog, $dir)):?>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <h1><?$APPLICATION->ShowTitle(false)?></h1>
@@ -299,11 +300,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<div class="row">
 							<div class="maxwidth-theme">
 								<?if(!$isMenu):?>
-									<div class="col-md-12 col-sm-12 col-xs-12 content-md">
+									<div id="content_wrapper" class="col-md-12 col-sm-12 col-xs-12 content-md">
 								<?elseif($isMenu && $arTheme["SIDE_MENU"]["VALUE"] == "RIGHT"):?>
-									<div class="col-md-9 col-sm-9 col-xs-8 content-md">
+									<div id="content_wrapper" class="col-md-9 col-sm-9 col-xs-8 content-md">
 								<?elseif($isMenu && $arTheme["SIDE_MENU"]["VALUE"] == "LEFT"):?>
-									<div class="col-md-3 col-sm-3 left-menu-md">
+									<div id="sidebar_wrapper" class="col-md-3 col-sm-3 left-menu-md">
 										<?$APPLICATION->IncludeComponent(
 	"bitrix:menu", 
 	"left", 
@@ -331,7 +332,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 											<?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/under_sidebar.php"), false);?>
 										</div>
 									</div>
-									<div class="col-md-9 col-sm-9 content-md">
+									<div id="content_wrapper" class="col-md-9 col-sm-9 content-md">
 								<?endif;?>
 					<?endif;?>
 
