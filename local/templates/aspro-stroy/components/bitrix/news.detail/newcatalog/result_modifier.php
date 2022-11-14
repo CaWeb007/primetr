@@ -92,13 +92,48 @@ if($arResult['DISPLAY_PROPERTIES']){
 	}
 }
 
+//region Sales
+
+use Bitrix\Main\Loader;
+Loader::includeModule('highloadblock');
+use Bitrix\Highloadblock;
+use Bitrix\Main\Entity;
+
+try {
+    $hlBlock = Highloadblock\HighloadBlockTable::getRowById(3);
+    $class = Highloadblock\HighloadBlockTable::compileEntity($hlBlock)->getDataClass();
+    $db = $class::getList(array(
+        'filter' => array(
+            'LOGIC' => 'OR',
+            array('UF_SECTIONS' => $arResult['IBLOCK_SECTION_ID']),
+            array('UF_ELEMENTS' => $arResult['ID'])
+        ),
+        'select' => array(
+            "NAME" => "UF_NAME",
+            "PREVIEW_TEXT" => "UF_TEXT",
+            "DETAIL_PAGE_URL" => "UF_LINK",
+            "UF_PREFIX"
+        )
+    ));
+    while($ar = $db->fetch()){
+        $arResult['SALES'][] = $ar;
+    }
+} catch (\Bitrix\Main\ObjectPropertyException $e) {
+} catch (\Bitrix\Main\ArgumentException $e) {
+} catch (\Bitrix\Main\SystemException $e) {
+}
+
+
 $db = CIBlockElement::GetList(array(),array('IBLOCK_ID' => 21, 'ACTIVE' => 'Y','PROPERTY_LINK_GOODS.ID' => $arResult['ID']));
 while ($ar = $db->GetNextElement()){
-    $arResult['SALES'][] = $ar->GetFields();
+    $fields = $ar->GetFields();
+    $fields['UF_PREFIX'] = 'Акция';
+    $arResult['SALES'][] = $fields;
 }
+
+//endregion
 if ($arResult['PROPERTIES']['DESC_RIGHT_SIDE']['VALUE']){
     $arResult['PROPERTIES']['DESC_RIGHT_SIDE']['FILE'] = \CFile::GetFileArray($arResult['PROPERTIES']['DESC_RIGHT_SIDE']['VALUE']);
     $arResult['PROPERTIES']['DESC_RIGHT_SIDE']['IS_IMAGE'] = \CFile::IsImage($arResult['PROPERTIES']['DESC_RIGHT_SIDE']['FILE']['FILE_NAME'], $arResult['PROPERTIES']['DESC_RIGHT_SIDE']['FILE']['CONTENT_TYPE']);
 }
-
 ?>

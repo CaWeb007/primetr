@@ -2,7 +2,7 @@ $(document).ready(function(){
     // open badge on click read more 
 
 $('.read-more-badge').click(function(){
-    $('.badge-text').fadeToggle(100);
+    $(this).prev('.badge-text').fadeToggle(100);
     $(this).html($(this).html() == 'Подробнее...' ? 'Скрыть...' : 'Подробнее...');
 });
 

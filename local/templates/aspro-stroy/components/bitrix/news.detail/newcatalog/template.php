@@ -265,21 +265,21 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
         <?if(!empty($arResult['SALES'])):?>
             <?foreach ($arResult['SALES'] as $sale):?>
                 <div class="badge-action mobile-hidden">
-                    <span class="red-color ">Акция:</span> <?=$sale['NAME']?>
+                    <span class="red-color "><?if ($sale['UF_PREFIX']) echo $sale['UF_PREFIX'].":"?></span> <?if($sale['NAME']) echo $sale['NAME']?>
                     <p></p>
                     <?if ($sale['PREVIEW_TEXT']):?>
                         <p class="badge-text" style="display:none;"><?=$sale['PREVIEW_TEXT']?></p>
                         <a class="read-more-badge">Подробнее...</a>
-                    <?else:?>
+                    <?elseif($sale['DETAIL_PAGE_URL']):?>
                         <a href="<?=$sale['DETAIL_PAGE_URL']?>">Подробнее...</a>
                     <?endif?>
                 </div>
                 <div class="badge-action desktop-hidden">
-                    <span class="red-color ">Акция <br> <?=$sale['NAME']?> </span>
+                    <span class="red-color "><?if ($sale['UF_PREFIX']) echo $sale['UF_PREFIX']." "?><br><?if($sale['NAME']) echo $sale['NAME']?></span>
                     <p></p>
                     <?if ($sale['PREVIEW_TEXT']):?>
-                    <p><?=$sale['PREVIEW_TEXT']?></p>
-                    <?else:?>
+                        <p><?=$sale['PREVIEW_TEXT']?></p>
+                    <?elseif ($sale['DETAIL_PAGE_URL']):?>
                         <a href="<?=$sale['DETAIL_PAGE_URL']?>" class="">Подробнее...</a>
                     <?endif?>
                 </div>
