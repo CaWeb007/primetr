@@ -211,7 +211,7 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
                     <? } ?>
 
                     <?// if ($arResult['DISPLAY_PROPERTIES']['FORM_ORDER']['VALUE_XML_ID'] == 'YES'): ?>
-                        <div class="callback" data-event="jqm" data-param-id="17" data-name="callback">
+                        <div class="callback" data-event="jqm" data-param-id="33" data-name="callback">
                             <a href="#">Заказать</a>
                         </div>
                     <?// endif; ?>
