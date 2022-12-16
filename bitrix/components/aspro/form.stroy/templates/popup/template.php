@@ -9,7 +9,14 @@
 				<?=$arResult["FORM_NOTE"]?>
 			</div>
 		</div>
-
+		<script type="text/javascript">
+		$(document).ready(function(){
+			if(arStroyOptions['THEME']['USE_FORMS_GOALS'] !== 'NONE'){
+				var eventdata = {goal: 'goal_webform_success' + (arStroyOptions['THEME']['USE_FORMS_GOALS'] === 'COMMON' ? '' : '_<?=$arParams["IBLOCK_ID"]?>'), params: <?=CUtil::PhpToJSObject($arParams, false)?>, result: <?=CUtil::PhpToJSObject($arResult, false)?>};
+				BX.onCustomEvent('onCounterGoals', [eventdata]);
+			}
+		});
+		</script>
 		<?if( $arParams["DISPLAY_CLOSE_BUTTON"] == "Y" ){?>
 			<div class="form-footer" style="text-align: center;">
 				<?=str_replace('class="', 'class="btn-lg ', $arResult["CLOSE_BUTTON"])?>
