@@ -1,5 +1,6 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <?
+if ($arParams['ONLY_DETAIL'] === 'Y') LocalRedirect('/');
 $this->setFrameMode(true);
 global $APPLICATION;
 $includeSubsection = 'N';

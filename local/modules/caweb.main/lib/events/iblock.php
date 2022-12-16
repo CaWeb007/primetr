@@ -13,16 +13,17 @@ namespace Caweb\Main\Events;
 use Caweb\Main\Log\Write;
 
 class Iblock{
-    const FORMS_ID = array(16, 17, 14, 12);
+    const FORMS_ID = array(16, 17, 14, 12,33);
     public function sendBitrix24(&$arFields){
         $iblockId = (int)$arFields['IBLOCK_ID'];
         if (!in_array($iblockId, self::FORMS_ID)) return;
         if ($arFields['RESULT'] === false) return;
-        $queryUrl = 'https://crm.strlog.ru/rest/1/73yn8j1f0h4qb08d/crm.lead.add/';
+        $queryUrl = 'https://crm.strlog.ru/rest/2223/34k6ig5n6gg4rd9g/crm.lead.add/';
         $property = $arFields['PROPERTY_VALUES'];
         $name = $property['NAME'];
         $service = $property['NEED_PRODUCT'];
         if ($iblockId === 17) $name = $property['FIO'];
+        if ($iblockId === 33) $name = $property['FIO'];
         if ($iblockId === 14) $service = $property['SERVICE'];
         if ($iblockId === 12) $service = $property['PROJECT'];
         $queryData = http_build_query(

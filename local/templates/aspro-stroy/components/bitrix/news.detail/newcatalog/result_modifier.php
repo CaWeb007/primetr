@@ -17,6 +17,24 @@ function GetEntityDataClass($HlBlockId) {
 	return $entity_data_class;
 }
 
+
+if (((int)$arResult['IBLOCK_ID'] === 25) && (((int)$arResult['IBLOCK_SECTION_ID'] === 269) || ((int)$arResult['IBLOCK_SECTION_ID'] === 277)) ){
+    $elementId = 43;
+    if ((int)$arResult['IBLOCK_SECTION_ID'] === 277)
+        $elementId = 6574;
+    $ar = \CIBlockElement::GetByID($elementId)->GetNextElement();
+    $fields = $ar->GetFields();
+    $props = $ar->GetProperties(array(), array());
+    if (empty($arResult['DETAIL_PICTURE']))
+        $arResult['DETAIL_PICTURE'] = $fields['DETAIL_PICTURE'];
+    if (empty($arResult['DETAIL_TEXT']))
+        $arResult['DETAIL_TEXT'] = $fields['DETAIL_TEXT'];
+    foreach ($arResult['PROPERTIES'] as $code => $item){
+        if(!empty($item['VALUE'])) continue;
+        $arResult['PROPERTIES'][$code] = $props[$code];
+    }
+}
+
 if($arParams['DISPLAY_PICTURE'] != 'N'){
 	if(is_array($arResult['DETAIL_PICTURE'])){
 		$arResult['GALLERY'][] = array(
@@ -135,5 +153,11 @@ while ($ar = $db->GetNextElement()){
 if ($arResult['PROPERTIES']['DESC_RIGHT_SIDE']['VALUE']){
     $arResult['PROPERTIES']['DESC_RIGHT_SIDE']['FILE'] = \CFile::GetFileArray($arResult['PROPERTIES']['DESC_RIGHT_SIDE']['VALUE']);
     $arResult['PROPERTIES']['DESC_RIGHT_SIDE']['IS_IMAGE'] = \CFile::IsImage($arResult['PROPERTIES']['DESC_RIGHT_SIDE']['FILE']['FILE_NAME'], $arResult['PROPERTIES']['DESC_RIGHT_SIDE']['FILE']['CONTENT_TYPE']);
+}
+if (empty($arResult['PROPERTIES']['CREDIT']['VALUE'])){
+    $arResult['PROPERTIES']['CREDIT']['VALUE'] = "/info/articles/vozmozhnye-sposoby-oplaty/";
+}
+if (empty($arResult['PROPERTIES']['CREDIT']['DESCRIPTION'])){
+    $arResult['PROPERTIES']['CREDIT']['DESCRIPTION'] = "Рассрочка 0-0-12";
 }
 ?>

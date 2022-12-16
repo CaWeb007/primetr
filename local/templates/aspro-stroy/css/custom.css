@@ -2093,6 +2093,7 @@ header.fixed .logo_and_menu-row{
 .catalog-items__nav{
 	clear: both;
 }
+.mobile_header_phone{display: none}
 @media (max-width: 767px){
 	.top-header-theme{
 		height: 70px;
@@ -2100,4 +2101,5 @@ header.fixed .logo_and_menu-row{
 	header.fixed .logo_and_menu-row{
 		height: 70px;
 	}
+	.mobile_header_phone {display:block; font-weight: 700; font-size: 16px; white-space: nowrap}
 }

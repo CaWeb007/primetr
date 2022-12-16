@@ -108,7 +108,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<div class="body <?=($isIndex || $isContacts || $isPrices ? 'index' : '')?>">
 			<div class="body_media"></div>
 			<header class="topmenu-<?=($arTheme["TOP_MENU"]["VALUE"])?><?=($arTheme["TOP_MENU_FIXED"]["VALUE"] == "Y" ? ' canfixed' : '')?>">
-				<div class="logo_and_menu-row">
+				<div class="logo_and_menu-row"> 
 					<div class="logo-row row">
 						<div class="maxwidth-theme top-header-theme">
 							<div class="col-md-3 col-sm-3">
@@ -125,7 +125,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										</div>
 									</div>
 								</div>
-							</div>
+</div><a href="tel:+73952280700" class="mobile_header_phone">+7 (3952) 280-700</a>
+
 							<div class="col-md-9 col-sm-9 col-xs-12">
 <!--
 								<div class="top-description col-md-4 hidden-sm hidden-xs">
@@ -259,31 +260,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<?@include(str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'].'/'.SITE_DIR.'/indexblocks.php'));?>
 					<?=$indexProlog; // buffered from indexblocks.php?>
 				<?endif;?>
+
+                <? $dir = $APPLICATION->GetCurDir();?>
+                <? $catalog="/\/catalog\/[^\/]*\/[^\/]*\//";?>
+                <? $catalog2="/\/catalog2\/[^\/]*\/[^\/]*\//";?>
 				<?if(!$isIndex && !$is404 && !$isForm):?>
 					<section class="page-top <?=($arTheme["TOP_MENU"]["VALUE"])?>">
 						<div class="row">
 							<div class="maxwidth-theme">
 								<div class="col-md-12">
-									<div class="row">
-										<div class="col-md-12">
-											<?$APPLICATION->IncludeComponent(
-	"bitrix:breadcrumb", 
-	"corp", 
-	array(
-		"START_FROM" => "0",
-		"PATH" => "",
-		"SITE_ID" => "s1",
-		"COMPONENT_TEMPLATE" => "corp",
-		"COMPOSITE_FRAME_MODE" => "A",
-		"COMPOSITE_FRAME_TYPE" => "AUTO"
-	),
-	false
-);?>
-										</div>
-									</div>
-                                    <? $dir = $APPLICATION->GetCurDir();?>
-                                            <? $catalog="/\/catalog\/[^\/]*\/[^\/]*\//";?>
-                                    <?if (/*!$USER->IsAdmin() || */!preg_match($catalog, $dir)):?>
+
+                                    <?if (!preg_match($catalog2, $dir)):?>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <?$APPLICATION->IncludeComponent(
+                                                    "bitrix:breadcrumb",
+                                                    "corp",
+                                                    array(
+                                                        "START_FROM" => "0",
+                                                        "PATH" => "",
+                                                        "SITE_ID" => "s1",
+                                                        "COMPONENT_TEMPLATE" => "corp",
+                                                        "COMPOSITE_FRAME_MODE" => "A",
+                                                        "COMPOSITE_FRAME_TYPE" => "AUTO"
+                                                    ),
+                                                    false
+                                                );?>
+                                            </div>
+                                        </div>
+                                    <?endif;?>
+                                    <?if (!preg_match($catalog, $dir) && !preg_match($catalog2, $dir)):?>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <h1><?$APPLICATION->ShowTitle(false)?></h1>

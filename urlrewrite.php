@@ -144,6 +144,14 @@ $arUrlRewrite=array (
     'PATH' => '/projects/index.php',
     'SORT' => 100,
   ),
+  24 => 
+  array (
+    'CONDITION' => '#^/catalog2/#',
+    'RULE' => '',
+    'ID' => 'bitrix:news',
+    'PATH' => '/catalog2/index.php',
+    'SORT' => 100,
+  ),
   23 => 
   array (
     'CONDITION' => '#^/catalog/#',

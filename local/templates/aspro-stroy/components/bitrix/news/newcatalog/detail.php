@@ -206,37 +206,39 @@ $url=($arSection["SECTION_PAGE_URL"] ? $arSection["SECTION_PAGE_URL"] : $arResul
 		<?
 		$element_id = CIBlockFindTools::GetElementID("",$arResult['VARIABLES']['ELEMENT_CODE'],"","","");
 		?>
-<div class="container">
-		<?$APPLICATION->IncludeComponent(
-			"bitrix:forum.topic.reviews",
-			"newcatalog",
-			Array(
-				"AJAX_POST" => "Y",
-				"CACHE_TIME" => "0",
-				"CACHE_TYPE" => "A",
-				"DATE_TIME_FORMAT" => "d.m.Y H:i:s",
-				"EDITOR_CODE_DEFAULT" => "N",
-				"ELEMENT_ID" => $element_id,
-				"FILES_COUNT" => "2",
-				"FORUM_ID" => "1",
-				"IBLOCK_ID" => "20",
-				"IBLOCK_TYPE" => "aspro_stroy_catalog",
-				"MESSAGES_PER_PAGE" => "1000",
-				"NAME_TEMPLATE" => "",
-				"PAGE_NAVIGATION_TEMPLATE" => "",
-				"PREORDER" => "N",
-				"RATING_TYPE" => "",
-				"SHOW_AVATAR" => "N",
-				"SHOW_LINK_TO_FORUM" => "N",
-				"SHOW_MINIMIZED" => "N",
-				"SHOW_RATING" => "N",
-				"URL_TEMPLATES_DETAIL" => "",
-				"URL_TEMPLATES_PROFILE_VIEW" => "",
-				"URL_TEMPLATES_READ" => "",
-				"USE_CAPTCHA" => "N"
-			)
-		);?>
-	</div>
+        <?if ($arParams['USE_REVIEW'] === 'Y'):?>
+            <div class="container">
+                <?$APPLICATION->IncludeComponent(
+                    "bitrix:forum.topic.reviews",
+                    "newcatalog",
+                    Array(
+                        "AJAX_POST" => "Y",
+                        "CACHE_TIME" => "0",
+                        "CACHE_TYPE" => "A",
+                        "DATE_TIME_FORMAT" => "d.m.Y H:i:s",
+                        "EDITOR_CODE_DEFAULT" => "N",
+                        "ELEMENT_ID" => $element_id,
+                        "FILES_COUNT" => "2",
+                        "FORUM_ID" => "1",
+                        "IBLOCK_ID" => "20",
+                        "IBLOCK_TYPE" => "aspro_stroy_catalog",
+                        "MESSAGES_PER_PAGE" => "1000",
+                        "NAME_TEMPLATE" => "",
+                        "PAGE_NAVIGATION_TEMPLATE" => "",
+                        "PREORDER" => "N",
+                        "RATING_TYPE" => "",
+                        "SHOW_AVATAR" => "N",
+                        "SHOW_LINK_TO_FORUM" => "N",
+                        "SHOW_MINIMIZED" => "N",
+                        "SHOW_RATING" => "N",
+                        "URL_TEMPLATES_DETAIL" => "",
+                        "URL_TEMPLATES_PROFILE_VIEW" => "",
+                        "URL_TEMPLATES_READ" => "",
+                        "USE_CAPTCHA" => "N"
+                    )
+                );?>
+            </div>
+        <?endif;?>
 <!--</div>-->
 </div>
 </div>

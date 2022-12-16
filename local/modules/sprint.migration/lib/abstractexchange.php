@@ -14,23 +14,7 @@ abstract class AbstractExchange
 {
     const EXCHANGE_VERSION = 2;
     use HelperManagerTrait;
-    use OutTrait {
-        out as protected;
-        outIf as protected;
-        outProgress as protected;
-        outNotice as protected;
-        outNoticeIf as protected;
-        outInfo as protected;
-        outInfoIf as protected;
-        outSuccess as protected;
-        outSuccessIf as protected;
-        outWarning as protected;
-        outWarningIf as protected;
-        outError as protected;
-        outErrorIf as protected;
-        outDiff as protected;
-        outDiffIf as protected;
-    }
+    use OutTrait;
 
     protected $exchangeEntity;
     protected $file;
@@ -47,13 +31,15 @@ abstract class AbstractExchange
     {
         $this->exchangeEntity = $exchangeEntity;
 
-        $enabled = (
-            class_exists('XMLReader')
-            && class_exists('XMLWriter')
-            && $this->isEnabled()
-        );
+        if (!class_exists('XMLReader') || !class_exists('XMLWriter')) {
+            throw new ExchangeException(
+                Locale::getMessage(
+                    'ERR_EXCHANGE_DISABLED_XML'
+                )
+            );
+        }
 
-        if (!$enabled) {
+        if (!$this->isEnabled()) {
             throw new ExchangeException(
                 Locale::getMessage(
                     'ERR_EXCHANGE_DISABLED'

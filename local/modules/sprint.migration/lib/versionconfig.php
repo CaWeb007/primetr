@@ -21,6 +21,7 @@ use Sprint\Migration\Builders\TransferBuilder;
 use Sprint\Migration\Builders\UserGroupBuilder;
 use Sprint\Migration\Builders\UserOptionsBuilder;
 use Sprint\Migration\Builders\UserTypeEntitiesBuilder;
+use Sprint\Migration\Enum\EventsEnum;
 use Sprint\Migration\Enum\VersionEnum;
 use Sprint\Migration\Exceptions\MigrationException;
 use Sprint\Migration\Schema\AgentSchema;
@@ -95,21 +96,17 @@ class VersionConfig
      */
     protected function initializeByName($configName)
     {
-        $this->configList = $this->searchConfigs();
+        $this->configList = $this->searchConfigs(Module::getPhpInterfaceDir());
+
+        $events = GetModuleEvents(Module::ID, EventsEnum::ON_SEARCH_CONFIG_FILES, true);
+
+        foreach ($events as $aEvent) {
+            $customPath = (string)ExecuteModuleEventEx($aEvent);
+            $this->configList = array_merge($this->configList, $this->searchConfigs($customPath));
+        }
 
         if (!isset($this->configList[VersionEnum::CONFIG_DEFAULT])) {
             $this->configList[VersionEnum::CONFIG_DEFAULT] = $this->prepare(VersionEnum::CONFIG_DEFAULT);
-        }
-
-        if (!isset($this->configList[VersionEnum::CONFIG_ARCHIVE])) {
-            $this->configList[VersionEnum::CONFIG_ARCHIVE] = $this->prepare(
-                VersionEnum::CONFIG_ARCHIVE,
-                [
-                    'title'           => Locale::getMessage('CONFIG_archive'),
-                    'migration_dir'   => $this->getSiblingDir('archive', true),
-                    'migration_table' => 'sprint_migration_archive',
-                ]
-            );
         }
 
         uasort(
@@ -126,39 +123,29 @@ class VersionConfig
     }
 
     /**
-     * @param false $key
+     * @param string $key
      *
      * @return mixed
      */
-    public function getCurrent($key = false)
+    public function getCurrent($key = '')
     {
         return ($key) ? $this->configList[$this->configCurrent][$key] : $this->configList[$this->configCurrent];
     }
 
-    /**
-     * @return array
-     */
-    public function getList()
+    public function getList(): array
     {
         return $this->configList;
     }
 
-    /**
-     * @return mixed
-     */
     public function getName()
     {
         return $this->configList[$this->configCurrent]['name'];
     }
 
-    /**
-     * @throws MigrationException
-     * @return array
-     */
-    protected function searchConfigs()
+    protected function searchConfigs($directory)
     {
         $result = [];
-        $directory = new DirectoryIterator(Module::getPhpInterfaceDir());
+        $directory = new DirectoryIterator($directory);
         foreach ($directory as $item) {
             if (!$item->isFile()) {
                 continue;
@@ -169,7 +156,6 @@ class VersionConfig
                 continue;
             }
 
-            /** @noinspection PhpIncludeInspection */
             $values = include $item->getPathname();
             if (!$this->isValuesValid($values)) {
                 continue;
@@ -184,22 +170,17 @@ class VersionConfig
     /**
      * @param $fileName
      *
-     * @return false|mixed
+     * @return string
      */
-    protected function getConfigName($fileName)
+    protected function getConfigName($fileName): string
     {
         if (preg_match('/^migrations\.([a-z0-9_-]*)\.php$/i', $fileName, $matches)) {
             return $matches[1];
         }
-        return false;
+        return '';
     }
 
-    /**
-     * @param $values
-     *
-     * @return bool
-     */
-    protected function isValuesValid($values)
+    protected function isValuesValid($values): bool
     {
         foreach ($this->availablekeys as $key) {
             if (isset($values[$key])) {
@@ -217,7 +198,7 @@ class VersionConfig
      * @throws MigrationException
      * @return array
      */
-    protected function prepare($configName, $configValues = [], $file = false)
+    protected function prepare($configName, $configValues = [], $file = false): array
     {
         $configValues = $this->prepareValues($configValues);
 
@@ -254,9 +235,9 @@ class VersionConfig
      * @param array $values
      *
      * @throws MigrationException
-     * @return array|mixed
+     * @return array
      */
-    protected function prepareValues($values = [])
+    protected function prepareValues(array $values = []): array
     {
         if (empty($values['migration_extend_class'])) {
             $values['migration_extend_class'] = 'Version';
@@ -383,12 +364,12 @@ class VersionConfig
     }
 
     /**
-     * @param       $configName
-     * @param array $configValues
+     * @param string $configName
+     * @param array  $configValues
      *
      * @return bool
      */
-    public function createConfig($configName, $configValues = [])
+    public function createConfig($configName, $configValues = []): bool
     {
         $fileName = 'migrations.' . $configName . '.php';
         if (!$this->getConfigName($fileName)) {
@@ -417,6 +398,18 @@ class VersionConfig
 
         file_put_contents($configPath, '<?php return ' . var_export($configValues, 1) . ';');
         return is_file($configPath);
+    }
+
+    public function createConfigArchive(): bool
+    {
+        return $this->createConfig(
+            VersionEnum::CONFIG_ARCHIVE,
+            [
+                'title'           => Locale::getMessage('CONFIG_archive'),
+                'migration_dir'   => $this->getSiblingDir('archive', true),
+                'migration_table' => 'sprint_migration_archive',
+            ]
+        );
     }
 
     /**
@@ -482,6 +475,7 @@ class VersionConfig
 
     /**
      * Метод должен быть публичным для работы со сторонним кодом
+     *
      * @return string[]
      */
     public static function getDefaultBuilders()
@@ -509,6 +503,7 @@ class VersionConfig
 
     /**
      * Метод должен быть публичным для работы со сторонним кодом
+     *
      * @return string[]
      */
     public static function getDefaultSchemas()

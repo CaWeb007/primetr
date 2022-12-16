@@ -171,7 +171,11 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
                         <div class="price-now">
                             <?= $arResult['DISPLAY_PROPERTIES']['PRICE']['VALUE'] ?>
                         </div>
-                        <a href="/info/articles/vozmozhnye-sposoby-oplaty/" class="conditions-link mobile-hidden">Рассрочка 0-0-12</a>
+                        <?if (!empty($arResult['PROPERTIES']['CREDIT']['VALUE'])
+                            && !empty($arResult['PROPERTIES']['CREDIT']['DESCRIPTION'])):?>
+                            <a href="<?=$arResult['PROPERTIES']['CREDIT']['VALUE']?>"
+                               class="conditions-link mobile-hidden"><?=$arResult['PROPERTIES']['CREDIT']['DESCRIPTION']?></a>
+                        <?endif?>
                     </div>
                 <? endif; ?>
                 <div class="avail-row">

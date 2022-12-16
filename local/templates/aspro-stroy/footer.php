@@ -223,5 +223,6 @@
                             var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
                         })(window,document,'https://crm.strlog.ru/upload/crm/site_button/loader_6_qyoaeq.js');
                     </script>
+                    <script src="//cdn.callibri.ru/callibri.js" type="text/javascript" charset="utf-8"></script>
     </body>
 </html>

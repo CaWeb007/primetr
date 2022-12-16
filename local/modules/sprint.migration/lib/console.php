@@ -85,6 +85,9 @@ class Console
     {
         global $USER;
 
+        $by = 'c_sort';
+        $order = 'asc';
+
         $groupitem = CGroup::GetList($by, $order, [
             'ADMIN' => 'Y',
             'ACTIVE' => 'Y',
@@ -92,7 +95,6 @@ class Console
 
         if (!empty($groupitem)) {
             $by = 'id';
-            $order = 'asc';
 
             $useritem = CUser::GetList($by, $order, [
                 'GROUPS_ID' => [$groupitem['ID']],
@@ -551,11 +553,8 @@ class Console
                 $params = $schemaManager->getRestartParams();
                 $restart = 1;
 
-            } catch (Exception $e) {
-                Out::outWarning($e->getMessage());
-
             } catch (Throwable $e) {
-                Out::outWarning($e->getMessage());
+                Out::outException($e);
             }
 
         } while ($restart == 1);
@@ -658,11 +657,7 @@ class Console
             }
 
             if (!$success && !$restart) {
-                Out::out('%s (%s) error: %s',
-                    $version,
-                    $action,
-                    $this->versionManager->getLastException()->getMessage()
-                );
+                Out::outException($this->versionManager->getLastException());
             }
 
         } while ($exec == 1);
