@@ -2103,3 +2103,83 @@ header.fixed .logo_and_menu-row{
 	}
 	.mobile_header_phone {display:block; font-weight: 700; font-size: 16px; white-space: nowrap}
 }
+
+.topBannerWrapper{
+	width: 100%;
+	height: fit-content;
+	position: relative;
+}
+.topBannerWrapper .desktopBanner{
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+.topBannerWrapper .desktopBanner img{
+	display: block;
+	height: auto;
+	margin: 0 auto;
+	max-width: 100%;
+	width: auto;
+}
+
+.topBannerWrapper .mobileBanner{
+	display: none;
+	height: 100%;
+	width: 100%;
+}
+.topBannerWrapper .mobileBanner img{
+	display: block;
+	height: auto;
+	margin: 0 auto;
+	max-width: 100%;
+	width: auto;
+}
+.topBannerWrapper .closeBannerWrap{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 13px;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	flex-direction: row-reverse;
+}
+.topBannerWrapper .closeBannerWrap .closeBanner{
+	align-items: center;
+	background-color: rgba(0,0,0,.3);
+	border-radius: 50%;
+	color: #fff;
+	cursor: pointer;
+	display: flex;
+	font-size: 13px;
+	height: 34px;
+	justify-content: center;
+	max-height: 100%;
+	width: 34px;
+}
+.topBannerWrapper .closeBannerWrap .closeBanner:hover{
+	background-color: black;
+}
+.topBannerWrapper .closeBannerWrap .closeBanner:hover + .popoverBanner{
+	display: block;
+}
+.topBannerWrapper .closeBannerWrap .closeBanner .closeIcon{}
+.topBannerWrapper .closeBannerWrap .closeBanner .closeIcon i{
+	font-size: 15px
+}
+.topBannerWrapper .closeBannerWrap .popoverBanner{
+	display: none;
+	background-color: #333;
+	border-radius: 8px;
+	color: #fff;
+	font-size: 14px;
+	padding: 12px 20px;
+}
+@media (max-width: 767px) {
+	.topBannerWrapper .desktopBanner{
+		display: none;
+	}
+	.topBannerWrapper .mobileBanner{
+		display: block;
+	}
+}

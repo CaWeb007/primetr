@@ -105,6 +105,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<?$bPortfolioIndex = $arTheme["PORTFOLIO_INDEX"]["VALUE"] == 'Y';?>
 			<?$bCatalogFilterIndex = $arTheme["CATALOG_FILTER_INDEX"]["VALUE"] == 'Y';?>
 		<?endif;?>
+        <?$APPLICATION->IncludeFile(SITE_DIR."include/top_banner.php", Array(
+            'active' => 'Y'
+        ), Array(
+                "MODE" => "php",
+                "NAME" => "top_banner",
+            )
+        );?>
 		<div class="body <?=($isIndex || $isContacts || $isPrices ? 'index' : '')?>">
 			<div class="body_media"></div>
 			<header class="topmenu-<?=($arTheme["TOP_MENU"]["VALUE"])?><?=($arTheme["TOP_MENU_FIXED"]["VALUE"] == "Y" ? ' canfixed' : '')?>">
@@ -125,7 +132,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										</div>
 									</div>
 								</div>
-</div><a href="tel:+73952280700" class="mobile_header_phone">+7 (3952) 280-700</a>
+                            </div>
+                            <a href="tel:+73952280700" class="mobile_header_phone">+7 (3952) 280-700</a>
 
 							<div class="col-md-9 col-sm-9 col-xs-12">
 <!--
