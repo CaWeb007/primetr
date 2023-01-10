@@ -132,6 +132,17 @@ body {
 	color: #fff;
 	border-radius: 25px;
 }
+.green-badge {
+	text-transform: uppercase;
+	font-size: 10.75px;
+	padding: 7px 17px;
+	display: inline-block;
+	position: relative;
+	top: -3px;
+	background-color: #3b9749;
+	color: #fff;
+	border-radius: 25px;
+}
 
 .product-row {
 	background-color: #fff;
@@ -1839,7 +1850,7 @@ body {
 		padding-bottom: 10px;
 	}
 
-	.orange-badge {
+	.orange-badge, .green-badge {
 		position: absolute;
 		left: 10px;
 		top: 10px;
