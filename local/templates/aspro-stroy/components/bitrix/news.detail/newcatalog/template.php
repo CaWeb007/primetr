@@ -602,7 +602,7 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
 <div class="container mobile-hidden">
     <div class="call-us-block">
         <div class="white-border">
-            <span>Для расчета стоимости секционных ворот позвоните по тел.:</span>
+            <span>Для расчета стоимости позвоните по тел.:</span>
             <a id="reviews_desktop" href="tel:+73952280700"><i class="fa fa-phone" aria-hidden="true"></i>+7 (3952)
                 280-700</a>
         </div>
@@ -610,7 +610,7 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
 </div>
 <div class="call-us-block desktop-hidden">
     <div class="white-border">
-        <span>Для расчета стоимости секционных ворот позвоните по тел.:</span>
+        <span>Для расчета стоимости позвоните по тел.:</span>
         <a href="tel:+73952280700"><i class="fa fa-phone" aria-hidden="true"></i>+7 (3952) 280-700</a>
     </div>
 </div>
