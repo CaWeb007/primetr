@@ -17,11 +17,18 @@ function GetEntityDataClass($HlBlockId) {
 	return $entity_data_class;
 }
 
-
-if (((int)$arResult['IBLOCK_ID'] === 25) && (((int)$arResult['IBLOCK_SECTION_ID'] === 269) || ((int)$arResult['IBLOCK_SECTION_ID'] === 277)) ){
-    $elementId = 43;
-    if ((int)$arResult['IBLOCK_SECTION_ID'] === 277)
-        $elementId = 6574;
+$elementId = false;
+if ((int)$arResult['IBLOCK_ID'] === 25){
+    $sChain = array();
+    $sChainBD = \CIBlockSection::GetNavChain(25, (int)$arResult['IBLOCK_SECTION_ID']);
+    while ($ar = $sChainBD->GetNext()){
+        $sChain[] = (int)$ar['ID'];
+    }
+    if ((int)$arResult['IBLOCK_SECTION_ID'] === 269) $elementId = 43;
+    if ((int)$arResult['IBLOCK_SECTION_ID'] === 277)  $elementId = 6574;
+    if (in_array(270, $sChain))  $elementId = 7031;//catalog2/otkatnye_vorota/otkatnye_iz_proflista/otkatnye_vorota_s_zapolneniem_iz_proflista_3500_2000/
+}
+if ($elementId !== false){
     $ar = \CIBlockElement::GetByID($elementId)->GetNextElement();
     $fields = $ar->GetFields();
     $props = $ar->GetProperties(array(), array());
