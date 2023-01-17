@@ -376,6 +376,7 @@ div.title-search-result td.title-search-price span{font-size:26px;}
 .wrap_stickers .stickers > div{display:inline-block;font-size:10px;line-height:19px;color:#fff;background:#d4d4d4;border-radius:10px;text-transform:uppercase;padding:0px 10px;margin:0px 10px 10px 0px;letter-spacing: 0.03em;}
 .wrap_stickers .stickers .sticker_hit{background:#f5a400;}
 .wrap_stickers .stickers .sticker_sale{background:#de002b;}
+.wrap_stickers .stickers .sticker_drop_price{background:#3b9749;}
 .wrap_stickers .stickers .sticker_new{background:#27ad69;}
 .wrap_stickers .stickers .sticker_recomend{background:#0e89d7;}
 .size_block{position:absolute;bottom:0px;line-height:18px;background:#d4d4d4;padding:4px 10px 4px;right:0px;font-size:14px;color:#fff;}
