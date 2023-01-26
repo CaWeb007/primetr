@@ -1,7 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetPageProperty("title", "Забор из евроштакетника с установкой в Иркутске");
-$APPLICATION->SetPageProperty("description", "Забор из евроштакетника с установкой в Иркутске. Бережно доставим. Грамотно установим. Достойное качество на долгие годы. Гарантия выгодной цены.");
+$APPLICATION->SetPageProperty("title", "Каталог ворот, заборов, шлагбаумов в Иркутске - Периметр");
+$APPLICATION->SetPageProperty("description", "Каталог ворот компании Периметр");
 $APPLICATION->SetTitle("Каталог");
 /*$templateName = 'catalog';
 if ($USER->IsAdmin()) $templateName = 'newcatalog';*/
@@ -80,14 +80,14 @@ $templateName = 'newcatalog';
 		"SEF_MODE" => "Y",
 		"SEF_URL_TEMPLATES" => Array("detail"=>"#SECTION_CODE_PATH#/#ELEMENT_CODE#/","news"=>"","section"=>"#SECTION_CODE_PATH#/"),
 		"SET_LAST_MODIFIED" => "N",
-		"SET_STATUS_404" => "N",
+		"SET_STATUS_404" => "Y",
 		"SET_TITLE" => "Y",
 		"SHARE_HANDLERS" => array(0=>"mailru",1=>"vk",2=>"delicious",3=>"lj",4=>"twitter",5=>"facebook",),
 		"SHARE_HIDE" => "N",
 		"SHARE_SHORTEN_URL_KEY" => "",
 		"SHARE_SHORTEN_URL_LOGIN" => "",
 		"SHARE_TEMPLATE" => "",
-		"SHOW_404" => "N",
+		"SHOW_404" => "Y",
 		"SHOW_DETAIL" => "Y",
 		"SHOW_DETAIL_LINK" => "Y",
 		"SHOW_IMAGE" => "Y",

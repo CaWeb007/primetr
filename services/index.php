@@ -1,8 +1,8 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetPageProperty("description", "Монтаж, ремонт и обслуживание ворот в Иркутске. г. Иркутск ул. Трактовая 18Б/А. Тел: +7 (3952) 280-700");
 $APPLICATION->SetTitle("Услуги");
-?>
-<?$APPLICATION->IncludeComponent(
+?><?$APPLICATION->IncludeComponent(
 	"bitrix:news", 
 	"services", 
 	array(
@@ -39,7 +39,7 @@ $APPLICATION->SetTitle("Услуги");
 		"CACHE_FILTER" => "N",
 		"CACHE_GROUPS" => "Y",
 		"SET_TITLE" => "Y",
-		"SET_STATUS_404" => "N",
+		"SET_STATUS_404" => "Y",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"ADD_SECTIONS_CHAIN" => "Y",
 		"USE_PERMISSIONS" => "N",
@@ -113,7 +113,7 @@ $APPLICATION->SetTitle("Услуги");
 		"T_VIDEO" => "",
 		"DETAIL_SET_CANONICAL_URL" => "N",
 		"PAGER_BASE_LINK_ENABLE" => "N",
-		"SHOW_404" => "N",
+		"SHOW_404" => "Y",
 		"MESSAGE_404" => "",
 		"S_ORDER_SERVISE" => "",
 		"T_STUDY" => "",

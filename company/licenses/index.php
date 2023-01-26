@@ -30,7 +30,7 @@ $APPLICATION->SetTitle("Лицензии и сертификаты");
 		"CACHE_FILTER" => "N",
 		"CACHE_GROUPS" => "Y",
 		"SET_TITLE" => "Y",
-		"SET_STATUS_404" => "N",
+		"SET_STATUS_404" => "Y",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"ADD_SECTIONS_CHAIN" => "N",
 		"USE_PERMISSIONS" => "N",
@@ -87,7 +87,7 @@ $APPLICATION->SetTitle("Лицензии и сертификаты");
 		"SET_LAST_MODIFIED" => "N",
 		"DETAIL_SET_CANONICAL_URL" => "N",
 		"PAGER_BASE_LINK_ENABLE" => "N",
-		"SHOW_404" => "N",
+		"SHOW_404" => "Y",
 		"MESSAGE_404" => "",
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "",

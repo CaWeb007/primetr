@@ -30,7 +30,7 @@ $APPLICATION->SetTitle("Новости");
 		"CACHE_FILTER" => "N",
 		"CACHE_GROUPS" => "N",
 		"SET_TITLE" => "Y",
-		"SET_STATUS_404" => "N",
+		"SET_STATUS_404" => "Y",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"ADD_SECTIONS_CHAIN" => "N",
 		"USE_PERMISSIONS" => "N",
@@ -104,7 +104,7 @@ $APPLICATION->SetTitle("Новости");
 		"COMPOSITE_FRAME_TYPE" => "AUTO",
 		"DETAIL_SET_CANONICAL_URL" => "N",
 		"PAGER_BASE_LINK_ENABLE" => "N",
-		"SHOW_404" => "N",
+		"SHOW_404" => "Y",
 		"MESSAGE_404" => "",
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "",
