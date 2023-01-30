@@ -25,7 +25,7 @@ $arSubSections = CCache::CIBlockSection_GetList(array("CACHE" => array("TAG" => 
 	<?// sections?>
 	<?$APPLICATION->IncludeComponent(
 		"bitrix:news.list",
-		"sections",
+		"services_sections",
 		Array(
 			"IBLOCK_TYPE"	=>	$arParams["IBLOCK_TYPE"],
 			"IBLOCK_ID"	=>	$arParams["IBLOCK_ID"],
