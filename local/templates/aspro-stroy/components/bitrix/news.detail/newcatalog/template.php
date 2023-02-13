@@ -247,6 +247,9 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
                             <div class="testimonials-item">
                                 <img src="<?= SITE_TEMPLATE_PATH ?>/img/wrench1.svg" alt="">
                                 Монтаж<?if($arResult['PROPERTIES']['MOUNTING_PRICE']['VALUE']) echo " от ".$arResult['PROPERTIES']['MOUNTING_PRICE']['VALUE']." руб."?>
+                                <?if($arResult['PROPERTIES']['MOUNTING_LINK']['VALUE']):?>
+                                    <a href="<?=$arResult['PROPERTIES']['MOUNTING_LINK']['VALUE']?>" class="testimonials-item-link"></a>
+                                <?endif?>
                             </div>
                         </div>
                     <?break; case 'Доставка':?>
