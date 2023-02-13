@@ -29,7 +29,7 @@ $APPLICATION->SetPageProperty('MENU', 'N');
 // get element
 $arItemFilter = CStroy::GetCurrentElementFilter($arResult['VARIABLES'], $arParams);
 $arElement = CCache::CIblockElement_GetList(array('CACHE' => array('TAG' => CCache::GetIBlockCacheTag($arParams['IBLOCK_ID']), 'MULTI' => 'N')), $arItemFilter, false, false, array('ID', 'PREVIEW_TEXT', 'IBLOCK_SECTION_ID', 'PREVIEW_PICTURE', 'DETAIL_PICTURE', 'PROPERTY_LINK_PROJECTS'));
-
+$APPLICATION->SetTitle('');
 // sort start
 $sort_default = $arParams['SORT_PROP_DEFAULT'] ? $arParams['SORT_PROP_DEFAULT'] : 'name';
 $order_default = $arParams['SORT_DIRECTION'] ? $arParams['SORT_DIRECTION'] : 'asc';
@@ -171,7 +171,7 @@ $url=($arSection["SECTION_PAGE_URL"] ? $arSection["SECTION_PAGE_URL"] : $arResul
 				"BROWSER_TITLE" => $arParams["BROWSER_TITLE"],
 				"DISPLAY_PANEL" => $arParams["DISPLAY_PANEL"],
 				"SET_CANONICAL_URL" => $arParams["DETAIL_SET_CANONICAL_URL"],
-				"SET_TITLE" => $arParams["SET_TITLE"],
+				"SET_TITLE" => 'N',
 				"SET_STATUS_404" => $arParams["SET_STATUS_404"],
 				"INCLUDE_IBLOCK_INTO_CHAIN" => $arParams["INCLUDE_IBLOCK_INTO_CHAIN"],
 				"ADD_SECTIONS_CHAIN" => $arParams["ADD_SECTIONS_CHAIN"],

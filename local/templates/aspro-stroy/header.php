@@ -297,13 +297,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                             </div>
                                         </div>
                                     <?endif;?>
-                                    <?if (!preg_match($catalog, $dir) && !preg_match($catalog2, $dir)):?>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <h1><?$APPLICATION->ShowTitle(false)?></h1>
-                                            </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h1><?$APPLICATION->ShowTitle(false)?></h1>
                                         </div>
-                                    <?endif;?>
+                                    </div>
 								</div>
 							</div>
 						</div>

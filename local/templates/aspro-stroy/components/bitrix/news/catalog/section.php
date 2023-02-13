@@ -55,7 +55,7 @@ $arSubSections = CCache::CIblockSection_GetList(array("CACHE" => array("TAG" => 
 				"SECTION_URL"	=>	$arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
 				"IBLOCK_URL"	=>	$arResult["FOLDER"].$arResult["URL_TEMPLATES"]["news"],
 				"DISPLAY_PANEL"	=>	$arParams["DISPLAY_PANEL"],
-				"SET_TITLE"	=>	"N",
+				"SET_TITLE"	=>	"Y",
 				"SET_STATUS_404" => "N",
 				"INCLUDE_IBLOCK_INTO_CHAIN"	=>	"N",
 				"ADD_SECTIONS_CHAIN"	=>	"N",

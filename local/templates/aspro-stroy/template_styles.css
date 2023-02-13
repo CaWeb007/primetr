@@ -388,6 +388,7 @@ sup{top:-0.7em;}
 /* PAGE TITLE & BREADCRUMBS & PAGENAVIGATION */
 section.page-top{padding:26px 0 24px;min-height:56px;position:relative;}
 section.page-top h1{margin-bottom:8px;}
+section.page-top h1:empty{margin-bottom:0px;}
 .detail_page section.page-top{margin-bottom:0px;border-bottom-width:0px;padding-bottom: 15px;}
 .breadcrumb{font-size:11px;line-height:13px;padding:0;margin:0px 0px 7px;list-style:none;background:none;}
 .breadcrumb > li, .breadcrumb .active, .breadcrumb a, .breadcrumb > *{text-decoration:none;color:#777777;font-size: 12px;}
