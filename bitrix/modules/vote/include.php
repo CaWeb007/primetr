@@ -4,7 +4,7 @@ global $DB, $MESS, $APPLICATION, $voteCache;
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin_tools.php");
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/filter_tools.php");
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/vote/vote_tools.php");
-require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/vote/classes/".strtolower($DB->type)."/channel.php");
+require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/vote/classes/".mb_strtolower($DB->type)."/channel.php");
 IncludeModuleLangFile(__FILE__);
 
 if (!defined("VOTE_CACHE_TIME"))
@@ -20,15 +20,13 @@ $GLOBALS["VOTE_CACHE_VOTING"] = array();
 $GLOBALS["aVotePermissions"] = array(
 	"reference_id" => array(0, 1, 2, /*3, */4),
 	"reference" => array(GetMessage("VOTE_DENIED"), GetMessage("VOTE_READ"), GetMessage("VOTE_WRITE"), /*GetMessage("VOTE_EDIT_MY_OWN"), */GetMessage("VOTE_EDIT")));
-$_SESSION["VOTE"] = (is_array($_SESSION["VOTE"]) ? $_SESSION["VOTE"] : array());
-$_SESSION["VOTE"]["VOTES"] = (is_array($_SESSION["VOTE"]["VOTES"]) ? $_SESSION["VOTE"]["VOTES"] : array());
 
 CModule::AddAutoloadClasses("vote", array(
-	"CVoteAnswer" => "classes/".strtolower($DB->type)."/answer.php",
-	"CVoteEvent" => "classes/".strtolower($DB->type)."/event.php",
-	"CVoteQuestion" => "classes/".strtolower($DB->type)."/question.php",
-	"CVoteUser" => "classes/".strtolower($DB->type)."/user.php",
-	"CVote" => "classes/".strtolower($DB->type)."/vote.php",
+	"CVoteAnswer" => "classes/".mb_strtolower($DB->type)."/answer.php",
+	"CVoteEvent" => "classes/".mb_strtolower($DB->type)."/event.php",
+	"CVoteQuestion" => "classes/".mb_strtolower($DB->type)."/question.php",
+	"CVoteUser" => "classes/".mb_strtolower($DB->type)."/user.php",
+	"CVote" => "classes/".mb_strtolower($DB->type)."/vote.php",
 	"CVoteCacheManager" => "classes/general/functions.php",
 	"CVoteNotifySchema" => "classes/general/im.php",
 	"bitrix\\vote\\answertable" => "lib/answer.php",
@@ -41,6 +39,7 @@ CModule::AddAutoloadClasses("vote", array(
 	"bitrix\\vote\\attachment\\controller" => "lib/attachment/controller.php",
 	"bitrix\\vote\\attachment\\defaultconnector" => "lib/attachment/defaultconnector.php",
 	"bitrix\\vote\\attachment\\forummessageconnector" => "lib/attachment/forummessageconnector.php",
+	"bitrix\\vote\\attachment\\storable" => "lib/attachment/storable.php",
 	"bitrix\\vote\\base\\baseobject" => "lib/base/baseobject.php",
 	"bitrix\\vote\\base\\controller" => "lib/base/controller.php",
 	"bitrix\\vote\\base\\diag" => "lib/base/diag.php",
@@ -59,9 +58,6 @@ CModule::AddAutoloadClasses("vote", array(
 	"bitrix\\vote\\uf\\manager" => "lib/uf/manager.php",
 	"bitrix\\vote\\uf\\voteusertype" => "lib/uf/voteusertype.php",
 	"bitrix\\vote\\usertable" => "lib/user.php",
-	"bitrix\\vote\\voteeventquestiontable" => "lib/user.php",
-	"bitrix\\vote\\voteeventanswertable" => "lib/user.php",
-	"bitrix\\vote\\voteeventanswer" => "lib/user.php",
 	"bitrix\\vote\\user" => "lib/user.php",
 	"bitrix\\vote\\votetable" => "lib/vote.php",
 	"bitrix\\vote\\vote" => "lib/vote.php"
@@ -88,7 +84,7 @@ function VoteVoteEditFromArray($CHANNEL_ID, $VOTE_ID = false, $arFields = array(
 	$arFieldsVote = array(
 		"CHANNEL_ID" => $CHANNEL_ID,
 		"AUTHOR_ID" => $GLOBALS["USER"]->GetID(),
-		"UNIQUE_TYPE" => $params["UNIQUE_TYPE"],
+		"UNIQUE_TYPE" => $params["UNIQUE_TYPE"], 
 		"DELAY" => $params["DELAY"] ?: 10,
 		"DELAY_TYPE" => $params['DELAY_TYPE'] ?: "D");
 	if (!empty($arFields["DATE_START"]))
@@ -107,21 +103,21 @@ function VoteVoteEditFromArray($CHANNEL_ID, $VOTE_ID = false, $arFields = array(
 	if (!CVote::CheckFields("UPDATE", $arFieldsVote)):
 		$e = $GLOBALS['APPLICATION']->GetException();
 		$aMsg[] = array(
-			"id" => "VOTE_ID",
+			"id" => "VOTE_ID", 
 			"text" => $e->GetString());
 	elseif (intval($VOTE_ID) > 0):
 		$db_res = CVote::GetByID($VOTE_ID);
 		if (!($db_res && $res = $db_res->Fetch())):
 			$aMsg[] = array(
-				"id" => "VOTE_ID",
+				"id" => "VOTE_ID", 
 				"text" => GetMessage("VOTE_VOTE_NOT_FOUND", array("#ID#", $VOTE_ID)));
 		elseif ($res["CHANNEL_ID"] != $CHANNEL_ID):
 			$aMsg[] = array(
-				"id" => "CHANNEL_ID",
+				"id" => "CHANNEL_ID", 
 				"text" => GetMessage("VOTE_CHANNEL_ID_ERR"));
 		else:
 			$arVote = $res;
-			$db_res = CVoteQuestion::GetList($arVote["ID"], $by = "s_id", $order = "asc", array(), $is_filtered);
+			$db_res = CVoteQuestion::GetList($arVote["ID"], "s_id");
 			if ($db_res && $res = $db_res->Fetch()):
 				do { $arQuestions[$res["ID"]] = $res + array("ANSWERS" => array()); } while ($res = $db_res->Fetch());
 			endif;
@@ -140,7 +136,7 @@ function VoteVoteEditFromArray($CHANNEL_ID, $VOTE_ID = false, $arFields = array(
 	if (!empty($arFieldsVote["TITLE"]) && !empty($arVote["TITLE"]))
 	{
 		$q = reset($arQuestions);
-		if ($arVote["TITLE"] == substr($q["QUESTION"], 0, strlen($arVote["TITLE"])))
+		if ($arVote["TITLE"] == mb_substr($q["QUESTION"], 0, mb_strlen($arVote["TITLE"])))
 			unset($arFieldsVote["TITLE"]);
 	}
 /************** Check Data *****************************************/
@@ -186,7 +182,7 @@ function VoteVoteEditFromArray($CHANNEL_ID, $VOTE_ID = false, $arFields = array(
 					"id" => "QUESTION_".$key,
 					"text" => (empty($arQuestion["QUESTION"]) ?
 						GetMessage("VOTE_QUESTION_EMPTY", array("#NUMBER#" => $key)) :
-						GetMessage("VOTE_ANSWERS_EMPTY", array("#QUESTION#" => $arQuestion["QUESTION"]))));
+						GetMessage("VOTE_ANSWERS_EMPTY", array("#QUESTION#" => htmlspecialcharsbx($arQuestion["QUESTION"])))));
 			}
 			continue;
 		}
@@ -301,53 +297,53 @@ function VoteVoteEditFromArray($CHANNEL_ID, $VOTE_ID = false, $arFields = array(
 	return $arVote["ID"];
 /************** Actions/********************************************/
 /*	$arFields = array(
-		"ID" => 345,
-		"TITLE" => "test",
-		"...",
+		"ID" => 345, 
+		"TITLE" => "test", 
+		"...", 
 		"QUESTIONS" => array(
 			array(
-				"ID" => 348,
-				"QUESTION" => "test",
+				"ID" => 348, 
+				"QUESTION" => "test", 
 				"ANSWERS" => array(
 					array(
-						"ID" => 340,
-						"MESSAGE" => "test"),
+						"ID" => 340, 
+						"MESSAGE" => "test"), 
 					array(
-						"ID" => 0,
-						"MESSAGE" => "test"),
+						"ID" => 0, 
+						"MESSAGE" => "test"), 
 					array(
 						"ID" => 350,
-						"DEL" => "Y",
+						"DEL" => "Y",  
 						"MESSAGE" => "test")
 					)
-				),
+				), 
 			array(
-				"ID" => 351,
-				"DEL" => "Y",
-				"QUESTION" => "test",
+				"ID" => 351, 
+				"DEL" => "Y", 
+				"QUESTION" => "test", 
 				"ANSWERS" => array(
 					array(
-						"ID" => 0,
-						"MESSAGE" => "test"),
+						"ID" => 0, 
+						"MESSAGE" => "test"), 
 					array(
 						"ID" => 478,
-						"DEL" => "Y",
+						"DEL" => "Y",  
 						"MESSAGE" => "test")
 					)
-				),
+				), 
 			array(
-				"ID" => 0,
-				"QUESTION" => "test",
+				"ID" => 0, 
+				"QUESTION" => "test", 
 				"ANSWERS" => array(
 					array(
-						"ID" => 0,
-						"MESSAGE" => "test"),
+						"ID" => 0, 
+						"MESSAGE" => "test"), 
 					)
-				),
+				), 
 			)
 		);
 */
-
-
+	
+	
 }
 ?>

@@ -127,7 +127,7 @@ class CBXVirtualIo
 		return $this->io->GetPhysicalName($path);
 	}
 
-	function GetLogicalName($path)
+	public function GetLogicalName($path)
 	{
 		return $this->io->GetLogicalName($path);
 	}
@@ -284,7 +284,7 @@ class CBXVirtualIo
 	 *
 	 * @return void
 	 */
-	function ClearCache()
+	public function ClearCache()
 	{
 		$this->io->ClearCache();
 	}
