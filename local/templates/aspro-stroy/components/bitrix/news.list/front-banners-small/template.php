@@ -1,6 +1,6 @@
 <?if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();?>
 <?$this->setFrameMode(true);?>
-<h1 style="margin-left:35%;color:#333;font-size:24px;font-weight:400;">Ворота, заборы в Иркутске</h1>
+
 <?if($arResult['ITEMS']):?>
 	<?
 	$qntyItems = count($arResult['ITEMS']);

@@ -2194,3 +2194,42 @@ header.fixed .logo_and_menu-row{
 		display: block;
 	}
 }
+.sliders-container {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: space-between;
+	padding-top: 30px;
+	max-width: 1110px !important;
+	margin: 0 auto;
+}
+.sliders-container .slick-list {
+	margin: 0px -10px;
+}
+.inner{
+	padding-top: 20px !important;
+	padding-left: 100px !important;
+}
+@media screen and (max-width: 1199px) {
+	.sliders-container {
+		padding-top: 0;
+		flex-direction: column;
+		align-items: center;
+		max-height: 100%;
+		width: 95%;
+	}
+	.sliders-container .slick-dots li {
+		display: inline-block;
+		width: 8px;
+		height: 8px;
+		margin: 0px 2px;
+	}
+}
+@media screen and (max-width: 768px) {
+	.sliders-container {
+		width: 100%;
+	}
+	.sliders-container .slick-list {
+		margin: 0 auto;
+	}
+}

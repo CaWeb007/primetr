@@ -94,10 +94,6 @@ class CHTMLEditor
 									!BXHtmlEditor.editors[id].IsSubmited() &&
 									BXHtmlEditor.editors[id].beforeUnloadHandlerAllowed !== false)
 								{
-									if (typeof(BX.PULL) != 'undefined' && typeof(BX.PULL.tryConnectDelay) == 'function') // TODO change to right code in near future (e.shelenkov)
-									{
-										BX.PULL.tryConnectDelay();
-									}
 									if(typeof(BX.desktopUtils) != 'undefined' && typeof(BX.desktopUtils.isChangedLocationToBx) == 'function' && BX.desktopUtils.isChangedLocationToBx())
 									{
 										return;
@@ -174,7 +170,7 @@ class CHTMLEditor
 		</script><?
 
 		$basePath = '/bitrix/js/fileman/html_editor/';
-		$this->id = (isset($arParams['id']) && strlen($arParams['id']) > 0) ? $arParams['id'] : 'bxeditor'.substr(uniqid(mt_rand(), true), 0, 4);
+		$this->id = (isset($arParams['id']) && $arParams['id'] <> '') ? $arParams['id'] : 'bxeditor'.mb_substr(uniqid(mt_rand(), true), 0, 4);
 		$this->id = preg_replace("/[^a-zA-Z0-9_:\.]/is", "", $this->id);
 		if (isset($arParams['name']))
 		{
@@ -363,7 +359,10 @@ class CHTMLEditor
 
 		if(!isset($arParams["initConponentParams"]))
 			$arParams["initConponentParams"] = $arParams["showTaskbars"] !== false && $arParams["showComponents"] && ($arParams['limitPhpAccess'] || $arParams['bAllowPhp']);
-		$arParams["actionUrl"] = $arParams["bbCode"] ? '/bitrix/tools/html_editor_action.php' : '/bitrix/admin/fileman_html_editor_action.php';
+		if (empty($arParams["actionUrl"]))
+		{
+			$arParams["actionUrl"] = $arParams["bbCode"] ? '/bitrix/tools/html_editor_action.php' : '/bitrix/admin/fileman_html_editor_action.php';
+		}
 
 		$arParams["lazyLoad"] = isset($arParams["lazyLoad"]) ? $arParams["lazyLoad"] : false;
 
@@ -424,6 +423,9 @@ class CHTMLEditor
 		if (isset($arParams["useFileDialogs"]))
 			$this->jsConfig["useFileDialogs"] = $arParams["useFileDialogs"];
 
+		if (isset($arParams["useLinkStat"]))
+			$this->jsConfig["useLinkStat"] = $arParams["useLinkStat"];
+
 		if (isset($arParams["showTaskbars"]))
 			$this->jsConfig["showTaskbars"] = $arParams["showTaskbars"];
 
@@ -471,6 +473,9 @@ class CHTMLEditor
 		if (isset($arParams["normalBodyWidth"]))
 			$this->jsConfig["normalBodyWidth"] = $arParams["normalBodyWidth"];
 
+		if (isset($arParams['autoLink']))
+			$this->jsConfig['autoLink'] = $arParams['autoLink'];
+
 		return $arParams;
 	}
 
@@ -506,8 +511,8 @@ class CHTMLEditor
 		$width = isset($this->jsConfig['width']) && intval($this->jsConfig['width']) > 0 ? $this->jsConfig['width'] : "100%";
 		$height = isset($this->jsConfig['height']) && intval($this->jsConfig['height']) > 0 ? $this->jsConfig['height'] : "100%";
 
-		$widthUnit = strpos($width, "%") === false ? "px" : "%";
-		$heightUnit = strpos($height, "%") === false ? "px" : "%";
+		$widthUnit = mb_strpos($width, "%") === false ? "px" : "%";
+		$heightUnit = mb_strpos($height, "%") === false ? "px" : "%";
 		$width = intval($width);
 		$height = intval($height);
 
@@ -614,7 +619,7 @@ class CHTMLEditor
 		global $CACHE_MANAGER;
 
 		$allowed = trim(COption::GetOptionString('fileman', "~allowed_components", ''));
-		$mask = $allowed === '' ? 0 : substr(md5($allowed), 0, 10);
+		$mask = $allowed === ''? 0 : mb_substr(md5($allowed), 0, 10);
 
 		$lang = isset($Params['lang']) ? $Params['lang'] : LANGUAGE_ID;
 		$component_type = '';
@@ -679,7 +684,7 @@ class CHTMLEditor
 	{
 		foreach ($arEls as $elName => $arEl)
 		{
-			if (strpos($path, ",") !== false)
+			if (mb_strpos($path, ",") !== false)
 			{
 				if (isset($arEl['*']))
 				{
@@ -1041,7 +1046,7 @@ class CHTMLEditor
 				break;
 		}
 
-		self::ShowResponse(intVal($_REQUEST['reqId']), $result);
+		self::ShowResponse(intval($_REQUEST['reqId']), $result);
 	}
 
 	public static function ShowResponse($reqId = false, $Res = false)
@@ -1050,7 +1055,7 @@ class CHTMLEditor
 		{
 			if ($reqId === false)
 			{
-				$reqId = intVal($_REQUEST['reqId']);
+				$reqId = intval($_REQUEST['reqId']);
 			}
 
 			if ($reqId)
@@ -1235,7 +1240,7 @@ class CHTMLEditor
 			$path = $url;
 			$serverPath = self::GetServerPath();
 
-			if (strpos($path, $serverPath) !== false)
+			if (mb_strpos($path, $serverPath) !== false)
 			{
 				$path = str_replace($serverPath, '', $path);
 			}
@@ -1260,6 +1265,8 @@ class CHTMLEditor
 	{
 		$output = array('result' => false, 'error' => "");
 		$http = new \Bitrix\Main\Web\HttpClient();
+		//prevents proxy to LAN
+		$http->setPrivateIp(false);
 		$http->setTimeout(5);
 		$http->setStreamTimeout(5);
 		$resp1 = $http->head($path);
@@ -1296,7 +1303,7 @@ class CHTMLEditor
 
 	public static function GetServerPath()
 	{
-		if (defined("SITE_SERVER_NAME") && strlen(SITE_SERVER_NAME) > 0)
+		if (defined("SITE_SERVER_NAME") && SITE_SERVER_NAME <> '')
 			$server_name = SITE_SERVER_NAME;
 		if (!$server_name)
 			$server_name = COption::GetOptionString("main", "server_name", "");
@@ -1328,9 +1335,13 @@ class CHTMLEditor
 		{
 			foreach($params["controlsMap"] as $control)
 			{
-				if ($control && (strtolower($control['id']) == 'bbcode' || strtolower($control['id']) == 'changeview'))
+				if (isset($control['id']))
 				{
-					$settingsKey .= '_'.$control['id'];
+					$controlId = strtolower($control['id']);
+					if ($controlId == 'bbcode' || $controlId == 'changeview')
+					{
+						$settingsKey .= '_'.$control['id'];
+					}
 				}
 			}
 		}

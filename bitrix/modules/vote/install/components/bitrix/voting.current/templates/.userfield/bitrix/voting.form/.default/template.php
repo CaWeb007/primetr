@@ -21,7 +21,7 @@ endif;
 	<ol class="bx-vote-question-list" id="vote-<?=$uid?>">
 	<?foreach ($arResult["QUESTIONS"] as $arQuestion):?>
 		<li id="question<?=$arQuestion["ID"]?>" <?if($arQuestion["REQUIRED"]=="Y"): ?> class="bx-vote-question-required"<? endif; ?>>
-			<?if ($arQuestion["IMAGE"] !== false): ?><div class="bx-vote-question-image"><img src="<?=$arQuestion["IMAGE"]["SRC"]?>" /></div><? endif; ?>
+			<?if (!empty($arQuestion["IMAGE"]) && !empty($arQuestion["IMAGE"]["SRC"])): ?><div class="bx-vote-question-image"><img src="<?=$arQuestion["IMAGE"]["SRC"]?>" /></div><? endif; ?>
 			<div class="bx-vote-question-title"><?=$arQuestion["QUESTION"]?></div>
 			<table class="bx-vote-answer-list" cellspacing="0">
 			<?foreach ($arQuestion["ANSWERS"] as $arAnswer):?>
@@ -107,7 +107,7 @@ if (isset($arResult["CAPTCHA_CODE"]))
 	</span>
 	<span class="bx-vote-captcha-input">
 		<label for="captcha_word"><?=GetMessage("F_CAPTCHA_PROMT")?></label>
-		<input type="text" size="20" name="captcha_word" id="captcha_word" />
+		<input type="text" size="20" name="captcha_word" id="captcha_word" autocomplete="off" />
 	</span>
 </div>
 <? } // CAPTCHA_CODE ?>

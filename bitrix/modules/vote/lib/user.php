@@ -6,13 +6,19 @@
  * @copyright 2001-2016 Bitrix
  */
 namespace Bitrix\Vote;
+use Bitrix\Main\Application;
 use Bitrix\Main\ArgumentException;
 use Bitrix\Main\DB\SqlExpression;
 use \Bitrix\Main\Entity;
+use \Bitrix\Main\Error;
 use \Bitrix\Main\Localization\Loc;
-use Bitrix\Main\Type\DateTime;
+use Bitrix\Main\ORM\Data\AddResult;
+use Bitrix\Main\ORM\Event;
+use \Bitrix\Main\Result;
+use \Bitrix\Main\Type\DateTime;
 use \Bitrix\Vote\Base\BaseObject;
-use Bitrix\Main\ErrorCollection;
+use \Bitrix\Vote\Vote;
+
 Loc::loadMessages(__FILE__);
 
 /**
@@ -20,14 +26,28 @@ Loc::loadMessages(__FILE__);
  * Fields:
  * <ul>
  * <li> ID int mandatory
- * <li> STAT_GUEST_ID int,
+ * <li> COOKIE_ID int,
  * <li> AUTH_USER_ID int,
  * <li> COUNTER int,
  * <li> DATE_FIRST datetime,
  * <li> DATE_LAST datetime,
  * <li> LAST_IP string(15),
+ * <li> STAT_GUEST_ID int,
  * </ul>
  *
+ *
+ * DO NOT WRITE ANYTHING BELOW THIS
+ *
+ * <<< ORMENTITYANNOTATION
+ * @method static EO_User_Query query()
+ * @method static EO_User_Result getByPrimary($primary, array $parameters = array())
+ * @method static EO_User_Result getById($id)
+ * @method static EO_User_Result getList(array $parameters = array())
+ * @method static EO_User_Entity getEntity()
+ * @method static \Bitrix\Vote\EO_User createObject($setDefaultValues = true)
+ * @method static \Bitrix\Vote\EO_User_Collection createCollection()
+ * @method static \Bitrix\Vote\EO_User wakeUpObject($row)
+ * @method static \Bitrix\Vote\EO_User_Collection wakeUpCollection($rows)
  */
 class UserTable extends Entity\DataManager
 {
@@ -55,13 +75,12 @@ class UserTable extends Entity\DataManager
 				'autocomplete' => true,
 				'title' => Loc::getMessage('V_TABLE_FIELD_ID'),
 			),
-			'STAT_GUEST_ID' => array(
+			'COOKIE_ID' => array(
 				'data_type' => 'integer',
-				'title' => Loc::getMessage('V_TABLE_FIELD_STAT_GUEST_ID'),
+				'title' => Loc::getMessage('V_TABLE_FIELD_AUTH_USER_ID'),
 			),
 			'AUTH_USER_ID' => array(
 				'data_type' => 'integer',
-				'primary' => true,
 				'title' => Loc::getMessage('V_TABLE_FIELD_AUTH_USER_ID'),
 			),
 			'COUNTER' => array(
@@ -80,6 +99,10 @@ class UserTable extends Entity\DataManager
 				'data_type' => 'string',
 				'size' => 15,
 				'title' => Loc::getMessage('V_TABLE_FIELD_STAT_SESSION_ID')
+			),
+			'STAT_GUEST_ID' => array(
+				'data_type' => 'integer',
+				'title' => Loc::getMessage('V_TABLE_FIELD_STAT_GUEST_ID'),
 			),
 			'USER' => array(
 				'data_type' => '\Bitrix\Main\UserTable',
@@ -111,144 +134,13 @@ class UserTable extends Entity\DataManager
 	}
 }
 
-/**
- * Class VoteEventQuestionTable
- * Fields:
- * <ul>
- * <li> ID int mandatory
- * <li> EVENT_ID int,
- * <li> QUESTION_ID int,
- * </ul>
- **/
-class VoteEventQuestionTable extends Entity\DataManager
-{
-	/**
-	 * Returns DB table name for entity
-	 *
-	 * @return string
-	 */
-	public static function getTableName()
-	{
-		return 'b_vote_event_question';
-	}
-
-	/**
-	 * Returns entity map definition.
-	 *
-	 * @return array
-	 */
-	public static function getMap()
-	{
-		return array(
-			'ID' => array(
-				'data_type' => 'integer',
-				'primary' => true,
-				'autocomplete' => true,
-				'title' => Loc::getMessage('V_TABLE_FIELD_ID'),
-			),
-			'EVENT_ID' => array(
-				'data_type' => 'integer',
-				'title' => Loc::getMessage('V_TABLE_FIELD_EVENT_ID'),
-			),
-			'QUESTION_ID' => array(
-				'data_type' => 'integer',
-				'title' => Loc::getMessage('V_TABLE_FIELD_QUESTION_ID'),
-			),
-			'VOTE' => array(
-				'data_type' => '\Bitrix\Vote\EventTable',
-				'reference' => array(
-					'=this.EVENT_ID' => 'ref.ID',
-				),
-				'join_type' => 'RIGHT',
-			),
-			'ANSWER' => array(
-				'data_type' => '\Bitrix\Vote\EventAnswerTable',
-				'reference' => array(
-					'=this.ID' => 'ref.EVENT_QUESTION_ID',
-				),
-				'join_type' => 'LEFT',
-			)
-		);
-	}
-}/**
- * Class VoteEventAnswerTable
- * Fields:
- * <ul>
- * <li> ID int mandatory
- * <li> EVENT_QUESTION_ID int,
- * <li> ANSWER_ID int,
- * <li> MESSAGE text,
- * </ul>
- *
- */
-class VoteEventAnswer extends Entity\DataManager
-{
-	/**
-	 * Returns DB table name for entity
-	 *
-	 * @return string
-	 */
-	public static function getTableName()
-	{
-		return 'b_vote_event_answer';
-	}
-
-	/**
-	 * Returns entity map definition.
-	 *
-	 * @return array
-	 */
-	public static function getMap()
-	{
-		return array(
-			'ID' => array(
-				'data_type' => 'integer',
-				'primary' => true,
-				'autocomplete' => true,
-				'title' => Loc::getMessage('V_TABLE_FIELD_ID'),
-			),
-			'EVENT_QUESTION_ID' => array(
-				'data_type' => 'integer',
-				'title' => Loc::getMessage('V_TABLE_FIELD_EVENT_ID'),
-			),
-			'ANSWER_ID' => array(
-				'data_type' => 'integer',
-				'title' => Loc::getMessage('V_TABLE_FIELD_ANSWER_ID'),
-			),
-			'MESSAGE' => array(
-				'data_type' => 'text',
-				'title' => Loc::getMessage('V_TABLE_FIELD_MESSAGE'),
-			),
-			'VOTE_USER' => array(
-
-			),
-			'USER' => array(
-				'data_type' => '\Bitrix\Main\UserTable',
-				'reference' => array(
-					'=this.ID' => 'ref.EVENT_QUESTION_ID',
-				),
-				'join_type' => 'LEFT',
-			)
-		);
-	}
-}
-
 class User extends BaseObject
 {
+	private const DB_TIMELOCK = 15;
 	const SYSTEM_USER_ID = 0;
+	static $usersIds = [];
 
 	static $instance = null;
-
-	/**
-	 * User constructor.
-	 * @param $id
-	 */
-	public function __construct($id)
-	{
-		$this->id = $id;
-		$this->errorCollection = new ErrorCollection;
-		$this->init();
-	}
 
 	/**
 	 * @return void
@@ -256,73 +148,109 @@ class User extends BaseObject
 	 */
 	public function init()
 	{
-		if ($this->id != $this->getUser()->getId())
-			throw new ArgumentException("User id is wrong.");
+/*		if ($this->id != $this->getUser()->getId())
+			throw new ArgumentException("User id is wrong.");*/
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getVotedUserId()
+	public function getCookieId()
 	{
 		global $APPLICATION;
 		return intval($APPLICATION->get_cookie("VOTE_USER_ID"));
 	}
+	/**
+	 * @return int
+	 */
+	public function getVotedUserId()
+	{
+		$cookieId = self::getCookieId();
+		$filter = [
+			"COOKIE_ID" => $cookieId,
+			"AUTH_USER_ID"	=> intval($this->getId())
+		];
+		$id = implode("_", $filter);
 
+		if ($cookieId > 0 && !array_key_exists($id, self::$usersIds) && ($res = UserTable::getList([
+				"select" => ["ID"],
+				"filter" => [
+					"COOKIE_ID" => $cookieId,
+					"AUTH_USER_ID"	=> intval($this->getId())
+				]
+			])->fetch()))
+		{
+			self::$usersIds[$id] = intval($res["ID"]);
+		}
+		return isset(self::$usersIds[$id]) ? self::$usersIds[$id] : 0;
+	}
+
+	/**
+	 * @return void
+	 */
+	public function setCookieId($id)
+	{
+		$cookie = new \Bitrix\Main\Web\Cookie("VOTE_USER_ID", strval($id));
+		\Bitrix\Main\Context::getCurrent()->getResponse()->addCookie($cookie);
+	}
 	/**
 	 * @param null $incrementCount If true - increment, in false - decrement, null - no changes.
 	 * @return int
 	 */
 	public function setVotedUserId($incrementCount = null)
 	{
-		global $APPLICATION;
-		$cookieUserId = intval($APPLICATION->get_cookie("VOTE_USER_ID"));
-
-		$dbRes = false;
+		$id = $this->getVotedUserId();
 		$fields = array(
 			"STAT_GUEST_ID"	=> intval($_SESSION["SESS_GUEST_ID"]),
 			"DATE_LAST"		=> new DateTime(),
 			"LAST_IP"		=> $_SERVER["REMOTE_ADDR"]
 		);
-		if ($incrementCount == true)
+		if ($incrementCount === true)
 			$fields["COUNTER"] = new SqlExpression('?# + 1', 'COUNTER');
-		else if ($incrementCount == false)
+		else if ($incrementCount === false)
 			$fields["COUNTER"] = new SqlExpression('?# - 1', 'COUNTER');
 
-		if ($cookieUserId > 0)
+		if ($id > 0)
 		{
-			$dbRes = UserTable::update(
-				array(
-					"ID" => $cookieUserId,
-					"AUTH_USER_ID"	=> intval($this->getUser()->getId())
-				),
-				$fields
-			);
+			$dbRes = UserTable::update($id, $fields);
+			$dbRes->setData(["COOKIE_ID" => $this->getCookieId()]);
 		}
-		if (!$dbRes || !$dbRes->getAffectedRowsCount())
+		else
 		{
-			try
+			$add = true;
+			$fields = [
+					"AUTH_USER_ID"	=> intval($this->getId()),
+					"DATE_FIRST"	=> new DateTime(),
+					"COUNTER" => ($incrementCount === true ? 1 : 0)
+				] + $fields;
+			if ($this->getCookieId() > 0)
 			{
-				$fields["COUNTER"] = ($incrementCount == true ? 1 : 0);
-
-				$dbRes = UserTable::add(
-					array(
-						"AUTH_USER_ID"	=> intval($this->getUser()->getId()),
-						"DATE_FIRST"	=> new DateTime(),
-					) + $fields
-				);
+				$dbRes = UserTable::add(["COOKIE_ID" => $this->getCookieId()] + $fields);
+				$add = !$dbRes->isSuccess();
 			}
-			catch (\Bitrix\Main\DB\SqlException $e)
+			if ($add)
 			{
+				$connection = \Bitrix\Main\Application::getInstance()->getConnection();
+				$insert = $connection->getSqlHelper()->prepareInsert(UserTable::getTableName(), $fields);
+				$connection->queryExecute(
+					"INSERT INTO ".UserTable::getTableName()."(COOKIE_ID, ".$insert[0].") ".
+					"SELECT MAX(COOKIE_ID) + 1, ".$insert[1] . " FROM ".UserTable::getTableName());
+				$dbRes = new AddResult();
+				$dbRes->setId($connection->getInsertedId());
+				$dbRes->setData(UserTable::getById($dbRes->getId())->fetch());
 			}
 		}
-		$cookieUserId = ($dbRes ? $dbRes->getId() : 0);
-		if (is_array($cookieUserId))
-			$cookieUserId = $cookieUserId["ID"];
-
-		$APPLICATION->set_cookie("VOTE_USER_ID", $cookieUserId."");
-
-		return intval($cookieUserId);
+		$id = $dbRes->getId();
+		$fields = $dbRes->getData();
+		self::$usersIds[implode(
+			"_",
+			[
+				"COOKIE_ID" => $fields["COOKIE_ID"],
+				"AUTH_USER_ID"	=> $fields["AUTH_USER_ID"]
+			]
+		)] = $id;
+		self::setCookieId($fields["COOKIE_ID"]);
+		return $id;
 	}
 
 	/**
@@ -331,12 +259,15 @@ class User extends BaseObject
 	 */
 	public function isVotedFor($voteId)
 	{
-		if ($voteId <= 0)
-			return false;
-		$vote = Vote::loadFromId($voteId);
-		return \CVote::UserAlreadyVote($voteId, self::getVotedUserId(), $vote["UNIQUE_TYPE"], $vote["KEEP_IP_SEC"], $this->getUser()->getId());
+		$result = false;
+		if ($voteId > 0)
+		{
+			/** @var Vote $vote */
+			$vote = Vote::loadFromId($voteId);
+			$result = $vote->isVotedFor($this);
+		}
+		return $result;
 	}
-
 	/**
 	 * @param integer $voteId Vote ID.
 	 * @param integer $userId User ID.
@@ -344,10 +275,35 @@ class User extends BaseObject
 	 */
 	public static function isUserVotedFor($voteId, $userId)
 	{
-		if ($voteId <= 0)
-			return false;
-		$vote = Vote::loadFromId($voteId);
-		return \CVote::UserAlreadyVote($voteId, 0, $vote["UNIQUE_TYPE"], $vote["KEEP_IP_SEC"], $userId);
+		$result = false;
+		if ($voteId > 0)
+		{
+			/** @var Vote $vote */
+			$vote = Vote::loadFromId($voteId);
+			$result = $vote->isVotedFor($userId);
+		}
+		return $result;
+	}
+
+	protected function getLockingKey(int $voteId): string
+	{
+		return implode('_', [
+			static::class,
+			$this->getId() > 0 ? $this->getId() : bitrix_sessid(),
+			$voteId
+		]);
+	}
+
+	public function lock(int $voteId): bool
+	{
+		$lockingKey = $this->getLockingKey($voteId);
+		return Application::getConnection()->lock($lockingKey, self::DB_TIMELOCK);
+	}
+
+	public function unlock(int $voteId)
+	{
+		$lockingKey = $this->getLockingKey($voteId);
+		Application::getConnection()->unlock($lockingKey);
 	}
 
 	/**
@@ -359,5 +315,10 @@ class User extends BaseObject
 		if (is_null(self::$instance))
 			self::$instance = self::loadFromId($USER->getId());
 		return self::$instance;
+	}
+
+	public static function onUserLogin()
+	{
+		$_SESSION["VOTE"] = ["VOTES" => []];
 	}
 }

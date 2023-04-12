@@ -56,7 +56,7 @@ foreach ($arResult["QUESTIONS"] as $arQuestion):
 						<table class="vote-bar-table">
 							<?foreach ($arQuestion["ANSWERS"] as $arAnswer):?>
 								<tr>
-									<td><div class="vote-bar-square" style="background-color:#<?=$arAnswer["COLOR"]?>"></div></td>
+									<td><div class="vote-bar-square" style="background-color:#<?=htmlspecialcharsbx($arAnswer["COLOR"])?>"></div></td>
 									<td><nobr><?=$arAnswer["COUNTER"]?> (<?=$arAnswer["PERCENT"]?>%)</nobr></td>
 									<td><?=$arAnswer["MESSAGE"]?></td>
 								</tr>
@@ -73,7 +73,7 @@ foreach ($arResult["QUESTIONS"] as $arQuestion):
 			<table width="100%" class="vote-answer-table">
 			<?foreach ($arQuestion["ANSWERS"] as $arAnswer):?>
 				<? if (isset($arResult['GROUP_ANSWERS'][$arAnswer['ID']])):?>
-					<tr><td></td><td style='vertical-align:middle;'><div style='width:80%; height:1px; background-color:#<?=$arAnswer["COLOR"]?>;'></div></td></tr>
+					<tr><td></td><td style='vertical-align:middle;'><div style='width:80%; height:1px; background-color:#<?=htmlspecialcharsbx($arAnswer["COLOR"])?>;'></div></td></tr>
 				<? endif; ?>
 				<tr>
 					<? $percent = round($arAnswer["BAR_PERCENT"] * 0.8); // (100% bar * 0.8) + (20% span counter) = 100% td ?>
@@ -87,7 +87,7 @@ foreach ($arResult["QUESTIONS"] as $arQuestion):
 						}
 						?>
 					&nbsp;</td>
-					<td><div class="vote-answer-bar" style="width:<?=$percent?>%;background-color:#<?=$arAnswer["COLOR"]?>"></div>
+					<td><div class="vote-answer-bar" style="width:<?=$percent?>%;background-color:#<?=htmlspecialcharsbx($arAnswer["COLOR"])?>"></div>
 					<span class="vote-answer-counter"><nobr><?=($arAnswer["COUNTER"] > 0?'&nbsp;':'')?><?=$arAnswer["COUNTER"]?> (<?=$arAnswer["PERCENT"]?>%)</nobr></span></td>
 					<? if (isset($arResult['GROUP_ANSWERS'][$arAnswer['ID']])): ?>
 						<? $arGroupAnswers = $arResult['GROUP_ANSWERS'][$arAnswer['ID']]; ?> 
@@ -101,11 +101,11 @@ foreach ($arResult["QUESTIONS"] as $arQuestion):
 									<? } ?>
 									<?=$arGroupAnswer["MESSAGE"]?>
 								</td>
-								<td><div class="vote-answer-bar" style="width:<?=$percent?>%;background-color:#<?=$arAnswer["COLOR"]?>"></div>
+								<td><div class="vote-answer-bar" style="width:<?=$percent?>%;background-color:#<?=htmlspecialcharsbx($arAnswer["COLOR"])?>"></div>
 								<span class="vote-answer-counter"><nobr><?=($arGroupAnswer["COUNTER"] > 0?'&nbsp;':'')?><?=$arGroupAnswer["COUNTER"]?> (<?=$arGroupAnswer["PERCENT"]?>%)</nobr></span></td>
 							</tr>
 						<?endforeach?>
-						<tr><td></td><td style='vertical-align:middle;'><div style='width:80%; height:1px; background-color:#<?=$arAnswer["COLOR"]?>;'></div></td></tr>
+						<tr><td></td><td style='vertical-align:middle;'><div style='width:80%; height:1px; background-color:#<?=htmlspecialcharsbx($arAnswer["COLOR"])?>;'></div></td></tr>
 					<? else: ?>
 				</tr>
 					<? endif; // USER_ANSWERS ?>
