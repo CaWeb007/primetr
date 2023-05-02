@@ -35,7 +35,9 @@ color: #000 !important;
 	padding-left: 15px !important;
     	padding-right: 15px !important;
 }
-
+h1{
+	display: inline-block;
+}
 .orange-badge {
 	text-transform: uppercase;
 	font-size: 12px;

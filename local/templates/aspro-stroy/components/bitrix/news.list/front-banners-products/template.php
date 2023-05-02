@@ -9,6 +9,9 @@
             <div class="slider-item" id="<?=$this->GetEditAreaId($arItem['ID'])?>">
                 <div class="slider-image">
                     <img src="<?=$arItem['DETAIL_PICTURE']['SRC']?>" alt="<?=$arItem['NAME']?>">
+                    <?if ($arItem['PROPERTIES']['LINK']['VALUE']):?>
+                        <a href="<?=$arItem['PROPERTIES']['LINK']['VALUE']?>"></a>
+                    <?endif;?>
                 </div>
                 <?if (!empty($arItem['PROPERTIES']['SALE']['VALUE'])):?>
                     <div class="discount">

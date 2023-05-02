@@ -47,38 +47,33 @@
 		<?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/slick.js');?>
         <!--kviz-->
         <script defer type="application/javascript" src="//panel.quizgo.ru/common?q=63885"></script>
-        <!-- Google Tag Manager -->
-            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-TPSDCCF');</script>
-        <!-- End Google Tag Manager -->
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" >
+           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+           m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
+           ym(45980856, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+           });
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/45980856" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
 
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-X9C19S3GN9"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
 
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(45980856, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/45980856" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-
+          gtag('config', 'G-X9C19S3GN9');
+        </script>
 	</head>
 	<body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPSDCCF"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 		<?CAjax::Init();?>
 		<div id="panel"><?$APPLICATION->ShowPanel();?></div>
 		<?if(!CModule::IncludeModule("aspro.stroy")):?>
@@ -150,16 +145,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										<span class="btn btn-default white"><?=GetMessage("S_CALLBACK")?></span>
 									</div>
                                     <div class="header-contacts-container pull-right hidden-xs c_2">
-                                        <div class="address-number">
-                                            <i class="fa fa-map-marker"></i>
-                                            <div>
-                                                <?$APPLICATION->IncludeFile(SITE_DIR."include/site-address.php", array(), array(
-                                                        "MODE" => "html",
-                                                        "NAME" => "Address",
-                                                    )
-                                                );?>
-                                            </div>
-                                        </div>
+
                                         <div class="phone-number">
                                             <i class="fa fa-phone"></i>
                                             <div>
@@ -170,14 +156,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 );?>
                                             </div>
                                         </div>
-                                        <div class="email-number">
-                                            <i class="fa fa-envelope"></i>
-                                            <div><?$APPLICATION->IncludeFile(SITE_DIR."include/site-email.php", array(), array(
-                                                        "MODE" => "html",
-                                                        "NAME" => "E-mail",
-                                                    )
-                                                );?></div>
-                                        </div>
+
                                     </div>
 									<div class="search_top_block pull-right">
 										<div class="search_block hidden-sm">
@@ -203,27 +182,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 									<div class="menu-only">
 										<nav class="mega-menu">
 											<?$APPLICATION->IncludeComponent(
-	"bitrix:menu", 
-	"top", 
-	array(
-		"ROOT_MENU_TYPE" => "top",
-		"MENU_CACHE_TYPE" => "A",
-		"MENU_CACHE_TIME" => "3600000",
-		"MENU_CACHE_USE_GROUPS" => "N",
-		"MENU_CACHE_GET_VARS" => array(
-		),
-		"MAX_LEVEL" => "2",
-		"CHILD_MENU_TYPE" => "left",
-		"USE_EXT" => "Y",
-		"DELAY" => "N",
-		"ALLOW_MULTI_SELECT" => "N",
-		"COUNT_ITEM" => "6",
-		"COMPONENT_TEMPLATE" => "top",
-		"COMPOSITE_FRAME_MODE" => "A",
-		"COMPOSITE_FRAME_TYPE" => "AUTO"
-	),
-	false
-);?>
+                                                "bitrix:menu",
+                                                "top",
+                                                array(
+                                                    "ROOT_MENU_TYPE" => "top",
+                                                    "MENU_CACHE_TYPE" => "A",
+                                                    "MENU_CACHE_TIME" => "3600000",
+                                                    "MENU_CACHE_USE_GROUPS" => "N",
+                                                    "MENU_CACHE_GET_VARS" => array(
+                                                    ),
+                                                    "MAX_LEVEL" => "2",
+                                                    "CHILD_MENU_TYPE" => "left",
+                                                    "USE_EXT" => "Y",
+                                                    "DELAY" => "N",
+                                                    "ALLOW_MULTI_SELECT" => "N",
+                                                    "COUNT_ITEM" => "6",
+                                                    "COMPONENT_TEMPLATE" => "top",
+                                                    "COMPOSITE_FRAME_MODE" => "A",
+                                                    "COMPOSITE_FRAME_TYPE" => "AUTO"
+                                                ),
+                                                false
+                                            );?>
 										</nav>
 										<?$APPLICATION->IncludeComponent("bitrix:search.title", "corp", array(
 											"NUM_CATEGORIES" => "2",
@@ -277,7 +256,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<div class="row">
 							<div class="maxwidth-theme">
 								<div class="col-md-12">
-
                                     <?if (!preg_match($catalog2, $dir)):?>
                                         <div class="row">
                                             <div class="col-md-12">
@@ -297,11 +275,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                             </div>
                                         </div>
                                     <?endif;?>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <h1><?$APPLICATION->ShowTitle(false)?></h1>
+                                    <?if (!preg_match($catalog, $dir) || !\Caweb\Main\Page\Helper::isDetailInCatalog()):?>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h1><?$APPLICATION->ShowTitle(false)?></h1>
+                                            </div>
                                         </div>
-                                    </div>
+                                    <?endif;?>
 								</div>
 							</div>
 						</div>
@@ -318,27 +298,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								<?elseif($isMenu && $arTheme["SIDE_MENU"]["VALUE"] == "LEFT"):?>
 									<div id="sidebar_wrapper" class="col-md-3 col-sm-3 left-menu-md">
 										<?$APPLICATION->IncludeComponent(
-	"bitrix:menu", 
-	"left", 
-	array(
-		"ROOT_MENU_TYPE" => "left",
-		"MENU_CACHE_TYPE" => "A",
-		"MENU_CACHE_TIME" => "3600000",
-		"MENU_CACHE_USE_GROUPS" => "N",
-		"MENU_CACHE_GET_VARS" => array(
-		),
-		"MAX_LEVEL" => "3",
-		"CHILD_MENU_TYPE" => "left",
-		"USE_EXT" => "Y",
-		"DELAY" => "N",
-		"ALLOW_MULTI_SELECT" => "N",
-		"COMPONENT_TEMPLATE" => "left",
-		"MENU_THEME" => "site",
-		"COMPOSITE_FRAME_MODE" => "A",
-		"COMPOSITE_FRAME_TYPE" => "AUTO"
-	),
-	false
-);?>
+                                            "bitrix:menu",
+                                            "left",
+                                            array(
+                                                "ROOT_MENU_TYPE" => "left",
+                                                "MENU_CACHE_TYPE" => "A",
+                                                "MENU_CACHE_TIME" => "3600000",
+                                                "MENU_CACHE_USE_GROUPS" => "N",
+                                                "MENU_CACHE_GET_VARS" => array(
+                                                ),
+                                                "MAX_LEVEL" => "3",
+                                                "CHILD_MENU_TYPE" => "left",
+                                                "USE_EXT" => "Y",
+                                                "DELAY" => "N",
+                                                "ALLOW_MULTI_SELECT" => "N",
+                                                "COMPONENT_TEMPLATE" => "left",
+                                                "MENU_THEME" => "site",
+                                                "COMPOSITE_FRAME_MODE" => "A",
+                                                "COMPOSITE_FRAME_TYPE" => "AUTO"
+                                            ),
+                                            false
+                                        );?>
 										<div class="sidearea">
 											<?$APPLICATION->ShowViewContent('under_sidebar_content');?>
 											<?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/under_sidebar.php"), false);?>

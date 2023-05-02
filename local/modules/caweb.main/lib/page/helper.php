@@ -26,4 +26,12 @@ class Helper {
     public static function isPage($subSection){
         return (strpos(self::getInstance()->path, $subSection) !== false);
     }
+    public static function isDetailInCatalog() {
+        global $APPLICATION;
+        $url = $APPLICATION->GetCurPage(false);
+        $code = array_pop(array_filter(explode( '/',  $url)));
+        $rsElements = \CIBlockElement::GetList(array(),array('IBLOCK_ID' => 20, '=CODE' => $code));
+        $res = $rsElements->Fetch() !== false;
+        return $res;
+    }
 }

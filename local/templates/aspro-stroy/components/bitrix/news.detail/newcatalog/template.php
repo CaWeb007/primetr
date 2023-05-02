@@ -23,18 +23,18 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
 ?>
 <!--<h2 itemprop="name"><//?=$arResult['NAME']?> <span class="orange-badge">Хит продаж</span></h2>-->
 <div class="heading-wrapper">
-    <h1 itemprop="name" class="mobile-heading"><?= $name ?>
-        <?if($arResult['DISPLAY_PROPERTIES']['STIKERS']['DISPLAY_VALUE']):?>
-            <?
-                if ($arResult['DISPLAY_PROPERTIES']['STIKERS']['VALUE_XML_ID'][0] === 'DROP_PRICE'){
-                    $classStick = 'green-badge';
-                }else{
-                    $classStick = 'orange-badge';
-                }
-            ?>
-            <span class="<?=$classStick?> mobile-hidden"><?=$arResult['DISPLAY_PROPERTIES']['STIKERS']['DISPLAY_VALUE']?></span>
-        <?endif?>
-    </h1>
+    <h1 itemprop="name" class="mobile-heading"><?= $name ?></h1>
+    <?if($arResult['DISPLAY_PROPERTIES']['STIKERS']['DISPLAY_VALUE']):?>
+        <?
+            if ($arResult['DISPLAY_PROPERTIES']['STIKERS']['VALUE_XML_ID'][0] === 'DROP_PRICE'){
+                $classStick = 'green-badge';
+            }else{
+                $classStick = 'orange-badge';
+            }
+        ?>
+    <?endif?>
+    <span class="<?=$classStick?> mobile-hidden"><?=$arResult['DISPLAY_PROPERTIES']['STIKERS']['DISPLAY_VALUE']?></span>
+
     <div class="made-logo desktop-hidden">
         <img src="<?= CFile::GetPath($arResult['PROPERTIES']['PRODUCT_LOGO']['VALUE']); ?>" alt="">
     </div>

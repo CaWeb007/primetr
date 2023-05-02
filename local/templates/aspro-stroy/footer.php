@@ -164,7 +164,7 @@
                                             </div>
                                         </div>
                                         <div class="compass">
-                                            <i class="fa fa-map-marker"></i>
+
                                             <?$APPLICATION->IncludeFile(SITE_DIR."include/site-address.php", array(), array(
                                                     "MODE" => "html",
                                                     "NAME" => "�����",
@@ -211,11 +211,11 @@
                 )
             );?>
         </div>
-        <?$APPLICATION->IncludeFile(SITE_DIR."include/autoform.php", Array(), Array(
+        <?/*$APPLICATION->IncludeFile(SITE_DIR."include/autoform.php", Array(), Array(
                 "MODE" => "php",
                 "NAME" => "AutoForm",
             )
-        );?>
+        );*/?>
         <?CStroy::SetMeta();?>
                     <script>
                         (function(w,d,u){
