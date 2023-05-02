@@ -1,6 +1,6 @@
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Контакты");?>
-<div class="row contacts" itemscope itemtype="http://schema.org/Organization">
+$APPLICATION->SetPageProperty("description", "Адрес и номер телефона компании «Периметр»");
+$APPLICATION->SetTitle("Контакты");?><div class="row contacts" itemscope itemtype="http://schema.org/Organization">
 	<div class="col-md-12">
 		<div class="row contacts">
 			<div class="col-md-5"> 
@@ -49,7 +49,7 @@ $APPLICATION->SetTitle("Контакты");?>
 	".default", 
 	array(
 		"INIT_MAP_TYPE" => "ROADMAP",
-		"MAP_DATA" => "a:4:{s:10:\"google_lat\";d:52.32095368637874;s:10:\"google_lon\";d:104.23585952758923;s:12:\"google_scale\";i:15;s:10:\"PLACEMARKS\";a:1:{i:0;a:3:{s:4:\"TEXT\";s:16:\"Периметр\";s:3:\"LON\";d:104.23047065735;s:3:\"LAT\";d:52.320232076097;}}}",
+		"MAP_DATA" => "a:4:{s:10:\"google_lat\";d:52.354539436513356;s:10:\"google_lon\";d:104.23711775741876;s:12:\"google_scale\";i:10;s:10:\"PLACEMARKS\";a:3:{i:0;a:3:{s:4:\"TEXT\";s:16:\"Периметр\";s:3:\"LON\";d:104.23047065735;s:3:\"LAT\";d:52.320232076097;}i:1;a:3:{s:4:\"TEXT\";s:31:\"Периметр Шелехов\";s:3:\"LON\";d:104.10972892247;s:3:\"LAT\";d:52.220094619012;}i:2;a:3:{s:4:\"TEXT\";s:33:\"Периметр Хомутово\";s:3:\"LON\";d:104.36829835163351;s:3:\"LAT\";d:52.47652255103515;}}}",
 		"MAP_WIDTH" => "100%",
 		"MAP_HEIGHT" => "500",
 		"CONTROLS" => array(

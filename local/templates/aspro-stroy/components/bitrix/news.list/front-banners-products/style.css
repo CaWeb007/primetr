@@ -1,0 +1,193 @@
+.products-slider {
+    width: 280px;
+    font-family: "Exo 2", sans-serif;
+    max-height: 350px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.products-slider .slider-item {
+    position: relative;
+    background-color: #fff;
+    border-radius: 5px;
+    height: 350px;
+    padding: 18px;
+    margin: 0px 10px;
+    border: 1px solid #ddd;
+    position: relative;
+}
+.products-slider .slider-image {
+    text-align: center;
+    width: 100%;
+    margin: 0 !important;
+}
+.products-slider .slider-image img {
+    height: auto;
+    width: 100%;
+}
+.products-slider .details-row {
+    display: flex;
+    margin: 10px 0px;
+}
+.products-slider .details-row .rating {
+    display: flex;
+    align-items: center;
+    color: #d33c2e;
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 10px;
+}
+.products-slider .details-row .rating img {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+}
+.products-slider .details-row .reviews {
+    display: flex;
+    align-items: center;
+}
+.products-slider .details-row .reviews a {
+    text-decoration: underline;
+    font-size: 14px;
+    color: #494949;
+}
+.products-slider .details-row .reviews a:hover {
+    color: inherit;
+}
+.products-slider .details-row .reviews a:focus {
+    outline: none;
+}
+.products-slider .details-row .reviews img {
+    width: 16px;
+    height: 14px;
+    margin-top: 2px;
+    margin-right: 4px;
+}
+.products-slider .product-heading {
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 600;
+    margin: 12px 0px;
+}
+.products-slider .product-heading a{
+    color: inherit;
+}
+.products-slider .slick-dots {
+    display: block;
+    position: absolute;
+    text-align: center;
+    list-style-type: none;
+    width: 100%;
+    bottom: 10px;
+    padding-left: 0;
+    margin: 0 !important;
+}
+.products-slider .slick-dots li {
+    display: inline-block;
+    background-color: #ddd;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    width: 11px;
+    height: 11px;
+    margin: 0px 3px;
+}
+.products-slider .slick-dots .slick-active {
+    background-color: transparent;
+}
+.products-slider .slick-dots button {
+    opacity: 0;
+}
+
+.order-block-front {
+    display: flex;
+    align-items: flex-end;
+    align-self: auto;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 40px;
+    width: calc(100% - 38px)
+}
+.order-block-front .last-price {
+    text-decoration: line-through;
+    color: #494949;
+    font-size: 18px;
+    font-weight: normal;
+    opacity: 80%;
+}
+.order-block-front .new-price {
+    color: #d33c2e;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 100%;
+}
+.order-block-front .order-btn {
+    display: inline-block;
+    text-transform: uppercase;
+    background-color: #d33c2e;
+    color: #fff;
+    font-size: 14px;
+    line-height: 100%;
+    height: 100%;
+    border-radius: 15px;
+    padding: 9px 12px 9px 12px;
+}
+.order-block-front .order-btn:hover {
+    text-decoration: none;
+}
+.order-block-front .order-btn:focus {
+    outline: none;
+}
+
+.discount {
+    text-align: center;
+    text-transform: uppercase;
+    position: absolute;
+    background-color: #d33c2e;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    right: 14px;
+    top: 10px;
+    padding: 15px;
+}
+.discount span {
+    display: block;
+    color: #fff;
+    font-size: 32px;
+    line-height: 100%;
+}
+@media screen and (max-width: 1199px) {
+    .products-slider {
+        width: 100%;
+        margin-left: 0;
+        max-height: 100%;
+        overflow: inherit;
+    }
+    .products-slider .slider-item {
+        height: auto;
+        padding-bottom: 30px;
+        width: 270px;
+    }
+    .products-slider .reviews a {
+        text-decoration: underline !important;
+    }
+    .products-slider .product-heading {
+        min-height: 50px;
+        margin: 0;
+    }
+    .products-slider .slick-dots {
+        bottom: -30px;
+    }
+    .order-block-front {
+        position: static;
+        bottom: 0px;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .products-slider .slick-track {
+        margin-left: 10px;
+    }
+}
