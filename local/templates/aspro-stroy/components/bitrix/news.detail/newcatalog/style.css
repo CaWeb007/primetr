@@ -466,13 +466,14 @@ h1{
 	box-shadow: none;
 }
 
-.tab-pane h2 {
+.tab-pane span {
 	background-color: #fff;
 	margin: 0;
 	padding: 20px;
 	font-size: 22px;
 	position: relative;
 	z-index: 3;
+	display: inline-block;
 }
 
 .white-bg-wrapper {
@@ -567,7 +568,7 @@ h1{
 	font-weight: normal;
 	text-transform: none;
 }
-.accordion-row .nav-tabs li a h2{
+.accordion-row .nav-tabs li a span{
 	font-size: inherit;
 	font-weight: inherit!important;
 	line-height: inherit;
@@ -618,7 +619,7 @@ h1{
 	margin-top: 30px;
 }
 
-.gates-testimonials h2 {
+.gates-testimonials span {
 	font-size: 22px;
 	line-height: 26px;
 	text-align: center;
@@ -692,7 +693,7 @@ h1{
 	flex-basis: 25%;
 	padding-bottom: 30px;
 }
-.docs-block h2 {
+.docs-block span {
 	margin: 0;
 	font-size: 22px;
 }
@@ -728,7 +729,7 @@ h1{
 	margin-bottom: 30px;
 }
 
-.reviews-block h2 {
+.reviews-block span {
 	margin: 0;
 	padding: 0px 5px 0px 20px;
 	display: inline-block;
@@ -1078,7 +1079,7 @@ h1{
 		line-height: 16px;
 	}
 
-	.gates-testimonials h2 {
+	.gates-testimonials span {
 		font-size: 20px;
 	}
 
@@ -1180,7 +1181,7 @@ h1{
 	padding: 20px;
 }
 
-.share-modal .modal-content h2 {
+.share-modal .modal-content span {
 	margin: 20px 0px 20px 0px;
 	padding: 0;
 	text-align: center;
@@ -1339,8 +1340,8 @@ h1{
 		border-radius: 0px !important;
 	}
 
-	.gates-testimonials h2:hover,  
-	.gates-testimonials h2 {
+	.gates-testimonials span:hover,
+	.gates-testimonials span {
 		font-size: 22px;
 		line-height: 26px;
 		text-align: center;
@@ -1385,7 +1386,7 @@ h1{
 		margin-left: 0px;
 	}
 
-	.docs-block h2 {
+	.docs-block span {
 		margin: 0;
 		font-size: 22px;
 	}
@@ -1411,7 +1412,7 @@ h1{
 		font-size: 8px;
 	}
 
-	.reviews-block h2 {
+	.reviews-block span {
 		margin-left: 30%;
 	}
 

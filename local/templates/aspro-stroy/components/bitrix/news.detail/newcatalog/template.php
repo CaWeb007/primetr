@@ -307,21 +307,21 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
         <ul class="nav nav-tabs" role="tablist">
             <? if ($arResult['PROPERTIES']['DESCRIPTION_DESK']['VALUE']): ?>
                 <li role="presentation" class="active"><a href="#desk" aria-controls="home" role="tab"
-                                                          data-toggle="tab"><h2>Описание и характеристики</h2></a></li>
+                                                          data-toggle="tab"><span>Описание и характеристики</span></a></li>
             <? endif; ?>
             <? if ($arResult['PROPERTIES']['DESCRIPTION_SIZETABLE']['VALUE']): ?>
-                <li role="presentation"><a href="#sizetable" aria-controls="profile" role="tab" data-toggle="tab"><h2>Цена</h2></a></li>
+                <li role="presentation"><a href="#sizetable" aria-controls="profile" role="tab" data-toggle="tab"><span>Цена</span></a></li>
             <? endif; ?>
             <? if ($arResult['PROPERTIES']['DESCRIPTION_SURFTYPE']['VALUE']): ?>
-                <li role="presentation"><a href="#surftype" aria-controls="messages" role="tab" data-toggle="tab"><h2>Цвета</h2></a></li>
+                <li role="presentation"><a href="#surftype" aria-controls="messages" role="tab" data-toggle="tab"><span>Цвета</span></a></li>
             <? endif; ?>
             <? if ($arResult['PROPERTIES']['DESCRIPTION_EQUIP']['VALUE']): ?>
-                <li role="presentation"><a href="#equip" aria-controls="settings" role="tab" data-toggle="tab"><h2>Комплектация</h2></a>
+                <li role="presentation"><a href="#equip" aria-controls="settings" role="tab" data-toggle="tab"><span>Комплектация</span></a>
                 </li>
             <? endif; ?>
             <? if ($arResult['PROPERTIES']['DESCRIPTION_ADDEQUIP']['VALUE']): ?>
-                <li role="presentation"><a href="#addequip" aria-controls="settings" role="tab" data-toggle="tab"><h2>Доп
-                            комплектация</h2></a></li>
+                <li role="presentation"><a href="#addequip" aria-controls="settings" role="tab" data-toggle="tab"><span>Доп
+                            комплектация</span></a></li>
             <? endif; ?>
         </ul>
         <?endif?>
@@ -330,7 +330,7 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
             <div role="tabpanel" class="tab-pane in active" id="desk">
                 <div class="white-bg-wrapper">
                     <?if ($tabCount == 1):?>
-                        <h2>Описание и характеристики</h2>
+                        <span>Описание и характеристики</span>
                     <?endif?>
                     <? if ($arResult['PROPERTIES']['DESC_RIGHT_SIDE']['VALUE'] || $arResult['PROPERTIES']['YOUTUBE_RIGHT_SIDE']['VALUE']): ?>
                         <div class="multimedia-wrapper">
@@ -363,7 +363,7 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
             <div role="tabpanel" class="tab-pane" id="sizetable">
                 <div class="white-bg-wrapper">
                     <?if ($tabCount == 1):?>
-                        <h2>Цена</h2>
+                        <span>Цена</span>
                     <?endif?>
                     <? foreach ($arResult['PROPERTIES']['DESCRIPTION_SIZETABLE']['VALUE'] as $key => $file): ?>
                         <div class="text-block">
@@ -376,7 +376,7 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
             <div role="tabpanel" class="tab-pane" id="surftype">
                 <div class="white-bg-wrapper">
                     <?if ($tabCount == 1):?>
-                        <h2>Цвета</h2>
+                        <span>Цвета</span>
                     <?endif?>
                     <div class="text-block">
                         <div class="row accordion-row__row-flex">
@@ -393,7 +393,7 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
             <div role="tabpanel" class="tab-pane" id="equip">
                 <div class="white-bg-wrapper">
                     <?if ($tabCount == 1):?>
-                        <h2>Комплектация</h2>
+                        <span>Комплектация</span>
                     <?endif?>
                     <div class="text-block">
                         <div class="row accordion-row__row-flex">
@@ -410,7 +410,7 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
             <div role="tabpanel" class="tab-pane" id="addequip">
                 <div class="white-bg-wrapper">
                     <?if ($tabCount == 1):?>
-                        <h2>Доп. комплектация</h2>
+                        <span>Доп. комплектация</span>
                     <?endif?>
                     <div class="text-block">
                         <div class="row accordion-row__row-flex">
@@ -441,11 +441,11 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
             <?if ($arResult['PROPERTIES']['DESCRIPTION_DESK']['~VALUE']['TEXT']):?>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h2 class="panel-title">
+                        <span class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class=""
                                aria-expanded="false">Описание и характеристики <i class="fa fa-angle-down"
                                                                                   aria-hidden="true"></i></a>
-                        </h2>
+                        </span>
                     </div>
                     <div id="collapseOne" class="in" aria-expanded="false">
                         <div class="panel-body">
@@ -482,11 +482,11 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
             <?if ($arResult['PROPERTIES']['DESCRIPTION_SIZETABLE']['VALUE']):?>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h2 class="panel-title">
+                        <span class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed"
                                aria-expanded="false">Таблица размеров <i class="fa fa-angle-down"
                                                                          aria-hidden="true"></i></a>
-                        </h2>
+                        </span>
                     </div>
                     <div id="collapseTwo" class="panel-collapse collapse" aria-expanded="false">
                         <div class="panel-body">
@@ -505,10 +505,10 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
             <?if ($arResult['PROPERTIES']['DESCRIPTION_SURFTYPE']['VALUE']):?>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h2 class="panel-title">
+                        <span class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed"
                                aria-expanded="false">Цвета <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                        </h2>
+                        </span>
                     </div>
                     <div id="collapseThree" class="panel-collapse collapse" aria-expanded="false">
                         <div class="panel-body">
@@ -527,10 +527,10 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
             <?if ($arResult['PROPERTIES']['DESCRIPTION_EQUIP']['VALUE']):?>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h2 class="panel-title">
+                        <span class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" class="collapsed"
                                aria-expanded="false">Комплектация <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                        </h2>
+                        </span>
                     </div>
                     <div id="collapseFour" class="panel-collapse collapse collapse" aria-expanded="false">
                         <div class="panel-body">
@@ -549,11 +549,11 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
             <?if ($arResult['PROPERTIES']['DESCRIPTION_ADDEQUIP']['VALUE']):?>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h2 class="panel-title">
+                        <span class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" class="collapsed"
                                aria-expanded="false">Доп комплектация <i class="fa fa-angle-down"
                                                                          aria-hidden="true"></i></a>
-                        </h2>
+                        </span>
                     </div>
                     <div id="collapseFive" class="panel-collapse collapse" aria-expanded="false">
                         <div class="panel-body">
@@ -574,7 +574,7 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
 <? endif; ?>
 <div class="container">
     <div class="gates-testimonials">
-        <h2 class="red-color">Наши преимущества:</h2>
+        <span class="red-color">Наши преимущества:</span>
         <br>
         <? /*tizers block start*/ ?>
         <? $useBrands = ('Y' == $arParams['BRAND_USE']);
@@ -621,7 +621,7 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
     <? // docs files?>
     <? if ($arResult['DISPLAY_PROPERTIES']['DOCUMENTS']['VALUE']): ?>
         <div class="docs-block">
-            <h2><?= (strlen($arParams['T_DOCS']) ? $arParams['T_DOCS'] : GetMessage('T_DOCS')) ?></h2>
+            <span><?= (strlen($arParams['T_DOCS']) ? $arParams['T_DOCS'] : GetMessage('T_DOCS')) ?></span>
             <div class="docs-row">
                 <? foreach ($arResult['PROPERTIES']['DOCUMENTS']['VALUE'] as $docID): ?>
                     <? $arItem = CStroy::get_file_info($docID); ?>
@@ -670,7 +670,7 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
     <div class="modal-dialog modal-xs">
         <div class="modal-content">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h2>Поделиться ссылкой:</h2>
+            <span>Поделиться ссылкой:</span>
             <div class="ya-share2" data-services="vkontakte,telegram,viber,whatsapp,odnoklassniki"></div>
         </div>
     </div>
