@@ -4,7 +4,24 @@ $aMenuLinksExt = array();
 
 if($arMenuParametrs = CStroy::GetDirMenuParametrs(__DIR__)){
 	if($arMenuParametrs['MENU_SHOW_SECTIONS'] == 'Y'){
-		$arSections = CCache::CIBlockSection_GetList(array('SORT' => 'ASC', 'ID' => 'ASC', 'CACHE' => array('TAG' => CCache::GetIBlockCacheTag(CCache::$arIBlocks[SITE_ID]['aspro_stroy_catalog']['aspro_stroy_catalog'][0]), 'MULTI' => 'Y')), array('IBLOCK_ID' => CCache::$arIBlocks[SITE_ID]['aspro_stroy_catalog']['aspro_stroy_catalog'][0], 'ACTIVE' => 'Y', 'GLOBAL_ACTIVE' => 'Y', 'ACTIVE_DATE' => 'Y'));
+		$arSections = CCache::CIBlockSection_GetList(
+		    array(
+		        'SORT' => 'ASC',
+                'ID' => 'ASC',
+                'CACHE' => array(
+                    'TAG' => CCache::GetIBlockCacheTag(CCache::$arIBlocks[SITE_ID]['aspro_stroy_catalog']['aspro_stroy_catalog'][0]),
+                    'MULTI' => 'Y'
+                )
+            ),
+            array(
+                'IBLOCK_ID' => CCache::$arIBlocks[SITE_ID]['aspro_stroy_catalog']['aspro_stroy_catalog'][0],
+                'ACTIVE' => 'Y',
+                'GLOBAL_ACTIVE' => 'Y',
+                'ACTIVE_DATE' => 'Y'
+            ),
+            false,
+            array('IBLOCK_ID','ID','NAME', 'SECTION_PAGE_URL','DEPTH_LEVEL', 'UF_COLOR', 'UF_FW_ICON_CLASS')
+        );
 		$arSectionsByParentSectionID = CCache::GroupArrayBy($arSections, array('MULTI' => 'Y', 'GROUP' => array('IBLOCK_SECTION_ID')));
 	}
     $arSectionsUnset = array();

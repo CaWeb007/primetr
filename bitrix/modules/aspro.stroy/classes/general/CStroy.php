@@ -567,7 +567,7 @@ class CStroy{
 		if($arSections && is_array($arSections)){
 			foreach($arSections as $arSection){
 				if($arSection['IBLOCK_SECTION_ID'] == $PSID){
-					$arItem = array($arSection['NAME'], $arSection['SECTION_PAGE_URL'], array(), array('FROM_IBLOCK' => 1, 'DEPTH_LEVEL' => $arSection['DEPTH_LEVEL']));
+					$arItem = array($arSection['NAME'], $arSection['SECTION_PAGE_URL'], array(), array('FROM_IBLOCK' => 1, 'DEPTH_LEVEL' => $arSection['DEPTH_LEVEL'], 'COLOR' => $arSection['UF_COLOR'], 'UF_FW_ICON_CLASS' => $arSection['UF_FW_ICON_CLASS']));
 					$arItem[3]['IS_PARENT'] = (isset($arItemsBySectionID[$arSection['ID']]) || isset($arSectionsByParentSectionID[$arSection['ID']]) ? 1 : 0);
 					$aMenuLinksExt[] = $arItem;
 					if($arItem[3]['IS_PARENT']){
@@ -584,7 +584,7 @@ class CStroy{
 										$arItem['DETAIL_PAGE_URL'] = $arItem['DETAIL_PAGE_URL'][key($arItem['DETAIL_PAGE_URL'])];
 									}
 								}
-								$aMenuLinksExt[] = array($arItem['NAME'], $arItem['DETAIL_PAGE_URL'], array(), array('FROM_IBLOCK' => 1, 'DEPTH_LEVEL' => ($arSection['DEPTH_LEVEL'] + 1), 'IS_ITEM' => 1));
+								$aMenuLinksExt[] = array($arItem['NAME'], $arItem['DETAIL_PAGE_URL'], array(), array('FROM_IBLOCK' => 1, 'DEPTH_LEVEL' => ($arSection['DEPTH_LEVEL'] + 1), 'IS_ITEM' => 1, 'COLOR' => $arItem['UF_COLOR']));
 							}
 						}
 					}

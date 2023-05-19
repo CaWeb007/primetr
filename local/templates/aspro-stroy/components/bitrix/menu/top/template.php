@@ -84,7 +84,18 @@
 									<?foreach($arItem["CHILD"] as $arSubItem):?>
 										<?$bShowChilds = ($arParams["MAX_LEVEL"] > 2 && $arSubItem["PARAMS"]["CHILD"]!="N");?>
 										<li class="<?=($arSubItem["CHILD"] && $bShowChilds ? "dropdown-submenu" : "")?> <?=($arSubItem["SELECTED"] ? "active" : "")?>">
-											<a href="<?=$arSubItem["LINK"]?>" title="<?=$arSubItem["TEXT"]?>"><?=$arSubItem["TEXT"]?></a>
+
+											<a
+                                                    href="<?=$arSubItem["LINK"]?>"
+                                                    title="<?=$arSubItem["TEXT"]?>"
+                                                    <?if($arSubItem['PARAMS']['COLOR']) echo ' style="color:'.$arSubItem['PARAMS']['COLOR'].';"'?>
+                                            >
+                                                <span class="dropdown-menu-text"><?=$arSubItem["TEXT"]?></span>
+                                                <?if($arSubItem['PARAMS']['UF_FW_ICON_CLASS']):?>
+                                                    <i class="fa <?=$arSubItem['PARAMS']['UF_FW_ICON_CLASS']?>"></i>
+                                                <?endif;?>
+                                            </a>
+
 											<?if($arSubItem["CHILD"] && $bShowChilds):?>
 												<ul class="dropdown-menu">
 													<?foreach($arSubItem["CHILD"] as $arSubSubItem):?>

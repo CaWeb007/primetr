@@ -274,7 +274,7 @@ header .line-row {
 .topmenu-COLOR .mega-menu table .dropdown-menu li > a:active,
 .topmenu-COLOR .mega-menu table .dropdown-menu li > a:focus {
   background-color: #595959;
-  color: #ffffff;
+  color: #ffffff!important;
 }
 .topmenu-COLOR .mega-menu table td:hover .wrap > a,
 .color_block {
