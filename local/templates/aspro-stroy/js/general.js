@@ -211,6 +211,25 @@ CheckFlexSlider = function(){
 		}
 	});
 }
+CheckFlexSlider2 = function(){
+	$('.flexslider2:not(.thmb)').each(function(){
+		var slider = $(this);
+		slider.resize();
+		var counts = slider.data('flexslider').vars.counts;
+		if(typeof(counts) != 'undefined'){
+			var cnt = getGridSize(counts);
+			var to0 = (cnt != slider.data('flexslider').vars.minItems || cnt != slider.data('flexslider').vars.maxItems || cnt != slider.data('flexslider').vars.move);
+			if(to0){
+				slider.data('flexslider').vars.minItems = cnt;
+				slider.data('flexslider').vars.maxItems = cnt;
+				slider.data('flexslider').vars.move = cnt;
+				slider.flexslider(0);
+				slider.resize();
+				slider.resize(); // twise!
+			}
+		}
+	});
+}
 
 CheckHeaderFixed = function(){
 	var header = $('header.canfixed');
@@ -560,6 +579,44 @@ InitFlexSlider = function() {
 			slider.addClass('flexslider-direction-nav');
 	});
 }
+
+InitFlexSlider2 = function() {
+	$('.flexslider2:not(.thmb):not(.flexslider2-init)').each(function(){
+		var slider = $(this);
+		var options;
+		var defaults = {
+			animationLoop: false,
+			controlNav: false,
+			directionNav: true,
+			animation: "slide"
+		}
+		var config = $.extend({}, defaults, options, slider.data('plugin-options'));
+		if(typeof(config.counts) != 'undefined' && config.direction !== 'vertical'){
+			config.maxItems =  getGridSize(config.counts);
+			config.minItems = getGridSize(config.counts);
+			config.move = getGridSize(config.counts);
+			config.itemWidth = 200;
+		}
+
+		config.after = config.start = function(slider){
+			var eventdata = {slider: slider};
+			BX.onCustomEvent('onSlide', [eventdata]);
+		}
+
+		config.end = function(slider){
+			var eventdata = {slider: slider};
+			BX.onCustomEvent('onSlideEnd', [eventdata]);
+		}
+
+		slider.flexslider(config).addClass('flexslider2-init');
+		if(config.controlNav)
+			slider.addClass('flexslider2-control-nav');
+		if(config.directionNav)
+			slider.addClass('flexslider2-direction-nav');
+	});
+}
+
+
 /*
 clickTouchLink=function(selector, parent, className) {
 	$(selector).on('click', function(e) {
@@ -793,10 +850,12 @@ $(document).ready(function(){
 	});
 
 	InitFlexSlider();
+	InitFlexSlider2();
 
 	// for check flexslider bug in composite mode
 	waitingNotExists('.detail .galery #slider', '.detail .galery #slider .flex-viewport', 1000, function() {
 		InitFlexSlider();
+		InitFlexSlider2();
 		setTimeout(function() {
 			$(window).resize();
 		}, 350);
@@ -1007,6 +1066,15 @@ $(document).ready(function(){
 	$('.flex-viewport .item').on('mouseleave', function(){
 		$(this).closest('.flexslider').find('.flex-control-nav').toggleClass('noz');
 		$(this).closest('.flexslider').find('.flex-control-nav').css('z-index','2');
+	})
+
+	$('.flex-viewport .item').on('mouseenter', function(){
+		$(this).closest('.flexslider2').find('.flex-control-nav').toggleClass('noz');
+		$(this).closest('.flexslider2').find('.flex-control-nav').css('z-index','0');
+	})
+	$('.flex-viewport .item').on('mouseleave', function(){
+		$(this).closest('.flexslider2').find('.flex-control-nav').toggleClass('noz');
+		$(this).closest('.flexslider2').find('.flex-control-nav').css('z-index','2');
 	})
 
 	$('.mega-menu .search-item, .menu-row #title-search .fa-close').live('click', function(e) {
@@ -1279,6 +1347,7 @@ BX.addCustomEvent('onWindowResize', function(eventdata) {
 		CheckTopMenuDotted();
 		CheckTopVisibleMenu();
 		CheckFlexSlider();
+		CheckFlexSlider2();
 		CheckMainBannerSliderVText($('.banners-big .flexslider'));
 		CheckObjectsSizes();
 		CheckFilterSeletSizes();

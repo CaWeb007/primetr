@@ -502,4 +502,22 @@ class MyLittleHelper {
         }
 
     }
+    /**usage
+    //title: delete necondition order items
+    \Bitrix\Main\Loader::includeModule('caweb.main');
+    \Caweb\Main\MyLittleHelper::removePropertyShowMain();
+     */
+    public static function removePropertyShowMain(){
+        Loader::includeModule('iblock');
+        $iblockId = 20;
+        $filter = array('IBLOCK_ID' => $iblockId, '!PROPERTY_SHOW_ON_INDEX_PAGE' => false);
+        $select = array('ID', 'PROPERTY_SHOW_ON_INDEX_PAGE');
+        $el = new \CIBlockElement;
+        $db = \CIBlockElement::GetList(array(), $filter);
+        while ($ar = $db->GetNextElement()){
+            $fields = $ar->GetFields();
+            $el::SetPropertyValuesEx($fields['ID'], $iblockId, array('SHOW_ON_INDEX_PAGE' => false));
+        }
+
+    }
 }

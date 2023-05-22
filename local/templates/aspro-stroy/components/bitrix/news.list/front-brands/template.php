@@ -17,7 +17,7 @@ $frame->setAnimation(true);
 	$colsm = 3;
 	$colxs = 4;
 	?>
-	<div class="catalog item-views table front front-brands" style="display:none;">
+	<div class="brands item-views table front front-brands" style="display:none;">
 		<div class="top_wrapper_block nomargin_bottom">
 			<?$APPLICATION->IncludeComponent(
 				"bitrix:main.include",
@@ -29,7 +29,7 @@ $frame->setAnimation(true);
 				)
 			);?>
 			<?/*<a href="<?=str_replace('#SITE'.'_DIR#', SITE_DIR, $arResult['LIST_PAGE_URL'])?>" class="btn btn-default white transparent"><span><?=GetMessage("ALL_ITEMS");?></span></a>*/?>
-			<div class="flexslider unstyled row" data-plugin-options='{"animation": "slide", "directionNav": true, "itemMargin":10, "controlNav" :true, "animationLoop": true, "slideshow": false, "counts": [<?=$countmd?>, <?=$countsm?>, <?=$countxs?>, <?=$countxsm?>]}'>
+			<div class="flexslider2 unstyled row" data-plugin-options='{"animation": "slide", "directionNav": true, "itemMargin":10, "controlNav" :true, "animationLoop": true, "slideshow": false, "counts": [<?=$countmd?>, <?=$countsm?>, <?=$countxs?>, <?=$countxsm?>]}'>
 				<ul class="slides" itemscope itemtype="http://schema.org/ItemList">
 					<?foreach($arResult["ITEMS"] as $i => $arItem):?>
                         <?if(empty($arItem['FIELDS']['PREVIEW_PICTURE'])) continue;?>
@@ -75,11 +75,11 @@ $frame->setAnimation(true);
 			</div>
 			<script type="text/javascript">
 			$(document).ready(function(){
-				$('.catalog.item-views.table .item .image').sliceHeight({slice: <?=$qntyItems?>, autoslicecount: false, lineheight: -4});
+				$('.brands.item-views.table .item .image').sliceHeight({slice: <?=$qntyItems?>, autoslicecount: false, lineheight: -4});
 				// $('.catalog.item-views.table .title').sliceHeight({slice: <?=$qntyItems?>, autoslicecount: false});
-				$('.catalog.item-views.table .cont').sliceHeight({slice: <?=$qntyItems?>, autoslicecount: false});
-				$('.catalog.item-views.table .foot').sliceHeight({slice: <?=$qntyItems?>, autoslicecount: false});
-				$('.catalog.item-views.table .item').sliceHeight({slice: <?=$qntyItems?>, autoslicecount: false, classNull: '.footer_button'});
+				$('.brands.item-views.table .cont').sliceHeight({slice: <?=$qntyItems?>, autoslicecount: false});
+				$('.brands.item-views.table .foot').sliceHeight({slice: <?=$qntyItems?>, autoslicecount: false});
+				$('.brands.item-views.table .item').sliceHeight({slice: <?=$qntyItems?>, autoslicecount: false, classNull: '.footer_button'});
 			});
 			</script>
 		</div>
@@ -88,9 +88,9 @@ $frame->setAnimation(true);
 <script type="text/javascript">
 $(document).ready(function() {
 	try{
-			$('.catalog.item-views.table.front').show();
-			InitFlexSlider();
-			$('.catalog.item-views.table.front .blink img').blink();
+			$('.brands.item-views.table.front').show();
+			InitFlexSlider2();
+			$('.brands.item-views.table.front .blink img').blink();
 
 	}
 	catch(e){}

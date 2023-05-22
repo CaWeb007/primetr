@@ -1,2 +1,2 @@
-<h3 class="title_block">Проекты домов</h3>
-<!-- for narrow displays--><h3 class="title_block short">Проекты</h3>
+<h3 class="title_block">Популярные товары</h3>
+<!-- for narrow displays--><h3 class="title_block short">Популярные товары</h3>
