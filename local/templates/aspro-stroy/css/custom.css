@@ -1208,6 +1208,27 @@ body {
 	color: inherit;
 }
 
+.support-content-wrapper{
+	font-size: 16px;
+	margin-bottom: 40px;
+}
+.support-content-wrapper ul li a{
+	border-bottom: #000 1px solid;
+	transition: all .3s;
+}
+.support-content-wrapper ul li a:hover{
+	color: #d64438;
+	border-bottom: #d64438 1px solid;
+}
+
+@media (min-width: 830px){
+	.support-content-wrapper{
+		min-height: 500px;
+	}
+}
+
+
+
 /* 1200 screen size */
 @media (min-width: 999px) and (max-width: 1199px) {
 	.gallery-block .carousel-indicators li {

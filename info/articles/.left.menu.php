@@ -1,15 +1,8 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Акции", 
+		"Акции и новости", 
 		"/company/stock/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Новости", 
-		"/company/news/", 
 		Array(), 
 		Array(), 
 		"" 
@@ -34,6 +27,20 @@ $aMenuLinks = Array(
 		Array(), 
 		Array(), 
 		"" 
-	)
+	),
+	Array(
+		"Самостоятельный замер", 
+		"/info/articles/samostoyatelnyy-zamer/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+    Array(
+        "Служба поддержки",
+        "/info/support/",
+        Array(),
+        Array(),
+        ""
+    )
 );
 ?>

@@ -13,7 +13,7 @@ namespace Caweb\Main\Events;
 use Caweb\Main\Log\Write;
 
 class Iblock{
-    const FORMS_ID = array(16, 17, 14, 12,33);
+    const FORMS_ID = array(16, 17, 14, 12, 33, 37);
     const BANNER_IBLOCK_ID = 34;
     public function sendBitrix24(&$arFields){
         $iblockId = (int)$arFields['IBLOCK_ID'];

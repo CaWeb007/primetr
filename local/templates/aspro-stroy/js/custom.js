@@ -157,5 +157,19 @@ $(document).ready(function(){
       }
     ]
   });
-});
 
+
+    $('form[name="aspro_stroy_callback"]').submit(function () {
+        ym(45980856,'reachGoal','zadavat-vopros');
+    })
+});
+BX.addCustomEvent(document, "b24-sitebutton-load", function (e){
+    e.buttons.add({
+        'id': 'my-whatsapp',
+        'href': 'https://api.whatsapp.com/send/?phone=79149025931',
+        'title': 'Whatsapp',
+        'target': '_blank',
+        'sort': 1000,
+        'icon': '/images/whatsapp.png'
+    });
+});
