@@ -83,7 +83,7 @@ class Main{
         }
         try {
             Loader::includeModule('caweb.main');
-            $ord = new ORD(true);
+            $ord = new ORD();
             $ord->setBody(array(
                 "name"=> $fields['NAME'],
                 "brand"=> $fields['NAME'],
