@@ -12,16 +12,18 @@
             else
                 $link = 'javascript:void(0)';
             ?>
-            <a href="<?=$link?>" id="<?=$this->GetEditAreaId($arItem['ID'])?>">
-                <img src="<?=$arItem['DETAIL_PICTURE']['SRC']?>" alt="<?=$arItem['NAME']?>">
-            </a>
-            <?if ($link && $arItem['DISPLAY_PROPERTIES']['MARKER_ORD']['VALUE']):?>
-                <div class="ord-link">
-                    Реклама
-                    <i class="fa fa-angle-right"></i>
-                    <input type="text" class="ord-link-href" value="<?=$link?>">
-                </div>
-            <?endif?>
+            <div class="slide-wrap">
+                <a href="<?=$link?>" id="<?=$this->GetEditAreaId($arItem['ID'])?>">
+                    <img src="<?=$arItem['DETAIL_PICTURE']['SRC']?>" alt="<?=$arItem['NAME']?>">
+                </a>
+                <?if ($link && $arItem['DISPLAY_PROPERTIES']['MARKER_ORD']['VALUE']):?>
+                    <div class="ord-link">
+                        Реклама
+                        <i class="fa fa-angle-right"></i>
+                        <input type="text" class="ord-link-href" value="<?=$link?>">
+                    </div>
+                <?endif?>
+            </div>
         <?endforeach;?>
     </div>
 <?endif;?>

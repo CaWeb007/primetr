@@ -7,6 +7,7 @@ use Bitrix\Main\Web\Uri;
 class Tools {
     private static $instance = null;
     private $host = null;
+    private $uriInstance = null;
     public static function getInstance(){
         if (self::$instance === null){
             self::$instance = new self;
@@ -29,6 +30,14 @@ class Tools {
         if ($this->host) return $this->host;
         $this->host = Application::getInstance()->getContext()->getRequest()->getHttpHost();
         return $this->host;
+    }
+    public function getUriInstance(){
+        if ($this->uriInstance) return $this->uriInstance;
+        $uri = new Uri(Application::getInstance()->getContext()->getRequest()->getRequestUri());
+        if (empty($uri->getHost()))
+            $uri->setHost($this->getHost());
+        $this->uriInstance = $uri;
+        return $this->uriInstance;
     }
     public function getMarkerOrdUri(string $markerORD, string $link = null){
         if (empty($link)) return false;
