@@ -10,6 +10,10 @@ EventManager::getInstance()->addEventHandlerCompatible('iblock', 'OnAfterIBlockE
 EventManager::getInstance()->addEventHandlerCompatible('iblock', 'OnAfterIBlockElementAdd', array('Caweb\Main\Events\Iblock', 'calculateBackground'));
 EventManager::getInstance()->addEventHandlerCompatible('iblock', 'OnBeforeIBlockElementAdd', array('Caweb\Main\Events\Iblock', 'cancelElementAction'));
 EventManager::getInstance()->addEventHandlerCompatible('iblock', 'OnBeforeIBlockElementDelete', array('Caweb\Main\Events\Iblock', 'cancelElementAction'));
+/**start работа инфоблоков с ord*/
+EventManager::getInstance()->addEventHandlerCompatible("main", "OnAdminListDisplay", array('Caweb\Main\Events\Main',"addContextButtonForOrd"));
+EventManager::getInstance()->addEventHandlerCompatible("main", "OnBeforeProlog", array('Caweb\Main\Events\Main',"adminOrdActionHandler"));
+/**end*/
 CModule::AddAutoloadClasses(
     '', // не указываем имя модуля
     array(

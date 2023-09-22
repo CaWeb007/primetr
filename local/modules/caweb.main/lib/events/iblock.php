@@ -14,7 +14,11 @@ use Caweb\Main\Log\Write;
 
 class Iblock{
     const FORMS_ID = array(16, 17, 14, 12, 33, 37);
-    const BANNER_IBLOCK_ID = 34;
+    const BANNER_IBLOCK_ID = 35;
+    const MAIN_BANNERS_IBLOCK_ID = 2;
+    const CONTENT_IBLOCK_TYPE = 'aspro_stroy_content';
+    const ADV_IBLOCK_TYPE= 'aspro_stroy_content';
+    const PROPERTY_MARKER_ORD_ID = 358;
     public function sendBitrix24(&$arFields){
         $iblockId = (int)$arFields['IBLOCK_ID'];
         if (!in_array($iblockId, self::FORMS_ID)) return;

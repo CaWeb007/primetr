@@ -19,6 +19,7 @@
             ),
             "PROPERTY_CODE" => array(
                 0 => "LINK",
+                1 => "MARKER_ORD"
             ),
             "CHECK_DATES" => "Y",
             "DETAIL_URL" => "",
