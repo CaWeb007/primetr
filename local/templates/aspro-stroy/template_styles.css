@@ -706,7 +706,7 @@ a.scroll-to-top.CONTENT{left:50%;margin-left:512px;}
 .item-views.list:not(.with_tabs) .tab-pane + .tab-pane, .item-views.accordion:not(.with_tabs) .tab-pane + .tab-pane{margin-top:30px;}
 .item-views.list .item .text{padding:24px 24px 24px 0;}
 .item-views.list .item.wdate .title{margin-bottom:5px;}
-.item-views.list .item .image{height:auto;text-align:center;width:100%;padding:24px 0 24px 24px;}
+.item-views.list .item .image{height:auto;text-align:center;width:100%;padding:24px 0 24px 24px;position: relative}
 .item-views.list .item .image img{max-height:100%;max-width:100%;vertical-align:middle;display:inline-block;}
 .item-views.list.staff .item .image img{width: 100%;}
 .item-views.list.image_right .item .image{padding-right:24px;padding-left:0;}

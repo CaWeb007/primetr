@@ -46,4 +46,7 @@ class Tools {
             $uri->setHost($this->getHost());
         return $uri->addParams(array('erid' => $markerORD))->getUri();
     }
+    public function getPropertyIdByCode(string $propertyCode, $iblockID = false){
+        return (int)\CIBlockProperty::GetByID($propertyCode, $iblockID, false)->GetNext()['ID'];
+    }
 }

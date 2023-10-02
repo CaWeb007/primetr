@@ -11,14 +11,20 @@ namespace Caweb\Main\Events;
 
 
 use Caweb\Main\Log\Write;
+use Caweb\Main\ORD;
 
 class Iblock{
+    public static $disableEvents = false;
     const FORMS_ID = array(16, 17, 14, 12, 33, 37);
     const BANNER_IBLOCK_ID = 35;
     const MAIN_BANNERS_IBLOCK_ID = 35;
+    const NEWS_SALES_IBLOCK_ID = 21;
     const CONTENT_IBLOCK_TYPE = 'aspro_stroy_content';
     const ADV_IBLOCK_TYPE= 'aspro_stroy_content';
     const PROPERTY_MARKER_ORD_ID = 358;
+    const PROPERTY_MARKER_ORD_CODE = 'MARKER_ORD';
+    const PROPERTY_BANNER_LINK_CODE = 'LINK';
+    const PROPERTY_RELATED_BANNER_ELEMENT_CODE = 'RELATED_ELEMENT';
     public function sendBitrix24(&$arFields){
         $iblockId = (int)$arFields['IBLOCK_ID'];
         if (!in_array($iblockId, self::FORMS_ID)) return;
@@ -109,5 +115,19 @@ class Iblock{
         global $APPLICATION;
         $APPLICATION->ThrowException('Не нада, пусть будет один элемент');
         return false;
+    }
+    public static function ordRelatedElements($fields){
+        if (self::$disableEvents) return;
+        $iblockId = (int)$fields['IBLOCK_ID'];
+        switch ($iblockId){
+            case self::MAIN_BANNERS_IBLOCK_ID:
+            case self::NEWS_SALES_IBLOCK_ID:
+                self::$disableEvents = true;
+                ORD::elementUpdateAction($fields);
+                break;
+            default:
+                return;
+        }
+        self::$disableEvents = false;
     }
 }
