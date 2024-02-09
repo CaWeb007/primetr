@@ -160,4 +160,12 @@ $arUrlRewrite=array (
     'PATH' => '/catalog/index.php',
     'SORT' => 100,
   ),
+  25 =>
+  array (
+      'CONDITION' => '#^/spec-catalog/reviwes/#',
+      'RULE' => '',
+      'ID' => 'bitrix:forum',
+      'PATH' => '/spec-catalog/reviwes/index.php',
+      'SORT' => 100,
+  ),
 );
