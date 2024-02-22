@@ -5,8 +5,11 @@
     overflow: hidden;
     border-radius: 5px;
 }
-.main-slider a {
+.main-slider .slide-wrap{
+    position: relative;
     margin: 0px 10px;
+}
+.main-slider a {
 }
 .main-slider a:focus {
     outline: none;

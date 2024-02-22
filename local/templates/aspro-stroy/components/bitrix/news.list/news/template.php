@@ -16,6 +16,9 @@
 				$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem['IBLOCK_ID'], 'ELEMENT_DELETE'), array('CONFIRM' => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
 				// use detail link?
 				$bDetailLink = $arParams['SHOW_DETAIL_LINK'] != 'N' && (!strlen($arItem['DETAIL_TEXT']) ? $arParams['HIDE_LINK_WHEN_NO_DETAIL'] !== 'Y' : true);
+				$link = $arItem["DETAIL_PAGE_URL"];
+                if ($link && $arItem['PROPERTIES']['MARKER_ORD']['VALUE'])
+                    $link = \Caweb\Main\Tools::getInstance()->getMarkerOrdUri($arItem['PROPERTIES']['MARKER_ORD']['VALUE'] , $link);
 				// preview picture
 				$bImage = strlen($arItem['FIELDS']['PREVIEW_PICTURE']['SRC']);
 				$imageSrc = ($bImage ? $arItem['FIELDS']['PREVIEW_PICTURE']['SRC'] : false);
@@ -26,7 +29,7 @@
 					<?// element name?>
 					<?if(strlen($arItem['FIELDS']['NAME'])):?>
 						<div class="title">
-							<?if($bDetailLink):?><a title="<?=$arItem['NAME']?>" href="<?=$arItem['DETAIL_PAGE_URL']?>"><?endif;?>
+							<?if($bDetailLink):?><a title="<?=$arItem['NAME']?>" href="<?=$link?>"><?endif;?>
 								<?=$arItem['NAME']?>
 							<?if($bDetailLink):?></a><?endif;?>
 						</div>
@@ -98,13 +101,20 @@
 				<?if($bImage):?>
 					<?ob_start();?>
 						<div class="image" >
-							<?if($bDetailLink):?><a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="blink">
+							<?if($bDetailLink):?><a href="<?=$link?>" class="blink">
 							<?elseif($arItem['FIELDS']['DETAIL_PICTURE']):?><a href="<?=$imageDetailSrc?>" alt="<?=($bImage ? $arItem['FIELDS']['PREVIEW_PICTURE']['ALT'] : $arItem['NAME'])?>" title="<?=($bImage ? $arItem['FIELDS']['PREVIEW_PICTURE']['TITLE'] : $arItem['NAME'])?>" class="img-inside fancybox">
 							<?endif;?>
 								<img src="<?=$imageSrc?>" alt="<?=($bImage ? $arItem['FIELDS']['PREVIEW_PICTURE']['ALT'] : $arItem['NAME'])?>" title="<?=($bImage ? $arItem['FIELDS']['PREVIEW_PICTURE']['TITLE'] : $arItem['NAME'])?>" class="img-responsive" />
 							<?if($bDetailLink):?></a>
 							<?elseif($arItem['FIELDS']['DETAIL_PICTURE']):?><span class="zoom"><i class="fa fa-16 fa-white-shadowed fa-search"></i></span></a>
 							<?endif;?>
+                            <?if ($link && $arItem['PROPERTIES']['MARKER_ORD']['VALUE']):?>
+                                <div class="ord-link">
+                                    Реклама
+                                    <i class="fa fa-angle-right"></i>
+                                    <input type="text" class="ord-link-href" value="<?=$link?>">
+                                </div>
+                            <?endif?>
 						</div>
 					<?$imagePart = ob_get_clean();?>
 				<?endif;?>
