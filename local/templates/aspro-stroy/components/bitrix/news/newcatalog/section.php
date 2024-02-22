@@ -215,7 +215,7 @@ $arSubSections = CCache::CIblockSection_GetList(array("CACHE" => array("TAG" => 
             <?endif;?>
             <?if(!empty($arSection['DESCRIPTION']) && strpos($_SERVER["REQUEST_URI"], "PAGEN") === false):?>
                 <div style="clear: both; display: block"></div>
-                <div class="cat-desc"><?=$arSection["DESCRIPTION"]?></div>
+                <div class="cat-desc col-xs-12"><?=$arSection["DESCRIPTION"]?></div>
             <?endif;?>
         </div>
     </div>
