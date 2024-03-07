@@ -5,12 +5,14 @@
             <?
             $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem['IBLOCK_ID'], 'ELEMENT_EDIT'));
             $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem['IBLOCK_ID'], 'ELEMENT_DELETE'), array('CONFIRM' => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
-            if (!empty($arItem['PROPERTIES']['LINK']['VALUE']))
+            if (!empty($arItem['PROPERTIES']['LINK']['VALUE'])) {
                 $link = $arItem['PROPERTIES']['LINK']['VALUE'];
                 if ($arItem['DISPLAY_PROPERTIES']['MARKER_ORD']['VALUE'])
-                    $link = \Caweb\Main\Tools::getInstance()->getMarkerOrdUri($arItem['DISPLAY_PROPERTIES']['MARKER_ORD']['VALUE'] , $link);
-            else
+                    $link = \Caweb\Main\Tools::getInstance()->getMarkerOrdUri($arItem['DISPLAY_PROPERTIES']['MARKER_ORD']['VALUE'], $link);
+            }
+            else {
                 $link = 'javascript:void(0)';
+            }
             ?>
             <div class="slide-wrap">
                 <a href="<?=$link?>" id="<?=$this->GetEditAreaId($arItem['ID'])?>">
