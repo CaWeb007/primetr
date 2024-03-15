@@ -12,10 +12,11 @@ namespace Caweb\Main\Events;
 
 use Caweb\Main\Log\Write;
 use Caweb\Main\ORD;
+use Caweb\Main\Tools;
 
 class Iblock{
     public static $disableEvents = false;
-    const FORMS_ID = array(16, 17, 14, 12, 33, 37);
+    const FORMS_ID = array(12,13,14,15,16,17,18,19,32,33,37);
     const BANNER_IBLOCK_ID = 34;
     const MAIN_BANNERS_IBLOCK_ID = 35;
     const NEWS_SALES_IBLOCK_ID = 21;
@@ -29,27 +30,48 @@ class Iblock{
         $iblockId = (int)$arFields['IBLOCK_ID'];
         if (!in_array($iblockId, self::FORMS_ID)) return;
         if ($arFields['RESULT'] === false) return;
-        $queryUrl = 'https://crm.strlog.ru/rest/2223/34k6ig5n6gg4rd9g/crm.lead.add/';
-        $property = $arFields['PROPERTY_VALUES'];
-        $name = $property['NAME'];
-        $service = $property['NEED_PRODUCT'];
-        if ($iblockId === 17) $name = $property['FIO'];
-        if ($iblockId === 33) $name = $property['FIO'];
-        if ($iblockId === 14) $service = $property['SERVICE'];
-        if ($iblockId === 12) $service = $property['PROJECT'];
+        $queryUrl = 'https://crm.strlog.ru/rest/52/ewopeeg6jjzaudzo/crm.lead.add.json';
+        $properties = $arFields['PROPERTY_VALUES'];
+        $fields = array(
+            "TITLE" => Helper::getB24LeadTitle($iblockId),
+            "ASSIGNED_BY_ID" => 4221,
+            "SOURCE_ID" => 'WEB',
+            "STATUS_ID" => "NEW",
+            "OPENED" => "Y"
+        );
+        if (!empty($properties['NAME']))
+            $fields['NAME'] = $properties['NAME'];
+
+        if (!empty($properties['FIO']))
+            $fields['NAME'] = $properties['FIO'];
+
+        if (!empty($properties['PHONE']))
+            $fields['PHONE'] = array(array("VALUE" => $properties['PHONE'], "VALUE_TYPE" => "WORK" ));
+
+        if (!empty($properties['EMAIL']))
+            $fields['EMAIL'] = array(array("VALUE" => $properties['EMAIL'], "VALUE_TYPE" => "WORK" ));
+
+        if (!empty($properties['SERVICE']))
+            $fields['UF_CRM_1565675706'] = $properties['SERVICE'];
+
+        if (!empty($properties['PROJECT']))
+            $fields['UF_CRM_1565675706'] = $properties['PROJECT'];
+
+        if (!empty($properties['PRODUCT']))
+            $fields['UF_CRM_1565675706'] = $properties['PRODUCT'];
+
+        if (!empty($properties['NEED_PRODUCT']))
+            $fields['UF_CRM_1565675706'] = $properties['NEED_PRODUCT'];
+
+        if (!empty($properties['MESSAGE']['VALUE']['TEXT']))
+            $fields['COMMENTS'] = $properties['MESSAGE']['VALUE']['TEXT'];
+
+        $utm = Tools::getUtm();
+        if (is_array($utm) && !empty($utm['UTM_SOURCE']))
+            $fields = array_merge($fields, $utm);
+
         $queryData = http_build_query(
-            array( 'fields' => array(
-                "TITLE" => $arFields['NAME'],
-                "NAME" => $name,
-                "STATUS_ID" => "NEW",
-                "OPENED" => "Y",
-                "SOURCE_ID" => "WEB",
-                "ASSIGNED_BY_ID" => 1,
-                "PHONE" => array(array("VALUE" => $property['PHONE'], "VALUE_TYPE" => "WORK" )),
-                "EMAIL" => array(array("VALUE" => $property['EMAIL'], "VALUE_TYPE" => "WORK" )),
-                "UF_CRM_1565675706" => $service,
-                "COMMENTS" => $property['MESSAGE']['VALUE']['TEXT']
-                ), 'params' => array("REGISTER_SONET_EVENT" => "Y") ));
+            array( 'fields' => $fields, 'params' => array("REGISTER_SONET_EVENT" => "Y") ));
         $curl = curl_init();
         curl_setopt_array($curl,
             array( CURLOPT_SSL_VERIFYPEER => 0, CURLOPT_POST => 1, CURLOPT_HEADER => 0,

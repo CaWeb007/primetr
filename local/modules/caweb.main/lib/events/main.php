@@ -1,8 +1,10 @@
 <?
 namespace Caweb\Main\Events;
+use Bitrix\Main\Context;
 use Bitrix\Main\Loader;
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Main\Application;
+use Bitrix\Main\Web\Cookie;
 use Bitrix\Main\Web\Uri;
 use Caweb\Main\ORD;
 use Caweb\Main\Tools;
@@ -120,5 +122,24 @@ class Main{
         }catch (\Exception $exception){
             echo '<script>alert("'.$exception->getMessage().'")</script>';
         }
+    }
+    public static function utmSaveOnCookies(){
+        $context = Context::getCurrent();
+        $request = $context->getRequest();
+        $utm = array(
+            'UTM_TERM' => $request->get('utm_term'),
+            'UTM_SOURCE' => $request->get('utm_source'),
+            'UTM_MEDIUM' => $request->get('utm_medium'),
+            'UTM_CONTENT' => $request->get('utm_content'),
+            'UTM_CAMPAIGN' => $request->get('utm_campaign')
+        );
+        $utmOld = unserialize($request->getCookie('UTM'));
+        if ($utm['UTM_SOURCE'] === $utmOld['UTM_SOURCE']) return;
+        if (empty($utm['UTM_SOURCE'])) return;
+        $cookie = new Cookie('UTM', serialize($utm), time() + 60*60*24);
+        $cookie->setHttpOnly(false);
+        $cookie->setSecure(false);
+        $context->getResponse()->addCookie($cookie);
+        $context->getResponse()->flush("");
     }
 }

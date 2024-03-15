@@ -7,7 +7,7 @@
 		<title><?$APPLICATION->ShowTitle()?></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="yandex-verification" content="4cc8d70e1efe8c76" />
-		<link href='<?=CMain::IsHTTPS() ? 'https' : 'http'?>://fonts.googleapis.com/css?family=Exo+2:400,600,600italic,400italic&subset=latin,cyrillic'; rel='stylesheet' type='text/css'>
+		<link href='<?=CMain::IsHTTPS() ? 'https' : 'http'?>://fonts.googleapis.com/css?family=Exo+2:400,600,600italic,400italic&subset=latin,cyrillic&display=swap'; rel='stylesheet' type='text/css'>
 		<?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/css/bootstrap.css');?>
 		<?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/css/fonts/font-awesome/css/font-awesome.min.css');?>
 		<?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/vendor/flexslider/flexslider.css');?>

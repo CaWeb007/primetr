@@ -2,6 +2,7 @@
 namespace Caweb\Main;
 
 use Bitrix\Main\Application;
+use Bitrix\Main\Context;
 use Bitrix\Main\Web\Uri;
 
 class Tools {
@@ -48,5 +49,9 @@ class Tools {
     }
     public function getPropertyIdByCode(string $propertyCode, $iblockID = false){
         return (int)\CIBlockProperty::GetByID($propertyCode, $iblockID, false)->GetNext()['ID'];
+    }
+    public static function getUtm(){
+        $request = Context::getCurrent()->getRequest();
+        return unserialize($request->getCookie('UTM'));
     }
 }

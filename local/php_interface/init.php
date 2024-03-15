@@ -13,6 +13,7 @@ EventManager::getInstance()->addEventHandlerCompatible('iblock', 'OnBeforeIBlock
 /**start работа инфоблоков с ord*/
 EventManager::getInstance()->addEventHandlerCompatible("main", "OnAdminListDisplay", array('Caweb\Main\Events\Main',"addContextButtonForOrd"));
 EventManager::getInstance()->addEventHandlerCompatible("main", "OnBeforeProlog", array('Caweb\Main\Events\Main',"adminOrdActionHandler"));
+EventManager::getInstance()->addEventHandlerCompatible("main", "OnPageStart", array('Caweb\Main\Events\Main',"utmSaveOnCookies"));
 
 EventManager::getInstance()->addEventHandlerCompatible('iblock', 'OnAfterIBlockElementAdd', array('Caweb\Main\Events\Iblock', 'ordRelatedElements'));
 EventManager::getInstance()->addEventHandlerCompatible('iblock', 'OnAfterIBlockElementUpdate', array('Caweb\Main\Events\Iblock', 'ordRelatedElements'));
