@@ -2126,6 +2126,31 @@ header.fixed .logo_and_menu-row{
 	clear: both;
 }
 .mobile_header_phone{display: none}
+.b24-widget-button-wrapper.b24-widget-button-position-bottom-right{
+	bottom: 100px;
+	right: 14px;
+}
+.b-quizgo-banner.b-quizgo-banner--position-bottom-left{
+	left: inherit;
+	right: 0;
+}
+body .lp9-pop{
+	width: 90px!important;
+	height: 90px!important;
+	bottom: 80px;
+	animation: animate_grow 2s infinite;
+}
+@keyframes animate_grow {
+	0% {
+		transform: scale3d(1, 1, 1);
+	}
+	50% {
+		transform: scale3d(1.05, 1.05, 1.05);
+	}
+	100% {
+		transform: scale3d(1, 1, 1);
+	}
+}
 @media (max-width: 767px){
 	.top-header-theme{
 		height: 70px;

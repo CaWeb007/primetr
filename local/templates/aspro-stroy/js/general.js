@@ -316,7 +316,7 @@ scrollToTop = function(){
 		$(window).scroll(function(){
 			if(!_isScrolling) {
 				_isScrolling = true;
-				var bottom = 23,
+				var bottom = 200,
 					scrollVal = $(window).scrollTop(),
 					windowHeight = $(window).height(),
 					footerOffset = $('footer').offset().top;
@@ -335,7 +335,7 @@ scrollToTop = function(){
 }
 
 CheckScrollToTop = function(){
-	var bottom = 23,
+	var bottom = 200,
 		scrollVal = $(window).scrollTop(),
 		windowHeight = $(window).height(),
 		footerOffset = $('footer').offset().top;
