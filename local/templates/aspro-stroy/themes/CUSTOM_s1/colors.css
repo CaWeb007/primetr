@@ -537,3 +537,7 @@ section.toggle.active > label {
 .select-outer i.fa {
   color: #686868;
 }
+.btn-default.white {
+  color: #fff !important;
+  border: 1px solid #d64438;
+}

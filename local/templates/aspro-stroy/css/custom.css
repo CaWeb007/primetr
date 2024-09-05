@@ -2319,3 +2319,16 @@ body .lp9-pop{
 @media all and (display-mode: fullscreen) {
 	#fullscreenButtonsControl {
 		display: block; } }
+
+.topmenu-COLOR .mega-menu table .dropdown-menu li:hover > a,
+.topmenu-COLOR .mega-menu table .dropdown-menu li.active > a,
+.topmenu-COLOR .mega-menu table .dropdown-menu li > a:hover,
+.topmenu-COLOR .mega-menu table .dropdown-menu li > a:active,
+.topmenu-COLOR .mega-menu table .dropdown-menu li > a:focus {
+	background-color: #595959;
+	color: #ffffff!important;
+}
+.btn-default.white {
+	color: #fff !important;
+	border: 1px solid #d64438;
+}

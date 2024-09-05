@@ -12,7 +12,7 @@ $this->setFrameMode(true);
 	?>
 
 	<div class="item-views catalog sections front" style="display:none;">
-		<div class="items row">
+		<div class="items row"><h1 style="font-size:26px;padding-bottom:20px;">Ворота, заборы в Иркутске</h1>
 			<?foreach($arResult['SECTIONS'] as $arItem):
 				if(!$arItem['PICTURE'])
 					continue;?>
