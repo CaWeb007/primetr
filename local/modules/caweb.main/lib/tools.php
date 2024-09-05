@@ -9,6 +9,8 @@ class Tools {
     private static $instance = null;
     private $host = null;
     private $uriInstance = null;
+    private const B24Url = 'https://crm.strlog.ru/rest/52/n64271cljpvl8cnj/im.message.add.json';
+    private const B24DIALOG_ID = 52;
     public static function getInstance(){
         if (self::$instance === null){
             self::$instance = new self;
@@ -53,5 +55,32 @@ class Tools {
     public static function getUtm(){
         $request = Context::getCurrent()->getRequest();
         return unserialize($request->getCookie('UTM'));
+    }
+    public static function sendB24Log(string $message){
+        $queryUrl = self::B24Url;
+        $queryData = http_build_query(
+            array(
+                "MESSAGE" => $message,
+                "SYSTEM" => "N",
+                "DIALOG_ID" => self::B24DIALOG_ID,
+            ));
+        $curl = curl_init();
+        curl_setopt_array($curl,
+            array( CURLOPT_SSL_VERIFYPEER => 0, CURLOPT_POST => 1, CURLOPT_HEADER => 0,
+                CURLOPT_RETURNTRANSFER => 1, CURLOPT_URL => $queryUrl, CURLOPT_POSTFIELDS => $queryData));
+        $result = curl_exec($curl);
+        curl_close($curl);
+    }
+    public static function sendB24Response($method, $fields){
+        $queryUrl = "https://crm.strlog.ru/rest/52/ewopeeg6jjzaudzo/".$method;
+        $queryData = http_build_query($fields);
+        $curl = curl_init();
+        curl_setopt_array($curl,
+            array( CURLOPT_SSL_VERIFYPEER => 0, CURLOPT_POST => 1, CURLOPT_HEADER => 0,
+                CURLOPT_RETURNTRANSFER => 1, CURLOPT_URL => $queryUrl, CURLOPT_POSTFIELDS => $queryData));
+        $result = curl_exec($curl);
+        curl_close($curl);
+        $result = json_decode($result, 1);
+        return $result;
     }
 }

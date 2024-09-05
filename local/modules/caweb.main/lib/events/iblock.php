@@ -30,55 +30,47 @@ class Iblock{
         $iblockId = (int)$arFields['IBLOCK_ID'];
         if (!in_array($iblockId, self::FORMS_ID)) return;
         if ($arFields['RESULT'] === false) return;
-        $queryUrl = 'https://crm.strlog.ru/rest/52/ewopeeg6jjzaudzo/crm.lead.add.json';
+        $arManagers = Tools::sendB24Response('user.get.json',
+            array(
+                'FILTER' => array(
+                    "UF_DEPARTMENT" => 61,
+                    "IS_ONLINE" => 'Y',
+                    "ACTIVE" => 1,
+                    "UF_USR_1725343864433" => 1,
+                )
+            )
+        )["result"];
+        $managerId = 4221;//Александрова Кристина Алексеевна
+        if (is_array($arManagers)){
+            $managerKey = rand(0 , (count($arManagers) - 1));
+            $managerId = (int)$arManagers[$managerKey]['ID'];
+        }
         $properties = $arFields['PROPERTY_VALUES'];
         $fields = array(
             "TITLE" => Helper::getB24LeadTitle($iblockId),
-            "ASSIGNED_BY_ID" => 4221,
-            "SOURCE_ID" => 'WEB',
+            "ASSIGNED_BY_ID" => $managerId,
+            "SOURCE_ID" => 'UC_8C944E',
             "STATUS_ID" => "NEW",
             "OPENED" => "Y"
         );
-        if (!empty($properties['NAME']))
-            $fields['NAME'] = $properties['NAME'];
-
-        if (!empty($properties['FIO']))
-            $fields['NAME'] = $properties['FIO'];
-
-        if (!empty($properties['PHONE']))
-            $fields['PHONE'] = array(array("VALUE" => $properties['PHONE'], "VALUE_TYPE" => "WORK" ));
-
-        if (!empty($properties['EMAIL']))
-            $fields['EMAIL'] = array(array("VALUE" => $properties['EMAIL'], "VALUE_TYPE" => "WORK" ));
-
-        if (!empty($properties['SERVICE']))
-            $fields['UF_CRM_1565675706'] = $properties['SERVICE'];
-
-        if (!empty($properties['PROJECT']))
-            $fields['UF_CRM_1565675706'] = $properties['PROJECT'];
-
-        if (!empty($properties['PRODUCT']))
-            $fields['UF_CRM_1565675706'] = $properties['PRODUCT'];
-
-        if (!empty($properties['NEED_PRODUCT']))
-            $fields['UF_CRM_1565675706'] = $properties['NEED_PRODUCT'];
-
-        if (!empty($properties['MESSAGE']['VALUE']['TEXT']))
-            $fields['COMMENTS'] = $properties['MESSAGE']['VALUE']['TEXT'];
-
+        if (!empty($properties['NAME'])) $fields['NAME'] = $properties['NAME'];
+        if (!empty($properties['FIO'])) $fields['NAME'] = $properties['FIO'];
+        if (!empty($properties['PHONE'])) $fields['PHONE'] = array(array("VALUE" => $properties['PHONE'], "VALUE_TYPE" => "WORK" ));
+        if (!empty($properties['EMAIL'])) $fields['EMAIL'] = array(array("VALUE" => $properties['EMAIL'], "VALUE_TYPE" => "WORK" ));
+        if (!empty($properties['SERVICE'])) $fields['UF_CRM_1565675706'] = $properties['SERVICE'];
+        if (!empty($properties['PROJECT'])) $fields['UF_CRM_1565675706'] = $properties['PROJECT'];
+        if (!empty($properties['PRODUCT'])) $fields['UF_CRM_1565675706'] = $properties['PRODUCT'];
+        if (!empty($properties['NEED_PRODUCT'])) $fields['UF_CRM_1565675706'] = $properties['NEED_PRODUCT'];
+        if (!empty($properties['MESSAGE']['VALUE']['TEXT'])) $fields['COMMENTS'] = $properties['MESSAGE']['VALUE']['TEXT'];
         $utm = Tools::getUtm();
-        if (is_array($utm) && !empty($utm['UTM_SOURCE']))
-            $fields = array_merge($fields, $utm);
-
-        $queryData = http_build_query(
-            array( 'fields' => $fields, 'params' => array("REGISTER_SONET_EVENT" => "Y") ));
-        $curl = curl_init();
-        curl_setopt_array($curl,
-            array( CURLOPT_SSL_VERIFYPEER => 0, CURLOPT_POST => 1, CURLOPT_HEADER => 0,
-                CURLOPT_RETURNTRANSFER => 1, CURLOPT_URL => $queryUrl, CURLOPT_POSTFIELDS => $queryData));
-        $result = curl_exec($curl);
-        curl_close($curl);
-        $result = json_decode($result, 1);
+        if (is_array($utm) && !empty($utm['UTM_SOURCE'])) $fields = array_merge($fields, $utm);
+        $result = Tools::sendB24Response(
+            'crm.lead.add.json',
+            array(
+                'fields' => $fields,
+                'params' => array("REGISTER_SONET_EVENT" => "Y")
+            )
+        );
         if (array_key_exists('error', $result)) Write::file('b24_error', $result['error_description']);
     }
     public function calculateBackground(&$arFields){
