@@ -12,6 +12,7 @@ use Bitrix\Forum\MessageTable;
 use Bitrix\Iblock\ElementTable;
 use Bitrix\Iblock\SectionElementTable;
 use Bitrix\Main\Application;
+use Bitrix\Main\IO\File;
 use Bitrix\Main\Loader;
 use Bitrix\Main\Type\DateTime;
 use Bitrix\Main\UserGroupTable;
@@ -518,6 +519,62 @@ class MyLittleHelper {
             $fields = $ar->GetFields();
             $el::SetPropertyValuesEx($fields['ID'], $iblockId, array('SHOW_ON_INDEX_PAGE' => false));
         }
+
+    }
+
+    /**usage
+      //title: createPriceList
+      \Bitrix\Main\Loader::includeModule('caweb.main');
+      \Caweb\Main\MyLittleHelper::createPriceList();
+     */
+    public static function createPriceList(){
+        Loader::includeModule('iblock');
+        $file = new File($_SERVER['DOCUMENT_ROOT'].'/upload/price.csv');
+        $file->putContents('');
+        $csv = new \CCSVData('R', true);
+        $csv->SetDelimiter(';');
+        $csv->SaveFile(
+            $_SERVER['DOCUMENT_ROOT'].'/upload/price.csv',
+            array(
+                'ID',
+                mb_convert_encoding('Имя', 'windows-1251', 'UTF-8'),
+                mb_convert_encoding('Цена', 'windows-1251', 'UTF-8')
+            ));
+
+        $db = \CIBlockElement::GetList(
+            array('NAME' => 'ASC'),
+            array(
+                'IBLOCK_ID' => 20,
+                'ACTIVE' => 'Y',
+                'SECTION_GLOBAL_ACTIVE ' => 'Y'
+            ),
+            false,
+            false,
+            array('ID','IBLOCK_ID','NAME','IBLOCK_SECTION_ID','PROPERTY_PRICE')
+        );
+        $res = array();
+        while ($ar = $db->Fetch()){
+            $res[$ar['IBLOCK_SECTION_ID']][] = $ar;
+        }
+        $fields = array();
+        foreach ($res as $products)
+            foreach ($products as $product){
+                $price = '';
+                $fields = array();
+                /*$price = str_replace('от', '', $product['PROPERTY_PRICE_VALUE']);
+                $price = str_replace('руб', '', $price);
+                $price = str_replace('пог', '', $price);
+                $price = str_replace('м', '', $price);
+                $price = str_replace('/', '', $price);
+                $price = str_replace('.', '', $price);
+                $price = str_replace(' ', '', $price);*/
+
+                $fields[] = $product['ID'];
+                $fields[] = mb_convert_encoding($product['NAME'], 'windows-1251', 'UTF-8');
+                $fields[] = mb_convert_encoding($product['PROPERTY_PRICE_VALUE'], 'windows-1251', 'UTF-8');;
+                $csv->SaveFile($_SERVER['DOCUMENT_ROOT'].'/upload/price.csv', $fields);
+
+            }
 
     }
 }
