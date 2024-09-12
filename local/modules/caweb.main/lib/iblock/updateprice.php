@@ -5,11 +5,11 @@ use Bitrix\Main\Loader;
 use Bitrix\Main\IO\File;
 
 class UpdatePrice {
-    private const LINK = 'https://cloud.mail.ru/public/6SRv/HQmmHb11q';
+    private const LINK = 'https://cloud.mail.ru/public/Jafq/rbk3FYJfm';
     private const IBLOCK_ID = 20;
     private const PROPERTY_NAME = 'PRICE';
     private const LOGIN = 'pr@strlog.ru';
-    private $filePath = '/upload/price.csv';
+    private $filePath = '/upload/price.xlsx';
 
     public function __construct(){
         Loader::includeModule('iblock');
@@ -17,7 +17,7 @@ class UpdatePrice {
         $this->getFile();
     }
     public function updateElementsPrice(){
-        $updateArray = $this->getUpdateArray();
+        $updateArray = $this->getData();
         foreach ($updateArray as $item) {
             $this->setPrice($item);
         }
@@ -51,6 +51,25 @@ class UpdatePrice {
             throw new \Exception('Download fail');
         $file = new File($this->filePath);
         $file->putContents($content, File::REWRITE);
+    }
+    protected function getData(){
+        include_once(Application::getDocumentRoot().'/local/php_interface/include/lib/exel/PHPExcel.php');
+        $tmpfname = $this->filePath;
+        $excelReader = \PHPExcel_IOFactory::createReaderForFile($tmpfname);
+        $excelObj = $excelReader->load($tmpfname);
+        $worksheet = $excelObj->getSheet(0);
+        $lastRow = $worksheet->getHighestRow();
+        $result = array();
+        for ($row = 2; $row <= $lastRow; $row++) {
+            $result[] = array(
+                'ID' => $worksheet->getCell('A'.$row)->getValue(),
+                'NAME' => $worksheet->getCell('B'.$row)->getValue(),
+                'PRICE' => $worksheet->getCell('C'.$row)->getValue()
+            );
+        }
+        if (empty($result))
+            throw new \Exception('Empty update array');
+        return $result;
     }
     protected function getUpdateArray(): array{
         $csv = $this->getCSV();
