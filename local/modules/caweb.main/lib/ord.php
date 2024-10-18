@@ -16,6 +16,7 @@ class ORD {
     private const MAIN_CREATE_CREATIVE_URL = 'https://api.ord.vk.com/v2/creative/';
     private const MAIN_API_TOKEN = 'e650822f35074c2784f33967e7daa654';
     private const MAIN_CONTRACT_EXTERNAL_ID = 'te1jd2ev9f-1ha3j7s18';
+    private const MAIN_PERSON_EXTERNAL_ID = 'f5lu2poomk-1ha3h3vp5';
     private $httpClient, $testMode;
     private $queryBody = array();
     private $siteUrl = null;
@@ -46,7 +47,8 @@ class ORD {
         if ($this->testMode){
             $body['contract_external_id'] = self::TEST_CONTRACT_EXTERNAL_ID;
         }else{
-            $body['contract_external_id'] = self::MAIN_CONTRACT_EXTERNAL_ID;
+            //$body['contract_external_id'] = self::MAIN_CONTRACT_EXTERNAL_ID;
+            $body['person_external_id'] = self::MAIN_PERSON_EXTERNAL_ID;
         }
         $body['form'] = 'banner';
         $body['target_urls'] = array($this->siteUrl);
