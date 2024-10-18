@@ -85,9 +85,9 @@ class UpdatePrice {
         return $updateArray;
     }
     protected function setPrice(array $element){
-        if (empty($element['ID'])) return;
+        if (empty($element['ID']) && empty($element['PRICE'])) return;
         \CIBlockElement::SetPropertyValuesEx(
-            $element['ID'],
+            (int)$element['ID'],
             self::IBLOCK_ID,
             array(
                 self::PROPERTY_NAME => $element['PRICE']
