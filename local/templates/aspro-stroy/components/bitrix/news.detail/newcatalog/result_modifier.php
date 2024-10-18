@@ -46,8 +46,8 @@ if($arParams['DISPLAY_PICTURE'] != 'N'){
 	if(is_array($arResult['DETAIL_PICTURE'])){
 		$arResult['GALLERY'][] = array(
 			'DETAIL' => CFile::ResizeImageGet($arResult['DETAIL_PICTURE'], array('width' => 1200, 'height' => 900), BX_RESIZE_IMAGE_EXACT, true),
-			'PREVIEW' => CFile::ResizeImageGet($arResult['DETAIL_PICTURE'] , array('width' => 1200, 'height' => 900), BX_RESIZE_IMAGE_EXACT, true),
-			'THUMB' => CFile::ResizeImageGet($arResult['DETAIL_PICTURE'] , array('width' => 75, 'height' => 75), BX_RESIZE_IMAGE_EXACT, true),
+			'PREVIEW' => CFile::ResizeImageGet($arResult['DETAIL_PICTURE'] , array('width' => 648, 'height' => 460), BX_RESIZE_IMAGE_EXACT, true),
+			'THUMB' => CFile::ResizeImageGet($arResult['DETAIL_PICTURE'] , array('width' => 123, 'height' => 100), BX_RESIZE_IMAGE_EXACT, true),
 			'TITLE' => (strlen($arResult['DETAIL_PICTURE']['DESCRIPTION']) ? $arResult['DETAIL_PICTURE']['DESCRIPTION'] : (strlen($arResult['DETAIL_PICTURE']['TITLE']) ? $arResult['DETAIL_PICTURE']['TITLE'] : $arResult['NAME'])),
 			'ALT' => (strlen($arResult['DETAIL_PICTURE']['DESCRIPTION']) ? $arResult['DETAIL_PICTURE']['DESCRIPTION'] : (strlen($arResult['DETAIL_PICTURE']['ALT']) ? $arResult['DETAIL_PICTURE']['ALT'] : $arResult['NAME'])),
 		);
@@ -58,8 +58,8 @@ if($arParams['DISPLAY_PICTURE'] != 'N'){
             $arPhoto = CFile::GetFileArray($img);
 			$arResult['GALLERY'][] = array(
 				'DETAIL' => CFile::ResizeImageGet($img, array('width' => 1200, 'height' => 900), BX_RESIZE_IMAGE_PROPORTIONAL, true),
-				'PREVIEW' => CFile::ResizeImageGet($img, array('width' => 1200, 'height' => 900), BX_RESIZE_IMAGE_EXACT, true),
-				'THUMB' => CFile::ResizeImageGet($img , array('width' => 75, 'height' => 75), BX_RESIZE_IMAGE_EXACT, true),
+                'PREVIEW' => CFile::ResizeImageGet($img , array('width' => 648, 'height' => 460), BX_RESIZE_IMAGE_EXACT, true),
+                'THUMB' => CFile::ResizeImageGet($img , array('width' => 123, 'height' => 100), BX_RESIZE_IMAGE_EXACT, true),
 				'TITLE' => (strlen($arPhoto['DESCRIPTION']) ? $arPhoto['DESCRIPTION'] : (strlen($arPhoto['TITLE']) ? $arPhoto['TITLE'] : $arResult['NAME'])),
 				'ALT' => (strlen($arPhoto['DESCRIPTION']) ? $arPhoto['DESCRIPTION'] : (strlen($arPhoto['ALT']) ? $arPhoto['ALT'] : $arResult['NAME'])),
 			);

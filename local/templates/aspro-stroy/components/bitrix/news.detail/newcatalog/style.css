@@ -1534,3 +1534,15 @@ h1{
 		padding-bottom: 10px;
 	}
 }
+
+#flexslider-detail{
+	margin-top: 5px !important;
+}
+#flexslider-detail ul{}
+#flexslider-detail ul li{
+	cursor: pointer;
+}
+#flexslider-detail ul li img{}
+#flexslider-detail .flex-direction-nav a:before{
+	font-size: 24px;
+}

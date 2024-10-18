@@ -545,7 +545,7 @@ $.fn.jqmEx = function(){
 }
 
 InitFlexSlider = function() {
-	$('.flexslider:not(.thmb):not(.flexslider-init)').each(function(){
+	$('.flexslider:not(.thmb):not(.flexslider-init):not(#flexslider-detail)').each(function(){
 		var slider = $(this);
 		var options;
 		var defaults = {
@@ -581,7 +581,7 @@ InitFlexSlider = function() {
 }
 
 InitFlexSlider2 = function() {
-	$('.flexslider2:not(.thmb):not(.flexslider2-init)').each(function(){
+	$('.flexslider2:not(.thmb):not(.flexslider2-init):not(#flexslider-detail)').each(function(){
 		var slider = $(this);
 		var options;
 		var defaults = {

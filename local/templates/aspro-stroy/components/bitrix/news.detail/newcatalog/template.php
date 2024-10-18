@@ -94,35 +94,31 @@ $name = ($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])?$arResult['IPROPER
                     <? endif; ?>
                 </div>
                 <!-- Indicators -->
-                <ol class="carousel-indicators list-line">
-                    <li data-target="#carouselImage" data-slide-to="0" class="active">
-                        <img src="<?= $arResult['GALLERY'][0]['PREVIEW']['src'] ?>" alt="...">
-                    </li>
-                    <? $countAll = count($arResult['GALLERY']); ?>
-                    <? if ($countAll > 4) {
-                        $j = 4;
-                    } else {
-                        $j = $countAll;
-                    }
-                    ?>
-                    <? for ($i = 1; $i < $j; $i++): ?>
-                        <li data-target="#carouselImage" data-slide-to="<?= $i ?>">
-                            <img src="<?= $arResult['GALLERY'][$i]['PREVIEW']['src'] ?>" alt="...">
+                <div class="flexslider carousel" id="flexslider-detail">
+                    <ul itemscope class="slides">
+                        <li data-target="#carouselImage" data-slide-to="0" class="active">
+                            <img src="<?= $arResult['GALLERY'][0]['THUMB']['src'] ?>" alt="...">
                         </li>
-                    <? endfor; ?>
-                    <? if ($arResult['PROPERTIES']['SLIDER_VIDEO']['VALUE']): ?>
-                        <li data-target="#carouselImage" data-slide-to="<?= $countAll - 1 ?>">
-                            <video id="myVideo1" preload="auto">
-                                <source id='mp4'
-                                        src="<?= CFile::GetPath($arResult['PROPERTIES']['SLIDER_VIDEO']['VALUE']) ?>"
-                                        type='video/mp4'/>
-                            </video>
-                            <div class="demo-play"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                        </li>
-                    <? endif; ?>
-                </ol>
+                        <? $countAll = count($arResult['GALLERY']); ?>
+                        <? for ($i = 1; $i < $countAll; $i++): ?>
+                            <li data-target="#carouselImage" data-slide-to="<?= $i ?>">
+                                <img src="<?= $arResult['GALLERY'][$i]['THUMB']['src'] ?>" alt="...">
+                            </li>
+                        <? endfor; ?>
+                        <? if ($arResult['PROPERTIES']['SLIDER_VIDEO']['VALUE']): ?>
+                            <li data-target="#carouselImage" data-slide-to="<?= $countAll - 1 ?>">
+                                <video id="myVideo1" preload="auto">
+                                    <source id='mp4'
+                                            src="<?= CFile::GetPath($arResult['PROPERTIES']['SLIDER_VIDEO']['VALUE']) ?>"
+                                            type='video/mp4'/>
+                                </video>
+                                <div class="demo-play"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                            </li>
+                        <? endif; ?>
+                    </ul>
+                </div>
                 <!-- Controls -->
-                <? if ($j > 1): ?>
+                <? if ($countAll > 1): ?>
                     <a class="left carousel-control" href="#carouselImage" role="button" data-slide="prev">
                         <img src="<?= SITE_TEMPLATE_PATH ?>/img/arrow.svg" alt="">
                     </a>
