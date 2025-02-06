@@ -37,6 +37,10 @@ if ($elementId !== false){
     if (empty($arResult['DETAIL_TEXT']))
         $arResult['DETAIL_TEXT'] = $fields['DETAIL_TEXT'];
     foreach ($arResult['PROPERTIES'] as $code => $item){
+        if (
+            in_array((int)$arResult['ID'], array(10784,10785,10786)) &&
+            in_array($code, array('DESCRIPTION_EQUIP','DESCRIPTION_ADDEQUIP', 'DESCRIPTION_SURFTYPE', 'DESCRIPTION_SIZETABLE'))
+        ) continue;
         if(!empty($item['VALUE'])) continue;
         $arResult['PROPERTIES'][$code] = $props[$code];
     }
