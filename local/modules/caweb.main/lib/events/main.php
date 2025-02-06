@@ -102,12 +102,15 @@ class Main{
         try {
             Loader::includeModule('caweb.main');
             $ord = new ORD();
+            $ord->setMedia($fields['DETAIL_PICTURE']);
             $ord->setBody(array(
                 "name"=> $fields['NAME'],
                 "brand"=> $fields['NAME'],
                 "category"=> $fields['NAME'],
                 "description"=> $fields['NAME'],
-                "okveds" => array('46.73')
+                "okveds" => array('46.73'),
+                "kktus" => array("24.1.8"),
+                'media_external_ids' => array($fields['DETAIL_PICTURE'])
             ));
             $ord->setExternalId($externalID);
             $ord->doQuery();

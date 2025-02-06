@@ -5,7 +5,7 @@ use Bitrix\Main\Loader;
 use Bitrix\Main\IO\File;
 
 class UpdatePrice {
-    private const LINK = 'https://cloud.mail.ru/public/Jafq/rbk3FYJfm';
+    private const LINK = 'https://cloud.mail.ru/public/bcDL/QwWWZSznE';
     private const IBLOCK_ID = 20;
     private const PROPERTY_NAME = 'PRICE';
     private const LOGIN = 'pr@strlog.ru';

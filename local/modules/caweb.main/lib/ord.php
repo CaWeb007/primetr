@@ -10,10 +10,13 @@ class ORD {
     private const MEDIA_TYPE = 'application/json';
     private const TEST_URL = 'https://api-sandbox.ord.vk.com';
     private const TEST_CREATE_CREATIVE_URL = 'https://api-sandbox.ord.vk.com/v2/creative/';
+    private const TEST_CREATE_MEDIA_URL = 'https://api-sandbox.ord.vk.com/v1/media/';
     private const TEST_API_TOKEN = '66810d8140904d51a7c97c9ed43ee962';
     private const TEST_CONTRACT_EXTERNAL_ID = '71hhnfdk1r-1ha4bc3ql';
+    private const TEST_PERSON_EXTERNAL_ID = 'vm4ab9f5r98-1ha4ba0nf';
     private const MAIN_URL = 'https://api.ord.vk.com';
     private const MAIN_CREATE_CREATIVE_URL = 'https://api.ord.vk.com/v2/creative/';
+    private const MAIN_CREATE_MEDIA_URL = 'https://api.ord.vk.com/v1/media/';
     private const MAIN_API_TOKEN = 'e650822f35074c2784f33967e7daa654';
     private const MAIN_CONTRACT_EXTERNAL_ID = 'te1jd2ev9f-1ha3j7s18';
     private const MAIN_PERSON_EXTERNAL_ID = 'f5lu2poomk-1ha3h3vp5';
@@ -32,6 +35,7 @@ class ORD {
         $this->siteUrl = $uri->getScheme().'://'.$uri->getHost();
     }
     private function setHeaders(){
+        $this->httpClient->clearHeaders();
         if ($this->testMode){
             $host = self::TEST_URL;
             $auth = 'Bearer '.self::TEST_API_TOKEN;
@@ -45,9 +49,8 @@ class ORD {
     }
     public function setBody(array $body){
         if ($this->testMode){
-            $body['contract_external_id'] = self::TEST_CONTRACT_EXTERNAL_ID;
+            $body['person_external_id'] = self::TEST_PERSON_EXTERNAL_ID;
         }else{
-            //$body['contract_external_id'] = self::MAIN_CONTRACT_EXTERNAL_ID;
             $body['person_external_id'] = self::MAIN_PERSON_EXTERNAL_ID;
         }
         $body['form'] = 'banner';
@@ -67,6 +70,8 @@ class ORD {
         }else{
             $url = self::MAIN_CREATE_CREATIVE_URL.$this->externalId;
         }
+        $this->setHeaders();
+        $this->httpClient->setHeader('Content-Type', self::MEDIA_TYPE);
         $result = $this->httpClient->query(HttpClient::HTTP_PUT, $url, $this->queryBody);
         if (!$result) throw new \Exception('Something wrong');
         return $result;
@@ -149,5 +154,25 @@ class ORD {
         if ($arRelatedUpdate['props']){
             \CIBlockElement::SetPropertyValuesEx($relatedElement['id'], $relatedElement['iblock_id'], $arRelatedUpdate['props']);
         }
+    }
+    public function setMedia($imgId) {
+        $this->setHeaders();
+        $arFile = \CFile::GetFileArray($imgId);
+        $filePath = Application::getDocumentRoot().\CFile::GetPath($imgId);
+        $description = $arFile['ORIGINAL_NAME'] ?: $arFile['FILE_NAME'];
+        $resource = fopen($filePath, 'r');
+        $data = [
+            $arFile['FILE_NAME'] => $resource,
+            'description' => $description
+        ];
+        if ($this->testMode){
+            $url = self::TEST_CREATE_MEDIA_URL.(string)$imgId;
+        }else{
+            $url = self::MAIN_CREATE_MEDIA_URL.(string)$imgId;
+        }
+        $request = $this->httpClient->put($url, $data, true);
+        $result = json_decode($request);
+        if (empty($result->sha256))
+            throw new \Exception('Error media create: '.$result->error);
     }
 }

@@ -200,6 +200,19 @@ class HttpClient
 		}
 		return false;
 	}
+    public function put($url, $postData = null, $multipart = false)
+    {
+        if ($multipart)
+        {
+            $postData = $this->prepareMultipart($postData);
+        }
+
+        if($this->query(self::HTTP_PUT, $url, $postData))
+        {
+            return $this->getResult();
+        }
+        return false;
+    }
 
 	/**
 	 * Performs multipart/form-data encoding.
