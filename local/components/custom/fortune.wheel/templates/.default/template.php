@@ -1,6 +1,6 @@
 <?
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
-/** @var array $arResult */
+/** @var array $arResult[PRIZES=>array, COOKIE_PRIZE=>string] */
 $countPrizes = count($arResult['PRIZES']);
 ?>
 

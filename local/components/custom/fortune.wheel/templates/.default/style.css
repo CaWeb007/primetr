@@ -1,99 +1,82 @@
-/* Стили для модального окна */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
+#fortune-wheel-component .open-modal-button {
+  margin: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer; }
+#fortune-wheel-component .modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center; }
+  #fortune-wheel-component .modal .modal-content {
     background: white;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
-    position: relative;
-}
+    position: relative; }
+    #fortune-wheel-component .modal .modal-content .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 20px;
+      cursor: pointer; }
+    #fortune-wheel-component .modal .modal-content .wheel-container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin: 20px auto; }
+      #fortune-wheel-component .modal .modal-content .wheel-container .wheel {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        position: relative;
+        transition: transform 5s ease-out;
+        overflow: hidden; }
+        #fortune-wheel-component .modal .modal-content .wheel-container .wheel .wheel-slice {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          clip-path: polygon(50% 50%, 100% 0, 100% 100%);
+          transform-origin: center;
+          display: flex;
+          align-items: center;
+          justify-content: center; }
+          #fortune-wheel-component .modal .modal-content .wheel-container .wheel .wheel-slice:nth-child(1) {
+            background: red; }
+          #fortune-wheel-component .modal .modal-content .wheel-container .wheel .wheel-slice:nth-child(2) {
+            background: blue; }
+          #fortune-wheel-component .modal .modal-content .wheel-container .wheel .wheel-slice:nth-child(3) {
+            background: green; }
+          #fortune-wheel-component .modal .modal-content .wheel-container .wheel .wheel-slice:nth-child(4) {
+            background: yellow; }
+          #fortune-wheel-component .modal .modal-content .wheel-container .wheel .wheel-slice .prize-name {
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: center; }
+      #fortune-wheel-component .modal .modal-content .wheel-container .spin-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        border: 2px solid black;
+        padding: 10px 20px;
+        cursor: pointer; }
+    #fortune-wheel-component .modal .modal-content .phone-input {
+      margin-top: 20px;
+      text-align: center; }
+      #fortune-wheel-component .modal .modal-content .phone-input input {
+        padding: 10px;
+        font-size: 16px; }
 
-.close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.wheel-container {
-    position: relative;
-    width: 300px;
-    height: 300px;
-    margin: 20px auto;
-}
-
-.wheel {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    position: relative;
-    transition: transform 5s ease-out;
-    overflow: hidden;
-}
-
-.wheel-slice {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    clip-path: polygon(50% 50%, 100% 0, 100% 100%);
-    transform-origin: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.wheel-slice:nth-child(1) { background: red; }
-.wheel-slice:nth-child(2) { background: blue; }
-.wheel-slice:nth-child(3) { background: green; }
-.wheel-slice:nth-child(4) { background: yellow; }
-
-.prize-name {
-    font-size: 14px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform-origin: center;
-}
-
-.spin-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    border: 2px solid black;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.phone-input {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.phone-input input {
-    padding: 10px;
-    font-size: 16px;
-}
-
-.open-modal-button {
-    margin: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-}
+/*# sourceMappingURL=style.css.map */
