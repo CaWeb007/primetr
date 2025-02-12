@@ -16,7 +16,7 @@ use Caweb\Main\Tools;
 
 class Iblock{
     public static $disableEvents = false;
-    const FORMS_ID = array(12,13,14,15,16,17,18,19,32,33,37);
+    const FORMS_ID = array(12,13,14,15,16,17,18,19,32,33,37,40);
     const BANNER_IBLOCK_ID = 34;
     const MAIN_BANNERS_IBLOCK_ID = 35;
     const NEWS_SALES_IBLOCK_ID = 21;

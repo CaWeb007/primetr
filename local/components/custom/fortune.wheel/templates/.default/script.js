@@ -18,7 +18,9 @@ function spinWheel() {
     // Задержка для определения выигрыша
     setTimeout(() => {
         currentPrize = getRandomPrize(prizes);
+        setStatus();
         alert(`Вы выиграли: ${currentPrize.name}`);
+
     }, 5000); // 5 секунд — время анимации
 }
 
@@ -61,6 +63,20 @@ function submitResult() {
             alert("Данные успешно сохранены!");
         } else {
             alert("Ошибка при сохранении данных.");
+        }
+    });
+}
+function setStatus(){
+    BX.ajax.runComponentAction('custom:fortune.wheel', 'saveStatus', {
+        mode: 'class',
+        data: {
+            prize: currentPrize.name
+        }
+    }).then(response => {
+        if (response.data.success) {
+            console.log("Данные успешно сохранены!");
+        } else {
+            console.log("Ошибка при сохранении данных.");
         }
     });
 }

@@ -1,26 +1,35 @@
-<?php
+<?
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
-
-// Подключение стилей и скриптов
-$this->addExternalCss($this->GetFolder() . '/style.css');
-$this->addExternalJs($this->GetFolder() . '/script.js');
+/** @var array $arResult */
+$countPrizes = count($arResult['PRIZES']);
 ?>
 
 <div id="fortune-wheel-component">
-    <!-- Кнопка для открытия модального окна -->
+
     <button class="open-modal-button" onclick="openModal()">Открыть Колесо Фортуны</button>
 
-    <!-- Модальное окно -->
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close-button" onclick="closeModal()">&times;</span>
             <div class="wheel-container">
                 <div class="wheel" id="wheel">
-                    <?php foreach ($arResult['PRIZES'] as $index => $prize): ?>
-                        <div class="wheel-slice" style="transform: rotate(<?= $index * (360 / count($arResult['PRIZES'])) ?>deg);">
-                            <span class="prize-name"><?= $prize['name'] ?></span>
+                    <?foreach ($arResult['PRIZES'] as $index => $prize): ?>
+                        <div
+                            class="wheel-slice"
+                            style="transform:
+                                rotate(<?=$index * (360 / $countPrizes)?>deg)
+                                skew(<?=90 - (360 / $countPrizes)?>deg);"
+                        >
+                            <span
+                                class="prize-name"
+                                style="transform:
+                                    skew(<?=(360 / $countPrizes - 90)?>deg)
+                                    rotate(<?=(360 / $countPrizes / 2 )?>deg);"
+                            >
+                                <?=$prize['name'] ?>
+                            </span>
                         </div>
-                    <?php endforeach; ?>
+                    <?endforeach;?>
                 </div>
                 <button class="spin-button" onclick="spinWheel()">Крутить</button>
             </div>
@@ -34,6 +43,5 @@ $this->addExternalJs($this->GetFolder() . '/script.js');
 
 
 <script>
-    // Передаем данные из PHP в JavaScript
     const prizes = <?= json_encode($arResult['PRIZES']) ?>;
 </script>

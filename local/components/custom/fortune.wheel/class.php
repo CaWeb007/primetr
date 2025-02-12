@@ -1,83 +1,33 @@
 <?
+use Bitrix\Main\Context;
+use Bitrix\Main\Web\Cookie;
+use Bitrix\Main\Loader;
+use Bitrix\Main\Engine\Contract\Controllerable;
 
-class FortuneWheelComponent extends CBitrixComponent implements \Bitrix\Main\Engine\Contract\Controllerable
-{
-    // Вебхук для отправки лидов
-    private $webhookUrl = 'https://crm.strlog.ru/rest/52/ewopeeg6jjzaudzo/';
+class FortuneWheelComponent extends \CBitrixComponent implements Controllerable {
 
-    // Символьный код инфоблока
-    private $iblockCode = 'prizes';
+    const PRIZE_IBLOCK_CODE = 'prizes';
+    const RESULT_IBLOCK_CODE = 'aspro_stroy_fortune';
 
-    public function executeComponent()
-    {
-
-        // Получаем призы из инфоблока
+    public function executeComponent(){
+        Loader::includeModule('iblock');
         $this->arResult['PRIZES'] = $this->getPrizesFromInfoblock();
-
-        // Подключение шаблона
+        $this->arResult['COOKIE_PRIZE'] = $this->getCookie();
         $this->includeComponentTemplate();
     }
+    public function onPrepareComponentParams($arParams){
 
-    // Метод для создания инфоблока
-    /*
-    \CBitrixComponent::includeComponentClass('custom:order.generate.pdf');
-    FortuneWheelComponent::createPrizesInfoblock();
-    */
-    public static function createPrizesInfoblock()
-    {
-        // Проверяем, существует ли инфоблок
-        $iblock = CIBlock::GetList([], ['CODE' => 'prizes'])->Fetch();
-        if ($iblock) {
-            return; // Инфоблок уже существует
+        if ($arParams['FIRST_START'] === 'Y'){
+            $arParams['PRIZE_IBLOCK_ID'] = self::createPrizesInfoblock();
+            $arParams['RESULT_IBLOCK_ID'] = self::createFormInfoblock();
         }
-
-        // Создаем инфоблок
-        $iblockFields = [
-            'ACTIVE' => 'Y',
-            'NAME' => 'Призы для Колеса Фортуны',
-            'CODE' => 'prizes',
-            'IBLOCK_TYPE_ID' => 'aspro_stroy_content', // Тип инфоблока
-            'SITE_ID' => ['s1'], // Привязка к сайту
-            'GROUP_ID' => ['2' => 'R'], // Права доступа
-        ];
-        $o = new \CIBlock();
-        $iblockId = $o->Add($iblockFields);
-        if (!$iblockId) {
-            throw new Exception('Ошибка при создании инфоблока: ' . $o->LAST_ERROR);
-        }
-
-        // Создаем свойство "Вероятность"
-        $propertyFields = [
-            'NAME' => 'Вероятность',
-            'CODE' => 'PROBABILITY',
-            'IBLOCK_ID' => $iblockId,
-            'PROPERTY_TYPE' => 'N', // Числовой тип
-            'IS_REQUIRED' => 'Y', // Обязательное поле
-        ];
-
-        $property = new CIBlockProperty;
-        $propertyId = $property->Add($propertyFields);
-        if (!$propertyId) {
-            throw new Exception('Ошибка при создании свойства: ' . $property->LAST_ERROR);
-        }
+        return $arParams;
     }
-
-    // Метод для получения призов из инфоблока
-    private function getPrizesFromInfoblock()
-    {
+    private function getPrizesFromInfoblock(){
         $prizes = [];
-
-        // Получаем ID инфоблока по символьному коду
-        $iblock = CIBlock::GetList([], ['CODE' => $this->iblockCode])->Fetch();
-        if (!$iblock) {
-            return $prizes;
-        }
-
-        // Параметры для выборки элементов
-        $filter = ['IBLOCK_ID' => $iblock['ID'], 'ACTIVE' => 'Y'];
+        $filter = ['IBLOCK_ID' => $this->arParams['PRIZE_IBLOCK_ID'], 'ACTIVE' => 'Y'];
         $select = ['ID', 'NAME', 'PROPERTY_PROBABILITY'];
 
-        // Получаем элементы инфоблока
         $dbItems = CIBlockElement::GetList([], $filter, false, false, $select);
         while ($item = $dbItems->Fetch()) {
             $prizes[] = [
@@ -85,71 +35,117 @@ class FortuneWheelComponent extends CBitrixComponent implements \Bitrix\Main\Eng
                 'probability' => (int)$item['PROPERTY_PROBABILITY_VALUE'],
             ];
         }
-
         return $prizes;
     }
 
-    public function configureActions()
-    {
+    public function configureActions(){
         return [
             'saveResult' => [
                 'prefilters' => [],
             ],
+            'saveStatus' => [
+                'prefilters'=> []
+            ]
         ];
     }
-
-    public function saveResultAction($phone, $prize)
-    {
-        // Валидация телефона
-        if (empty($phone) || !preg_match('/^\+?\d{10,15}$/', $phone)) {
-            return ['success' => false, 'message' => 'Некорректный номер телефона'];
-        }
-
-        // Отправка лида в Битрикс24
-        $result = $this->sendLeadToBitrix24($phone, $prize);
-
+    public function saveStatusAction($prize){
+        $this->setCookie($prize);
+    }
+    public function saveResultAction($phone, $prize){
+        $result = $this->sendIblock($phone, $prize);
         if ($result) {
             return ['success' => true];
         } else {
-            return ['success' => false, 'message' => 'Ошибка при отправке лида в Битрикс24'];
+            return ['success' => false, 'message' => 'Ошибка'];
         }
     }
+    private function sendIblock($phone, $prize){
+        $arFields = array(
+            'IBLOCK_ID' => $this->arParams['RESULT_IBLOCK_ID'],
+            'PROPERTY_VALUES' => array(
+                'PHONE' => $phone,
+                'MESSAGE' => "Выигранный приз: $prize"
+            )
+        );
+        $obElement = new \CIBlockElement();
+        $elementId = $obElement->Add($arFields);
+        if (!$elementId) return false;
+        $this->setCookie('END');
+        return true;
+    }
 
-    private function sendLeadToBitrix24($phone, $prize)
-    {
-        // Данные для создания лида
-        $managerId = 4221;
-        $leadData = [
-            'TITLE' => 'Заявка с формы на сайте "Периметр": Колесо фортуны',
-            'NAME' => 'Клиент: '.$phone,
-            'PHONE' => [['VALUE' => $phone, 'VALUE_TYPE' => 'WORK']],
-            'COMMENTS' => "Выигранный приз: $prize",
-            "ASSIGNED_BY_ID" => $managerId,
-            "SOURCE_ID" => 'UC_8C944E',
-            "STATUS_ID" => "NEW",
-            "OPENED" => "Y"
+    private function createPrizesInfoblock(){
+        $arFields['IBLOCK'] = [
+            'NAME' => 'Призы для Колеса Фортуны',
+            'CODE' => self::PRIZE_IBLOCK_CODE,
+            'IBLOCK_TYPE_ID' => 'aspro_stroy_content',
         ];
+        $arFields['PROPERTIES'] = array(
+            [
+                'NAME' => 'Вероятность',
+                'CODE' => 'PROBABILITY',
+                'PROPERTY_TYPE' => 'N',
+                'IS_REQUIRED' => 'Y',
+            ]
+        );
+        return $this->createIblock($arFields);
+    }
 
-        // Отправка запроса через вебхук
-        $queryUrl = $this->webhookUrl . 'crm.lead.add.json';
-        $queryData = http_build_query(['fields' => $leadData]);
+    private function createFormInfoblock() {
+        $arFields['IBLOCK'] = [
+            'NAME' => 'Колесо Фортуны',
+            'CODE' => self::RESULT_IBLOCK_CODE,
+            'IBLOCK_TYPE_ID' => 'aspro_stroy_form',
+        ];
+        $arFields['PROPERTIES'] = array(
+            [
+                'NAME' => 'Контактный телефон',
+                'CODE' => 'PHONE',
+                'PROPERTY_TYPE' => 'N',
+                'IS_REQUIRED' => 'Y',
+            ],
+            [
+                'NAME' => 'Текст обращения',
+                'CODE' => 'MESSAGE',
+                'PROPERTY_TYPE' => 'S',
+                'IS_REQUIRED' => 'Y',
+            ]
+        );
+        return $this->createIblock($arFields);
+    }
+    private function createIblock($arFields){
+        $iblockId = CIBlock::GetList([], ['CODE' => $arFields['IBLOCK']['CODE']])->Fetch()['ID'];
+        if ($iblockId) return $iblockId;
+        $iblockFields = [
+            'ACTIVE' => 'Y',
+            'NAME' => $arFields['IBLOCK']['NAME'],
+            'CODE' => $arFields['IBLOCK']['CODE'],
+            'IBLOCK_TYPE_ID' => $arFields['IBLOCK']['IBLOCK_TYPE_ID'],
+            'SITE_ID' => ['s1'],
+            'GROUP_ID' => ['2' => 'R'],
+        ];
+        $obIblock = new \CIBlock();
+        $iblockId = $obIblock->Add($iblockFields);
+        if (!$iblockId) throw new Exception('Ошибка при создании инфоблока: ' . $obIblock->LAST_ERROR);
 
-        $curl = curl_init();
-        curl_setopt_array($curl, [
-            CURLOPT_URL => $queryUrl,
-            CURLOPT_POST => true,
-            CURLOPT_POSTFIELDS => $queryData,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_SSL_VERIFYPEER => false,
-            CURLOPT_SSL_VERIFYHOST => false,
-        ]);
-
-        $response = curl_exec($curl);
-        curl_close($curl);
-
-        $responseData = json_decode($response, true);
-
-        // Проверка успешности запроса
-        return isset($responseData['result']);
+        $obProperty = new CIBlockProperty;
+        foreach ($arFields['PROPERTIES'] as $item) {
+            $item['IBLOCK_ID'] = $iblockId;
+            $propertyId = $obProperty->Add($item);
+            if (!$propertyId) throw new Exception('Ошибка при создании свойства: ' . $obProperty->LAST_ERROR);
+        }
+        return $iblockId;
+    }
+    private function getCookie() {
+        $request = Context::getCurrent()->getRequest();
+        return $request->getCookie('FORTUNE_WHEEL');
+    }
+    private function setCookie($value) {
+        $context = Context::getCurrent();
+        $cookie = new Cookie('FORTUNE_WHEEL', $value, time() + 60*60*24*30);
+        $cookie->setHttpOnly(false);
+        $cookie->setSecure(false);
+        $context->getResponse()->addCookie($cookie);
+        $context->getResponse()->flush("");
     }
 }
