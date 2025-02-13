@@ -109,6 +109,7 @@ const fortuneWheel = function (options){
     }
     this.init = function (){
         this.addListeners()
+        this.phone.inputmask('mask', {'mask': '+7 (999) 999-99-99' })
     }
     this.init()
 }

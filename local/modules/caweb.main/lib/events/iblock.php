@@ -33,7 +33,7 @@ class Iblock{
         $arManagers = Tools::sendB24Response('user.get.json',
             array(
                 'FILTER' => array(
-                    "UF_DEPARTMENT" => 61,
+                    "UF_DEPARTMENT" => 871,
                     "IS_ONLINE" => 'Y',
                     "ACTIVE" => 1,
                     "UF_USR_1725343864433" => 1,
@@ -41,7 +41,7 @@ class Iblock{
             )
         )["result"];
         $managerId = 4221;//Александрова Кристина Алексеевна
-        if (is_array($arManagers)){
+        if (is_array($arManagers) && ! empty($arManagers)){
             $managerKey = rand(0 , (count($arManagers) - 1));
             $managerId = (int)$arManagers[$managerKey]['ID'];
         }
@@ -53,6 +53,7 @@ class Iblock{
             "STATUS_ID" => "NEW",
             "OPENED" => "Y"
         );
+
         if (!empty($properties['NAME'])) $fields['NAME'] = $properties['NAME'];
         if (!empty($properties['FIO'])) $fields['NAME'] = $properties['FIO'];
         if (!empty($properties['PHONE'])) $fields['PHONE'] = array(array("VALUE" => $properties['PHONE'], "VALUE_TYPE" => "WORK" ));
@@ -61,7 +62,12 @@ class Iblock{
         if (!empty($properties['PROJECT'])) $fields['UF_CRM_1565675706'] = $properties['PROJECT'];
         if (!empty($properties['PRODUCT'])) $fields['UF_CRM_1565675706'] = $properties['PRODUCT'];
         if (!empty($properties['NEED_PRODUCT'])) $fields['UF_CRM_1565675706'] = $properties['NEED_PRODUCT'];
-        if (!empty($properties['MESSAGE']['VALUE']['TEXT'])) $fields['COMMENTS'] = $properties['MESSAGE']['VALUE']['TEXT'];
+        if (!empty($properties['MESSAGE'])){
+            if (!empty($properties['MESSAGE']['VALUE']['TEXT']))
+                $fields['COMMENTS'] = $properties['MESSAGE']['VALUE']['TEXT'];
+            else
+                $fields['COMMENTS'] = $properties['MESSAGE'];
+        }
         $utm = Tools::getUtm();
         if (is_array($utm) && !empty($utm['UTM_SOURCE'])) $fields = array_merge($fields, $utm);
         $result = Tools::sendB24Response(

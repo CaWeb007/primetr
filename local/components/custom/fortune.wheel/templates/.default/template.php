@@ -25,9 +25,6 @@ $status = $arResult['COOKIE_PRIZE']['STATUS'];
                             >
                                 <span
                                     class="prize-name"
-                                    style="transform:
-                                        skew(<?=(360 / $countPrizes - 90)?>deg)
-                                        rotate(<?=(360 / $countPrizes / 2 )?>deg);"
                                 >
                                     <?=$prize['name'] ?>
                                 </span>
@@ -44,7 +41,7 @@ $status = $arResult['COOKIE_PRIZE']['STATUS'];
             <?if($status !== 'END'):?>
                 <div class="phone-input-container"<?if($status === 'PRIZE') echo ' style="display: block"'?>>
                     <input type="text" id="phone" placeholder="Введите ваш телефон" />
-                    <button class="submit">Отправить</button>
+                    <button class="submit btn-lg btn btn-default">Отправить</button>
                 </div>
             <?endif?>
             <div class="thanks-text"<?if($status === 'END') echo ' style="display: block"'?>>
@@ -58,3 +55,10 @@ $status = $arResult['COOKIE_PRIZE']['STATUS'];
 <script>
     fortuneWheel(<?= json_encode($arResult) ?>)
 </script>
+<?
+/*
+ *
+                    'PHONE_MASK': '+7 (999) 999-99-99',
+                    'VALIDATE_PHONE_MASK': '^[+][0-9] [(][0-9]{3}[)] [0-9]{3}[-][0-9]{2}[-][0-9]{2}$',
+ * */
+?>

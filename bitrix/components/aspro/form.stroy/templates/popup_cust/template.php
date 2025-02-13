@@ -153,7 +153,6 @@ $(document).ready(function(){
 			error.insertBefore(element);
 		}
 	});
-
 	if(arStroyOptions['THEME']['PHONE_MASK'].length){
 		var base_mask = arStroyOptions['THEME']['PHONE_MASK'].replace( /(\d)/g, '_' );
 		$('form[name="<?=$arResult["IBLOCK_CODE"]?>"] input.phone').inputmask('mask', {'mask': arStroyOptions['THEME']['PHONE_MASK'] });
