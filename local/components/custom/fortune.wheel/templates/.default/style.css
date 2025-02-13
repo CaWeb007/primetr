@@ -3,7 +3,7 @@
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer; }
-#fortune-wheel-component .modal {
+#fortune-wheel-component .fortune-wheel-modal {
   display: none;
   position: fixed;
   top: 0;
@@ -12,32 +12,35 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   justify-content: center;
-  align-items: center; }
-  #fortune-wheel-component .modal .modal-content {
-    background: white;
-    padding: 20px;
+  align-items: center;
+  z-index: 10; }
+  #fortune-wheel-component .fortune-wheel-modal.modal-opened {
+    display: flex; }
+  #fortune-wheel-component .fortune-wheel-modal .modal-content {
+    background: #ededed;
+    padding: 40px;
     border-radius: 10px;
     text-align: center;
     position: relative; }
-    #fortune-wheel-component .modal .modal-content .close-button {
+    #fortune-wheel-component .fortune-wheel-modal .modal-content .close-button {
       position: absolute;
       top: 10px;
-      right: 10px;
-      font-size: 20px;
+      right: 20px;
+      font-size: 25px;
       cursor: pointer; }
-    #fortune-wheel-component .modal .modal-content .wheel-container {
+    #fortune-wheel-component .fortune-wheel-modal .modal-content .wheel-container {
       position: relative;
       width: 300px;
       height: 300px;
       margin: 20px auto; }
-      #fortune-wheel-component .modal .modal-content .wheel-container .wheel {
+      #fortune-wheel-component .fortune-wheel-modal .modal-content .wheel-container .wheel {
         width: 100%;
         height: 100%;
         border-radius: 50%;
         position: relative;
         transition: transform 5s ease-out;
         overflow: hidden; }
-        #fortune-wheel-component .modal .modal-content .wheel-container .wheel .wheel-slice {
+        #fortune-wheel-component .fortune-wheel-modal .modal-content .wheel-container .wheel .wheel-slice {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -46,15 +49,15 @@
           display: flex;
           align-items: center;
           justify-content: center; }
-          #fortune-wheel-component .modal .modal-content .wheel-container .wheel .wheel-slice:nth-child(1) {
+          #fortune-wheel-component .fortune-wheel-modal .modal-content .wheel-container .wheel .wheel-slice:nth-child(1) {
             background: red; }
-          #fortune-wheel-component .modal .modal-content .wheel-container .wheel .wheel-slice:nth-child(2) {
+          #fortune-wheel-component .fortune-wheel-modal .modal-content .wheel-container .wheel .wheel-slice:nth-child(2) {
             background: blue; }
-          #fortune-wheel-component .modal .modal-content .wheel-container .wheel .wheel-slice:nth-child(3) {
+          #fortune-wheel-component .fortune-wheel-modal .modal-content .wheel-container .wheel .wheel-slice:nth-child(3) {
             background: green; }
-          #fortune-wheel-component .modal .modal-content .wheel-container .wheel .wheel-slice:nth-child(4) {
+          #fortune-wheel-component .fortune-wheel-modal .modal-content .wheel-container .wheel .wheel-slice:nth-child(4) {
             background: yellow; }
-          #fortune-wheel-component .modal .modal-content .wheel-container .wheel .wheel-slice .prize-name {
+          #fortune-wheel-component .fortune-wheel-modal .modal-content .wheel-container .wheel .wheel-slice .prize-name {
             font-size: 14px;
             font-weight: bold;
             color: white;
@@ -63,7 +66,7 @@
             top: 50%;
             left: 50%;
             transform-origin: center; }
-      #fortune-wheel-component .modal .modal-content .wheel-container .spin-button {
+      #fortune-wheel-component .fortune-wheel-modal .modal-content .wheel-container .spin-button {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -72,11 +75,23 @@
         border: 2px solid black;
         padding: 10px 20px;
         cursor: pointer; }
-    #fortune-wheel-component .modal .modal-content .phone-input {
+    #fortune-wheel-component .fortune-wheel-modal .modal-content .currentPrizeContainer {
+      display: none;
+      margin: 20px 0;
+      font-size: 18px; }
+      #fortune-wheel-component .fortune-wheel-modal .modal-content .currentPrizeContainer .currentPrize {
+        font-weight: bold;
+        display: block;
+        font-size: 20px;
+        color: red; }
+    #fortune-wheel-component .fortune-wheel-modal .modal-content .phone-input-container {
       margin-top: 20px;
-      text-align: center; }
-      #fortune-wheel-component .modal .modal-content .phone-input input {
+      text-align: center;
+      display: none; }
+      #fortune-wheel-component .fortune-wheel-modal .modal-content .phone-input-container input {
         padding: 10px;
         font-size: 16px; }
+    #fortune-wheel-component .fortune-wheel-modal .modal-content .thanks-text {
+      display: none; }
 
 /*# sourceMappingURL=style.css.map */

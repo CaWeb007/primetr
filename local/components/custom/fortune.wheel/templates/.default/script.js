@@ -1,90 +1,114 @@
-let currentPrize = null;
+const fortuneWheel = function (options){
+    this.prizes = options.PRIZES
+    this.fortuneCookie = options.COOKIE_PRIZE
+    this.currentPrize = {name: this.fortuneCookie.PRIZE}
+    this.container = $('#fortune-wheel-component')
 
-// Функции для управления модальным окном
-function openModal() {
-    document.getElementById('modal').style.display = 'flex';
-}
+    this.modal = this.container.find('#modal')
+    this.button = this.container.find('.open-modal-button')
+    this.modalContent = this.container.find('.modal-content')
 
-function closeModal() {
-    document.getElementById('modal').style.display = 'none';
-}
+    this.buttonClose = this.modalContent.find('.close-button')
+    this.currentPrizeContainer = this.modalContent.find('.currentPrizeContainer')
+    this.wheelContainer = this.modalContent.find('.wheel-container')
+    this.phoneContainer = this.modalContent.find('.phone-input-container')
+    this.thanksText = this.modalContent.find('.thanks-text')
 
-// Логика вращения колеса
-function spinWheel() {
-    const wheel = document.getElementById('wheel');
-    const randomDegree = Math.floor(Math.random() * 360) + 1440; // Минимум 4 полных оборота
-    wheel.style.transform = `rotate(${randomDegree}deg)`;
+    this.currentPrizeSpan = this.currentPrizeContainer.find('.currentPrize')
 
-    // Задержка для определения выигрыша
-    setTimeout(() => {
-        currentPrize = getRandomPrize(prizes);
-        setStatus();
-        alert(`Вы выиграли: ${currentPrize.name}`);
+    this.wheel = this.wheelContainer.find('#wheel')
+    this.buttonSpin = this.wheelContainer.find('.spin-button')
 
-    }, 5000); // 5 секунд — время анимации
-}
+    this.phone = this.phoneContainer.find('#phone')
+    this.buttonSubmit = this.phoneContainer.find('.submit')
 
-// Функция для выбора приза с учетом вероятностей
-function getRandomPrize(prizes) {
-    const totalProbability = prizes.reduce((sum, prize) => sum + prize.probability, 0);
-    const randomValue = Math.random() * totalProbability;
+    this.JWindow = $(window)
 
-    let cumulativeProbability = 0;
-    for (const prize of prizes) {
-        cumulativeProbability += prize.probability;
-        if (randomValue <= cumulativeProbability) {
-            return prize;
+    this.openModal = function (){
+        if (this.modal.hasClass('modal-opened')) return false
+        this.modal.addClass('modal-opened')
+    }
+    this.closeModal = function (){
+        if (!this.modal.hasClass('modal-opened')) return false
+        this.modal.removeClass('modal-opened')
+    }
+    this.closeModalAnywhere = function (event) {
+        if (this.button.is(event.target)) return false;
+        if (this.modalContent.is(event.target)
+            || this.modalContent.has(event.target).length !== 0) return false;
+        this.closeModal()
+    }
+    this.submitHandler = function (){
+        const phone = this.phone.val()
+        if (!phone) return
+        BX.ajax.runComponentAction(
+            'custom:fortune.wheel',
+            'saveResult',
+            {
+                mode: 'class',
+                data: {
+                    phone: phone,
+                    prize: this.currentPrize.name,
+                    iblockId: options.RESULT_IBLOCK_ID
+                }
+            }
+        ).then(response => {
+            if (response.data.success) {
+                this.phoneContainer.remove()
+                this.thanksText.show()
+            } else {
+                alert("Неизвестная ошибка, попробуйте позже.")
+            }
+        });
+    }
+    this.spinHandler = function (){
+        const randomDegree = Math.floor(Math.random() * 360) + 1440
+        this.wheel.css('transform', `rotate(${randomDegree}deg)`)
+        setTimeout($.proxy(this.prizeAction, this), 5000)
+    }
+    this.getRandomPrize = function () {
+        const totalProbability = this.prizes.reduce((sum, prize) => sum + prize.probability, 0)
+        const randomValue = Math.random() * totalProbability
+
+        let cumulativeProbability = 0;
+        for (const prize of this.prizes) {
+            cumulativeProbability += prize.probability
+            if (randomValue <= cumulativeProbability) {
+                return prize
+            }
         }
     }
-}
-
-// Отправка данных на сервер
-function submitResult() {
-    const phone = document.getElementById('phone').value;
-    if (!phone) {
-        alert("Пожалуйста, введите ваш телефон.");
-        return;
+    this.setPrizeInCookie = function () {
+        BX.ajax.runComponentAction(
+            'custom:fortune.wheel',
+            'saveStatus',
+            {
+                mode: 'class',
+                data: {
+                    prize: this.currentPrize.name
+                }
+            }
+        )
     }
-
-    if (!currentPrize) {
-        alert("Сначала крутите колесо!");
-        return;
+    this.prizeAction = function () {
+        this.currentPrize = getRandomPrize()
+        this.setPrizeInCookie()
+        this.wheelContainer.remove()
+        this.currentPrizeSpan.text(this.currentPrize.name)
+        this.currentPrizeContainer.show()
+        this.phoneContainer.show()
     }
-
-    // Отправляем данные на сервер
-    BX.ajax.runComponentAction('custom:fortune.wheel', 'saveResult', {
-        mode: 'class',
-        data: {
-            phone: phone,
-            prize: currentPrize.name
-        }
-    }).then(response => {
-        if (response.data.success) {
-            alert("Данные успешно сохранены!");
-        } else {
-            alert("Ошибка при сохранении данных.");
-        }
-    });
-}
-function setStatus(){
-    BX.ajax.runComponentAction('custom:fortune.wheel', 'saveStatus', {
-        mode: 'class',
-        data: {
-            prize: currentPrize.name
-        }
-    }).then(response => {
-        if (response.data.success) {
-            console.log("Данные успешно сохранены!");
-        } else {
-            console.log("Ошибка при сохранении данных.");
-        }
-    });
-}
-
-// Закрытие модального окна при клике вне его
-window.onclick = function(event) {
-    const modal = document.getElementById('modal');
-    if (event.target === modal) {
-        closeModal();
+    this.addListeners = function () {
+        this.button.on('click', $.proxy(this.openModal, this))
+        this.buttonClose.on('click', $.proxy(this.closeModal, this))
+        this.JWindow.on('click', $.proxy(this.closeModalAnywhere, this))
+        if (!this.currentPrize.name)
+            this.buttonSpin.on('click', $.proxy(this.spinHandler, this))
+        if (this.fortuneCookie.STATUS !== 'END')
+            this.buttonSubmit.on('click', $.proxy(this.submitHandler, this))
     }
-};
+    this.init = function (){
+        this.addListeners()
+    }
+    this.init()
+}

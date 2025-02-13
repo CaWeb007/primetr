@@ -4,7 +4,7 @@
     padding: 10px 20px
     font-size: 16px
     cursor: pointer
-  .modal
+  .fortune-wheel-modal
     display: none
     position: fixed
     top: 0
@@ -14,17 +14,20 @@
     background-color: rgba(0, 0, 0, 0.7)
     justify-content: center
     align-items: center
+    z-index: 10
+    &.modal-opened
+      display: flex
     .modal-content
-      background: white
-      padding: 20px
+      background: #ededed
+      padding: 40px
       border-radius: 10px
       text-align: center
       position: relative
       .close-button
         position: absolute
         top: 10px
-        right: 10px
-        font-size: 20px
+        right: 20px
+        font-size: 25px
         cursor: pointer
       .wheel-container
         position: relative
@@ -73,11 +76,22 @@
           border: 2px solid black
           padding: 10px 20px
           cursor: pointer
-      .phone-input
+      .currentPrizeContainer
+        display: none
+        margin: 20px 0
+        font-size: 18px
+        .currentPrize
+          font-weight: bold
+          display: block
+          font-size: 20px
+          color: red
+      .phone-input-container
         margin-top: 20px
         text-align: center
+        display: none
         input
           padding: 10px
           font-size: 16px
-
+      .thanks-text
+        display: none
 
