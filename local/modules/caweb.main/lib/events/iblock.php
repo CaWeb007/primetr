@@ -150,4 +150,36 @@ class Iblock{
         }
         self::$disableEvents = false;
     }
+    public static function elementImageCopy(&$arFields){
+        if (!empty($_REQUEST['copyID']) and ($copy_ID = (int)$_REQUEST['copyID']))
+        {
+            \CModule::IncludeModule('iblock');
+            $product = \CIBlockElement::GetByID($copy_ID)->fetch();
+            if(!empty($product['DETAIL_PICTURE']))
+                $arFields['DETAIL_PICTURE'] = \CFile::MakeFileArray(\CFile::GetPath($product['DETAIL_PICTURE']));
+
+            if(!empty($product['PREVIEW_PICTURE']))
+                $arFields['PREVIEW_PICTURE'] = \CFile::MakeFileArray(\CFile::GetPath($product['PREVIEW_PICTURE']));
+
+            $propsList = array(
+                'PRODUCT_LOGO',
+                'DESCRIPTION_EQUIP',
+                'DESCRIPTION_SIZETABLE',
+                'DESCRIPTION_SURFTYPE',
+                'DESCRIPTION_ADDEQUIP',
+                'PHOTOS',
+                'BIG_PHOTOS'
+            );
+
+            foreach ($propsList as $code){
+                $res = \CIBlockElement::GetProperty(25, $copy_ID, ['ID' => 'ASC'], ['CODE' => $code]);
+                while ($ob = $res->GetNext())
+                    $arFields['PROPERTY_VALUES'][$code][] = ['VALUE' => \CFile::MakeFileArray(\CFile::GetPath($ob['VALUE'])), 'DESCRIPTION' => ''];
+
+                if(!empty($arFields['PROPERTY_VALUES'][$code]))
+                    \CIblockElement::SetPropertyValues($arFields['ID'], 25, $arFields['PROPERTY_VALUES'][$code], $code);
+            }
+
+        }
+    }
 }
