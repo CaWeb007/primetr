@@ -12,7 +12,6 @@ const fortuneWheel = function (options){
     this.currentPrizeContainer = this.modalContent.find('.currentPrizeContainer')
     this.wheelContainer = this.modalContent.find('.wheel-container')
     this.phoneContainer = this.modalContent.find('.phone-input-container')
-    this.thanksText = this.modalContent.find('.thanks-text')
 
     this.currentPrizeSpan = this.currentPrizeContainer.find('.currentPrize')
 
@@ -41,27 +40,9 @@ const fortuneWheel = function (options){
     this.submitHandler = function (){
         const phone = this.phone.val()
         if (!phone) return
-        BX.ajax.runComponentAction(
-            'custom:fortune.wheel',
-            'saveResult',
-            {
-                mode: 'class',
-                data: {
-                    phone: phone,
-                    prize: this.currentPrize.name,
-                    iblockId: options.RESULT_IBLOCK_ID
-                }
-            }
-        ).then(response => {
-            if (response.data.success) {
-                this.phoneContainer.remove()
-                this.thanksText.show()
-            } else {
-                alert("Неизвестная ошибка, попробуйте позже.")
-            }
-        });
+        this.spin()
     }
-    this.spinHandler = function (){
+    this.spin = function (){
         const randomDegree = Math.floor(Math.random() * 360) + 1440
         this.wheel.css('transform', `rotate(${randomDegree}deg)`)
         setTimeout($.proxy(this.prizeAction, this), 5000)
@@ -78,34 +59,33 @@ const fortuneWheel = function (options){
             }
         }
     }
-    this.setPrizeInCookie = function () {
+    this.prizeAction = function () {
+        this.currentPrize = getRandomPrize()
+        this.currentPrizeSpan.text(this.currentPrize.name)
         BX.ajax.runComponentAction(
             'custom:fortune.wheel',
-            'saveStatus',
+            'saveResult',
             {
                 mode: 'class',
                 data: {
-                    prize: this.currentPrize.name
+                    phone: phone,
+                    prize: this.currentPrize.name,
+                    iblockId: options.RESULT_IBLOCK_ID
                 }
             }
-        )
-    }
-    this.prizeAction = function () {
-        this.currentPrize = getRandomPrize()
-        this.setPrizeInCookie()
-        this.wheelContainer.remove()
-        this.currentPrizeSpan.text(this.currentPrize.name)
-        this.currentPrizeContainer.show()
-        this.phoneContainer.show()
+        ).then(response => {
+            if (response.data.success) {
+                this.phoneContainer.remove()
+                this.currentPrizeContainer.show()
+            } else {
+                alert("Неизвестная ошибка, попробуйте позже.")
+            }
+        });
     }
     this.addListeners = function () {
         this.button.on('click', $.proxy(this.openModal, this))
         this.buttonClose.on('click', $.proxy(this.closeModal, this))
         this.JWindow.on('click', $.proxy(this.closeModalAnywhere, this))
-        if (!this.currentPrize.name)
-            this.buttonSpin.on('click', $.proxy(this.spinHandler, this))
-        if (this.fortuneCookie.STATUS !== 'END')
-            this.buttonSubmit.on('click', $.proxy(this.submitHandler, this))
     }
     this.init = function (){
         this.addListeners()

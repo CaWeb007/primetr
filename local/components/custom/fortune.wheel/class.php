@@ -28,14 +28,8 @@ class FortuneWheelComponent extends \CBitrixComponent implements Controllerable 
         return [
             'saveResult' => [
                 'prefilters' => [],
-            ],
-            'saveStatus' => [
-                'prefilters'=> []
             ]
         ];
-    }
-    public function saveStatusAction($prize){
-        $this->setCookie(array('STATUS' => 'PRIZE', 'PRIZE' => $prize));
     }
     public function saveResultAction($phone, $prize, $iblockId){
         $result = $this->sendIblock($phone, $prize, $iblockId);
