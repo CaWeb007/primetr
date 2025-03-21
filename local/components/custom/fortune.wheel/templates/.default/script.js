@@ -34,24 +34,31 @@ const fortuneWheel = function (options){
             {
                 mode: 'class',
                 data: {
-                    PHONE: this.phone,
-                    PRIZE: this.prize,
-                    RESULT_IBLOCK_ID: options.RESULT_IBLOCK_ID
+                    phone: this.phone,
+                    prize: this.prize,
+                    iblockId: options.RESULT_IBLOCK_ID
                 }
             }
-        ).then(response => {
-            if (response.data.success) {
-                this.formEndPrizeName.text(this.prize)
-                this.formStart.remove()
-                this.formEnd.show()
-            } else {
+        ).then(
+            response => {
+                if (response.data.success) {
+                    this.formEndPrizeName.text(this.prize)
+                    this.formStart.remove()
+                    this.formEnd.css('display', 'flex')
+                } else {
+                    this.component.remove()
+                    console.log(response)
+                    alert("Неизвестная ошибка, попробуйте перезагрузить страницу.")
+                }
+            },
+            response => {
                 this.component.remove()
+                console.log(response)
                 alert("Неизвестная ошибка, попробуйте перезагрузить страницу.")
             }
-        });
+        )
     }
     this.spin = function (){
-        const randomDegree = Math.floor(Math.random() * 360) + 1440
         this.wheel.css('transform', `rotate(${this.rotate}deg)`)
         setTimeout($.proxy(this.prizeAction, this), this.timer)
     }

@@ -37,7 +37,7 @@ $this->addExternalCss($this->GetFolder().'/font/stylesheet.css');
                             </div>
                         </div>
                     <?endif?>
-                    <div class="fw-form-container fw-form-container-end">
+                    <div class="fw-form-container fw-form-container-end"<?=($arResult['WIN_INFO']['STATUS'] === 'END') ? ' style="display:flex"' : ''?>>
                         <div class="fw-form-container-title"><?=Loc::getMessage('FORTUNE_WHEEL_END_TITLE')?></div>
                         <div class="fw-form-container-prize"><?=($arResult['WIN_INFO']['STATUS'] === 'END') ? $arResult['WIN_INFO']['PRIZE'] : ''?></div>
                         <div class="fw-form-container-text"><?=Loc::getMessage('FORTUNE_WHEEL_END_TEXT')?></div>
@@ -61,7 +61,10 @@ $this->addExternalCss($this->GetFolder().'/font/stylesheet.css');
                             <div class="fw-wheel-mini-triangle" style="transform: rotate(<?=$angle?>deg);"></div>
                         <?endforeach?>
 
-                        <div class="fw-wheel">
+                        <div class="fw-wheel" style="
+                                transition-duration: <?=$arResult['WHEEL_CONFIG']['TIMER']?>ms;
+                                <?=($arResult['WIN_INFO']['STATUS'] === 'END') ? 'transform: rotate('.$arResult['WIN_INFO']['ANGLE'].'deg)' : ''?>
+                                ">
                             <?foreach ($arResult['PRIZES'] as $index => $item):?>
                                 <?
                                 $angle = $index * $arResult['WHEEL_CONFIG']['ROTATE_ANGLE_SLICE'];
@@ -80,14 +83,6 @@ $this->addExternalCss($this->GetFolder().'/font/stylesheet.css');
     </div>
 </div>
 
-
 <script>
     fortuneWheel(<?=$arResult['JS_OPTION']?>)
 </script>
-<?
-/*
- *
-                    'PHONE_MASK': '+7 (999) 999-99-99',
-                    'VALIDATE_PHONE_MASK': '^[+][0-9] [(][0-9]{3}[)] [0-9]{3}[-][0-9]{2}[-][0-9]{2}$',
- * */
-?>

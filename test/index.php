@@ -9,6 +9,7 @@ $APPLICATION->IncludeComponent(
         'FIRST_START' => 'N',
         'PRIZE_IBLOCK_ID' => '39',
         'RESULT_IBLOCK_ID' => '40',
+        'TIMER' => 5000
     )
 );
 ?>

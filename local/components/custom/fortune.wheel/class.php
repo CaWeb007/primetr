@@ -4,6 +4,7 @@ use Bitrix\Main\Web\Cookie;
 use Bitrix\Main\Web\Json;
 use Bitrix\Main\Loader;
 use Bitrix\Main\Engine\Contract\Controllerable;
+use Caweb\Main\Log\Write;
 
 class FortuneWheelComponent extends \CBitrixComponent implements Controllerable {
 
@@ -22,7 +23,7 @@ class FortuneWheelComponent extends \CBitrixComponent implements Controllerable 
         foreach ($this->arResult['PRIZES'] as $key => $item){
             if ($item['NAME'] === $prizeName) break;
         }
-        return (360 - $key * $this->arResult['WHEEL_CONFIG']['ROTATE_ANGLE_SLICE']);
+        return (360 - $key * $this->arResult['WHEEL_CONFIG']['ROTATE_ANGLE_SLICE'] + 90);
     }
     private function getWinPrize($cookiePrize){
         if ($cookiePrize)
@@ -32,22 +33,21 @@ class FortuneWheelComponent extends \CBitrixComponent implements Controllerable 
                 'ANGLE' => $this->getWinAngle($cookiePrize)
             );
         $prizes = $this->arResult['PRIZES'];
-        $totalProbability = 0;
-        foreach ($prizes as $item){
-            $totalProbability += $item['PROBABILITY'];
-        }
-        $random = (1 / mt_rand(0, mt_getrandmax())) * $totalProbability;
-        $cumulativeProbability = 0;
-        foreach ($prizes as $key => $item){
-            $cumulativeProbability += $item['PROBABILITY'];
-            if ($random <= $cumulativeProbability){
+
+        $rand = mt_rand(1, array_sum(array_column($prizes, 'PROBABILITY')));
+        $cur = $prev = 0;
+        foreach ($prizes as $index => $item) {
+            $prev += $index != 0 ? $prizes[$index-1]['PROBABILITY'] : 0;
+            $cur += $item['PROBABILITY'];
+            if ($rand > $prev && $rand <= $cur) {
                 break;
             }
         }
+
         return array(
             'STATUS' => 'START',
             'PRIZE' => $item['NAME'],
-            'ANGLE' => (360 - $key * $this->arResult['WHEEL_CONFIG']['ROTATE_ANGLE_SLICE'])
+            'ANGLE' => (360 - $index * $this->arResult['WHEEL_CONFIG']['ROTATE_ANGLE_SLICE'] + 90)
         );
     }
     private function getCookie() {
@@ -66,7 +66,8 @@ class FortuneWheelComponent extends \CBitrixComponent implements Controllerable 
         $b = (50 + $k).'%';
         return array(
             'ROTATE_ANGLE_SLICE' => $rotateAngle,
-            'CLIP_PATH' => '0% '.$a.', 50% 50%, 50% 50%, 0% '.$b
+            'CLIP_PATH' => '0% '.$a.', 50% 50%, 50% 50%, 0% '.$b,
+            'TIMER' => $this->arParams['TIMER']
         );
     }
     private function getPrizesFromInfoblock(){
@@ -86,14 +87,14 @@ class FortuneWheelComponent extends \CBitrixComponent implements Controllerable 
     public function executeComponent(){
         Loader::includeModule('iblock');
         $this->arResult['PRIZES'] = $this->getPrizesFromInfoblock();
-        $this->arResult['WHEEL_CONFIG'] =$this->getWheelConfig();
+        $this->arResult['WHEEL_CONFIG'] = $this->getWheelConfig();
         $this->arResult['WIN_INFO'] = $this->getWinInfo();
         $this->arResult['JS_OPTION'] = Json::encode(array(
-            'STATUS' => $this->arResult['COOKIE']['STATUS'],
-            'PRIZE' => $this->arResult['COOKIE']['PRIZE'],
+            'STATUS' => $this->arResult['WIN_INFO']['STATUS'],
+            'PRIZE' => $this->arResult['WIN_INFO']['PRIZE'],
             'RESULT_IBLOCK_ID' => $this->arParams['RESULT_IBLOCK_ID'],
             'ROTATE' => (4 * 360 + $this->arResult['WIN_INFO']['ANGLE']),
-            'TIMER' => (5000 + (5000 * $this->arResult['WIN_INFO']['ANGLE'] / 360) )
+            'TIMER' => $this->arResult['WHEEL_CONFIG']['TIMER']
         ));
         $this->includeComponentTemplate();
     }
@@ -118,16 +119,17 @@ class FortuneWheelComponent extends \CBitrixComponent implements Controllerable 
         );
         $obElement = new \CIBlockElement();
         $elementId = $obElement->Add($arFields);
-        if (!$elementId) return false;
+        if (!$elementId) throw new \Exception($obElement->LAST_ERROR);
         $this->setCookie(array('PRIZE' => $prize));
         return true;
     }
     public function saveResultAction($phone, $prize, $iblockId){
-        $result = $this->sendIblock($phone, $prize, $iblockId);
-        if ($result) {
-            return ['success' => true];
-        } else {
-            return ['success' => false, 'message' => 'Ошибка'];
+        try {
+            $this->sendIblock($phone, $prize, $iblockId);
+            return array('success' => true);
+        }catch (\Exception $exception){
+            Write::file('fortuneWheel', $exception->getMessage());
+            return array('success' => false, 'message' => $exception->getMessage());
         }
     }
     public function configureActions(){
