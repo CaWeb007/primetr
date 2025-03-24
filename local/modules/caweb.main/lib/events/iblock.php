@@ -33,16 +33,15 @@ class Iblock{
         $arManagers = Tools::sendB24Response('user.get.json',
             array(
                 'FILTER' => array(
-                    "UF_DEPARTMENT" => 871,
+                    "@ID" => [4221,6113,6553],//Александрова,Вохминцева,Пинегина
                     "IS_ONLINE" => 'Y',
                     "ACTIVE" => 1,
-                    "UF_USR_1725343864433" => 1,
                 )
             )
         )["result"];
         $managerId = 4221;//Александрова Кристина Алексеевна
         if (is_array($arManagers) && ! empty($arManagers)){
-            $managerKey = rand(0 , (count($arManagers) - 1));
+            $managerKey = mt_rand(0 , (count($arManagers) - 1));
             $managerId = (int)$arManagers[$managerKey]['ID'];
         }
         $properties = $arFields['PROPERTY_VALUES'];

@@ -11,7 +11,20 @@ $this->addExternalCss($this->GetFolder().'/font/stylesheet.css');
 ?>
 
 <div class="fortune-wheel" id="fortune_wheel_component">
-    <button class="fortune-wheel-open-button">открыть</button>
+    <div data-b24-crm-button-block-button="" class="b24-widget-button-inner-container fortune-wheel-open-button">
+        <div data-b24-crm-button-block-border="" class="b24-widget-button-inner-mask" style="background: #D64438;"></div>
+        <div class="b24-widget-button-block">
+            <div data-b24-crm-button-pulse="" class="b24-widget-button-pulse b24-widget-button-pulse-animate" style="border-color: #D64438;"></div>
+            <div data-b24-crm-button-block-inner="" class="b24-widget-button-inner-block" style="background: #D64438;">
+                <div class="b24-widget-button-icon-container">
+                    <div data-b24-crm-button-icon="openline" class="b24-widget-button-inner-item b24-widget-button-icon-animation" style="">
+                        <img src="<?=$this->GetFolder()?>/images/icon_button.svg" alt="" width="28" height="29">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="fortune-wheel-modal ">
         <div class="fortune-wheel-modal-container">
             <button class="fortune-wheel-modal-container-close-button"></button>

@@ -91,7 +91,8 @@ const fortuneWheel = function (options){
         this.modal.removeClass('fortune-wheel-modal-opened')
     }
     this.closeModalAnywhere = function (event) {
-        if (this.openButton.is(event.target)) return false;
+        if (this.openButton.is(event.target)
+            || this.openButton.has(event.target).length !== 0) return false;
         if (this.insideModal.is(event.target)
             || this.insideModal.has(event.target).length !== 0) return false;
         this.closeModal()
@@ -112,6 +113,7 @@ const fortuneWheel = function (options){
             onincomplete: $.proxy(this.inputMaskInCompleteHandler, this)
         })
         this.formStartActionButton.on('click', $.proxy(this.formActionButtonHandler, this))
+
     }
     this.init()
 }

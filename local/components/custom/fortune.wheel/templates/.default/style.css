@@ -1,3 +1,9 @@
+.fortune-wheel-open-button {
+  display: none;
+  position: fixed !important;
+  right: 14px;
+  bottom: 180px;
+  z-index: 1; }
 .fortune-wheel-modal {
   position: fixed;
   top: 0;
